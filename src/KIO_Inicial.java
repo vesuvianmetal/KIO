@@ -14,7 +14,10 @@ public class KIO_Inicial {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+     
+        ventana r = new ventana ();
+        r.setVisible(true);
+        
     }
     
 }
