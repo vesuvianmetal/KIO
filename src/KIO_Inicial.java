@@ -15,10 +15,11 @@ public class KIO_Inicial {
      */
     public static void main(String[] args) {
      
-        ventana r = new ventana ();
-        r.setVisible(true);
+      //  login r = new login ();
+    //    r.setVisible(true);
+        ventana vp = new ventana();
+        vp.setVisible(true);
         
-        System.out.println("Hola Mundo");
         
     }
     
