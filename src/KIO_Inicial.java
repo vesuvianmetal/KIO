@@ -18,6 +18,8 @@ public class KIO_Inicial {
         ventana r = new ventana ();
         r.setVisible(true);
         
+        System.out.println("Hola Mundo");
+        
     }
     
 }
