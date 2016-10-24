@@ -17,7 +17,7 @@ public class KIO_Inicial {
      
       //  login r = new login ();
     //    r.setVisible(true);
-        ventana vp = new ventana();
+        login vp = new login();
         vp.setVisible(true);
         
         
