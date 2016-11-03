@@ -31,45 +31,55 @@ PreparedStatement pst=null;
       String cap=null;
 void fillcombo(){
     try {
-         String sql="select * from usuarios";
-        pst=conn.prepareStatement(sql);
-        
-        rs=pst.executeQuery(); 
-         
-         
-         while (rs.next()){
-             String tipousuario = rs.getString("tipo_usuario");
-             tipousuariocombo.addItem(tipousuario);
-               
-             
-         }
-        
-    } catch (Exception e){
+        String sql = "select * from usuarios";
+        pst = conn.prepareStatement(sql);
+
+        rs = pst.executeQuery();
+
+        while (rs.next()) {
+            String tipousuario = rs.getString("tipo_usuario");
+            tipousuariocombo.addItem(tipousuario);
+
+        }
+
+    } catch (Exception e) {
         JOptionPane.showMessageDialog(null, e);
     }
 }
     void acceder (String usuario, String pass){
-    
-    String sql = "SELECT * FROM usuarios WHERE usuario='"+usuario+"' AND contraseña='"+pass+"'";
-    try {
-        Statement st= conn.createStatement();
-        ResultSet rs1 = st.executeQuery(sql);
-        while (rs1.next()){
-          cap=rs1.getString("tipo_usuario");
-        
+ 
+        String sql = "SELECT * FROM usuarios WHERE usuario='" + usuario + "' AND contraseña='" + pass + "'";
+        try {
+            Statement st = conn.createStatement();
+            ResultSet rs1 = st.executeQuery(sql);
+            while (rs1.next()) {
+                cap = rs1.getString("tipo_usuario");
+
+            }
+            if (cap.equals("admin")) {
+                Interfaz_Admin IA = new Interfaz_Admin();
+                IA.setVisible(true);
+            }
+            if (cap.equals("caja")) {
+                Interfaz_Caja IC = new Interfaz_Caja();
+                IC.setVisible(true);
+            }
+
+            if (cap.equals("biblioteca")) {
+                Interfaz_Biblioteca IB = new Interfaz_Biblioteca();
+                IB.setVisible(true);
+            }
+            if (cap.equals("lenguajes")) {
+                Interfaz_Lenguajes IL = new Interfaz_Lenguajes();
+                IL.setVisible(true);
+            }
+            if (cap.equals("alumno")) {
+                Interfaz_Alumno IAL = new Interfaz_Alumno();
+                IAL.setVisible(true);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if (cap.equals("admin")){
-            Interfaz_Admin IA = new Interfaz_Admin();
-            IA.setVisible(true);
-        }
-if (cap.equals("caja")){
-    Interfaz_Caja IC = new Interfaz_Caja();
-    IC.setVisible(true);
-}
-          
-    } catch (SQLException ex) {
-        Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
-    }
 }
     /**
      * This method is called from within the constructor to initialize the form.
