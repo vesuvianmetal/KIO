@@ -75,7 +75,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Codigo Libro", "Titulo Libro", "Autor ", "Categoria"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
