@@ -8,16 +8,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Disco
- */
+
+
 public class login extends javax.swing.JFrame {
 Connection conn=null;
 ResultSet rs=null;
@@ -30,13 +23,14 @@ PreparedStatement pst=null;
       String cap=null;
 void fillcombo(){
     try {
-        String sql = "select * from usuarios";
+       
+        String sql = "select * from usuarios"; //lee la tabla usuarios de la base de datos
         pst = conn.prepareStatement(sql);
 
         rs = pst.executeQuery();
 
         while (rs.next()) {
-            String tipousuario = rs.getString("tipo_usuario");
+            String tipousuario = rs.getString("tipo_usuario"); // valida el tipo de usuario de cada quien
            // tipousuariocombo.addItem(tipousuario);
 
         }
@@ -46,15 +40,18 @@ void fillcombo(){
     }
 }
     void acceder (String usuario, String pass){
- 
+        //lee datos de la tabla usuarios donde sea el usuario concuerde con la contraseña de su dicho usuario
         String sql = "SELECT * FROM usuarios WHERE usuario='" + usuario + "' AND contraseña='" + pass + "'";
+        
         try {
             Statement st = conn.createStatement();
             ResultSet rs1 = st.executeQuery(sql);
             while (rs1.next()) {
+                //variable cap captura el tipo de usuario de cada quien
                 cap = rs1.getString("tipo_usuario");
 
             }
+            //cada if compara los tipos de usuarios de cada quien y abre su interfaz correspondiente
             if (cap.equals("admin")) {
                 Interfaz_Admin IA = new Interfaz_Admin();
                 IA.setVisible(true);
@@ -268,8 +265,8 @@ void fillcombo(){
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
- String usu=usuariotxt.getText();
+            
+        String usu=usuariotxt.getText();
         String pas=contratxt.getText();
         acceder(usu , pas);
     }//GEN-LAST:event_jButton1ActionPerformed
