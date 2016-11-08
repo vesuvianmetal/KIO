@@ -29,26 +29,26 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_aduedo = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField4 = new javax.swing.JTextField();
+        btneliminar = new javax.swing.JButton();
+        elimnumerocontroltxt = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        btncambio = new javax.swing.JButton();
+        editcodlibrotxt = new javax.swing.JTextField();
+        editnumcontroltxt = new javax.swing.JTextField();
+        editadeudotxt = new javax.swing.JTextField();
+        agrnumcontroltxt = new javax.swing.JTextField();
+        agrcodlibrotxt = new javax.swing.JTextField();
+        agradeudotxt = new javax.swing.JTextField();
+        btnagregar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -65,9 +65,9 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 2));
-        jTable1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_aduedo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153), 2));
+        tabla_aduedo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        tabla_aduedo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -78,7 +78,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 "Folio", "Numero De Control", "Codigo De Libro", "Adeudo"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla_aduedo);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 560, 120));
 
@@ -97,19 +97,18 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel18.setText("Codigo de Libro");
         jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 153));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("Eliminar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btneliminar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btneliminar.setForeground(new java.awt.Color(0, 153, 153));
+        btneliminar.setText("Eliminar");
+        btneliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btneliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
+        jPanel1.add(btneliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
 
-        jTextField4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 150, -1));
+        elimnumerocontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(elimnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 150, -1));
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,34 +139,34 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel13.setText("Eliminar");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 330, -1, -1));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("Aplicar Cambios");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, -1, -1));
+        btncambio.setBackground(new java.awt.Color(255, 255, 255));
+        btncambio.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btncambio.setForeground(new java.awt.Color(0, 153, 153));
+        btncambio.setText("Aplicar Cambios");
+        jPanel1.add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 150, -1));
 
-        jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 140, -1));
+        editcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(editcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 150, -1));
 
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 140, -1));
+        editnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(editnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 150, -1));
 
-        jTextField3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 140, -1));
+        editadeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(editadeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 150, -1));
 
-        jTextField5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, -1));
+        agrnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(agrnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 120, -1));
 
-        jTextField6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 120, -1));
+        agrcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(agrcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 120, -1));
 
-        jTextField7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 120, -1));
+        agradeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jPanel1.add(agradeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 120, -1));
 
-        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 153, 153));
-        jButton3.setText("Agregar");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
+        btnagregar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnagregar.setForeground(new java.awt.Color(0, 153, 153));
+        btnagregar.setText("Agregar");
+        jPanel1.add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
 
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 560, 250));
@@ -175,7 +174,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Adeudos Biblioteca");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -198,7 +197,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Generador de Reportes ");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Programa Interactivo Escolar V.1.0");
@@ -224,9 +223,9 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btneliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -264,9 +263,16 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JTextField agradeudotxt;
+    private javax.swing.JTextField agrcodlibrotxt;
+    private javax.swing.JTextField agrnumcontroltxt;
+    private javax.swing.JButton btnagregar;
+    private javax.swing.JButton btncambio;
+    private javax.swing.JButton btneliminar;
+    private javax.swing.JTextField editadeudotxt;
+    private javax.swing.JTextField editcodlibrotxt;
+    private javax.swing.JTextField editnumcontroltxt;
+    private javax.swing.JTextField elimnumerocontroltxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -288,13 +294,6 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTable tabla_aduedo;
     // End of variables declaration//GEN-END:variables
 }
