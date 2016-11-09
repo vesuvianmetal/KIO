@@ -1,23 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Penudo McFly
- */
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+
+
 public class Interfaz_Biblioteca extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Interfaz_Biblioteca
-     */
+ Connection conn=null;
+ResultSet rs=null;
+PreparedStatement pst=null;
+    
     public Interfaz_Biblioteca() {
         initComponents();
         this.setLocationRelativeTo(this);
+        filltable();
     }
+    int elimno = 0;
+    void filltable() {
 
+        try {
+
+            String B = "SELECT * from Biblioteca";
+            pst = conn.prepareStatement(B);
+            rs = pst.executeQuery();
+
+            tabla_aduedo.setModel(DbUtils.resultSetToTableModel(rs));
+
+        } catch (Exception e) {
+
+        }
+
+    }
+      
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,6 +97,12 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(tabla_aduedo);
+        if (tabla_aduedo.getColumnModel().getColumnCount() > 0) {
+            tabla_aduedo.getColumnModel().getColumn(0).setHeaderValue("Folio");
+            tabla_aduedo.getColumnModel().getColumn(1).setHeaderValue("Numero De Control");
+            tabla_aduedo.getColumnModel().getColumn(2).setHeaderValue("Codigo De Libro");
+            tabla_aduedo.getColumnModel().getColumn(3).setHeaderValue("Adeudo");
+        }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 560, 120));
 
@@ -143,6 +167,11 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         btncambio.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btncambio.setForeground(new java.awt.Color(0, 153, 153));
         btncambio.setText("Aplicar Cambios");
+        btncambio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncambioActionPerformed(evt);
+            }
+        });
         jPanel1.add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 150, -1));
 
         editcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -166,6 +195,11 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         btnagregar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnagregar.setForeground(new java.awt.Color(0, 153, 153));
         btnagregar.setText("Agregar");
+        btnagregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnagregarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, -1, -1));
 
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
@@ -224,8 +258,48 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-        // TODO add your handling code here:
+      try {
+          elimno=Integer.parseInt(elimnumerocontroltxt.getText());
+          String elim="DELETE from adeudos where Numero_control='" + elimno + "'";
+          
+          pst=conn.prepareStatement(elim);
+          rs=pst.executeQuery();
+          
+          
+      } catch (NumberFormatException | SQLException e){
+          
+      }
     }//GEN-LAST:event_btneliminarActionPerformed
+
+    private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
+ 
+            
+            try {
+            String Agr="INSERT into adeudos (Folio,Numero_Control,Codigo_Libro,Adeudo) values (?,?,?,?)";
+                pst=conn.prepareStatement(Agr);
+                pst.setString(1, "");
+                pst.setString(2,agrnumcontroltxt.getText());
+                pst.setString(3, agrcodlibrotxt.getText());
+                pst.setString(4, agradeudotxt.getText());
+                pst.executeQuery();
+                
+                JOptionPane.showMessageDialog(null,"Se Ha Agregado El Adeudo Exitosamente");
+            }catch (SQLException | HeadlessException e){
+                
+            }
+            
+    }//GEN-LAST:event_btnagregarActionPerformed
+int editnumc = 0;
+String editcodlib ="";
+int addo =0;
+    private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
+       
+      editnumc=Integer.parseInt(editnumcontroltxt.getText());  
+      editcodlib=editcodlibrotxt.getText();
+      addo=Integer.parseInt(editadeudotxt.getText());
+        
+        
+    }//GEN-LAST:event_btncambioActionPerformed
 
     /**
      * @param args the command line arguments
