@@ -172,12 +172,17 @@ PreparedStatement pst=null;
                 btncambioActionPerformed(evt);
             }
         });
-        jPanel1.add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 150, -1));
+        jPanel1.add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, 150, -1));
 
         editcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jPanel1.add(editcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, 150, -1));
 
         editnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        editnumcontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                editnumcontroltxtKeyReleased(evt);
+            }
+        });
         jPanel1.add(editnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, 150, -1));
 
         editadeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -258,48 +263,85 @@ PreparedStatement pst=null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
-      try {
-          elimno=Integer.parseInt(elimnumerocontroltxt.getText());
-          String elim="DELETE from adeudos where Numero_control='" + elimno + "'";
-          
-          pst=conn.prepareStatement(elim);
-          rs=pst.executeQuery();
-          
-          
-      } catch (NumberFormatException | SQLException e){
-          
-      }
+        try {
+            elimno = Integer.parseInt(elimnumerocontroltxt.getText());
+            String elim = "DELETE from adeudos where Numero_control='" + elimno + "'";
+
+            pst = conn.prepareStatement(elim);
+            rs = pst.executeQuery();
+
+        } catch (NumberFormatException | SQLException e) {
+
+        }
     }//GEN-LAST:event_btneliminarActionPerformed
 
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
  
             
-            try {
-            String Agr="INSERT into adeudos (Folio,Numero_Control,Codigo_Libro,Adeudo) values (?,?,?,?)";
-                pst=conn.prepareStatement(Agr);
-                pst.setString(1, "");
-                pst.setString(2,agrnumcontroltxt.getText());
-                pst.setString(3, agrcodlibrotxt.getText());
-                pst.setString(4, agradeudotxt.getText());
-                pst.executeQuery();
+          try {
+            String Agr = "INSERT into adeudos (Folio,Numero_Control,Codigo_Libro,Adeudo) values (?,?,?,?)";
+            pst = conn.prepareStatement(Agr);
+            pst.setString(1, "");
+            pst.setString(2, agrnumcontroltxt.getText());
+            pst.setString(3, agrcodlibrotxt.getText());
+            pst.setString(4, agradeudotxt.getText());
+            pst.executeQuery();
+
+            JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
+        } catch (SQLException | HeadlessException e) {
+
+        }
+            
+    }//GEN-LAST:event_btnagregarActionPerformed
+    int editnumc = 0;
+
+    int addo = 0;
+    private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
+        try {
+            String editnumc = editnumcontroltxt.getText();
+            String editcodlib = editcodlibrotxt.getText();
+            String editadeudo = editadeudotxt.getText();
+
+            String edit = "UPDATE adeudos set Codigo_Libro='" + editcodlib + "', Adeudo_Alumno='" + editadeudo + "' WHERE Numero_Control='" + editnumc + "'";
+            pst = conn.prepareStatement(edit);
+            pst.executeQuery();
+            JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
+    }//GEN-LAST:event_btncambioActionPerformed
+
+    private void editnumcontroltxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editnumcontroltxtKeyReleased
+        
+        try {
+            
+            
+            String search = "SELECT Codigo_Libro,Adeudo_Alumno from aduedos where Numero_Control=?";
+            pst=conn.prepareStatement(search);
+            pst.setString(1, editcodlibrotxt.getText());
+            
+            rs=pst.executeQuery();
+            if (rs.next()){
                 
-                JOptionPane.showMessageDialog(null,"Se Ha Agregado El Adeudo Exitosamente");
-            }catch (SQLException | HeadlessException e){
+                String buscar1 =rs.getString("Codigo_Libro");
+                editcodlibrotxt.setText(buscar1);
+                
+                String buscar2 =rs.getString("Adeudo_Alumno");
+                editadeudotxt.setText(buscar2);
                 
             }
             
-    }//GEN-LAST:event_btnagregarActionPerformed
-int editnumc = 0;
-String editcodlib ="";
-int addo =0;
-    private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
-       
-      editnumc=Integer.parseInt(editnumcontroltxt.getText());  
-      editcodlib=editcodlibrotxt.getText();
-      addo=Integer.parseInt(editadeudotxt.getText());
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
         
         
-    }//GEN-LAST:event_btncambioActionPerformed
+        
+        
+    }//GEN-LAST:event_editnumcontroltxtKeyReleased
 
     /**
      * @param args the command line arguments
