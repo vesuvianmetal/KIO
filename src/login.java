@@ -206,7 +206,7 @@ void fillcombo(){
         jButton3.setForeground(new java.awt.Color(0, 153, 153));
         jButton3.setText("Conectv4");
         jButton3.setToolTipText("Portal Escolar del Instituto Tecnológico de Estudios Superiores de Los Cabos");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.setMaximumSize(new java.awt.Dimension(71, 27));
         jButton3.setMinimumSize(new java.awt.Dimension(71, 27));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
