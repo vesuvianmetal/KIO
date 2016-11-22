@@ -14,7 +14,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     PreparedStatement pst = null;
 
     public Interfaz_Biblioteca() {
-        conn = Conexion_BD.conectardb();
+      //  conn = Conexion_BD.conectardb();
         initComponents();
         filltable();
         this.setLocationRelativeTo(this);
@@ -66,21 +66,20 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
         buscarfoliotxt = new javax.swing.JTextField();
         buscarcodigolibrotxt = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_aduedo = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
-        btneliminar = new javax.swing.JButton();
         jLabel20 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         buscarnumerocontroltxt = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
         elimnumerocontroltxt = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         btncambio = new javax.swing.JButton();
@@ -89,51 +88,63 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         editadeudotxt = new javax.swing.JTextField();
         agrnumcontroltxt = new javax.swing.JTextField();
         agrcodlibrotxt = new javax.swing.JTextField();
-        agradeudotxt = new javax.swing.JTextField();
         btnagregar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        agradeudotxt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Adeudo");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 372, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Eliminar");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(614, 332, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Adeudo:");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 312, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Folio:");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Codigo De Libro:");
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 172, -1, -1));
 
         buscarfoliotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarfoliotxtKeyReleased(evt);
             }
         });
+        getContentPane().add(buscarfoliotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 92, 110, -1));
 
         buscarcodigolibrotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarcodigolibrotxtKeyReleased(evt);
             }
         });
+        getContentPane().add(buscarcodigolibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 192, 110, -1));
 
         tabla_aduedo = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -173,54 +184,53 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla_aduedo);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 560, 120));
+
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Numero de Control:");
-
-        btneliminar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        btneliminar.setForeground(new java.awt.Color(0, 153, 153));
-        btneliminar.setText("Eliminar");
-        btneliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneliminarActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 232, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Buscar");
-
-        jLabel24.setBackground(new java.awt.Color(0, 204, 204));
-        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 32, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Codigo de Libro");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 322, -1, -1));
 
         buscarnumerocontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarnumerocontroltxtKeyReleased(evt);
             }
         });
+        getContentPane().add(buscarnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 142, 110, -1));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Codigo de Libro:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 272, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Folio:");
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 62, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Adeudos Biblioteca");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 2, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Numero de Control");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 272, -1, -1));
 
         jLabel15.setBackground(new java.awt.Color(0, 153, 153));
         jLabel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-
-        jLabel23.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel23.setText("Codigo De Libro:");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 190, 100));
 
         elimnumerocontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         elimnumerocontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -228,10 +238,12 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 elimnumerocontroltxtKeyReleased(evt);
             }
         });
+        getContentPane().add(elimnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(574, 392, 150, -1));
 
         jLabel22.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Numero De Control:");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 122, -1, -1));
 
         btncambio.setBackground(new java.awt.Color(255, 255, 255));
         btncambio.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -242,8 +254,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 btncambioActionPerformed(evt);
             }
         });
+        getContentPane().add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 402, 150, -1));
 
         editcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(editcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 272, 150, -1));
 
         editnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         editnumcontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -251,14 +265,16 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 editnumcontroltxtKeyReleased(evt);
             }
         });
+        getContentPane().add(editnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 232, 150, -1));
 
         editadeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(editadeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 312, 150, -1));
 
         agrnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(agrnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 292, 120, -1));
 
         agrcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-
-        agradeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(agrcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 342, 120, -1));
 
         btnagregar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnagregar.setForeground(new java.awt.Color(0, 153, 153));
@@ -268,319 +284,55 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 btnagregarActionPerformed(evt);
             }
         });
-
-        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Adeudos Biblioteca");
+        getContentPane().add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 432, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Editar");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 192, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Ver");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 42, -1, -1));
 
-        jLabel7.setBackground(new java.awt.Color(0, 204, 204));
-        jLabel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
+        jLabel24.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 130, 170));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Agregar");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Generador de Reportes ");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 22, -1, -1));
+
+        jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 560, 250));
+
+        jLabel7.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 150, 210));
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Programa Interactivo Escolar V.1.0");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
+
+        agradeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(agradeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 120, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
-
-        jLabel14.setText("jLabel14");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel20))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel22))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel21))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(buscarcodigolibrotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(buscarfoliotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel23))
-                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(buscarnumerocontroltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel8)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel17))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(agradeudotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(20, 20, 20)
-                                    .addComponent(jLabel18))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(agrcodlibrotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(40, 40, 40)
-                                    .addComponent(jLabel19))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(agrnumcontroltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addComponent(btnagregar)))
-                            .addGap(10, 10, 10)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(120, 120, 120)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(20, 20, 20)
-                                            .addComponent(jLabel9))
-                                        .addComponent(jLabel3)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addGap(40, 40, 40)
-                                    .addComponent(jLabel10))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addComponent(jLabel11)
-                                    .addGap(7, 7, 7)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(editadeudotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(130, 130, 130)
-                                            .addComponent(jLabel14))
-                                        .addComponent(btncambio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(32, 32, 32)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(60, 60, 60)
-                                            .addComponent(jLabel13))
-                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(20, 20, 20)
-                                            .addComponent(elimnumerocontroltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(50, 50, 50)
-                                            .addComponent(btneliminar))))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(80, 80, 80)
-                                    .addComponent(jLabel12))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(150, 150, 150)
-                                    .addComponent(editnumcontroltxt, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(150, 150, 150)
-                                    .addComponent(editcodlibrotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel4))
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(600, 600, 600)
-                            .addComponent(jLabel16))
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(30, 30, 30)
-                            .addComponent(jLabel20)
-                            .addGap(7, 7, 7)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(60, 60, 60)
-                                    .addComponent(jLabel22))
-                                .addComponent(jLabel21)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(130, 130, 130)
-                                    .addComponent(buscarcodigolibrotxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addComponent(buscarfoliotxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(110, 110, 110)
-                                    .addComponent(jLabel23))
-                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(80, 80, 80)
-                                    .addComponent(buscarnumerocontroltxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel8)
-                            .addGap(7, 7, 7)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel17))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(130, 130, 130)
-                                    .addComponent(agradeudotxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(60, 60, 60)
-                                    .addComponent(jLabel18))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(80, 80, 80)
-                                    .addComponent(agrcodlibrotxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(110, 110, 110)
-                                    .addComponent(jLabel19))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(30, 30, 30)
-                                    .addComponent(agrnumcontroltxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(170, 170, 170)
-                                    .addComponent(btnagregar))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(20, 20, 20)
-                                    .addComponent(jLabel9))
-                                .addComponent(jLabel3))
-                            .addGap(4, 4, 4)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel10))
-                            .addGap(7, 7, 7)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, 0)
-                            .addComponent(jLabel5)
-                            .addGap(7, 7, 7)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(50, 50, 50)
-                                    .addComponent(jLabel11))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(90, 90, 90)
-                                    .addComponent(editadeudotxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(38, 38, 38)
-                                    .addComponent(jLabel14)
-                                    .addGap(14, 14, 14)
-                                    .addComponent(btncambio))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(110, 110, 110)
-                                    .addComponent(jLabel13)
-                                    .addGap(7, 7, 7)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(30, 30, 30)
-                                            .addComponent(elimnumerocontroltxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(60, 60, 60)
-                                            .addComponent(btneliminar))))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(90, 90, 90)
-                                    .addComponent(jLabel12))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(editnumcontroltxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(50, 50, 50)
-                                    .addComponent(editcodlibrotxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(jLabel4))
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(370, 370, 370)
-                            .addComponent(jLabel16))
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 490, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buscarfoliotxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarfoliotxtKeyReleased
-
-        try {
-
-            String buscarfolio = "SELECT * from Adeudo_Biblioteca where Folio_Biblioteca=?";
-            pst = conn.prepareStatement(buscarfolio);
-            pst.setString(1, buscarfoliotxt.getText());
-            rs = pst.executeQuery();
-
-            tabla_aduedo.setModel(DbUtils.resultSetToTableModel(rs));
-
-            if (buscarfoliotxt.getText().equals("")) {
-
-                String B = "SELECT * from Adeudo_Biblioteca";
-                pst = conn.prepareStatement(B);
-                rs = pst.executeQuery();
-
-                tabla_aduedo.setModel(DbUtils.resultSetToTableModel(rs));
-
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-    }//GEN-LAST:event_buscarfoliotxtKeyReleased
-
-    private void buscarcodigolibrotxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarcodigolibrotxtKeyReleased
-
-        try {
-
-            String buscarcodigolibro = "SELECT * from Adeudo_Biblioteca where Codigo_Libro=?";
-            pst = conn.prepareStatement(buscarcodigolibro);
-            pst.setString(1, buscarcodigolibrotxt.getText());
-            rs = pst.executeQuery();
-
-            tabla_aduedo.setModel(DbUtils.resultSetToTableModel(rs));
-
-            if (buscarcodigolibrotxt.getText().equals("")) {
-
-                String B3 = "SELECT * from Adeudo_Biblioteca";
-                pst = conn.prepareStatement(B3);
-                rs = pst.executeQuery();
-
-                tabla_aduedo.setModel(DbUtils.resultSetToTableModel(rs));
-
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-    }//GEN-LAST:event_buscarcodigolibrotxtKeyReleased
+    private void tabla_aduedoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_aduedoMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabla_aduedoMouseEntered
 
     private void tabla_aduedoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_aduedoMouseClicked
 
@@ -608,29 +360,122 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }//GEN-LAST:event_tabla_aduedoMouseClicked
 
-    private void tabla_aduedoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_aduedoMouseEntered
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tabla_aduedoMouseEntered
+    private void editnumcontroltxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editnumcontroltxtKeyReleased
 
-    private void btneliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneliminarActionPerformed
+        try {
 
-        int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
-        if (verificacion == 0) {
-            String elim = "DELETE from Adeudo_Biblioteca where Folio_Biblioteca=?";
+            String search = "SELECT Codigo_Libro,Adeudo_Biblioteca from Adeudo_Biblioteca where Numero_Control_Alumno=?";
+            pst = conn.prepareStatement(search);
+            pst.setString(1, editnumcontroltxt.getText());
+
+            rs = pst.executeQuery();
+            if (rs.next()) {
+
+                String buscar1 = rs.getString("Codigo_Libro");
+                editcodlibrotxt.setText(buscar1);
+
+                String buscar2 = rs.getString("Adeudo_Biblioteca");
+                editadeudotxt.setText(buscar2);
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_editnumcontroltxtKeyReleased
+
+    private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
+        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+        if (verificacioncambio == 0) {
             try {
-                pst = conn.prepareStatement(elim);
-                pst.setString(1, elimnumerocontroltxt.getText());
+                String editnumc = editnumcontroltxt.getText();
+                String editcodlib = editcodlibrotxt.getText();
+                String editadeudo = editadeudotxt.getText();
+
+                String edit = "UPDATE Adeudo_Biblioteca set Codigo_Libro='" + editcodlib + "', Adeudo_Biblioteca='" + editadeudo + "' WHERE Numero_Control_Alumno='" + editnumc + "'";
+                pst = conn.prepareStatement(edit);
                 pst.execute();
-                JOptionPane.showMessageDialog(null, "Deuda Eliminada");
+                JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }
             actualizar_tabla();
         }
-    }//GEN-LAST:event_btneliminarActionPerformed
+
+    }//GEN-LAST:event_btncambioActionPerformed
+
+    private void elimnumerocontroltxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_elimnumerocontroltxtKeyReleased
+        try {
+
+            String buscarfolio2 = "SELECT * from Adeudo_Biblioteca where Folio_Biblioteca=?";
+            pst = conn.prepareStatement(buscarfolio2);
+            pst.setString(1, elimnumerocontroltxt.getText());
+            rs = pst.executeQuery();
+
+            tabla_aduedo.setModel(DbUtils.resultSetToTableModel(rs));
+
+            if (elimnumerocontroltxt.getText().equals("")) {
+
+                String B2 = "SELECT * from Adeudo_Biblioteca";
+                pst = conn.prepareStatement(B2);
+                rs = pst.executeQuery();
+
+                tabla_aduedo.setModel(DbUtils.resultSetToTableModel(rs));
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_elimnumerocontroltxtKeyReleased
+
+    private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
+
+        try {
+            String agr = "INSERT into Adeudo_Biblioteca (Folio_Biblioteca,Numero_Control_Alumno,Codigo_Libro,Adeudo_Biblioteca) values (?,?,?,?)";
+            pst = conn.prepareStatement(agr);
+            pst.setString(1, null);
+            pst.setString(2, agrnumcontroltxt.getText());
+            pst.setString(3, agrcodlibrotxt.getText());
+            pst.setString(4, agradeudotxt.getText());
+            pst.execute();
+
+            JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
+        } catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        actualizar_tabla();
+    }//GEN-LAST:event_btnagregarActionPerformed
+
+    private void buscarcodigolibrotxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarcodigolibrotxtKeyReleased
+
+        try {
+
+            String buscarcodigolibro = "SELECT * from Adeudo_Biblioteca where Codigo_Libro=?";
+            pst = conn.prepareStatement(buscarcodigolibro);
+            pst.setString(1, buscarcodigolibrotxt.getText());
+            rs = pst.executeQuery();
+
+            tabla_aduedo.setModel(DbUtils.resultSetToTableModel(rs));
+
+            if (buscarcodigolibrotxt.getText().equals("")) {
+
+                String B3 = "SELECT * from Adeudo_Biblioteca";
+                pst = conn.prepareStatement(B3);
+                rs = pst.executeQuery();
+
+                tabla_aduedo.setModel(DbUtils.resultSetToTableModel(rs));
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_buscarcodigolibrotxtKeyReleased
 
     private void buscarnumerocontroltxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarnumerocontroltxtKeyReleased
 
@@ -656,23 +501,23 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
     }//GEN-LAST:event_buscarnumerocontroltxtKeyReleased
 
-    private void elimnumerocontroltxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_elimnumerocontroltxtKeyReleased
+    private void buscarfoliotxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarfoliotxtKeyReleased
+
         try {
 
-            String buscarfolio2 = "SELECT * from Adeudo_Biblioteca where Folio_Biblioteca=?";
-            pst = conn.prepareStatement(buscarfolio2);
-            pst.setString(1, elimnumerocontroltxt.getText());
+            String buscarfolio = "SELECT * from Adeudo_Biblioteca where Folio_Biblioteca=?";
+            pst = conn.prepareStatement(buscarfolio);
+            pst.setString(1, buscarfoliotxt.getText());
             rs = pst.executeQuery();
 
             tabla_aduedo.setModel(DbUtils.resultSetToTableModel(rs));
 
-            if (elimnumerocontroltxt.getText().equals("")) {
+            if (buscarfoliotxt.getText().equals("")) {
 
-                String B2 = "SELECT * from Adeudo_Biblioteca";
-                pst = conn.prepareStatement(B2);
+                String B = "SELECT * from Adeudo_Biblioteca";
+                pst = conn.prepareStatement(B);
                 rs = pst.executeQuery();
 
                 tabla_aduedo.setModel(DbUtils.resultSetToTableModel(rs));
@@ -682,72 +527,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
-    }//GEN-LAST:event_elimnumerocontroltxtKeyReleased
-
-    private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
-        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
-        if (verificacioncambio == 0) {
-            try {
-                String editnumc = editnumcontroltxt.getText();
-                String editcodlib = editcodlibrotxt.getText();
-                String editadeudo = editadeudotxt.getText();
-
-                String edit = "UPDATE Adeudo_Biblioteca set Codigo_Libro='" + editcodlib + "', Adeudo_Biblioteca='" + editadeudo + "' WHERE Numero_Control_Alumno='" + editnumc + "'";
-                pst = conn.prepareStatement(edit);
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-            actualizar_tabla();
-        }
-        
-    }//GEN-LAST:event_btncambioActionPerformed
-
-    private void editnumcontroltxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editnumcontroltxtKeyReleased
-
-       try {
-
-            String search = "SELECT Codigo_Libro,Adeudo_Biblioteca from Adeudo_Biblioteca where Numero_Control_Alumno=?";
-            pst = conn.prepareStatement(search);
-            pst.setString(1, editnumcontroltxt.getText());
-
-            rs = pst.executeQuery();
-            if (rs.next()) {
-
-                String buscar1 = rs.getString("Codigo_Libro");
-                editcodlibrotxt.setText(buscar1);
-
-                String buscar2 = rs.getString("Adeudo_Biblioteca");
-                editadeudotxt.setText(buscar2);
-
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
- 
-    }//GEN-LAST:event_editnumcontroltxtKeyReleased
-
-    private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
-
-        try {
-            String agr = "INSERT into Adeudo_Biblioteca (Folio_Biblioteca,Numero_Control_Alumno,Codigo_Libro,Adeudo_Biblioteca) values (?,?,?,?)";
-            pst = conn.prepareStatement(agr);
-            pst.setString(1, null);
-            pst.setString(2, agrnumcontroltxt.getText());
-            pst.setString(3, agrcodlibrotxt.getText());
-            pst.setString(4, agradeudotxt.getText());
-            pst.execute();
-
-            JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
-        } catch (SQLException | HeadlessException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        actualizar_tabla();
-    }//GEN-LAST:event_btnagregarActionPerformed
+    }//GEN-LAST:event_buscarfoliotxtKeyReleased
     int editnumc = 0;
 
     int addo = 0;
@@ -792,7 +572,6 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private javax.swing.JTextField agrnumcontroltxt;
     private javax.swing.JButton btnagregar;
     private javax.swing.JButton btncambio;
-    private javax.swing.JButton btneliminar;
     private javax.swing.JTextField buscarcodigolibrotxt;
     private javax.swing.JTextField buscarfoliotxt;
     private javax.swing.JTextField buscarnumerocontroltxt;
@@ -805,7 +584,6 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
