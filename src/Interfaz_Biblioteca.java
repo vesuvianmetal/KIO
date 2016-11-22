@@ -77,10 +77,11 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         buscarnumerocontroltxt = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        agradeudotxt = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         elimnumerocontroltxt = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         btncambio = new javax.swing.JButton();
         editcodlibrotxt = new javax.swing.JTextField();
@@ -97,7 +98,6 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        agradeudotxt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -110,12 +110,12 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Adeudo");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 372, -1, -1));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Eliminar");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(614, 332, -1, -1));
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 330, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,26 +125,26 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Folio:");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 370, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, -1, -1));
 
         jLabel23.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Codigo De Libro:");
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 172, -1, -1));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
         buscarfoliotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarfoliotxtKeyReleased(evt);
             }
         });
-        getContentPane().add(buscarfoliotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 92, 110, -1));
+        getContentPane().add(buscarfoliotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 110, -1));
 
         buscarcodigolibrotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarcodigolibrotxtKeyReleased(evt);
             }
         });
-        getContentPane().add(buscarcodigolibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 192, 110, -1));
+        getContentPane().add(buscarcodigolibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 110, -1));
 
         tabla_aduedo = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -194,19 +194,19 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Buscar");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 32, -1, -1));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Codigo de Libro");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 322, -1, -1));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
 
         buscarnumerocontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarnumerocontroltxtKeyReleased(evt);
             }
         });
-        getContentPane().add(buscarnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 142, 110, -1));
+        getContentPane().add(buscarnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 110, -1));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -218,6 +218,9 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel21.setText("Folio:");
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 62, -1, -1));
 
+        agradeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(agradeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 120, -1));
+
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Adeudos Biblioteca");
@@ -226,11 +229,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Numero de Control");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 272, -1, -1));
-
-        jLabel15.setBackground(new java.awt.Color(0, 153, 153));
-        jLabel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 370, 190, 100));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         elimnumerocontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         elimnumerocontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -238,12 +237,16 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 elimnumerocontroltxtKeyReleased(evt);
             }
         });
-        getContentPane().add(elimnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(574, 392, 150, -1));
+        getContentPane().add(elimnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 150, -1));
+
+        jLabel15.setBackground(new java.awt.Color(0, 153, 153));
+        jLabel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 360, 190, 100));
 
         jLabel22.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Numero De Control:");
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 122, -1, -1));
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         btncambio.setBackground(new java.awt.Color(255, 255, 255));
         btncambio.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -271,10 +274,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(editadeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 312, 150, -1));
 
         agrnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(agrnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 292, 120, -1));
+        getContentPane().add(agrnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 120, -1));
 
         agrcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(agrcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 342, 120, -1));
+        getContentPane().add(agrcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 120, -1));
 
         btnagregar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnagregar.setForeground(new java.awt.Color(0, 153, 153));
@@ -284,17 +287,17 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 btnagregarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 432, -1, -1));
+        getContentPane().add(btnagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Editar");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 192, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Ver");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 42, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
 
         jLabel24.setBackground(new java.awt.Color(0, 204, 204));
         jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
@@ -307,7 +310,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Generador de Reportes ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(334, 22, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
 
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 560, 250));
@@ -318,10 +321,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Programa Interactivo Escolar V.1.0");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
-
-        agradeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(agradeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 120, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
