@@ -1,4 +1,4 @@
-
+import com.sun.glass.events.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,38 +17,22 @@ ResultSet rs=null;
 PreparedStatement pst=null;
     
     public login() {
+         conn=Conexion_BD.conectardb(); //llamado de conexion de base de datos
         initComponents();
    
     }
       String cap=null;
-void fillcombo(){
-    try {
-       
-        String sql = "select * from usuarios"; //lee la tabla usuarios de la base de datos
-        pst = conn.prepareStatement(sql);
 
-        rs = pst.executeQuery();
-
-        while (rs.next()) {
-            String tipousuario = rs.getString("tipo_usuario"); // valida el tipo de usuario de cada quien
-           // tipousuariocombo.addItem(tipousuario);
-
-        }
-
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null, e);
-    }
-}
     void acceder (String usuario, String pass){
         //lee datos de la tabla usuarios donde sea el usuario concuerde con la contraseña de su dicho usuario
-        String sql = "SELECT * FROM usuarios WHERE usuario='" + usuario + "' AND contraseña='" + pass + "'";
+        String sql = "SELECT * FROM T_Usuarios WHERE Usuario='" + usuario + "' AND Contraseña_Usuario='" + pass + "'";
         
         try {
             Statement st = conn.createStatement();
             ResultSet rs1 = st.executeQuery(sql);
             while (rs1.next()) {
                 //variable cap captura el tipo de usuario de cada quien
-                cap = rs1.getString("tipo_usuario");
+                cap = rs1.getString("Tipo_Usuario");
 
             }
             //cada if compara los tipos de usuarios de cada quien y abre su interfaz correspondiente
@@ -78,8 +62,9 @@ void fillcombo(){
                 IAL.setVisible(true);
                 this.dispose();
             }
-        } catch (SQLException ex) {
-            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException e) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(null, e);
         }
 }
     /**
@@ -103,7 +88,7 @@ void fillcombo(){
         contratxt = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        conectbtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -180,6 +165,14 @@ void fillcombo(){
         contratxt.setBackground(new java.awt.Color(0, 114, 130));
         contratxt.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         contratxt.setForeground(new java.awt.Color(255, 255, 255));
+        contratxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                contratxtKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                contratxtKeyReleased(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(0, 204, 204));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -201,17 +194,17 @@ void fillcombo(){
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(0, 204, 204));
-        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 153, 153));
-        jButton3.setText("Conectv4");
-        jButton3.setToolTipText("Portal Escolar del Instituto Tecnológico de Estudios Superiores de Los Cabos");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton3.setMaximumSize(new java.awt.Dimension(71, 27));
-        jButton3.setMinimumSize(new java.awt.Dimension(71, 27));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        conectbtn.setBackground(new java.awt.Color(0, 204, 204));
+        conectbtn.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        conectbtn.setForeground(new java.awt.Color(0, 153, 153));
+        conectbtn.setText("Conectv4");
+        conectbtn.setToolTipText("Portal Escolar del Instituto Tecnológico de Estudios Superiores de Los Cabos");
+        conectbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        conectbtn.setMaximumSize(new java.awt.Dimension(71, 27));
+        conectbtn.setMinimumSize(new java.awt.Dimension(71, 27));
+        conectbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                conectbtnActionPerformed(evt);
             }
         });
 
@@ -225,7 +218,7 @@ void fillcombo(){
                 .addGap(61, 61, 61)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(conectbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -254,7 +247,7 @@ void fillcombo(){
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(conectbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 27, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
@@ -291,9 +284,14 @@ void fillcombo(){
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             
-        String usu=usuariotxt.getText();
+         String usu=usuariotxt.getText();
         String pas=contratxt.getText();
-        acceder(usu , pas);
+        try {
+             acceder(usu , pas);
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -301,14 +299,36 @@ void fillcombo(){
    contratxt.setText("");// TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-Runtime myRuntime = Runtime.getRuntime();
-        try{ 
-myRuntime.exec("C:\\Program Files\\Internet Explorer\\IEXPLORE.EXE http://201.144.14.171/conectv4/"); 
-}catch(Exception ex){ 
-ex.printStackTrace();}        // TODO add your handling code here:
-             // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void conectbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conectbtnActionPerformed
+        Runtime myRuntime = Runtime.getRuntime();
+        try {
+            myRuntime.exec("C:\\Program Files\\Internet Explorer\\IEXPLORE.EXE http://201.144.14.171/conectv4/");
+        } catch (Exception ex) {
+           // ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, ex);
+        }      
+    }//GEN-LAST:event_conectbtnActionPerformed
+
+    private void contratxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contratxtKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contratxtKeyReleased
+
+    private void contratxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contratxtKeyPressed
+        // TODO add your handling code here:
+         if (evt.getKeyCode()==KeyEvent.VK_ENTER){
+           String usu=usuariotxt.getText();
+        String pas=contratxt.getText();
+        try {
+             acceder(usu , pas);
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        } 
+        }
+        
+        
+        
+    }//GEN-LAST:event_contratxtKeyPressed
 
     /**
      * @param args the command line arguments
@@ -347,10 +367,10 @@ ex.printStackTrace();}        // TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton conectbtn;
     private javax.swing.JPasswordField contratxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
