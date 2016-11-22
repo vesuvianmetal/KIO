@@ -17,7 +17,7 @@ ResultSet rs=null;
 PreparedStatement pst=null;
     
     public login() {
-         conn=Conexion_BD.conectardb(); //llamado de conexion de base de datos
+         //conn=Conexion_BD.conectardb(); //llamado de conexion de base de datos
         initComponents();
    
     }
