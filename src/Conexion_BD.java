@@ -1,23 +1,18 @@
 
+import java.awt.HeadlessException;
 import java.sql.*;
+import javax.swing.JOptionPane;
 public class Conexion_BD {
-   private static Connection cnx = null;
-   public static Connection obtener() throws SQLException, ClassNotFoundException {
-      if (cnx == null) {
-         try {
-            Class.forName("com.mysql.jdbc.Driver");
-            cnx = DriverManager.getConnection("jdbc:mysql://localhost/java_mysql", "root", "123456");
-         } catch (SQLException ex) {
-            throw new SQLException(ex);
-         } catch (ClassNotFoundException ex) {
-            throw new ClassCastException(ex.getMessage());
-         }
+ Connection conn = null;
+  public static Connection conectardb(){
+      try {
+          Class.forName("org.sqlite.JDBC");
+          Connection conn=DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Penudo McFly\\Documents\\NetBeansProjects\\Kiosko_Propio\\src\\BD\\khe.sqlite");
+    JOptionPane.showMessageDialog(null, "Conexion Establecida");
+          return conn;
+      } catch (ClassNotFoundException | SQLException | HeadlessException e){
+          JOptionPane.showMessageDialog(null, e);
+          return null;
       }
-      return cnx;
-   }
-   public static void cerrar() throws SQLException {
-      if (cnx != null) {
-         cnx.close();
-      }
-   }
+  }
 }
