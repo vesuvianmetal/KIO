@@ -1,5 +1,9 @@
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,13 +17,44 @@ import javax.swing.JOptionPane;
  */
 public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interfaz_Lenguajes
-     */
+  Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
     public Interfaz_Lenguajes() {
+        conn = Conexion_BD.conectardb();
+         filltableidiomas();
+        //actualizar_tablaidiomas();
         initComponents();
     }
 
+     void actualizar_tablaidiomas() {
+        try {
+
+            String acti = "SELECT * From idiomas";
+            pst = conn.prepareStatement(acti);
+            rs = pst.executeQuery();
+
+            tablaidiomas.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    final void filltableidiomas() {
+
+        try {
+
+            String Bi = "SELECT * From idiomas";
+            pst = conn.prepareStatement(Bi);
+            rs = pst.executeQuery();
+
+            tablaidiomas.setModel(DbUtils.resultSetToTableModel(rs));
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +74,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         panever = new javax.swing.JPanel();
         ve = new javax.swing.JLabel();
         tablavalores = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaidiomas = new javax.swing.JTable();
         numconag1 = new javax.swing.JTextField();
         numcontrol2 = new javax.swing.JLabel();
         panebuscar = new javax.swing.JPanel();
@@ -88,7 +123,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,7 +136,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
 
@@ -151,8 +186,8 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
         getContentPane().add(panever, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 540, 30));
 
-        jTable1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaidiomas.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        tablaidiomas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -164,10 +199,18 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             new String [] {
                 "Folio", "Tipo de Certificación", "Calificación", "Numero de Control"
             }
-        ));
-        tablavalores.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 540, 90));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablavalores.setViewportView(tablaidiomas);
+
+        getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 540, 140));
 
         numconag1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         getContentPane().add(numconag1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 130, 30));
@@ -206,7 +249,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/lupitagrnade.png"))); // NOI18N
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
 
@@ -354,7 +397,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton4.setBorder(null);
         jButton4.setBorderPainted(false);
         jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,7 +410,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
 
@@ -375,7 +418,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton6.setBorder(null);
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
 
@@ -383,7 +426,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton7.setBorder(null);
         jButton7.setBorderPainted(false);
         jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton7.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, -1, -1));
 
@@ -466,7 +509,6 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField numcon;
@@ -481,6 +523,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JPanel paneleiminiar;
     private javax.swing.JPanel panever;
     private javax.swing.JLabel pie;
+    private javax.swing.JTable tablaidiomas;
     private javax.swing.JScrollPane tablavalores;
     private javax.swing.JTextField textcalif;
     private javax.swing.JTextField textcalifagr;
