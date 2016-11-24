@@ -150,13 +150,13 @@ public class solicitudconstancia extends javax.swing.JFrame {
             nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGroup(nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(nameLayout.createSequentialGroup()
                         .addGap(0, 12, Short.MAX_VALUE)
-                        .addGroup(nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 820, 90));
@@ -166,7 +166,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         getContentPane().add(aredatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 820, 560));
 
         FONDO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/fondo.jpg"))); // NOI18N
-        getContentPane().add(FONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
+        getContentPane().add(FONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, 1070));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
