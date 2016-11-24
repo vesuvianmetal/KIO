@@ -67,42 +67,33 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        edit = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        elim = new javax.swing.JLabel();
+        ve = new javax.swing.JLabel();
+        trytofind = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         fol = new javax.swing.JLabel();
         buscarfolioidiomatxt = new javax.swing.JTextField();
         pie = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
         generador = new javax.swing.JLabel();
-        panever = new javax.swing.JPanel();
-        ve = new javax.swing.JLabel();
         tablavalores = new javax.swing.JScrollPane();
         tablaidiomas = new javax.swing.JTable();
         buscarnumeroidiomatxt = new javax.swing.JTextField();
         numcontrol2 = new javax.swing.JLabel();
-        panebuscar = new javax.swing.JPanel();
-        trytofind = new javax.swing.JLabel();
         areabucar = new javax.swing.JLabel();
-        paneleiminiar = new javax.swing.JPanel();
-        elim = new javax.swing.JLabel();
         editfolioidiomas = new javax.swing.JTextField();
         numcontrol = new javax.swing.JLabel();
         editcertitxt = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         calif = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         editcaliidiomatxt = new javax.swing.JTextField();
         tipcalif = new javax.swing.JLabel();
         eliminarfolioidiomastxt = new javax.swing.JTextField();
         fol1 = new javax.swing.JLabel();
         areaeliminar = new javax.swing.JLabel();
-        paneditar = new javax.swing.JPanel();
-        edit = new javax.swing.JLabel();
         areaeditar = new javax.swing.JLabel();
-        panelagregar = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         tipcalif1 = new javax.swing.JLabel();
         calif1 = new javax.swing.JLabel();
         numcontrol1 = new javax.swing.JLabel();
@@ -121,6 +112,31 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        edit.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        edit.setForeground(new java.awt.Color(255, 255, 255));
+        edit.setText("Editar");
+        getContentPane().add(edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Agregar");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
+
+        elim.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        elim.setForeground(new java.awt.Color(255, 255, 255));
+        elim.setText("Eliminar");
+        getContentPane().add(elim, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+
+        ve.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        ve.setForeground(new java.awt.Color(255, 255, 255));
+        ve.setText("Ver");
+        getContentPane().add(ve, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
+
+        trytofind.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        trytofind.setForeground(new java.awt.Color(255, 255, 255));
+        trytofind.setText("Buscar");
+        getContentPane().add(trytofind, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
@@ -133,19 +149,6 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 60, 40));
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
 
         fol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         fol.setForeground(new java.awt.Color(255, 255, 255));
@@ -173,31 +176,6 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         generador.setForeground(new java.awt.Color(255, 255, 255));
         generador.setText("Generador de Reportes");
         getContentPane().add(generador, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, 20));
-
-        panever.setBackground(new java.awt.Color(0, 204, 204));
-        panever.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
-
-        ve.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        ve.setForeground(new java.awt.Color(255, 255, 255));
-        ve.setText("Ver");
-
-        javax.swing.GroupLayout paneverLayout = new javax.swing.GroupLayout(panever);
-        panever.setLayout(paneverLayout);
-        paneverLayout.setHorizontalGroup(
-            paneverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paneverLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ve)
-                .addContainerGap(498, Short.MAX_VALUE))
-        );
-        paneverLayout.setVerticalGroup(
-            paneverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneverLayout.createSequentialGroup()
-                .addGap(0, 5, Short.MAX_VALUE)
-                .addComponent(ve))
-        );
-
-        getContentPane().add(panever, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 540, 30));
 
         tablaidiomas.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         tablaidiomas.setModel(new javax.swing.table.DefaultTableModel(
@@ -243,57 +221,8 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         numcontrol2.setText("Numero de Control:");
         getContentPane().add(numcontrol2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
-        panebuscar.setBackground(new java.awt.Color(0, 204, 204));
-        panebuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
-
-        trytofind.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        trytofind.setForeground(new java.awt.Color(255, 255, 255));
-        trytofind.setText("Buscar");
-
-        javax.swing.GroupLayout panebuscarLayout = new javax.swing.GroupLayout(panebuscar);
-        panebuscar.setLayout(panebuscarLayout);
-        panebuscarLayout.setHorizontalGroup(
-            panebuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panebuscarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(trytofind)
-                .addContainerGap(119, Short.MAX_VALUE))
-        );
-        panebuscarLayout.setVerticalGroup(
-            panebuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panebuscarLayout.createSequentialGroup()
-                .addGap(0, 5, Short.MAX_VALUE)
-                .addComponent(trytofind))
-        );
-
-        getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 190, 30));
-
         areabucar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 190, 180));
-
-        paneleiminiar.setBackground(new java.awt.Color(0, 204, 204));
-
-        elim.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        elim.setForeground(new java.awt.Color(255, 255, 255));
-        elim.setText("Eliminar");
-
-        javax.swing.GroupLayout paneleiminiarLayout = new javax.swing.GroupLayout(paneleiminiar);
-        paneleiminiar.setLayout(paneleiminiarLayout);
-        paneleiminiarLayout.setHorizontalGroup(
-            paneleiminiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paneleiminiarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(elim)
-                .addContainerGap(73, Short.MAX_VALUE))
-        );
-        paneleiminiarLayout.setVerticalGroup(
-            paneleiminiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paneleiminiarLayout.createSequentialGroup()
-                .addComponent(elim)
-                .addGap(0, 7, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(paneleiminiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 150, 30));
 
         editfolioidiomas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         getContentPane().add(editfolioidiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 130, 30));
@@ -305,32 +234,6 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
         editcertitxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         getContentPane().add(editcertitxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 130, 30));
-
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
-        jButton6.setBorder(null);
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
-
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton7.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, -1, -1));
 
         calif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         calif.setForeground(new java.awt.Color(255, 255, 255));
@@ -350,19 +253,6 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 60, 40));
 
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
-
         editcaliidiomatxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         getContentPane().add(editcaliidiomatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 130, 30));
 
@@ -380,58 +270,8 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         areaeliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areaeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 150, 190));
 
-        paneditar.setBackground(new java.awt.Color(0, 204, 204));
-        paneditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
-
-        edit.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        edit.setForeground(new java.awt.Color(255, 255, 255));
-        edit.setText("Editar");
-
-        javax.swing.GroupLayout paneditarLayout = new javax.swing.GroupLayout(paneditar);
-        paneditar.setLayout(paneditarLayout);
-        paneditarLayout.setHorizontalGroup(
-            paneditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paneditarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(edit)
-                .addContainerGap(240, Short.MAX_VALUE))
-        );
-        paneditarLayout.setVerticalGroup(
-            paneditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paneditarLayout.createSequentialGroup()
-                .addComponent(edit)
-                .addGap(0, 5, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(paneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 260, 300, 30));
-
         areaeditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areaeditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 300, 190));
-
-        panelagregar.setBackground(new java.awt.Color(0, 204, 204));
-        panelagregar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Agregar");
-
-        javax.swing.GroupLayout panelagregarLayout = new javax.swing.GroupLayout(panelagregar);
-        panelagregar.setLayout(panelagregarLayout);
-        panelagregarLayout.setHorizontalGroup(
-            panelagregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelagregarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(183, Short.MAX_VALUE))
-        );
-        panelagregarLayout.setVerticalGroup(
-            panelagregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelagregarLayout.createSequentialGroup()
-                .addComponent(jLabel3)
-                .addGap(0, 3, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(panelagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 270, 30));
 
         tipcalif1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         tipcalif1.setForeground(new java.awt.Color(255, 255, 255));
@@ -441,7 +281,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         calif1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         calif1.setForeground(new java.awt.Color(255, 255, 255));
         calif1.setText("Calificación:");
-        getContentPane().add(calif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
+        getContentPane().add(calif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
 
         numcontrol1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         numcontrol1.setForeground(new java.awt.Color(255, 255, 255));
@@ -620,55 +460,6 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
         //
     }//GEN-LAST:event_buscarnumeroidiomatxtKeyReleased
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-        
-        int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
-        if (verificacion == 0) {
-            String elim = "DELETE from idiomas where FOLIO_IDIOMAS=?";
-            try {
-                pst = conn.prepareStatement(elim);
-                pst.setString(1, eliminarfolioidiomastxt.getText());
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Deuda Eliminada");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-          actualizar_tablaidiomas();
-        }
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-        texttipoag.setText("");
-        textcalifagr.setText("");
-        numconag.setText("");
-        
-        
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-        
-        editcertitxt.setText("");
-        editcaliidiomatxt.setText("");
-        editfolioidiomas.setText("");
-        
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-        
-        buscarfolioidiomatxt.setText("");
-        buscarnumeroidiomatxt.setText("");
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -723,22 +514,13 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel fol1;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel generador;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField numconag;
     private javax.swing.JLabel numcontrol;
     private javax.swing.JLabel numcontrol1;
     private javax.swing.JLabel numcontrol2;
-    private javax.swing.JPanel panebuscar;
-    private javax.swing.JPanel paneditar;
-    private javax.swing.JPanel panelagregar;
-    private javax.swing.JPanel paneleiminiar;
-    private javax.swing.JPanel panever;
     private javax.swing.JLabel pie;
     private javax.swing.JTable tablaidiomas;
     private javax.swing.JScrollPane tablavalores;
