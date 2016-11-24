@@ -69,6 +69,10 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         textcalifagr = new javax.swing.JTextField();
         texttipoag = new javax.swing.JTextField();
         areaagregar = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -91,7 +95,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 60, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 60, 40));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
         jButton1.setBorder(null);
@@ -99,13 +103,13 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
 
         fol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         fol.setForeground(new java.awt.Color(255, 255, 255));
         fol.setText("Folio:");
-        getContentPane().add(fol, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 130, 30));
+        getContentPane().add(fol, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 130, 30));
 
         pie.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         pie.setForeground(new java.awt.Color(255, 255, 255));
@@ -141,7 +145,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         paneverLayout.setVerticalGroup(
             paneverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneverLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 5, Short.MAX_VALUE)
                 .addComponent(ve))
         );
 
@@ -166,12 +170,12 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 540, 90));
 
         numconag1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(numconag1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 130, 30));
+        getContentPane().add(numconag1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 130, 30));
 
         numcontrol2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         numcontrol2.setForeground(new java.awt.Color(255, 255, 255));
         numcontrol2.setText("Numero de Control:");
-        getContentPane().add(numcontrol2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        getContentPane().add(numcontrol2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         panebuscar.setBackground(new java.awt.Color(0, 204, 204));
         panebuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
@@ -192,21 +196,22 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         panebuscarLayout.setVerticalGroup(
             panebuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panebuscarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 5, Short.MAX_VALUE)
                 .addComponent(trytofind))
         );
 
-        getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 190, 30));
+        getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 190, 30));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/lupita.png"))); // NOI18N
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, -1));
+        jButton3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/lupitagrnade.png"))); // NOI18N
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
 
         areabucar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-        getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 190, 160));
+        getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 190, 180));
 
         paneleiminiar.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -326,15 +331,15 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         calif1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         calif1.setForeground(new java.awt.Color(255, 255, 255));
         calif1.setText("Calificación:");
-        getContentPane().add(calif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, -1, -1));
+        getContentPane().add(calif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, -1, -1));
 
         numcontrol1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         numcontrol1.setForeground(new java.awt.Color(255, 255, 255));
         numcontrol1.setText("Numero de Control:");
-        getContentPane().add(numcontrol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
+        getContentPane().add(numcontrol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, -1));
 
         numconag.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(numconag, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 130, 30));
+        getContentPane().add(numconag, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 100, 30));
 
         textcalifagr.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         getContentPane().add(textcalifagr, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 100, 30));
@@ -344,6 +349,43 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
         areaagregar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areaagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 270, 190));
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
+        jButton4.setBorder(null);
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 60, 40));
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
+        jButton5.setBorder(null);
+        jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
+        jButton6.setBorder(null);
+        jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
+        jButton7.setBorder(null);
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -363,6 +405,10 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -415,6 +461,10 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
