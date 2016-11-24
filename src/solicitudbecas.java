@@ -1,3 +1,11 @@
+
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,11 +17,14 @@
  * @author Disco
  */
 public class solicitudbecas extends javax.swing.JFrame {
-
+Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
     /**
      * Creates new form solicitudbecas
      */
     public solicitudbecas() {
+        conn = Conexion_BD.conectardb();
         initComponents();
     }
 
@@ -46,9 +57,6 @@ public class solicitudbecas extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         FONDO = new javax.swing.JLabel();
-
-        aredatos.setBackground(new java.awt.Color(0, 204, 204));
-        aredatos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
 
         aredatos.setBackground(new java.awt.Color(0, 204, 204));
         aredatos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
@@ -176,12 +184,22 @@ public class solicitudbecas extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 153, 153));
         jButton2.setText("Borrar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 620, 90, 30));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 620, 90, 30));
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 153, 153));
         jButton1.setText("Enviar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 620, 90, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 620, 90, 30));
 
         jLabel1.setBackground(new java.awt.Color(0, 204, 204));
         jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
@@ -218,6 +236,42 @@ public class solicitudbecas extends javax.swing.JFrame {
     private void numcontrl3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontrl3KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_numcontrl3KeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+      try {
+            String agr = "INSERT into becas (FOLIO_BECAS,PROMEDIO,TIPO_BECA,FK_NUMERO_CONTROL_BECAS,correo_electronico) values (?,?,?,?,?)";
+            pst = conn.prepareStatement(agr);
+            pst.setString(1, null);
+            pst.setString(4, numcontrl2.getText());
+            pst.setString(2, numcontrl3.getText());
+            pst.setString(3, jComboBox1.getSelectedItem().toString());
+            pst.setString(5, numcontrl1.getText());
+            pst.execute();
+
+            JOptionPane.showMessageDialog(null, "Se Ha Enviado La Solicitud");
+        } catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        try{
+              numcontrl2.setText("");
+        numcontrl3.setText("");
+        numcontrl1.setText("");
+        jComboBox1.setSelectedIndex(0);
+        }catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+        }
+      
+                        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
