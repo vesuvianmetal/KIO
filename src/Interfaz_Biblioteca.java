@@ -609,7 +609,7 @@ String nombrearchivo;
 
             while((line=br.readLine())!=null){
                 String[]value=line.split(","); //separador de valor
-                String sql="insert into Adeudo_Biblioteca (Numero_Control_Alumno,Codigo_Libro,Adeudo_Biblioteca) Values('"+value[0]+"','"+value[1]+"','"+value[2]+"')";
+                String sql="insert into biblioteca (FK_NUMERO_CONTROL_BIBLIOTECA,CODIGO_LIBRO,ADEUDO) Values('"+value[0]+"','"+value[1]+"','"+value[2]+"')";
                 pst=conn.prepareStatement(sql);
                 pst.executeUpdate();
             }
