@@ -40,9 +40,10 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         trytofind = new javax.swing.JLabel();
         areabucar = new javax.swing.JLabel();
         areaeliminar = new javax.swing.JLabel();
+        paneleiminiar = new javax.swing.JPanel();
+        elim = new javax.swing.JLabel();
         paneditar = new javax.swing.JPanel();
         edit = new javax.swing.JLabel();
-        elim = new javax.swing.JLabel();
         areaeditar = new javax.swing.JLabel();
         panelagregar = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -144,7 +145,31 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 210, 170));
 
         areaeliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-        getContentPane().add(areaeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 140, 270));
+        getContentPane().add(areaeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 190, 240));
+
+        paneleiminiar.setBackground(new java.awt.Color(0, 204, 204));
+
+        elim.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        elim.setForeground(new java.awt.Color(255, 255, 255));
+        elim.setText("Eliminar");
+
+        javax.swing.GroupLayout paneleiminiarLayout = new javax.swing.GroupLayout(paneleiminiar);
+        paneleiminiar.setLayout(paneleiminiarLayout);
+        paneleiminiarLayout.setHorizontalGroup(
+            paneleiminiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneleiminiarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(elim)
+                .addContainerGap(113, Short.MAX_VALUE))
+        );
+        paneleiminiarLayout.setVerticalGroup(
+            paneleiminiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paneleiminiarLayout.createSequentialGroup()
+                .addComponent(elim)
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(paneleiminiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 190, 30));
 
         paneditar.setBackground(new java.awt.Color(0, 204, 204));
         paneditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
@@ -153,10 +178,6 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         edit.setForeground(new java.awt.Color(255, 255, 255));
         edit.setText("Editar");
 
-        elim.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        elim.setForeground(new java.awt.Color(255, 255, 255));
-        elim.setText("Eliminar");
-
         javax.swing.GroupLayout paneditarLayout = new javax.swing.GroupLayout(paneditar);
         paneditar.setLayout(paneditarLayout);
         paneditarLayout.setHorizontalGroup(
@@ -164,23 +185,19 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             .addGroup(paneditarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(edit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
-                .addComponent(elim)
-                .addGap(66, 66, 66))
+                .addContainerGap(260, Short.MAX_VALUE))
         );
         paneditarLayout.setVerticalGroup(
             paneditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneditarLayout.createSequentialGroup()
-                .addGroup(paneditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(edit)
-                    .addComponent(elim))
+                .addComponent(edit)
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        getContentPane().add(paneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 520, 30));
+        getContentPane().add(paneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 320, 30));
 
         areaeditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-        getContentPane().add(areaeditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 520, 240));
+        getContentPane().add(areaeditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 320, 240));
 
         panelagregar.setBackground(new java.awt.Color(0, 204, 204));
         panelagregar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
@@ -274,6 +291,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JPanel panebuscar;
     private javax.swing.JPanel paneditar;
     private javax.swing.JPanel panelagregar;
+    private javax.swing.JPanel paneleiminiar;
     private javax.swing.JPanel panever;
     private javax.swing.JLabel pie;
     private javax.swing.JScrollPane tablavalores;
