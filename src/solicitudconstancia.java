@@ -1,3 +1,9 @@
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,11 +15,14 @@
  * @author Disco
  */
 public class solicitudconstancia extends javax.swing.JFrame {
-
+ Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
     /**
      * Creates new form solicitudconstancia
      */
     public solicitudconstancia() {
+        conn = Conexion_BD.conectardb();
         initComponents();
     }
 
@@ -28,10 +37,10 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        caja = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
         numcontrl1 = new javax.swing.JTextField();
         nombre1 = new javax.swing.JTextField();
-        semestre1 = new javax.swing.JTextField();
+        carrera = new javax.swing.JTextField();
         semestre = new javax.swing.JTextField();
         caja1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -46,6 +55,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
         aredatos = new javax.swing.JLabel();
         FONDO = new javax.swing.JLabel();
 
@@ -63,18 +73,26 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jButton1.setText("Enviar");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 620, 90, 30));
 
-        caja.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 350, 50));
+        email.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 350, 50));
 
         numcontrl1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        numcontrl1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                numcontrl1KeyReleased(evt);
+            }
+        });
         getContentPane().add(numcontrl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 350, 50));
 
+        nombre1.setEditable(false);
         nombre1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 350, 50));
 
-        semestre1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(semestre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 350, 50));
+        carrera.setEditable(false);
+        carrera.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 350, 50));
 
+        semestre.setEditable(false);
         semestre.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(semestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 350, 50));
 
@@ -133,30 +151,37 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
         jLabel10.setText("jLabel10");
 
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
+
         javax.swing.GroupLayout nameLayout = new javax.swing.GroupLayout(name);
         name.setLayout(nameLayout);
         nameLayout.setHorizontalGroup(
             nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nameLayout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81))
+                .addContainerGap(107, Short.MAX_VALUE)
+                .addGroup(nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nameLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
         );
         nameLayout.setVerticalGroup(
             nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(nameLayout.createSequentialGroup()
-                        .addGap(0, 12, Short.MAX_VALUE)
+                .addGroup(nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, nameLayout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, 820, 90));
@@ -170,6 +195,33 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void numcontrl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontrl1KeyReleased
+        // TODO add your handling code here:
+        try{
+        String buscarfolio = "SELECT * from alumno where NUMERO_CONTROL=?";
+            pst = conn.prepareStatement(buscarfolio);
+            pst.setString(1, numcontrl1.getText());
+            rs = pst.executeQuery();
+        
+         if (rs.next()) {
+
+                String agregar1 = rs.getString("NOMBRE");
+                nombre1.setText(agregar1);
+
+                String agregar2 = rs.getString("CARRERA");
+                carrera.setText(agregar2);
+
+                String agregar3 = rs.getString("SEMESTRE");
+                semestre.setText(agregar3);
+
+                
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_numcontrl1KeyReleased
 
     /**
      * @param args the command line arguments
@@ -209,13 +261,15 @@ public class solicitudconstancia extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FONDO;
     private javax.swing.JLabel aredatos;
-    private javax.swing.JTextField caja;
     private javax.swing.JTextField caja1;
+    private javax.swing.JTextField carrera;
+    private javax.swing.JTextField email;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -228,6 +282,5 @@ public class solicitudconstancia extends javax.swing.JFrame {
     private javax.swing.JTextField nombre1;
     private javax.swing.JTextField numcontrl1;
     private javax.swing.JTextField semestre;
-    private javax.swing.JTextField semestre1;
     // End of variables declaration//GEN-END:variables
 }
