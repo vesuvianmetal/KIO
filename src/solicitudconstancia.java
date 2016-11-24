@@ -26,6 +26,8 @@ public class solicitudconstancia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         caja = new javax.swing.JTextField();
         numcontrl1 = new javax.swing.JTextField();
         nombre1 = new javax.swing.JTextField();
@@ -48,7 +50,18 @@ public class solicitudconstancia extends javax.swing.JFrame {
         FONDO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Solicitud de Constancia");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 153, 153));
+        jButton2.setText("Borrar");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 620, 90, 30));
+
+        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 153, 153));
+        jButton1.setText("Enviar");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 620, 90, 30));
 
         caja.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 350, 50));
@@ -198,6 +211,8 @@ public class solicitudconstancia extends javax.swing.JFrame {
     private javax.swing.JLabel aredatos;
     private javax.swing.JTextField caja;
     private javax.swing.JTextField caja1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
