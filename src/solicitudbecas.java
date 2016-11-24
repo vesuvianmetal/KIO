@@ -260,10 +260,10 @@ Connection conn = null;
         // TODO add your handling code here:
         
         try{
-              numcontrl2.setText("");
-        numcontrl3.setText("");
-        numcontrl1.setText("");
-        jComboBox1.setSelectedIndex(0);
+            numcontrl2.setText("");
+            numcontrl3.setText("");
+            numcontrl1.setText("");
+            jComboBox1.setSelectedIndex(0);
         }catch(Exception e){
            JOptionPane.showMessageDialog(null, e);
         }
