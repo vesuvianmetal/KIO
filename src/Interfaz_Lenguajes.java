@@ -39,7 +39,6 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         panebuscar = new javax.swing.JPanel();
         trytofind = new javax.swing.JLabel();
         areabucar = new javax.swing.JLabel();
-        areaeliminar = new javax.swing.JLabel();
         paneleiminiar = new javax.swing.JPanel();
         elim = new javax.swing.JLabel();
         numcon = new javax.swing.JTextField();
@@ -48,6 +47,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         calif = new javax.swing.JLabel();
         textcalif = new javax.swing.JTextField();
         tipcalif = new javax.swing.JLabel();
+        areaeliminar = new javax.swing.JLabel();
         paneditar = new javax.swing.JPanel();
         edit = new javax.swing.JLabel();
         areaeditar = new javax.swing.JLabel();
@@ -142,7 +142,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             .addGroup(panebuscarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(trytofind)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         panebuscarLayout.setVerticalGroup(
             panebuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,13 +151,10 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 .addComponent(trytofind))
         );
 
-        getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 210, -1));
+        getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 190, 30));
 
         areabucar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-        getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 210, 170));
-
-        areaeliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-        getContentPane().add(areaeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 240, 190, 240));
+        getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 190, 170));
 
         paneleiminiar.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -181,31 +178,34 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 .addGap(0, 7, Short.MAX_VALUE))
         );
 
-        getContentPane().add(paneleiminiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 190, 30));
+        getContentPane().add(paneleiminiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 190, 30));
 
         numcon.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(numcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 130, 30));
+        getContentPane().add(numcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 130, 30));
 
         numcontrol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         numcontrol.setForeground(new java.awt.Color(255, 255, 255));
         numcontrol.setText("Numero de Control:");
-        getContentPane().add(numcontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
+        getContentPane().add(numcontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, -1));
 
         texttipo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(texttipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 130, 30));
+        getContentPane().add(texttipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 130, 30));
 
         calif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         calif.setForeground(new java.awt.Color(255, 255, 255));
         calif.setText("Calificación:");
-        getContentPane().add(calif, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
+        getContentPane().add(calif, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, -1, -1));
 
         textcalif.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(textcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 130, 30));
+        getContentPane().add(textcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 350, 130, 30));
 
         tipcalif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         tipcalif.setForeground(new java.awt.Color(255, 255, 255));
         tipcalif.setText("Tipo de Certificación:");
-        getContentPane().add(tipcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 150, 20));
+        getContentPane().add(tipcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 150, 20));
+
+        areaeliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
+        getContentPane().add(areaeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 190, 90));
 
         paneditar.setBackground(new java.awt.Color(0, 204, 204));
         paneditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
@@ -230,10 +230,10 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 .addGap(0, 5, Short.MAX_VALUE))
         );
 
-        getContentPane().add(paneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 320, 30));
+        getContentPane().add(paneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 320, 30));
 
         areaeditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-        getContentPane().add(areaeditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 320, 240));
+        getContentPane().add(areaeditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 320, 190));
 
         panelagregar.setBackground(new java.awt.Color(0, 204, 204));
         panelagregar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
@@ -258,34 +258,34 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 .addGap(0, 3, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 210, 30));
+        getContentPane().add(panelagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 210, 30));
 
         tipcalif1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         tipcalif1.setForeground(new java.awt.Color(255, 255, 255));
         tipcalif1.setText("Tipo de Certificación:");
-        getContentPane().add(tipcalif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 150, 20));
+        getContentPane().add(tipcalif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 300, 150, 20));
 
         calif1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         calif1.setForeground(new java.awt.Color(255, 255, 255));
         calif1.setText("Calificación:");
-        getContentPane().add(calif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+        getContentPane().add(calif1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 360, -1, -1));
 
         numcontrol1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         numcontrol1.setForeground(new java.awt.Color(255, 255, 255));
         numcontrol1.setText("Numero de Control:");
-        getContentPane().add(numcontrol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
+        getContentPane().add(numcontrol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
 
         numconag.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(numconag, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 130, 30));
+        getContentPane().add(numconag, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 130, 30));
 
         textcalifagr.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(textcalifagr, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 130, 30));
+        getContentPane().add(textcalifagr, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 130, 30));
 
         texttipoag.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(texttipoag, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 130, 30));
+        getContentPane().add(texttipoag, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, 130, 30));
 
         areaagregar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-        getContentPane().add(areaagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 210, 240));
+        getContentPane().add(areaagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 210, 190));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
