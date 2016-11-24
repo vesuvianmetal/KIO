@@ -29,7 +29,10 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pie = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
+        generador = new javax.swing.JLabel();
+        panever = new javax.swing.JPanel();
         tablavalores = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         panebuscar = new javax.swing.JPanel();
@@ -49,10 +52,36 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        pie.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        pie.setForeground(new java.awt.Color(255, 255, 255));
+        pie.setText("Programa Interactivo Escolar PIE V1.0");
+        getContentPane().add(pie, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
+
         titulo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setText("Centro de Idiomas");
-        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
+        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+
+        generador.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        generador.setForeground(new java.awt.Color(255, 255, 255));
+        generador.setText("Generador de Reportes");
+        getContentPane().add(generador, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, -1, 20));
+
+        panever.setBackground(new java.awt.Color(0, 204, 204));
+        panever.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
+
+        javax.swing.GroupLayout paneverLayout = new javax.swing.GroupLayout(panever);
+        panever.setLayout(paneverLayout);
+        paneverLayout.setHorizontalGroup(
+            paneverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 518, Short.MAX_VALUE)
+        );
+        paneverLayout.setVerticalGroup(
+            paneverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 18, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(panever, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 520, 20));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -183,10 +212,13 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel areabucar;
     private javax.swing.JLabel areaeditar;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel generador;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel panebuscar;
     private javax.swing.JPanel paneditar;
     private javax.swing.JPanel panelagregar;
+    private javax.swing.JPanel panever;
+    private javax.swing.JLabel pie;
     private javax.swing.JScrollPane tablavalores;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
