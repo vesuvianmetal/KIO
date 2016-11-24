@@ -272,7 +272,7 @@ ResultSet rs1 = st.executeQuery (sql);
              acceder(usu , pas);
         }
         catch (Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Bienvenido "+usuariotxt+"");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -294,7 +294,7 @@ ResultSet rs1 = st.executeQuery (sql);
              acceder(usu , pas);
         }
         catch (Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Bienvenido "+usuariotxt+"");
         } 
         }
         
