@@ -59,8 +59,9 @@ public class solicitudconstancia extends javax.swing.JFrame {
         aredatos = new javax.swing.JLabel();
         FONDO = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Solicitud de Constancia-PIE V1.0");
+        setExtendedState(6);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N

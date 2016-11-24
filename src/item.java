@@ -41,8 +41,8 @@ public class item extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setTitle("Programa de Interactivo Escolar PIEv1.0-MENU");
         setExtendedState(6);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -155,10 +155,7 @@ vp.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
+
         Runtime myRuntime = Runtime.getRuntime();
         try {
             myRuntime.exec("C:\\Program Files\\Internet Explorer\\IEXPLORE.EXE http://201.144.14.171/conectv4/");
