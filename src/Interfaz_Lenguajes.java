@@ -100,7 +100,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             .addGroup(paneverLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ve)
-                .addContainerGap(478, Short.MAX_VALUE))
+                .addContainerGap(498, Short.MAX_VALUE))
         );
         paneverLayout.setVerticalGroup(
             paneverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,7 +109,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 .addComponent(ve))
         );
 
-        getContentPane().add(panever, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 65, 520, -1));
+        getContentPane().add(panever, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 540, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -126,7 +126,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         ));
         tablavalores.setViewportView(jTable1);
 
-        getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 520, 110));
+        getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 540, 110));
 
         panebuscar.setBackground(new java.awt.Color(0, 204, 204));
         panebuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
@@ -151,10 +151,10 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 .addComponent(trytofind))
         );
 
-        getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 190, 30));
+        getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 190, 30));
 
         areabucar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-        getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 190, 170));
+        getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 190, 160));
 
         paneleiminiar.setBackground(new java.awt.Color(0, 204, 204));
 
@@ -178,7 +178,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 .addGap(0, 7, Short.MAX_VALUE))
         );
 
-        getContentPane().add(paneleiminiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 170, 190, 30));
+        getContentPane().add(paneleiminiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 190, 30));
 
         numcon.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         getContentPane().add(numcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, 130, 30));
@@ -205,7 +205,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(tipcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 150, 20));
 
         areaeliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
-        getContentPane().add(areaeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 190, 90));
+        getContentPane().add(areaeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 190, 190));
 
         paneditar.setBackground(new java.awt.Color(0, 204, 204));
         paneditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
