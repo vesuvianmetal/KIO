@@ -31,10 +31,23 @@ public class solicitudbecas extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        numcontrl1 = new javax.swing.JTextField();
+        numcontrl2 = new javax.swing.JTextField();
+        numcontrl3 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         aredatos = new javax.swing.JLabel();
         FONDO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Solicitud De Becas-PIE V1.0");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         name.setBackground(new java.awt.Color(0, 204, 204));
@@ -79,17 +92,126 @@ public class solicitudbecas extends javax.swing.JFrame {
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
-        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 820, 90));
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 820, 90));
+
+        numcontrl1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        numcontrl1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numcontrl1ActionPerformed(evt);
+            }
+        });
+        numcontrl1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                numcontrl1KeyReleased(evt);
+            }
+        });
+        getContentPane().add(numcontrl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 500, 350, 50));
+
+        numcontrl2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        numcontrl2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numcontrl2ActionPerformed(evt);
+            }
+        });
+        numcontrl2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                numcontrl2KeyReleased(evt);
+            }
+        });
+        getContentPane().add(numcontrl2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, 350, 50));
+
+        numcontrl3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        numcontrl3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numcontrl3ActionPerformed(evt);
+            }
+        });
+        numcontrl3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                numcontrl3KeyReleased(evt);
+            }
+        });
+        getContentPane().add(numcontrl3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 330, 350, 50));
+
+        jComboBox1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Excelencia", "Hijo de Ejidatario", "Hijo de Maestro" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 410, 350, 50));
+
+        jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("* Campos Obligatorios");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Tipo de Beca:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Ingresa los Datos Solicitados ,Despues Presione enviar");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Correo Electronico*:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 510, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Número de Control*:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 250, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Promedio*:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, -1, -1));
+
+        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 153, 153));
+        jButton2.setText("Borrar");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 620, 90, 30));
+
+        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 153, 153));
+        jButton1.setText("Enviar");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 620, 90, 30));
 
         aredatos.setBackground(new java.awt.Color(0, 204, 204));
         aredatos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(aredatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 820, 560));
+        getContentPane().add(aredatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 820, 560));
 
         FONDO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/fondo.jpg"))); // NOI18N
-        getContentPane().add(FONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, 1070));
+        getContentPane().add(FONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1070));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void numcontrl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontrl1KeyReleased
+        // TODO add your handling code here:
+       
+        
+    }//GEN-LAST:event_numcontrl1KeyReleased
+
+    private void numcontrl1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numcontrl1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numcontrl1ActionPerformed
+
+    private void numcontrl2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numcontrl2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numcontrl2ActionPerformed
+
+    private void numcontrl2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontrl2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numcontrl2KeyReleased
+
+    private void numcontrl3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numcontrl3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numcontrl3ActionPerformed
+
+    private void numcontrl3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontrl3KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numcontrl3KeyReleased
 
     /**
      * @param args the command line arguments
@@ -129,10 +251,22 @@ public class solicitudbecas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FONDO;
     private javax.swing.JLabel aredatos;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel name;
+    private javax.swing.JTextField numcontrl1;
+    private javax.swing.JTextField numcontrl2;
+    private javax.swing.JTextField numcontrl3;
     // End of variables declaration//GEN-END:variables
 }
