@@ -1,5 +1,11 @@
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,13 +19,45 @@ import javax.swing.JOptionPane;
  */
 public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interfaz_Lenguajes
-     */
+  Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
     public Interfaz_Lenguajes() {
+        conn = Conexion_BD.conectardb();
+         
+      
         initComponents();
+        filltableidiomas();
     }
 
+     void actualizar_tablaidiomas() {
+        try {
+
+            String acti = "SELECT * From idiomas";
+            pst = conn.prepareStatement(acti);
+            rs = pst.executeQuery();
+
+            tablaidiomas.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+     void filltableidiomas() {
+
+        try {
+
+            String Bi = "SELECT * From idiomas";
+            pst = conn.prepareStatement(Bi);
+            rs = pst.executeQuery();
+
+            tablaidiomas.setModel(DbUtils.resultSetToTableModel(rs));
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,29 +70,32 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         fol = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        buscarfolioidiomatxt = new javax.swing.JTextField();
         pie = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
         generador = new javax.swing.JLabel();
         panever = new javax.swing.JPanel();
         ve = new javax.swing.JLabel();
         tablavalores = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        numconag1 = new javax.swing.JTextField();
+        tablaidiomas = new javax.swing.JTable();
+        buscarnumeroidiomatxt = new javax.swing.JTextField();
         numcontrol2 = new javax.swing.JLabel();
         panebuscar = new javax.swing.JPanel();
         trytofind = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         areabucar = new javax.swing.JLabel();
         paneleiminiar = new javax.swing.JPanel();
         elim = new javax.swing.JLabel();
-        numcon = new javax.swing.JTextField();
+        editfolioidiomas = new javax.swing.JTextField();
         numcontrol = new javax.swing.JLabel();
-        texttipo = new javax.swing.JTextField();
+        editcertitxt = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         calif = new javax.swing.JLabel();
-        textcalif = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        editcaliidiomatxt = new javax.swing.JTextField();
         tipcalif = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        eliminarfolioidiomastxt = new javax.swing.JTextField();
         fol1 = new javax.swing.JLabel();
         areaeliminar = new javax.swing.JLabel();
         paneditar = new javax.swing.JPanel();
@@ -69,10 +110,6 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         textcalifagr = new javax.swing.JTextField();
         texttipoag = new javax.swing.JTextField();
         areaagregar = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -88,7 +125,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,15 +138,26 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
 
         fol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         fol.setForeground(new java.awt.Color(255, 255, 255));
         fol.setText("Folio:");
         getContentPane().add(fol, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 130, 30));
+
+        buscarfolioidiomatxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                buscarfolioidiomatxtKeyReleased(evt);
+            }
+        });
+        getContentPane().add(buscarfolioidiomatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 130, 30));
 
         pie.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         pie.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,8 +199,8 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
         getContentPane().add(panever, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 540, 30));
 
-        jTable1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaidiomas.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        tablaidiomas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -164,13 +212,31 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             new String [] {
                 "Folio", "Tipo de Certificación", "Calificación", "Numero de Control"
             }
-        ));
-        tablavalores.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 540, 90));
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaidiomas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaidiomasMouseClicked(evt);
+            }
+        });
+        tablavalores.setViewportView(tablaidiomas);
 
-        numconag1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(numconag1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 130, 30));
+        getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 540, 140));
+
+        buscarnumeroidiomatxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        buscarnumeroidiomatxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                buscarnumeroidiomatxtKeyReleased(evt);
+            }
+        });
+        getContentPane().add(buscarnumeroidiomatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 130, 30));
 
         numcontrol2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         numcontrol2.setForeground(new java.awt.Color(255, 255, 255));
@@ -202,14 +268,6 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
         getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 190, 30));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/lupita.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setBorderPainted(false);
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/lupitagrnade.png"))); // NOI18N
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, -1, -1));
-
         areabucar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 190, 180));
 
@@ -237,30 +295,82 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
         getContentPane().add(paneleiminiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 150, 30));
 
-        numcon.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(numcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 130, 30));
+        editfolioidiomas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(editfolioidiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 130, 30));
 
         numcontrol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         numcontrol.setForeground(new java.awt.Color(255, 255, 255));
-        numcontrol.setText("Numero de Control:");
-        getContentPane().add(numcontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, -1, -1));
+        numcontrol.setText("Folio:");
+        getContentPane().add(numcontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, -1, -1));
 
-        texttipo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(texttipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 130, 30));
+        editcertitxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(editcertitxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 130, 30));
+
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
+        jButton6.setBorder(null);
+        jButton6.setBorderPainted(false);
+        jButton6.setContentAreaFilled(false);
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
+
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
+        jButton7.setBorder(null);
+        jButton7.setBorderPainted(false);
+        jButton7.setContentAreaFilled(false);
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton7.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, -1, -1));
 
         calif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         calif.setForeground(new java.awt.Color(255, 255, 255));
         calif.setText("Calificación:");
         getContentPane().add(calif, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
 
-        textcalif.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(textcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 130, 30));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
+        jButton4.setBorder(null);
+        jButton4.setBorderPainted(false);
+        jButton4.setContentAreaFilled(false);
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 60, 40));
+
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
+        jButton5.setBorder(null);
+        jButton5.setBorderPainted(false);
+        jButton5.setContentAreaFilled(false);
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
+
+        editcaliidiomatxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(editcaliidiomatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 130, 30));
 
         tipcalif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         tipcalif.setForeground(new java.awt.Color(255, 255, 255));
         tipcalif.setText("Tipo de Certificación:");
         getContentPane().add(tipcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 150, 20));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 130, 30));
+        getContentPane().add(eliminarfolioidiomastxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 130, 30));
 
         fol1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         fol1.setForeground(new java.awt.Color(255, 255, 255));
@@ -350,47 +460,11 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         areaagregar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areaagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 270, 190));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 60, 40));
-
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setContentAreaFilled(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
-
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
-        jButton6.setBorder(null);
-        jButton6.setBorderPainted(false);
-        jButton6.setContentAreaFilled(false);
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 430, -1, -1));
-
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton7.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/tachitagrande.png"))); // NOI18N
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, -1, -1));
-
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -404,11 +478,196 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+         try {
+            String agr = "INSERT into idiomas (FOLIO_IDIOMAS,TIPO_CERT,CALIFICACION,FK_NUM_CONTROL) values (?,?,?,?)";
+            pst = conn.prepareStatement(agr);
+            pst.setString(1, null);
+            pst.setString(4, numconag.getText());
+            pst.setString(2, texttipoag.getText());
+            pst.setString(3, textcalifagr.getText());
+            pst.execute();
+
+            JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
+        } catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        actualizar_tablaidiomas();
+        
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        
+        
+        
+        
+        
+        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+        if (verificacioncambio == 0) {
+            try {
+                String edittipocerti = editcertitxt.getText();
+                String editcali = editcaliidiomatxt.getText();
+                //String editnumcontrol = editfolioidiomas.getText();
+                String editfolio = editfolioidiomas.getText();
+                
+
+                String edit = "UPDATE idiomas set TIPO_CERT='" + edittipocerti + "', CALIFICACION='" + editcali + "' WHERE FOLIO_IDIOMAS='" + editfolio + "'";
+                pst = conn.prepareStatement(edit);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+           actualizar_tablaidiomas();
+        }
+
+                
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void tablaidiomasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaidiomasMouseClicked
+        // TODO add your handling code here:
+        
+        
+        try {
+            int row = tablaidiomas.getSelectedRow();
+            String Click_Tabla = (tablaidiomas.getModel().getValueAt(row, 0).toString());
+            String Click = "SELECT * From idiomas where FOLIO_IDIOMAS = '" + Click_Tabla + "' ";
+            pst = conn.prepareStatement(Click);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                String agregar1 = rs.getString("FOLIO_IDIOMAS");
+                eliminarfolioidiomastxt.setText(agregar1);
+
+                String agregar2 = rs.getString("TIPO_CERT");
+                texttipoag.setText(agregar2);
+
+                String agregar3 = rs.getString("CALIFICACION");
+                textcalifagr.setText(agregar3);
+
+                String agregar4 = rs.getString("FK_NUM_CONTROL");
+                numconag.setText(agregar4);
+                
+                String agregar5 = rs.getString("TIPO_CERT");
+                editcertitxt.setText(agregar5);
+                
+                String agregar6 = rs.getString("CALIFICACION");
+                editcaliidiomatxt.setText(agregar6);
+                
+                String agregar7 = rs.getString("FOLIO_IDIOMAS");
+               editfolioidiomas.setText(agregar7);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_tablaidiomasMouseClicked
+
+    private void buscarfolioidiomatxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarfolioidiomatxtKeyReleased
+        // TODO add your handling code here:
+        
+        try {
+
+            String buscarfolio = "SELECT * from idiomas where FOLIO_IDIOMAS=?";
+            pst = conn.prepareStatement(buscarfolio);
+            pst.setString(1, buscarfolioidiomatxt.getText());
+            rs = pst.executeQuery();
+
+            tablaidiomas.setModel(DbUtils.resultSetToTableModel(rs));
+
+            if (buscarfolioidiomatxt.getText().equals("")) {
+
+                String B = "SELECT * from idiomas";
+                pst = conn.prepareStatement(B);
+                rs = pst.executeQuery();
+
+                tablaidiomas.setModel(DbUtils.resultSetToTableModel(rs));
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_buscarfolioidiomatxtKeyReleased
+
+    private void buscarnumeroidiomatxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarnumeroidiomatxtKeyReleased
+        // TODO add your handling code here:
+        
+         try {
+
+            String buscarnumerocnotrol = "SELECT * from idiomas where FK_NUM_CONTROL=?";
+            pst = conn.prepareStatement(buscarnumerocnotrol);
+            pst.setString(1, buscarnumeroidiomatxt.getText());
+            rs = pst.executeQuery();
+
+            tablaidiomas.setModel(DbUtils.resultSetToTableModel(rs));
+
+            if (buscarnumeroidiomatxt.getText().equals("")) {
+
+                String B3 = "SELECT * from idiomas";
+                pst = conn.prepareStatement(B3);
+                rs = pst.executeQuery();
+
+                tablaidiomas.setModel(DbUtils.resultSetToTableModel(rs));
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        //
+    }//GEN-LAST:event_buscarnumeroidiomatxtKeyReleased
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        
+        int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+        if (verificacion == 0) {
+            String elim = "DELETE from idiomas where FOLIO_IDIOMAS=?";
+            try {
+                pst = conn.prepareStatement(elim);
+                pst.setString(1, eliminarfolioidiomastxt.getText());
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Deuda Eliminada");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+          actualizar_tablaidiomas();
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        texttipoag.setText("");
+        textcalifagr.setText("");
+        numconag.setText("");
+        
+        
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        
+        editcertitxt.setText("");
+        editcaliidiomatxt.setText("");
+        editfolioidiomas.setText("");
+        
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        
+        buscarfolioidiomatxt.setText("");
+        buscarnumeroidiomatxt.setText("");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -450,28 +709,28 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel areabucar;
     private javax.swing.JLabel areaeditar;
     private javax.swing.JLabel areaeliminar;
+    private javax.swing.JTextField buscarfolioidiomatxt;
+    private javax.swing.JTextField buscarnumeroidiomatxt;
     private javax.swing.JLabel calif;
     private javax.swing.JLabel calif1;
     private javax.swing.JLabel edit;
+    private javax.swing.JTextField editcaliidiomatxt;
+    private javax.swing.JTextField editcertitxt;
+    private javax.swing.JTextField editfolioidiomas;
     private javax.swing.JLabel elim;
+    private javax.swing.JTextField eliminarfolioidiomastxt;
     private javax.swing.JLabel fol;
     private javax.swing.JLabel fol1;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel generador;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField numcon;
     private javax.swing.JTextField numconag;
-    private javax.swing.JTextField numconag1;
     private javax.swing.JLabel numcontrol;
     private javax.swing.JLabel numcontrol1;
     private javax.swing.JLabel numcontrol2;
@@ -481,10 +740,9 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JPanel paneleiminiar;
     private javax.swing.JPanel panever;
     private javax.swing.JLabel pie;
+    private javax.swing.JTable tablaidiomas;
     private javax.swing.JScrollPane tablavalores;
-    private javax.swing.JTextField textcalif;
     private javax.swing.JTextField textcalifagr;
-    private javax.swing.JTextField texttipo;
     private javax.swing.JTextField texttipoag;
     private javax.swing.JLabel tipcalif;
     private javax.swing.JLabel tipcalif1;
