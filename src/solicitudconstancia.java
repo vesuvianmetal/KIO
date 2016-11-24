@@ -26,18 +26,35 @@ public class solicitudconstancia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        name = new javax.swing.JPanel();
+        aredatos = new javax.swing.JLabel();
+        FONDO = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        name.setBackground(new java.awt.Color(0, 204, 204));
+        name.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
+
+        javax.swing.GroupLayout nameLayout = new javax.swing.GroupLayout(name);
+        name.setLayout(nameLayout);
+        nameLayout.setHorizontalGroup(
+            nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 818, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        nameLayout.setVerticalGroup(
+            nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 78, Short.MAX_VALUE)
         );
+
+        getContentPane().add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, 820, 80));
+
+        aredatos.setBackground(new java.awt.Color(0, 204, 204));
+        aredatos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
+        getContentPane().add(aredatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 820, 580));
+
+        FONDO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/fondo.jpg"))); // NOI18N
+        getContentPane().add(FONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +95,8 @@ public class solicitudconstancia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel FONDO;
+    private javax.swing.JLabel aredatos;
+    private javax.swing.JPanel name;
     // End of variables declaration//GEN-END:variables
 }
