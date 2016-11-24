@@ -29,6 +29,8 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         fol = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         pie = new javax.swing.JLabel();
@@ -42,6 +44,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         numcontrol2 = new javax.swing.JLabel();
         panebuscar = new javax.swing.JPanel();
         trytofind = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         areabucar = new javax.swing.JLabel();
         paneleiminiar = new javax.swing.JPanel();
         elim = new javax.swing.JLabel();
@@ -51,6 +54,9 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         calif = new javax.swing.JLabel();
         textcalif = new javax.swing.JTextField();
         tipcalif = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        fol1 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         areaeliminar = new javax.swing.JLabel();
         paneditar = new javax.swing.JPanel();
         edit = new javax.swing.JLabel();
@@ -74,6 +80,12 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton2.setText("jButton2");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, -1));
+
+        jButton1.setText("jButton1");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
 
         fol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         fol.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,12 +144,12 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Folio", "Tipo de Certificacion", "Calificacion", "Numero de Control"
+                "Folio", "Tipo de Certificación", "Calificación", "Numero de Control"
             }
         ));
         tablavalores.setViewportView(jTable1);
 
-        getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 540, 110));
+        getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 540, 90));
 
         numconag1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         getContentPane().add(numconag1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 130, 30));
@@ -171,6 +183,9 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         );
 
         getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 190, 30));
+
+        jButton3.setText("jButton3");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         areabucar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 190, 160));
@@ -222,6 +237,15 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         tipcalif.setForeground(new java.awt.Color(255, 255, 255));
         tipcalif.setText("Tipo de Certificación:");
         getContentPane().add(tipcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 310, 150, 20));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 130, 30));
+
+        fol1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        fol1.setForeground(new java.awt.Color(255, 255, 255));
+        fol1.setText("Folio:");
+        getContentPane().add(fol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
+
+        jButton4.setText("jButton4");
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
 
         areaeliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areaeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 190, 190));
@@ -366,11 +390,17 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel edit;
     private javax.swing.JLabel elim;
     private javax.swing.JLabel fol;
+    private javax.swing.JLabel fol1;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel generador;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField numcon;
     private javax.swing.JTextField numconag;
     private javax.swing.JTextField numconag1;
