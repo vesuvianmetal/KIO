@@ -7,7 +7,9 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+import java.security.MessageDigest;
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
 
 
 
@@ -23,9 +25,10 @@ PreparedStatement pst=null;
     }
       String cap=null;
 
-    void acceder (String usuario, String pass){
+    void acceder (String usuario, String pass) throws Exception{
+        
         //lee datos de la tabla usuarios donde sea el usuario concuerde con la contraseña de su dicho usuario
-        String sql = "SELECT * FROM T_Usuarios WHERE Usuario='" + usuario + "' AND Contrasena='" + pass + "'";
+        String sql = "SELECT * FROM T_Usuarios WHERE Usuario='" + usuario + "' AND Contrasena='"+pass+"'";
         
         try {
             Statement st = conn.createStatement(); 
@@ -52,7 +55,7 @@ ResultSet rs1 = st.executeQuery (sql);
                 IB.setVisible(true);
                 this.dispose();
             }
-            if (cap.equals("lenguajes")) {
+            if (cap.equals("idiomas")) {
                 Interfaz_Lenguajes IL = new Interfaz_Lenguajes();
                 IL.setVisible(true);
                 this.dispose();
