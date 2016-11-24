@@ -164,7 +164,12 @@ public class item extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+   int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
+            if(a==JOptionPane.YES_OPTION){
+                this.dispose();
+                login metodo1=new login();
+                metodo1.setVisible(true);
+            }// TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
