@@ -50,7 +50,9 @@ public class solicitudbecas extends javax.swing.JFrame {
         aredatos.setBackground(new java.awt.Color(0, 204, 204));
         aredatos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        aredatos.setBackground(new java.awt.Color(0, 204, 204));
+        aredatos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
+
         setTitle("Solicitud De Becas-PIE V1.0");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

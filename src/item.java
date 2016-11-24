@@ -41,7 +41,6 @@ public class item extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Programa de Interactivo Escolar PIEv1.0-MENU");
         setExtendedState(6);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,6 +77,11 @@ public class item extends javax.swing.JFrame {
         jButton5.setContentAreaFilled(false);
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton5.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/constanciagrande_1.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 400, 100));
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/volteado.png"))); // NOI18N
@@ -98,6 +102,11 @@ public class item extends javax.swing.JFrame {
         jButton2.setContentAreaFilled(false);
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/bibliotecados.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 390, 110));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/kardex.png"))); // NOI18N
@@ -140,12 +149,8 @@ public class item extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-        Solicitud_Beca sb = new Solicitud_Beca();
-        sb.setVisible(true);
+solicitudbecas vp=new solicitudbecas();
+vp.setVisible(true);// TODO add your handling code here:
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -171,6 +176,18 @@ public class item extends javax.swing.JFrame {
                 metodo1.setVisible(true);
             }// TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+solicitudconstancia vp=new solicitudconstancia();   
+vp.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      adeudosbiblioteca vp= new adeudosbiblioteca();
+      vp.setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

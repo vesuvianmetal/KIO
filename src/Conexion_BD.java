@@ -14,7 +14,7 @@ public class Conexion_BD {
     JOptionPane.showMessageDialog(null, "Conexion Establecida");
           return conn;
       } catch (ClassNotFoundException | SQLException | HeadlessException e){
-          JOptionPane.showMessageDialog(null, e);
+          JOptionPane.showMessageDialog(null, "Error En La Conexion , Revisa la misma o los parametros de conexion");
           return null;
       }
   }
