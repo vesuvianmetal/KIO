@@ -2,12 +2,15 @@
 import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 public class Conexion_BD {
  Connection conn = null;
   public static Connection conectardb(){
       try {
-          Class.forName("org.sqlite.JDBC");
-          Connection conn=DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Penudo McFly\\Documents\\NetBeansProjects\\Kiosko_Propio\\src\\BD\\khe.sqlite");
+          Class.forName("com.mysql.jdbc.Driver");
+          Connection conn=DriverManager.getConnection("jdbc:mysql://192.168.1.96:3306/mydb","admin", "admin");
     JOptionPane.showMessageDialog(null, "Conexion Establecida");
           return conn;
       } catch (ClassNotFoundException | SQLException | HeadlessException e){
