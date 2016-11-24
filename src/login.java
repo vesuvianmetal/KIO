@@ -106,6 +106,7 @@ ResultSet rs1 = st.executeQuery (sql);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Iniciar Session");
         setMaximumSize(new java.awt.Dimension(1336, 768));
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
