@@ -31,7 +31,6 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         aredatos = new javax.swing.JLabel();
         FONDO = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -73,9 +72,6 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
         FONDO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/fondo.jpg"))); // NOI18N
         getContentPane().add(FONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jToggleButton1.setText("jToggleButton1");
-        getContentPane().add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 310, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -120,7 +116,6 @@ public class solicitudconstancia extends javax.swing.JFrame {
     private javax.swing.JLabel aredatos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JPanel name;
     // End of variables declaration//GEN-END:variables
 }
