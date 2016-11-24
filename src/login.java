@@ -7,9 +7,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.security.MessageDigest;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
+
 
 
 
@@ -24,9 +22,9 @@ PreparedStatement pst=null;
    
     }
       String cap=null;
-
+public String pass;
     void acceder (String usuario, String pass) throws Exception{
-        
+
         //lee datos de la tabla usuarios donde sea el usuario concuerde con la contraseña de su dicho usuario
         String sql = "SELECT * FROM T_Usuarios WHERE Usuario='" + usuario + "' AND Contrasena='"+pass+"'";
         
@@ -105,7 +103,7 @@ ResultSet rs1 = st.executeQuery (sql);
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Iniciar Session");
         setMaximumSize(new java.awt.Dimension(1336, 768));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -304,7 +302,16 @@ ResultSet rs1 = st.executeQuery (sql);
     }//GEN-LAST:event_contratxtKeyPressed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        // TODO add your handling code here:
+String user = JOptionPane.showInputDialog(null, "Usuario");
+		String password = JOptionPane.showInputDialog(null, "Contraseña");
+
+		if ("admin".equals(user) && "admin".equals(password)) {
+			JOptionPane.showMessageDialog(null, "Inicio de Sesion Correcto");
+		}else {
+			JOptionPane.showMessageDialog(null, "Inicio de Sesion Fallido");
+                        login vp=new login();
+                        vp.setVisible(true);
+                        		}        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
     /**
