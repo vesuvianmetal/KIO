@@ -262,10 +262,10 @@ public class solicitudconstancia extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         try{
-            numcontrl2.setText("");
-            numcontrl3.setText("");
+            nombre1.setText("");
+            carrera.setText("");
             numcontrl1.setText("");
-            jComboBox1.setSelectedIndex(0);
+            semestre.setSelectionStart(0);
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
@@ -278,9 +278,9 @@ public class solicitudconstancia extends javax.swing.JFrame {
             String agr = "INSERT into becas (FOLIO_BECAS,PROMEDIO,TIPO_BECA,FK_NUMERO_CONTROL_BECAS,correo_electronico) values (?,?,?,?,?)";
             pst = conn.prepareStatement(agr);
             pst.setString(1, null);
-            pst.setString(4, numcontrl2.getText());
-            pst.setString(2, numcontrl3.getText());
-            pst.setString(3, jComboBox1.getSelectedItem().toString());
+            pst.setString(4, nombre1.getText());
+            pst.setString(2, carrera.getText());
+            pst.setString(3, semestre.getSelectedText());
             pst.setString(5, numcontrl1.getText());
             pst.execute();
 
