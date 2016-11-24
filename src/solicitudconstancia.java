@@ -1,3 +1,9 @@
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,11 +15,14 @@
  * @author Disco
  */
 public class solicitudconstancia extends javax.swing.JFrame {
-
+ Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
     /**
      * Creates new form solicitudconstancia
      */
     public solicitudconstancia() {
+        conn = Conexion_BD.conectardb();
         initComponents();
     }
 
@@ -28,10 +37,10 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        caja = new javax.swing.JTextField();
+        email = new javax.swing.JTextField();
         numcontrl1 = new javax.swing.JTextField();
         nombre1 = new javax.swing.JTextField();
-        semestre1 = new javax.swing.JTextField();
+        carrera = new javax.swing.JTextField();
         semestre = new javax.swing.JTextField();
         caja1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -64,18 +73,26 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jButton1.setText("Enviar");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 620, 90, 30));
 
-        caja.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 350, 50));
+        email.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 350, 50));
 
         numcontrl1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        numcontrl1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                numcontrl1KeyReleased(evt);
+            }
+        });
         getContentPane().add(numcontrl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 350, 50));
 
+        nombre1.setEditable(false);
         nombre1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(nombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 260, 350, 50));
 
-        semestre1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(semestre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 350, 50));
+        carrera.setEditable(false);
+        carrera.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(carrera, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 350, 50));
 
+        semestre.setEditable(false);
         semestre.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(semestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 350, 50));
 
@@ -179,6 +196,33 @@ public class solicitudconstancia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void numcontrl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontrl1KeyReleased
+        // TODO add your handling code here:
+        try{
+        String buscarfolio = "SELECT * from alumno where NUMERO_CONTROL=?";
+            pst = conn.prepareStatement(buscarfolio);
+            pst.setString(1, numcontrl1.getText());
+            rs = pst.executeQuery();
+        
+         if (rs.next()) {
+
+                String agregar1 = rs.getString("NOMBRE");
+                nombre1.setText(agregar1);
+
+                String agregar2 = rs.getString("CARRERA");
+                carrera.setText(agregar2);
+
+                String agregar3 = rs.getString("SEMESTRE");
+                semestre.setText(agregar3);
+
+                
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_numcontrl1KeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -217,8 +261,9 @@ public class solicitudconstancia extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel FONDO;
     private javax.swing.JLabel aredatos;
-    private javax.swing.JTextField caja;
     private javax.swing.JTextField caja1;
+    private javax.swing.JTextField carrera;
+    private javax.swing.JTextField email;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -237,6 +282,5 @@ public class solicitudconstancia extends javax.swing.JFrame {
     private javax.swing.JTextField nombre1;
     private javax.swing.JTextField numcontrl1;
     private javax.swing.JTextField semestre;
-    private javax.swing.JTextField semestre1;
     // End of variables declaration//GEN-END:variables
 }
