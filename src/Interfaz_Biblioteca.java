@@ -171,6 +171,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
@@ -292,7 +296,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 btncambioActionPerformed(evt);
             }
         });
-        getContentPane().add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 402, 150, -1));
+        getContentPane().add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 150, -1));
 
         editcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         getContentPane().add(editcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 272, 150, -1));
@@ -343,9 +347,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel8.setText("Agregar");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
+        jLabel9.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Generador de Reportes ");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
 
         jLabel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 560, 250));
@@ -354,9 +359,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 150, 210));
 
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Programa Interactivo Escolar V.1.0");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
