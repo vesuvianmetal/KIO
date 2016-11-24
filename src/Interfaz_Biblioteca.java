@@ -1,9 +1,13 @@
 
 import java.awt.HeadlessException;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -83,6 +87,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         elimnumerocontroltxt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         btncambio = new javax.swing.JButton();
         editcodlibrotxt = new javax.swing.JTextField();
         editnumcontroltxt = new javax.swing.JTextField();
@@ -247,6 +255,28 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Numero De Control:");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Subir Registros");
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 220, -1, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 170, -1));
+
+        jButton2.setText("Buscar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, -1, -1));
+
+        jButton1.setText("Guardar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, -1, -1));
 
         btncambio.setBackground(new java.awt.Color(255, 255, 255));
         btncambio.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -528,6 +558,41 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_buscarfoliotxtKeyReleased
+String nombrearchivo;
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+        JFileChooser escoger=new JFileChooser();
+        escoger.showOpenDialog(null);
+        File f =escoger.getSelectedFile();
+        nombrearchivo =f.getAbsolutePath();
+
+        jTextField1.setText(nombrearchivo);
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        try {
+
+            BufferedReader br=new BufferedReader(new FileReader(nombrearchivo));
+            String line;
+
+            while((line=br.readLine())!=null){
+                String[]value=line.split(","); //separador de valor
+                String sql="insert into Adeudo_Biblioteca (Numero_Control_Alumno,Codigo_Libro,Adeudo_Biblioteca) Values('"+value[0]+"','"+value[1]+"','"+value[2]+"')";
+                pst=conn.prepareStatement(sql);
+                pst.executeUpdate();
+            }
+            br.close();
+
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        actualizar_tabla();
+
+    }//GEN-LAST:event_jButton1ActionPerformed
     int editnumc = 0;
 
     int addo = 0;
@@ -579,6 +644,8 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private javax.swing.JTextField editcodlibrotxt;
     private javax.swing.JTextField editnumcontroltxt;
     private javax.swing.JTextField elimnumerocontroltxt;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -595,6 +662,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -604,6 +672,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tabla_aduedo;
     // End of variables declaration//GEN-END:variables
 }
