@@ -60,7 +60,7 @@ Connection conn = null;
 
         jButton3 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        foliotxt = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -96,7 +96,7 @@ Connection conn = null;
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, -1, 20));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 130, 20));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 130, 20));
+        getContentPane().add(foliotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 130, 20));
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 130, 20));
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 390, 130, 20));
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 120, 30));
@@ -104,6 +104,11 @@ Connection conn = null;
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 153, 153));
         jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -201,8 +206,8 @@ Connection conn = null;
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Numero de Control:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
+        jLabel2.setText("Folio:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, -1));
 
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -218,6 +223,7 @@ Connection conn = null;
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 490));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -228,12 +234,12 @@ Connection conn = null;
           int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         if (verificacioncambio == 0) {
             try {
-                String editnumc = jTextField2.getText();
+                String editnumc = foliotxt.getText();
                 String editpromedio = jTextField3.getText();
                 String edittipobeca = jTextField4.getText();
                 String editemail =  jTextField1.getText();
                 
-                String edit = "UPDATE becas set PROMEDIO='" + editpromedio + "', TIPO_BECA='"+edittipobeca+"', correo_electronico='"+ editemail +"' WHERE FK_NUMERO_CONTROL_BECAS='" + editnumc + "'";
+                String edit = "UPDATE becas set PROMEDIO='" + editpromedio + "', TIPO_BECA='"+edittipobeca+"', correo_electronico='"+ editemail +"' WHERE FOLIO_BECAS='" + editnumc + "'";
                 pst = conn.prepareStatement(edit);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
@@ -260,7 +266,7 @@ Connection conn = null;
             if (rs.next()) {
 
                 String agregar1 = rs.getString("FOLIO_BECAS");
-                jTextField2.setText(agregar1);
+                foliotxt.setText(agregar1);
 
                 String agregar2 = rs.getString("PROMEDIO");
                 jTextField3.setText(agregar2);
@@ -270,6 +276,9 @@ Connection conn = null;
 
                 String agregar4 = rs.getString("correo_electronico");
                 jTextField1.setText(agregar4);
+                
+                String agregar5 = rs.getString("FOLIO_BECAS");
+                jTextField5.setText(agregar5);
                 
                 
             }
@@ -288,6 +297,31 @@ Connection conn = null;
 Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
         vp.actualizar_tabla();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+        if (verificacion == 0) {
+            String elim = "DELETE from becas where FOLIO_BECAS=?";
+            try {
+                pst = conn.prepareStatement(elim);
+                pst.setString(1, jTextField5.getText());
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Deuda Eliminada");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+            actualizar_tablabecas();
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -325,6 +359,7 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField foliotxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -344,7 +379,6 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
