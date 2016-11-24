@@ -150,7 +150,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
         aredatos.setBackground(new java.awt.Color(0, 204, 204));
         aredatos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(aredatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 820, 580));
+        getContentPane().add(aredatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 820, 560));
 
         FONDO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/fondo.jpg"))); // NOI18N
         getContentPane().add(FONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, -1));
