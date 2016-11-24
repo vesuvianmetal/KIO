@@ -26,14 +26,14 @@ public String pass;
     void acceder (String usuario, String pass) throws Exception{
 
         //lee datos de la tabla usuarios donde sea el usuario concuerde con la contraseña de su dicho usuario
-        String sql = "SELECT * FROM T_Usuarios WHERE Usuario='" + usuario + "' AND Contrasena='"+pass+"'";
+        String sql = "SELECT * FROM usuarios WHERE USUARIO='" + usuario + "' AND CONTRASENA='"+pass+"'";
         
         try {
             Statement st = conn.createStatement(); 
 ResultSet rs1 = st.executeQuery (sql);
             while (rs1.next()) {
                 //variable cap captura el tipo de usuario de cada quien
-                cap = rs1.getString("Tipo_Usuario");
+                cap = rs1.getString("TIPO_USUARIO");
 
             }
             //cada if compara los tipos de usuarios de cada quien y abre su interfaz correspondiente

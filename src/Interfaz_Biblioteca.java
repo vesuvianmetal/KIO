@@ -18,10 +18,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     PreparedStatement pst = null;
 
     public Interfaz_Biblioteca() {
-      //  conn = Conexion_BD.conectardb();
+       conn = Conexion_BD.conectardb();
         initComponents();
         filltable();
-        this.setLocationRelativeTo(this);
+       // this.setLocationRelativeTo(this);
 
     }
     int elimno = 0;
