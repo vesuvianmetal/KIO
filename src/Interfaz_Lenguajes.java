@@ -67,6 +67,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         edit = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         elim = new javax.swing.JLabel();
@@ -77,6 +78,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         buscarfolioidiomatxt = new javax.swing.JTextField();
         pie = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         generador = new javax.swing.JLabel();
         tablavalores = new javax.swing.JScrollPane();
         tablaidiomas = new javax.swing.JTable();
@@ -111,6 +113,11 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 153, 153));
+        jButton1.setText("Borrar");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, -1));
 
         edit.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         edit.setForeground(new java.awt.Color(255, 255, 255));
@@ -171,6 +178,11 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setText("Centro de Idiomas");
         getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, -1));
+
+        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 153, 153));
+        jButton3.setText("Buscar");
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         generador.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         generador.setForeground(new java.awt.Color(255, 255, 255));
@@ -514,7 +526,9 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel fol1;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel generador;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField numconag;
