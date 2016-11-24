@@ -42,6 +42,10 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         areaeliminar = new javax.swing.JLabel();
         paneleiminiar = new javax.swing.JPanel();
         elim = new javax.swing.JLabel();
+        numcontrol = new javax.swing.JLabel();
+        texttipo = new javax.swing.JTextField();
+        calif = new javax.swing.JLabel();
+        tipcalif = new javax.swing.JLabel();
         paneditar = new javax.swing.JPanel();
         edit = new javax.swing.JLabel();
         areaeditar = new javax.swing.JLabel();
@@ -166,10 +170,28 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             paneleiminiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneleiminiarLayout.createSequentialGroup()
                 .addComponent(elim)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 7, Short.MAX_VALUE))
         );
 
         getContentPane().add(paneleiminiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 190, 30));
+
+        numcontrol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        numcontrol.setForeground(new java.awt.Color(255, 255, 255));
+        numcontrol.setText("Numero de Control:");
+        getContentPane().add(numcontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, -1, -1));
+
+        texttipo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(texttipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 130, 30));
+
+        calif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        calif.setForeground(new java.awt.Color(255, 255, 255));
+        calif.setText("Calificación:");
+        getContentPane().add(calif, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, -1, -1));
+
+        tipcalif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        tipcalif.setForeground(new java.awt.Color(255, 255, 255));
+        tipcalif.setText("Tipo de Certificación:");
+        getContentPane().add(tipcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 150, 20));
 
         paneditar.setBackground(new java.awt.Color(0, 204, 204));
         paneditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
@@ -282,12 +304,14 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel areabucar;
     private javax.swing.JLabel areaeditar;
     private javax.swing.JLabel areaeliminar;
+    private javax.swing.JLabel calif;
     private javax.swing.JLabel edit;
     private javax.swing.JLabel elim;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel generador;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel numcontrol;
     private javax.swing.JPanel panebuscar;
     private javax.swing.JPanel paneditar;
     private javax.swing.JPanel panelagregar;
@@ -295,6 +319,8 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JPanel panever;
     private javax.swing.JLabel pie;
     private javax.swing.JScrollPane tablavalores;
+    private javax.swing.JTextField texttipo;
+    private javax.swing.JLabel tipcalif;
     private javax.swing.JLabel titulo;
     private javax.swing.JLabel trytofind;
     private javax.swing.JLabel ve;
