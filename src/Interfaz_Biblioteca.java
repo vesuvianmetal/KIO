@@ -29,7 +29,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     void actualizar_tabla() {
         try {
 
-            String act = "SELECT * From Biblioteca";
+            String act = "SELECT * From biblioteca";
             pst = conn.prepareStatement(act);
             rs = pst.executeQuery();
 
@@ -43,7 +43,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
         try {
 
-            String B = "SELECT * From Biblioteca";
+            String B = "SELECT * From biblioteca";
             pst = conn.prepareStatement(B);
             rs = pst.executeQuery();
 
@@ -87,10 +87,13 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         elimnumerocontroltxt = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        editfoliotxt = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         btncambio = new javax.swing.JButton();
         editcodlibrotxt = new javax.swing.JTextField();
         editnumcontroltxt = new javax.swing.JTextField();
@@ -133,12 +136,12 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Adeudo:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(274, 312, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 350, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Folio:");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 370, -1, -1));
 
         jLabel23.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,7 +209,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Numero de Control:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 232, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -228,7 +231,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Codigo de Libro:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 272, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
@@ -254,7 +257,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 elimnumerocontroltxtKeyReleased(evt);
             }
         });
-        getContentPane().add(elimnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, 150, -1));
+        getContentPane().add(elimnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 150, -1));
 
         jLabel15.setBackground(new java.awt.Color(0, 153, 153));
         jLabel15.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
@@ -265,11 +268,17 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel22.setText("Numero De Control:");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
+        jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Folio:");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
+
         jLabel25.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Subir Registros");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 220, -1, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 170, -1));
+        getContentPane().add(editfoliotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 150, -1));
 
         jButton2.setText("Buscar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -287,6 +296,14 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, -1, -1));
 
+        jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, -1, -1));
+
         btncambio.setBackground(new java.awt.Color(255, 255, 255));
         btncambio.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btncambio.setForeground(new java.awt.Color(0, 153, 153));
@@ -296,10 +313,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 btncambioActionPerformed(evt);
             }
         });
-        getContentPane().add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 370, 150, -1));
+        getContentPane().add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 150, -1));
 
         editcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(editcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 272, 150, -1));
+        getContentPane().add(editcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 150, -1));
 
         editnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         editnumcontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -307,10 +324,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 editnumcontroltxtKeyReleased(evt);
             }
         });
-        getContentPane().add(editnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 232, 150, -1));
+        getContentPane().add(editnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 150, -1));
 
         editadeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(editadeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 312, 150, -1));
+        getContentPane().add(editadeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 150, -1));
 
         agrnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         getContentPane().add(agrnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 120, -1));
@@ -380,23 +397,23 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         try {
             int row = tabla_aduedo.getSelectedRow();
             String Click_Tabla = (tabla_aduedo.getModel().getValueAt(row, 0).toString());
-            String Click = "SELECT * From Biblioteca where Folio_Biblioteca = '" + Click_Tabla + "' ";
+            String Click = "SELECT * From biblioteca where FOLIO_BIBLIOTECA = '" + Click_Tabla + "' ";
             pst = conn.prepareStatement(Click);
             rs = pst.executeQuery();
 
             if (rs.next()) {
 
-                String agregar1 = rs.getString("Alumno_Numero_Control");
+                String agregar1 = rs.getString("FK_NUMERO_CONTROL_BIBLIOTECA");
                 editnumcontroltxt.setText(agregar1);
 
-                String agregar2 = rs.getString("Codigo_Libro");
+                String agregar2 = rs.getString("CODIGO_LIBRO");
                 editcodlibrotxt.setText(agregar2);
 
-                String agregar3 = rs.getString("Adeudo");
+                String agregar3 = rs.getString("ADEUDO");
                 editadeudotxt.setText(agregar3);
 
-                String agregar4 = rs.getString("Folio_Biblioteca");
-                elimnumerocontroltxt.setText(agregar4);
+                String agregar4 = rs.getString("FOLIO_BIBLIOTECA");
+                editfoliotxt.setText(agregar4);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -407,17 +424,17 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
         try {
 
-            String search = "SELECT Codigo_Libro,Adeudo_Biblioteca from Adeudo_Biblioteca where Numero_Control_Alumno=?";
+            String search = "SELECT CODIGO_LIBRO,ADEUDO from biblioteca where FK_NUMERO_CONTROL_BIBLIOTECA=?";
             pst = conn.prepareStatement(search);
             pst.setString(1, editnumcontroltxt.getText());
 
             rs = pst.executeQuery();
             if (rs.next()) {
 
-                String buscar1 = rs.getString("Codigo_Libro");
+                String buscar1 = rs.getString("CODIGO_LIBRO");
                 editcodlibrotxt.setText(buscar1);
 
-                String buscar2 = rs.getString("Adeudo_Biblioteca");
+                String buscar2 = rs.getString("ADEUDO");
                 editadeudotxt.setText(buscar2);
 
             }
@@ -435,8 +452,9 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 String editnumc = editnumcontroltxt.getText();
                 String editcodlib = editcodlibrotxt.getText();
                 String editadeudo = editadeudotxt.getText();
+                String editfolio =  editfoliotxt.getText();
 
-                String edit = "UPDATE Adeudo_Biblioteca set Codigo_Libro='" + editcodlib + "', Adeudo_Biblioteca='" + editadeudo + "' WHERE Numero_Control_Alumno='" + editnumc + "'";
+                String edit = "UPDATE biblioteca set CODIGO_LIBRO='" + editcodlib + "', ADEUDO='" + editadeudo + "' WHERE FOLIO_BIBLIOTECA='" + editfolio + "'";
                 pst = conn.prepareStatement(edit);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
@@ -452,7 +470,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private void elimnumerocontroltxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_elimnumerocontroltxtKeyReleased
         try {
 
-            String buscarfolio2 = "SELECT * from Adeudo_Biblioteca where Folio_Biblioteca=?";
+            String buscarfolio2 = "SELECT * from biblioteca where FOLIO_BIBLIOTECA=?";
             pst = conn.prepareStatement(buscarfolio2);
             pst.setString(1, elimnumerocontroltxt.getText());
             rs = pst.executeQuery();
@@ -461,7 +479,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
             if (elimnumerocontroltxt.getText().equals("")) {
 
-                String B2 = "SELECT * from Adeudo_Biblioteca";
+                String B2 = "SELECT * from biblioteca";
                 pst = conn.prepareStatement(B2);
                 rs = pst.executeQuery();
 
@@ -477,12 +495,12 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
 
         try {
-            String agr = "INSERT into Adeudo_Biblioteca (Folio_Biblioteca,Numero_Control_Alumno,Codigo_Libro,Adeudo_Biblioteca) values (?,?,?,?)";
+            String agr = "INSERT into biblioteca (FOLIO_BIBLIOTECA,CODIGO_LIBRO,ADEUDO,FK_NUMERO_CONTROL_BIBLIOTECA) values (?,?,?,?)";
             pst = conn.prepareStatement(agr);
             pst.setString(1, null);
-            pst.setString(2, agrnumcontroltxt.getText());
-            pst.setString(3, agrcodlibrotxt.getText());
-            pst.setString(4, agradeudotxt.getText());
+            pst.setString(4, agrnumcontroltxt.getText());
+            pst.setString(2, agrcodlibrotxt.getText());
+            pst.setString(3, agradeudotxt.getText());
             pst.execute();
 
             JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
@@ -496,7 +514,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
         try {
 
-            String buscarcodigolibro = "SELECT * from Adeudo_Biblioteca where Codigo_Libro=?";
+            String buscarcodigolibro = "SELECT * from biblioteca where CODIGO_LIBRO=?";
             pst = conn.prepareStatement(buscarcodigolibro);
             pst.setString(1, buscarcodigolibrotxt.getText());
             rs = pst.executeQuery();
@@ -505,7 +523,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
             if (buscarcodigolibrotxt.getText().equals("")) {
 
-                String B3 = "SELECT * from Adeudo_Biblioteca";
+                String B3 = "SELECT * from biblioteca";
                 pst = conn.prepareStatement(B3);
                 rs = pst.executeQuery();
 
@@ -522,7 +540,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
         try {
 
-            String buscarnumerocnotrol = "SELECT * from Adeudo_Biblioteca where Numero_Control_Alumno=?";
+            String buscarnumerocnotrol = "SELECT * from biblioteca where FK_NUMERO_CONTROL_BIBLIOTECA=?";
             pst = conn.prepareStatement(buscarnumerocnotrol);
             pst.setString(1, buscarnumerocontroltxt.getText());
             rs = pst.executeQuery();
@@ -531,7 +549,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
             if (buscarnumerocontroltxt.getText().equals("")) {
 
-                String B3 = "SELECT * from Adeudo_Biblioteca";
+                String B3 = "SELECT * from biblioteca";
                 pst = conn.prepareStatement(B3);
                 rs = pst.executeQuery();
 
@@ -548,7 +566,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
         try {
 
-            String buscarfolio = "SELECT * from Adeudo_Biblioteca where Folio_Biblioteca=?";
+            String buscarfolio = "SELECT * from biblioteca where FOLIO_BIBLIOTECA=?";
             pst = conn.prepareStatement(buscarfolio);
             pst.setString(1, buscarfoliotxt.getText());
             rs = pst.executeQuery();
@@ -557,7 +575,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
             if (buscarfoliotxt.getText().equals("")) {
 
-                String B = "SELECT * from Adeudo_Biblioteca";
+                String B = "SELECT * from biblioteca";
                 pst = conn.prepareStatement(B);
                 rs = pst.executeQuery();
 
@@ -613,6 +631,26 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
                 metodo1.setVisible(true);
             }        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+        int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+        if (verificacion == 0) {
+            String elim = "DELETE from biblioteca where FOLIO_BIBLIOTECA=?";
+            try {
+                pst = conn.prepareStatement(elim);
+                pst.setString(1, elimnumerocontroltxt.getText());
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Deuda Eliminada");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+            actualizar_tabla();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
     int editnumc = 0;
 
     int addo = 0;
@@ -662,15 +700,18 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JTextField buscarnumerocontroltxt;
     private javax.swing.JTextField editadeudotxt;
     private javax.swing.JTextField editcodlibrotxt;
+    private javax.swing.JTextField editfoliotxt;
     private javax.swing.JTextField editnumcontroltxt;
     private javax.swing.JTextField elimnumerocontroltxt;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
