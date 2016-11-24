@@ -31,6 +31,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         nombre1 = new javax.swing.JTextField();
         semestre1 = new javax.swing.JTextField();
         semestre = new javax.swing.JTextField();
+        caja1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -38,6 +39,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
         name = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -63,10 +65,13 @@ public class solicitudconstancia extends javax.swing.JFrame {
         semestre.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         getContentPane().add(semestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 420, 350, 50));
 
+        caja1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(caja1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 560, 350, 50));
+
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Folio Caja:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 500, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 570, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,6 +102,11 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Ingresa los Datos Solicitados Despues Presione Continuar");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("Correo Electronico*:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, -1, -1));
 
         name.setBackground(new java.awt.Color(0, 204, 204));
         name.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
@@ -187,8 +197,10 @@ public class solicitudconstancia extends javax.swing.JFrame {
     private javax.swing.JLabel FONDO;
     private javax.swing.JLabel aredatos;
     private javax.swing.JTextField caja;
+    private javax.swing.JTextField caja1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
