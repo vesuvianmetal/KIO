@@ -1,5 +1,9 @@
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,12 +16,42 @@ import javax.swing.JOptionPane;
  * @author Penudo McFly
  */
 public class Interfaz_Admin extends javax.swing.JFrame {
-
+Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
     /**
      * Creates new form Interfaz_Admin
      */
     public Interfaz_Admin() {
+       conn = Conexion_BD.conectardb();
         initComponents();
+        filltable();
+    }
+    void actualizar_tabla() {
+        try {
+
+            String act = "select ID_USUARIO,CONTRASENA,TIPO_USUARIO FROM USUARIOS";
+            pst = conn.prepareStatement(act);
+            rs = pst.executeQuery();
+
+            tabla_admin.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    void filltable() {
+
+        try {
+
+            String act = "select ID_USUARIO,CONTRASENA,TIPO_USUARIO FROM USUARIOS";
+            pst = conn.prepareStatement(act);
+            rs = pst.executeQuery();
+
+            tabla_admin.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }
 
     /**
@@ -31,7 +65,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
 
         jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabla_admin = new javax.swing.JTable();
         jButton7 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
@@ -56,7 +90,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        eliminaid_usuario = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
@@ -71,8 +105,8 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabla_admin.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        tabla_admin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -83,18 +117,28 @@ public class Interfaz_Admin extends javax.swing.JFrame {
                 "ID_Usuario", "Contraseña", "Tipo de  Usuario"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabla_admin);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 480, 90));
 
         jButton7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(0, 153, 153));
         jButton7.setText("Eliminar");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
 
         jButton6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(0, 153, 153));
         jButton6.setText("Aplicar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -136,6 +180,11 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         jButton8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton8.setForeground(new java.awt.Color(0, 153, 153));
         jButton8.setText("Actualizar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, -1, 20));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
@@ -198,7 +247,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Administrador");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 100, 30));
+        getContentPane().add(eliminaid_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 100, 30));
 
         jLabel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 230, 210));
@@ -228,6 +277,36 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+actualizar_tabla();   
+        
+    // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+        if (verificacion == 0) {
+            String elim = "DELETE from usuarios where ID_Usuario=?";
+            try {
+                /*pst = conn.prepareStatement(elim);
+                pst.setString(1, eliminaid_usuario.getText());
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Registro Eliminada");*/
+                pst = conn.prepareStatement(elim);
+            pst.setString(1, eliminaid_usuario.getText());
+            rs = pst.executeQuery();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+            Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
+            vp.actualizar_tabla();
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,6 +344,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField eliminaid_usuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -291,10 +371,9 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTable tabla_admin;
     // End of variables declaration//GEN-END:variables
 }
