@@ -62,6 +62,8 @@ Connection conn = null;
         aredatos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
 
         setTitle("Solicitud De Becas-PIE V1.0");
+        setExtendedState(6);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         name.setBackground(new java.awt.Color(0, 204, 204));
