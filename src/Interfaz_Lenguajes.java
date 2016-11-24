@@ -42,9 +42,11 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         areaeliminar = new javax.swing.JLabel();
         paneleiminiar = new javax.swing.JPanel();
         elim = new javax.swing.JLabel();
+        numcon = new javax.swing.JTextField();
         numcontrol = new javax.swing.JLabel();
         texttipo = new javax.swing.JTextField();
         calif = new javax.swing.JLabel();
+        textcalif = new javax.swing.JTextField();
         tipcalif = new javax.swing.JLabel();
         paneditar = new javax.swing.JPanel();
         edit = new javax.swing.JLabel();
@@ -175,10 +177,13 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
         getContentPane().add(paneleiminiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, 190, 30));
 
+        numcon.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(numcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 130, 30));
+
         numcontrol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         numcontrol.setForeground(new java.awt.Color(255, 255, 255));
         numcontrol.setText("Numero de Control:");
-        getContentPane().add(numcontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 360, -1, -1));
+        getContentPane().add(numcontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, -1, -1));
 
         texttipo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         getContentPane().add(texttipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 130, 30));
@@ -186,7 +191,10 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         calif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         calif.setForeground(new java.awt.Color(255, 255, 255));
         calif.setText("Calificación:");
-        getContentPane().add(calif, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, -1, -1));
+        getContentPane().add(calif, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
+
+        textcalif.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(textcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 130, 30));
 
         tipcalif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         tipcalif.setForeground(new java.awt.Color(255, 255, 255));
@@ -311,6 +319,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel generador;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField numcon;
     private javax.swing.JLabel numcontrol;
     private javax.swing.JPanel panebuscar;
     private javax.swing.JPanel paneditar;
@@ -319,6 +328,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JPanel panever;
     private javax.swing.JLabel pie;
     private javax.swing.JScrollPane tablavalores;
+    private javax.swing.JTextField textcalif;
     private javax.swing.JTextField texttipo;
     private javax.swing.JLabel tipcalif;
     private javax.swing.JLabel titulo;
