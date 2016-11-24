@@ -29,7 +29,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     void actualizar_tabla() {
         try {
 
-            String act = "SELECT * From Adeudo_Biblioteca";
+            String act = "SELECT * From Biblioteca";
             pst = conn.prepareStatement(act);
             rs = pst.executeQuery();
 
@@ -43,7 +43,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
         try {
 
-            String B = "SELECT * from Adeudo_Biblioteca";
+            String B = "SELECT * From Biblioteca";
             pst = conn.prepareStatement(B);
             rs = pst.executeQuery();
 
@@ -108,8 +108,13 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -369,19 +374,19 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         try {
             int row = tabla_aduedo.getSelectedRow();
             String Click_Tabla = (tabla_aduedo.getModel().getValueAt(row, 0).toString());
-            String Click = "select * from Adeudo_Biblioteca where Folio_Biblioteca = '" + Click_Tabla + "' ";
+            String Click = "SELECT * From Biblioteca where Folio_Biblioteca = '" + Click_Tabla + "' ";
             pst = conn.prepareStatement(Click);
             rs = pst.executeQuery();
 
             if (rs.next()) {
 
-                String agregar1 = rs.getString("Numero_Control_Alumno");
+                String agregar1 = rs.getString("Alumno_Numero_Control");
                 editnumcontroltxt.setText(agregar1);
 
                 String agregar2 = rs.getString("Codigo_Libro");
                 editcodlibrotxt.setText(agregar2);
 
-                String agregar3 = rs.getString("Adeudo_Biblioteca");
+                String agregar3 = rs.getString("Adeudo");
                 editadeudotxt.setText(agregar3);
 
                 String agregar4 = rs.getString("Folio_Biblioteca");
@@ -593,6 +598,15 @@ String nombrearchivo;
         actualizar_tabla();
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
+            if(a==JOptionPane.YES_OPTION){
+                this.dispose();
+                login metodo1=new login();
+                metodo1.setVisible(true);
+            }        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
     int editnumc = 0;
 
     int addo = 0;
