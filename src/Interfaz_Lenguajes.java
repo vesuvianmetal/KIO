@@ -31,6 +31,8 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
         tablavalores = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        areaeditar = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -57,7 +59,13 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         ));
         tablavalores.setViewportView(jTable1);
 
-        getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 480, 110));
+        getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 480, 110));
+
+        jLabel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 190, 190));
+
+        areaeditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
+        getContentPane().add(areaeditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 480, 230));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -110,7 +118,9 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel areaeditar;
     private javax.swing.JLabel fondo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JTable jTable1;
     private javax.swing.JScrollPane tablavalores;
     // End of variables declaration//GEN-END:variables
