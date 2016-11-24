@@ -38,6 +38,7 @@ public class item extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,12 +64,13 @@ public class item extends javax.swing.JFrame {
         jButton6.setBorderPainted(false);
         jButton6.setContentAreaFilled(false);
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoutgrandesita.png"))); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 510, 140, 70));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 500, 80, 70));
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/contancia.png"))); // NOI18N
         jButton5.setBorder(null);
@@ -122,6 +124,10 @@ public class item extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 550, 380, 120));
+
+        jLabel5.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 490, 400, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-400, -20, -1, 1070));
@@ -207,5 +213,6 @@ public class item extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables
 }
