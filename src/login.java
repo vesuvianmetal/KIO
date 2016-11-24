@@ -15,14 +15,16 @@ public class login extends javax.swing.JFrame {
 Connection conn=null;
 ResultSet rs=null;
 PreparedStatement pst=null;
-    
+   
     public login() {
          conn=Conexion_BD.conectardb(); //llamado de conexion de base de datos
         initComponents();
    
     }
+    
       String cap=null;
 public String pass;
+
     void acceder (String usuario, String pass) throws Exception{
 
         //lee datos de la tabla usuarios donde sea el usuario concuerde con la contraseña de su dicho usuario
@@ -68,6 +70,9 @@ ResultSet rs1 = st.executeQuery (sql);
             JOptionPane.showMessageDialog(null, e);
         }
 }
+
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -158,6 +163,11 @@ ResultSet rs1 = st.executeQuery (sql);
         usuariotxt.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         usuariotxt.setForeground(new java.awt.Color(255, 255, 255));
         usuariotxt.setToolTipText("");
+        usuariotxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                usuariotxtKeyTyped(evt);
+            }
+        });
 
         jLabel3.setBackground(new java.awt.Color(102, 102, 102));
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -313,6 +323,10 @@ String user = JOptionPane.showInputDialog(null, "Usuario");
                         vp.setVisible(true);
                         		}        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
+
+    private void usuariotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuariotxtKeyTyped
+// ignorar el evento de teclado
+    }//GEN-LAST:event_usuariotxtKeyTyped
 
     /**
      * @param args the command line arguments
