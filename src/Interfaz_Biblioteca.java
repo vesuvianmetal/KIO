@@ -78,6 +78,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         buscarnumerocontroltxt = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -93,7 +94,6 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         editfoliotxt = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         btncambio = new javax.swing.JButton();
         editcodlibrotxt = new javax.swing.JTextField();
         editnumcontroltxt = new javax.swing.JTextField();
@@ -221,6 +221,14 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel18.setText("Codigo de Libro");
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
 
+        jButton3.setText("Eliminar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, -1, -1));
+
         buscarnumerocontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarnumerocontroltxtKeyReleased(evt);
@@ -295,14 +303,6 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 290, -1, -1));
-
-        jButton3.setText("Eliminar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, -1, -1));
 
         btncambio.setBackground(new java.awt.Color(255, 255, 255));
         btncambio.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
