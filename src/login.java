@@ -17,7 +17,7 @@ ResultSet rs=null;
 PreparedStatement pst=null;
     
     public login() {
-         //conn=Conexion_BD.conectardb(); //llamado de conexion de base de datos
+         conn=Conexion_BD.conectardb(); //llamado de conexion de base de datos
         initComponents();
    
     }
@@ -25,11 +25,11 @@ PreparedStatement pst=null;
 
     void acceder (String usuario, String pass){
         //lee datos de la tabla usuarios donde sea el usuario concuerde con la contraseña de su dicho usuario
-        String sql = "SELECT * FROM T_Usuarios WHERE Usuario='" + usuario + "' AND Contraseña_Usuario='" + pass + "'";
+        String sql = "SELECT * FROM T_Usuarios WHERE Usuario='" + usuario + "' AND Contrasena='" + pass + "'";
         
         try {
-            Statement st = conn.createStatement();
-            ResultSet rs1 = st.executeQuery(sql);
+            Statement st = conn.createStatement(); 
+ResultSet rs1 = st.executeQuery (sql);
             while (rs1.next()) {
                 //variable cap captura el tipo de usuario de cada quien
                 cap = rs1.getString("Tipo_Usuario");
