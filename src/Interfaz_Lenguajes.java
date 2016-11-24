@@ -33,13 +33,19 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         generador = new javax.swing.JLabel();
         panever = new javax.swing.JPanel();
+        ve = new javax.swing.JLabel();
         tablavalores = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         panebuscar = new javax.swing.JPanel();
+        trytofind = new javax.swing.JLabel();
         areabucar = new javax.swing.JLabel();
+        areaeliminar = new javax.swing.JLabel();
         paneditar = new javax.swing.JPanel();
+        edit = new javax.swing.JLabel();
+        elim = new javax.swing.JLabel();
         areaeditar = new javax.swing.JLabel();
         panelagregar = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         areaagregar = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
@@ -55,33 +61,42 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         pie.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         pie.setForeground(new java.awt.Color(255, 255, 255));
         pie.setText("Programa Interactivo Escolar PIE V1.0");
-        getContentPane().add(pie, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
+        getContentPane().add(pie, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
 
         titulo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setText("Centro de Idiomas");
-        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, -1));
 
         generador.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         generador.setForeground(new java.awt.Color(255, 255, 255));
         generador.setText("Generador de Reportes");
-        getContentPane().add(generador, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, -1, 20));
+        getContentPane().add(generador, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, 20));
 
         panever.setBackground(new java.awt.Color(0, 204, 204));
         panever.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
+
+        ve.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        ve.setForeground(new java.awt.Color(255, 255, 255));
+        ve.setText("Ver");
 
         javax.swing.GroupLayout paneverLayout = new javax.swing.GroupLayout(panever);
         panever.setLayout(paneverLayout);
         paneverLayout.setHorizontalGroup(
             paneverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
+            .addGroup(paneverLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ve)
+                .addContainerGap(478, Short.MAX_VALUE))
         );
         paneverLayout.setVerticalGroup(
             paneverLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneverLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ve))
         );
 
-        getContentPane().add(panever, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 520, 20));
+        getContentPane().add(panever, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 65, 520, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,34 +118,63 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         panebuscar.setBackground(new java.awt.Color(0, 204, 204));
         panebuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
 
+        trytofind.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        trytofind.setForeground(new java.awt.Color(255, 255, 255));
+        trytofind.setText("Buscar");
+
         javax.swing.GroupLayout panebuscarLayout = new javax.swing.GroupLayout(panebuscar);
         panebuscar.setLayout(panebuscarLayout);
         panebuscarLayout.setHorizontalGroup(
             panebuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 208, Short.MAX_VALUE)
+            .addGroup(panebuscarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(trytofind)
+                .addContainerGap(139, Short.MAX_VALUE))
         );
         panebuscarLayout.setVerticalGroup(
             panebuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panebuscarLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(trytofind))
         );
 
-        getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, 20));
+        getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 5, 210, -1));
 
         areabucar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 210, 170));
 
+        areaeliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
+        getContentPane().add(areaeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 210, 140, 270));
+
         paneditar.setBackground(new java.awt.Color(0, 204, 204));
         paneditar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
+
+        edit.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        edit.setForeground(new java.awt.Color(255, 255, 255));
+        edit.setText("Editar");
+
+        elim.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        elim.setForeground(new java.awt.Color(255, 255, 255));
+        elim.setText("Eliminar");
 
         javax.swing.GroupLayout paneditarLayout = new javax.swing.GroupLayout(paneditar);
         paneditar.setLayout(paneditarLayout);
         paneditarLayout.setHorizontalGroup(
             paneditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
+            .addGroup(paneditarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(edit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 327, Short.MAX_VALUE)
+                .addComponent(elim)
+                .addGap(66, 66, 66))
         );
         paneditarLayout.setVerticalGroup(
             paneditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 28, Short.MAX_VALUE)
+            .addGroup(paneditarLayout.createSequentialGroup()
+                .addGroup(paneditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(edit)
+                    .addComponent(elim))
+                .addGap(0, 5, Short.MAX_VALUE))
         );
 
         getContentPane().add(paneditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 520, 30));
@@ -141,15 +185,24 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         panelagregar.setBackground(new java.awt.Color(0, 204, 204));
         panelagregar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
 
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Agregar");
+
         javax.swing.GroupLayout panelagregarLayout = new javax.swing.GroupLayout(panelagregar);
         panelagregar.setLayout(panelagregarLayout);
         panelagregarLayout.setHorizontalGroup(
             panelagregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 206, Short.MAX_VALUE)
+            .addGroup(panelagregarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3)
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         panelagregarLayout.setVerticalGroup(
             panelagregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 26, Short.MAX_VALUE)
+            .addGroup(panelagregarLayout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addGap(0, 3, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 210, 30));
@@ -211,8 +264,12 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel areaagregar;
     private javax.swing.JLabel areabucar;
     private javax.swing.JLabel areaeditar;
+    private javax.swing.JLabel areaeliminar;
+    private javax.swing.JLabel edit;
+    private javax.swing.JLabel elim;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel generador;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTable jTable1;
     private javax.swing.JPanel panebuscar;
     private javax.swing.JPanel paneditar;
@@ -221,5 +278,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel pie;
     private javax.swing.JScrollPane tablavalores;
     private javax.swing.JLabel titulo;
+    private javax.swing.JLabel trytofind;
+    private javax.swing.JLabel ve;
     // End of variables declaration//GEN-END:variables
 }
