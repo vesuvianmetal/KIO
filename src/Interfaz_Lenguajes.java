@@ -29,6 +29,8 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        fol = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         pie = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
         generador = new javax.swing.JLabel();
@@ -36,6 +38,8 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         ve = new javax.swing.JLabel();
         tablavalores = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        numconag1 = new javax.swing.JTextField();
+        numcontrol2 = new javax.swing.JLabel();
         panebuscar = new javax.swing.JPanel();
         trytofind = new javax.swing.JLabel();
         areabucar = new javax.swing.JLabel();
@@ -71,20 +75,26 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        fol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        fol.setForeground(new java.awt.Color(255, 255, 255));
+        fol.setText("Folio:");
+        getContentPane().add(fol, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 130, 30));
+
         pie.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         pie.setForeground(new java.awt.Color(255, 255, 255));
         pie.setText("Programa Interactivo Escolar PIE V1.0");
-        getContentPane().add(pie, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, -1, -1));
+        getContentPane().add(pie, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
 
         titulo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setText("Centro de Idiomas");
-        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, -1));
+        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, -1));
 
         generador.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         generador.setForeground(new java.awt.Color(255, 255, 255));
         generador.setText("Generador de Reportes");
-        getContentPane().add(generador, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, 20));
+        getContentPane().add(generador, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, 20));
 
         panever.setBackground(new java.awt.Color(0, 204, 204));
         panever.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
@@ -127,6 +137,14 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         tablavalores.setViewportView(jTable1);
 
         getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 540, 110));
+
+        numconag1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        getContentPane().add(numconag1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 130, 30));
+
+        numcontrol2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        numcontrol2.setForeground(new java.awt.Color(255, 255, 255));
+        numcontrol2.setText("Numero de Control:");
+        getContentPane().add(numcontrol2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         panebuscar.setBackground(new java.awt.Color(0, 204, 204));
         panebuscar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
@@ -346,14 +364,18 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel calif1;
     private javax.swing.JLabel edit;
     private javax.swing.JLabel elim;
+    private javax.swing.JLabel fol;
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel generador;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField numcon;
     private javax.swing.JTextField numconag;
+    private javax.swing.JTextField numconag1;
     private javax.swing.JLabel numcontrol;
     private javax.swing.JLabel numcontrol1;
+    private javax.swing.JLabel numcontrol2;
     private javax.swing.JPanel panebuscar;
     private javax.swing.JPanel paneditar;
     private javax.swing.JPanel panelagregar;
