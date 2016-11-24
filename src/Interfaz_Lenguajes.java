@@ -81,10 +81,18 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, -1, -1));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 211, 60, 40));
 
-        jButton1.setText("jButton1");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/prueba borrar_1.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, -1, -1));
 
         fol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -184,8 +192,12 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
         getContentPane().add(panebuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 190, 30));
 
-        jButton3.setText("jButton3");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/lupita.png"))); // NOI18N
+        jButton3.setBorder(null);
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 210, -1, -1));
 
         areabucar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 190, 160));
@@ -245,7 +257,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(fol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
 
         jButton4.setText("jButton4");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, -1, -1));
 
         areaeliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areaeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 190, 190));
@@ -344,6 +356,10 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
                 metodo1.setVisible(true);
             }        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
