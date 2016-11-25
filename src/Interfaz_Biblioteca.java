@@ -17,7 +17,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     ResultSet rs = null;
     PreparedStatement pst = null;
     private final int limiteagrnumcontrol = 8;
-    private final int limiteagradd = 10;
+    private final int limiteagradd = 5;
 
     public Interfaz_Biblioteca() {
        conn = Conexion_BD.conectardb();
@@ -67,7 +67,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton4 = new javax.swing.JButton();
+        btnactualizartabla = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -123,10 +123,15 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 153, 153));
-        jButton4.setText("Actualizar");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, -1, 20));
+        btnactualizartabla.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnactualizartabla.setForeground(new java.awt.Color(0, 153, 153));
+        btnactualizartabla.setText("Actualizar");
+        btnactualizartabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactualizartablaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnactualizartabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, -1, 20));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -220,7 +225,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Numero de Control:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -254,7 +259,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Codigo de Libro:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
@@ -309,6 +314,8 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Subir Registros");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 220, -1, -1));
+
+        jTextField1.setEditable(false);
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 170, -1));
 
         editfoliotxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -351,7 +358,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 150, -1));
 
         editcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        getContentPane().add(editcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 150, -1));
+        getContentPane().add(editcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 150, -1));
 
         editnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         editnumcontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -362,7 +369,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 editnumcontroltxtKeyTyped(evt);
             }
         });
-        getContentPane().add(editnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 150, -1));
+        getContentPane().add(editnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 150, -1));
 
         editadeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         editadeudotxt.setToolTipText("Este Campo Solo Registra Numeros");
@@ -497,9 +504,24 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
     private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
         int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+      try {
+          
+      if (editfoliotxt.getText().equals("")){
+          JOptionPane.showMessageDialog(null, "Hay Un Campo Vacio");
+      }
+      if (editfoliotxt.getText().equals("") && editnumcontroltxt.getText().equals("")){
+          JOptionPane.showMessageDialog(null, "Hay Un Campo Vacio");
+      }
+      if (editfoliotxt.getText().equals("") && editnumcontroltxt.getText().equals("") && editcodlibrotxt.getText().equals("")){
+          JOptionPane.showMessageDialog(null, "Hay Un Campo Vacio");
+      }
+      if (editfoliotxt.getText().equals("") && editnumcontroltxt.getText().equals("") && editcodlibrotxt.getText().equals("") && editadeudotxt.getText().equals("")){
+          JOptionPane.showMessageDialog(null, "Hay Un Campo Vacio");
+      }
+          else {
         if (verificacioncambio == 0) {
             try {
-                String editnumc = editnumcontroltxt.getText();
+                //String editnumc = editnumcontroltxt.getText();
                 String editcodlib = editcodlibrotxt.getText();
                 String editadeudo = editadeudotxt.getText();
                 String editfolio =  editfoliotxt.getText();
@@ -509,11 +531,22 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
 
-            } catch (Exception e) {
+                
+            } 
+            
+            
+            
+            catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }
             actualizar_tabla();
         }
+                  }
+            
+        
+      } catch (Exception e){
+          JOptionPane.showMessageDialog(null, e);
+      } 
 
     }//GEN-LAST:event_btncambioActionPerformed
 
@@ -850,6 +883,14 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
         
         
     }//GEN-LAST:event_agradeudotxtKeyTyped
+
+    private void btnactualizartablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizartablaActionPerformed
+       try {
+        actualizar_tabla();   
+       } catch (Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+    }//GEN-LAST:event_btnactualizartablaActionPerformed
     int editnumc = 0;
 
     int addo = 0;
@@ -892,6 +933,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JTextField agradeudotxt;
     private javax.swing.JTextField agrcodlibrotxt;
     private javax.swing.JTextField agrnumcontroltxt;
+    private javax.swing.JButton btnactualizartabla;
     private javax.swing.JButton btnagregar;
     private javax.swing.JButton btncambio;
     private javax.swing.JTextField buscarcodigolibrotxt;
@@ -905,7 +947,6 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
