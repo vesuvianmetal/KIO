@@ -16,6 +16,8 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    private final int limiteagrnumcontrol = 8;
+    private final int limiteagradd = 10;
 
     public Interfaz_Biblioteca() {
        conn = Conexion_BD.conectardb();
@@ -39,7 +41,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         }
     }
 
-    void filltable() {
+    private void filltable() {
 
         try {
 
@@ -132,7 +134,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Adeudo");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, -1, -1));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
@@ -157,6 +159,9 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         buscarfoliotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarfoliotxtKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscarfoliotxtKeyTyped(evt);
             }
         });
         getContentPane().add(buscarfoliotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 110, -1));
@@ -228,6 +233,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
 
         jButton3.setText("Eliminar");
+        jButton3.setToolTipText("Este Boton Sirve Para Eliminar El Registro Del Folio Ingresado");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -238,6 +244,9 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         buscarnumerocontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarnumerocontroltxtKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscarnumerocontroltxtKeyTyped(evt);
             }
         });
         getContentPane().add(buscarnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 110, -1));
@@ -253,6 +262,11 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 62, -1, -1));
 
         agradeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        agradeudotxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                agradeudotxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(agradeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 120, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -263,12 +277,16 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Numero de Control");
+        jLabel17.setToolTipText("Este Campo No Debe Rebasar De 8 Caracteres");
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         elimnumerocontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         elimnumerocontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 elimnumerocontroltxtKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                elimnumerocontroltxtKeyTyped(evt);
             }
         });
         getContentPane().add(elimnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 390, 150, -1));
@@ -292,9 +310,19 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel25.setText("Subir Registros");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 220, -1, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 170, -1));
+
+        editfoliotxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                editfoliotxtKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                editfoliotxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(editfoliotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 150, -1));
 
         jButton2.setText("Buscar");
+        jButton2.setToolTipText("Este Boton Sirve Para Buscar Archivos CSV Que Desee Subir A La Base De Datos");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -303,6 +331,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, -1, -1));
 
         jButton1.setText("Guardar");
+        jButton1.setToolTipText("Este Boton Sirve Para Guardar El Archivo CSV A La Base De Datos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -329,13 +358,28 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 editnumcontroltxtKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                editnumcontroltxtKeyTyped(evt);
+            }
         });
         getContentPane().add(editnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 150, -1));
 
         editadeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        editadeudotxt.setToolTipText("Este Campo Solo Registra Numeros");
+        editadeudotxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                editadeudotxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(editadeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 150, -1));
 
         agrnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        agrnumcontroltxt.setToolTipText("Este Campo No Debe Rebasar De 8 Caracteres");
+        agrnumcontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                agrnumcontroltxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(agrnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 120, -1));
 
         agrcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -657,6 +701,155 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             actualizar_tabla();
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void agrnumcontroltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_agrnumcontroltxtKeyTyped
+       try {
+         if (agrnumcontroltxt.getText().length() == limiteagrnumcontrol) {
+            evt.consume();
+        } 
+         
+         int c=evt.getKeyChar();
+         
+         if (Character.isLetter(c)){
+             getToolkit().beep();
+             JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+         }
+       } catch (Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+        
+        
+        
+        
+    }//GEN-LAST:event_agrnumcontroltxtKeyTyped
+
+    private void editadeudotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editadeudotxtKeyTyped
+        try {
+            
+        
+        char c=evt.getKeyChar();
+        
+        if (Character.isLetter(c)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+            
+        }
+        } catch (Exception e){
+            JOptionPane.showConfirmDialog(null, e);
+        }
+        
+    }//GEN-LAST:event_editadeudotxtKeyTyped
+
+    private void editnumcontroltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editnumcontroltxtKeyTyped
+       try {
+            
+        
+        char c=evt.getKeyChar();
+        
+        if (Character.isLetter(c)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+            
+        }
+        } catch (Exception e){
+            JOptionPane.showConfirmDialog(null, e);
+        }
+    }//GEN-LAST:event_editnumcontroltxtKeyTyped
+
+    private void editfoliotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editfoliotxtKeyTyped
+        try {
+
+            char c = evt.getKeyChar();
+
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+        }
+    }//GEN-LAST:event_editfoliotxtKeyTyped
+
+    private void editfoliotxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editfoliotxtKeyReleased
+       
+      
+    }//GEN-LAST:event_editfoliotxtKeyReleased
+
+    private void elimnumerocontroltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_elimnumerocontroltxtKeyTyped
+        
+        
+        
+        try {
+
+            char c = evt.getKeyChar();
+
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+ 
+    }//GEN-LAST:event_elimnumerocontroltxtKeyTyped
+
+    private void buscarfoliotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarfoliotxtKeyTyped
+     
+        try {
+
+            int c = evt.getKeyChar();
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
+    }//GEN-LAST:event_buscarfoliotxtKeyTyped
+
+    private void buscarnumerocontroltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarnumerocontroltxtKeyTyped
+        
+        try {
+            
+            int c=evt.getKeyChar();
+            if (Character.isLetter(c)){
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+            }
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }//GEN-LAST:event_buscarnumerocontroltxtKeyTyped
+
+    private void agradeudotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_agradeudotxtKeyTyped
+          try {
+             
+         if (agradeudotxt.getText().length() == limiteagradd) {
+            evt.consume();
+        } 
+        
+         int c=evt.getKeyChar();
+         
+         if (Character.isLetter(c)){
+             getToolkit().beep();
+             JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+         }
+       } catch (Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+        
+        
+    }//GEN-LAST:event_agradeudotxtKeyTyped
     int editnumc = 0;
 
     int addo = 0;
