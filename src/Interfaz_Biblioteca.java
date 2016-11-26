@@ -745,6 +745,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
          
          if (Character.isLetter(c)){
              getToolkit().beep();
+             evt.consume();
              JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
          }
        } catch (Exception e){
@@ -822,6 +823,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
 
             if (Character.isLetter(c)) {
                 getToolkit().beep();
+                evt.consume();
                 JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
             }
 
@@ -838,6 +840,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             int c = evt.getKeyChar();
             if (Character.isLetter(c)) {
                 getToolkit().beep();
+                evt.consume();
                 JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
             }
 
@@ -855,6 +858,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             int c=evt.getKeyChar();
             if (Character.isLetter(c)){
                 getToolkit().beep();
+                evt.consume();
                 JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
             }
             
@@ -875,6 +879,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
          
          if (Character.isLetter(c)){
              getToolkit().beep();
+             evt.consume();
              JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
          }
        } catch (Exception e){

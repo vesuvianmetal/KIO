@@ -182,6 +182,9 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarfolioidiomatxtKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscarfolioidiomatxtKeyTyped(evt);
+            }
         });
         getContentPane().add(buscarfolioidiomatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 130, 30));
 
@@ -241,6 +244,9 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarnumeroidiomatxtKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscarnumeroidiomatxtKeyTyped(evt);
+            }
         });
         getContentPane().add(buscarnumeroidiomatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 130, 30));
 
@@ -288,6 +294,12 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         tipcalif.setForeground(new java.awt.Color(255, 255, 255));
         tipcalif.setText("Tipo de Certificación:");
         getContentPane().add(tipcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 150, 20));
+
+        eliminarfolioidiomastxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                eliminarfolioidiomastxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(eliminarfolioidiomastxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 130, 30));
 
         fol1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -320,6 +332,11 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(numconag, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 100, 30));
 
         textcalifagr.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        textcalifagr.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textcalifagrKeyTyped(evt);
+            }
+        });
         getContentPane().add(textcalifagr, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 100, 30));
 
         texttipoag.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -511,6 +528,72 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void buscarfolioidiomatxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarfolioidiomatxtKeyTyped
+      
+        int c=evt.getKeyChar();
+       try {
+           
+           if(Character.isLetter(c)){
+               getToolkit().beep();
+               evt.consume();
+               JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+           }
+           
+       } catch (Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+        
+    }//GEN-LAST:event_buscarfolioidiomatxtKeyTyped
+
+    private void buscarnumeroidiomatxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarnumeroidiomatxtKeyTyped
+       int c =evt.getKeyChar();
+       
+       try {
+           
+           if(Character.isLetter(c)){
+               getToolkit().beep();
+               evt.consume();
+               JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+           }
+           
+           
+       }catch (Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+    }//GEN-LAST:event_buscarnumeroidiomatxtKeyTyped
+
+    private void eliminarfolioidiomastxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminarfolioidiomastxtKeyTyped
+      int c=evt.getKeyChar();
+      
+      try {
+          
+          
+          if (Character.isLetter(c)){
+              getToolkit().beep();
+              evt.consume();
+              JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+          }
+      }catch (Exception e){
+          JOptionPane.showMessageDialog(null, e);
+      }
+    }//GEN-LAST:event_eliminarfolioidiomastxtKeyTyped
+
+    private void textcalifagrKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textcalifagrKeyTyped
+       int c= evt.getKeyChar();
+       try 
+       {
+        
+           if(Character.isLetter(c)){
+               getToolkit().beep();
+               evt.consume();
+               JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+           }
+           
+       } catch (Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+    }//GEN-LAST:event_textcalifagrKeyTyped
 
     /**
      * @param args the command line arguments
