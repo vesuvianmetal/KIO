@@ -7,21 +7,16 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Penudo McFly
- */
 public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
   Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    int limitebuscarfolioidiomas = 11;
+    int limitecertificadoidiomas = 45;
+    int limitecalificacionidiomas = 10;
+    int limitenumcontrolidiomas = 8;
     public Interfaz_Lenguajes() {
         conn = Conexion_BD.conectardb();
          
@@ -74,7 +69,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         elim = new javax.swing.JLabel();
         ve = new javax.swing.JLabel();
         trytofind = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        btnagregaridiomas = new javax.swing.JButton();
         fol = new javax.swing.JLabel();
         buscarfolioidiomatxt = new javax.swing.JTextField();
         pie = new javax.swing.JLabel();
@@ -160,18 +155,18 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         trytofind.setText("Buscar");
         getContentPane().add(trytofind, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton2.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnagregaridiomas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
+        btnagregaridiomas.setBorder(null);
+        btnagregaridiomas.setBorderPainted(false);
+        btnagregaridiomas.setContentAreaFilled(false);
+        btnagregaridiomas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnagregaridiomas.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
+        btnagregaridiomas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnagregaridiomasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 430, 60, 40));
+        getContentPane().add(btnagregaridiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 60, 40));
 
         fol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         fol.setForeground(new java.awt.Color(255, 255, 255));
@@ -361,9 +356,16 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             }        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+    private void btnagregaridiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregaridiomasActionPerformed
+         
          try {
+             
+             if (Integer.parseInt(textcalifagr.getText()) < 1.00) {
+                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
+             } else if (texttipoag.getText().equals("") || textcalifagr.getText().equals("") || numconag.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
+             }else if (verificacioncambio == 0) {
+                try {
             String agr = "INSERT into idiomas (FOLIO_IDIOMAS,TIPO_CERT,CALIFICACION,FK_NUM_CONTROL) values (?,?,?,?)";
             pst = conn.prepareStatement(agr);
             pst.setString(1, null);
@@ -371,15 +373,19 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             pst.setString(2, texttipoag.getText());
             pst.setString(3, textcalifagr.getText());
             pst.execute();
-
+                } catch (Exception e){
+                   JOptionPane.showMessageDialog(null, e);
+                }
+                actualizar_tablaidiomas();
+             }
             JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
-        } catch (SQLException | HeadlessException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        actualizar_tablaidiomas();
         
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    
+    }//GEN-LAST:event_btnagregaridiomasActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -530,10 +536,13 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void buscarfolioidiomatxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarfolioidiomatxtKeyTyped
-      
+
         int c=evt.getKeyChar();
        try {
-           
+           if (buscarfolioidiomatxt.getText().length()==limitebuscarfolioidiomas){
+    evt.consume();
+    JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres","Error",JOptionPane.ERROR_MESSAGE);
+}      
            if(Character.isLetter(c)){
                getToolkit().beep();
                evt.consume();
@@ -547,15 +556,15 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
     }//GEN-LAST:event_buscarfolioidiomatxtKeyTyped
 
     private void buscarnumeroidiomatxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarnumeroidiomatxtKeyTyped
-       int c =evt.getKeyChar();
+       
        
        try {
            
-           if(Character.isLetter(c)){
-               getToolkit().beep();
+           if (buscarnumeroidiomatxt.getText().length() == limitenumcontrolidiomas) {
                evt.consume();
-               JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
-           }
+               JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres", "Error", JOptionPane.ERROR_MESSAGE);
+}  
+           
            
            
        }catch (Exception e){
@@ -564,19 +573,22 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
     }//GEN-LAST:event_buscarnumeroidiomatxtKeyTyped
 
     private void eliminarfolioidiomastxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminarfolioidiomastxtKeyTyped
-      int c=evt.getKeyChar();
-      
-      try {
-          
-          
-          if (Character.isLetter(c)){
-              getToolkit().beep();
-              evt.consume();
-              JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
-          }
-      }catch (Exception e){
-          JOptionPane.showMessageDialog(null, e);
-      }
+        int c = evt.getKeyChar();
+
+        try {
+
+            if (eliminarfolioidiomastxt.getText().length() == limitebuscarfolioidiomas) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
+            }
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_eliminarfolioidiomastxtKeyTyped
 
     private void textcalifagrKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textcalifagrKeyTyped
@@ -635,6 +647,7 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
     private javax.swing.JLabel areabucar;
     private javax.swing.JLabel areaeditar;
     private javax.swing.JLabel areaeliminar;
+    private javax.swing.JButton btnagregaridiomas;
     private javax.swing.JTextField buscarfolioidiomatxt;
     private javax.swing.JTextField buscarnumeroidiomatxt;
     private javax.swing.JLabel calif;
@@ -650,7 +663,6 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel generador;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

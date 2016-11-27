@@ -308,6 +308,11 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         elimnumerocontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        elimnumerocontroltxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elimnumerocontroltxtActionPerformed(evt);
+            }
+        });
         elimnumerocontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 elimnumerocontroltxtKeyReleased(evt);
@@ -593,20 +598,28 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
 
         try {
-            if (Integer.parseInt(agradeudotxt.getText()) < 1) {
+            if (Integer.parseInt(agradeudotxt.getText()) < 1.00) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-            } else {
-                String agr = "INSERT into biblioteca (FOLIO_BIBLIOTECA,CODIGO_LIBRO,ADEUDO,FK_NUMERO_CONTROL_BIBLIOTECA) values (?,?,?,?)";
-                pst = conn.prepareStatement(agr);
-                pst.setString(1, null);
-                pst.setString(4, agrnumcontroltxt.getText());
-                pst.setString(2, agrcodlibrotxt.getText());
-                pst.setString(3, agradeudotxt.getText());
-                pst.execute();
-
-                JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
+            }else if ((agrnumcontroltxt.getText().equals("") || agrcodlibrotxt.getText().equals("")) || agradeudotxt.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
+            }  else  {
+                try {
+                    String agr = "INSERT into biblioteca (FOLIO_BIBLIOTECA,CODIGO_LIBRO,ADEUDO,FK_NUMERO_CONTROL_BIBLIOTECA) values (?,?,?,?)";
+                    pst = conn.prepareStatement(agr);
+                    pst.setString(1, null);
+                    pst.setString(4, agrnumcontroltxt.getText());
+                    pst.setString(2, agrcodlibrotxt.getText());
+                    pst.setString(3, agradeudotxt.getText());
+                    pst.execute();
+                    
+                    JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
+                }
+                catch (Exception e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
             }
-        } catch (SQLException | HeadlessException e) {
+        
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
         actualizar_tabla();
@@ -738,7 +751,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
 
-        int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+        int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
         if (verificacion == 0) {
             String elim = "DELETE from biblioteca where FOLIO_BIBLIOTECA=?";
             try {
@@ -761,13 +774,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
             }
 
-            int c = evt.getKeyChar();
-
-            if (Character.isLetter(c)) {
-                getToolkit().beep();
-                evt.consume();
-                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
-            }
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -993,6 +1000,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_editcodlibrotxtKeyTyped
+
+    private void elimnumerocontroltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elimnumerocontroltxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_elimnumerocontroltxtActionPerformed
    
 
     /**
