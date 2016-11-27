@@ -65,9 +65,7 @@ ResultSet rs1 = st.executeQuery (sql);
                 IAL.setVisible(true);
                 this.dispose();
             }
-            else {
-                JOptionPane.showMessageDialog(null, "No Esta Registrado Como Usuario En El Sistema");
-            }
+           
         } catch (SQLException e) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(null, e);
