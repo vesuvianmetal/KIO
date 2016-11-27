@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 
-public class Interfaz_Biblioteca extends javax.swing.JFrame {
+public  class Interfaz_Biblioteca extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
@@ -22,7 +22,9 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     int limitecodlibro=45;
 
     public Interfaz_Biblioteca() {
+        
        conn = Conexion_BD.conectardb();
+      
         initComponents();
         filltable();
        // this.setLocationRelativeTo(this);
@@ -535,8 +537,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
         int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         try {
-
-            if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
+if (Integer.parseInt(editadeudotxt.getText())<1){
+                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
+            }
+           else if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
             } else if (verificacioncambio == 0) {
                 try {
@@ -590,6 +594,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
 
         try {
+            if (Integer.parseInt(agradeudotxt.getText())<1){
+                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
+            } 
+            else {
             String agr = "INSERT into biblioteca (FOLIO_BIBLIOTECA,CODIGO_LIBRO,ADEUDO,FK_NUMERO_CONTROL_BIBLIOTECA) values (?,?,?,?)";
             pst = conn.prepareStatement(agr);
             pst.setString(1, null);
@@ -599,10 +607,11 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
             pst.execute();
 
             JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
-        } catch (SQLException | HeadlessException e) {
+        }} catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e);
         }
         actualizar_tabla();
+        
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void buscarcodigolibrotxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarcodigolibrotxtKeyReleased
@@ -881,6 +890,8 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
              evt.consume();
              JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
          }
+         
+         
        } catch (Exception e){
            JOptionPane.showMessageDialog(null, e);
        }
