@@ -291,21 +291,27 @@ actualizar_tabla();
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
         if (verificacion == 0) {
+            if(eliminaid_usuario.getText().isEmpty()){
+    JOptionPane.showMessageDialog(null, "No hay Datos que borrar");
+            }
+            else{
             String elim = "DELETE from usuarios where ID_Usuario=?";
             try {
-                /*pst = conn.prepareStatement(elim);
+                pst = conn.prepareStatement(elim);
                 pst.setString(1, eliminaid_usuario.getText());
                 pst.execute();
-                JOptionPane.showMessageDialog(null, "Registro Eliminada");*/
-                pst = conn.prepareStatement(elim);
-            pst.setString(1, eliminaid_usuario.getText());
+                JOptionPane.showMessageDialog(null, "Registro Eliminada");
+                /*pst = conn.prepareStatement(elim);
+            pst.setString(1, eliminaid_usuario.getText());*/
             rs = pst.executeQuery();
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-            Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
+                Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
             vp.actualizar_tabla();
-        }        // TODO add your handling code here:
+            }
+            
+        }
+
+        }// TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**

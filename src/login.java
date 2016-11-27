@@ -66,9 +66,16 @@ ResultSet rs1 = st.executeQuery (sql);
                 this.dispose();
             }
            
+            if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos");
+            }
+            else {
+                JOptionPane.showMessageDialog(null, "Bienvenido "+usuario+"");
+            }
+            
         } catch (SQLException e) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, e);
-            JOptionPane.showMessageDialog(null, e);
+            JOptionPane.showMessageDialog(null, "Error Usuario no Registrado en la base de datos");
         }
 }
 
@@ -112,7 +119,6 @@ ResultSet rs1 = st.executeQuery (sql);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Iniciar Session");
         setMaximumSize(new java.awt.Dimension(1336, 768));
-        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
