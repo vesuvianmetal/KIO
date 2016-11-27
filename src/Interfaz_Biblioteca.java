@@ -11,23 +11,24 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
+public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
-public  class Interfaz_Biblioteca extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
     private final int limitenumcontrol = 8;
     private final int limiteadeudo = 6;
-    int limitefolio=11;
-    int limitecodlibro=45;
+    int limitefolio = 11;
+    int limitecodlibro = 45;
+    int editnumc = 0;
+    int addo = 0;
 
     public Interfaz_Biblioteca() {
-        
-       conn = Conexion_BD.conectardb();
-      
+
+        conn = Conexion_BD.conectardb();
         initComponents();
         filltable();
-       // this.setLocationRelativeTo(this);
+        // this.setLocationRelativeTo(this);
 
     }
     int elimno = 0;
@@ -60,8 +61,7 @@ public  class Interfaz_Biblioteca extends javax.swing.JFrame {
         }
 
     }
-      
-        
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -537,10 +537,9 @@ public  class Interfaz_Biblioteca extends javax.swing.JFrame {
     private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
         int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         try {
-if (Integer.parseInt(editadeudotxt.getText())<1){
+            if (Integer.parseInt(editadeudotxt.getText()) < 1) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-            }
-           else if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
+            } else if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
             } else if (verificacioncambio == 0) {
                 try {
@@ -594,24 +593,24 @@ if (Integer.parseInt(editadeudotxt.getText())<1){
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
 
         try {
-            if (Integer.parseInt(agradeudotxt.getText())<1){
+            if (Integer.parseInt(agradeudotxt.getText()) < 1) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-            } 
-            else {
-            String agr = "INSERT into biblioteca (FOLIO_BIBLIOTECA,CODIGO_LIBRO,ADEUDO,FK_NUMERO_CONTROL_BIBLIOTECA) values (?,?,?,?)";
-            pst = conn.prepareStatement(agr);
-            pst.setString(1, null);
-            pst.setString(4, agrnumcontroltxt.getText());
-            pst.setString(2, agrcodlibrotxt.getText());
-            pst.setString(3, agradeudotxt.getText());
-            pst.execute();
+            } else {
+                String agr = "INSERT into biblioteca (FOLIO_BIBLIOTECA,CODIGO_LIBRO,ADEUDO,FK_NUMERO_CONTROL_BIBLIOTECA) values (?,?,?,?)";
+                pst = conn.prepareStatement(agr);
+                pst.setString(1, null);
+                pst.setString(4, agrnumcontroltxt.getText());
+                pst.setString(2, agrcodlibrotxt.getText());
+                pst.setString(3, agradeudotxt.getText());
+                pst.execute();
 
-            JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
-        }} catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
+            }
+        } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e);
         }
         actualizar_tabla();
-        
+
     }//GEN-LAST:event_btnagregarActionPerformed
 
     private void buscarcodigolibrotxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarcodigolibrotxtKeyReleased
@@ -691,14 +690,14 @@ if (Integer.parseInt(editadeudotxt.getText())<1){
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_buscarfoliotxtKeyReleased
-String nombrearchivo;
+    String nombrearchivo;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 
-        JFileChooser escoger=new JFileChooser();
+        JFileChooser escoger = new JFileChooser();
         escoger.showOpenDialog(null);
-        File f =escoger.getSelectedFile();
-        nombrearchivo =f.getAbsolutePath();
+        File f = escoger.getSelectedFile();
+        nombrearchivo = f.getAbsolutePath();
 
         jTextField1.setText(nombrearchivo);
 
@@ -708,18 +707,18 @@ String nombrearchivo;
 
         try {
 
-            BufferedReader br=new BufferedReader(new FileReader(nombrearchivo));
+            BufferedReader br = new BufferedReader(new FileReader(nombrearchivo));
             String line;
 
-            while((line=br.readLine())!=null){
-                String[]value=line.split(","); //separador de valor
-                String sql="insert into biblioteca (FK_NUMERO_CONTROL_BIBLIOTECA,CODIGO_LIBRO,ADEUDO) Values('"+value[0]+"','"+value[1]+"','"+value[2]+"')";
-                pst=conn.prepareStatement(sql);
+            while ((line = br.readLine()) != null) {
+                String[] value = line.split(","); //separador de valor
+                String sql = "insert into biblioteca (FK_NUMERO_CONTROL_BIBLIOTECA,CODIGO_LIBRO,ADEUDO) Values('" + value[0] + "','" + value[1] + "','" + value[2] + "')";
+                pst = conn.prepareStatement(sql);
                 pst.executeUpdate();
             }
             br.close();
 
-        }catch(Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
@@ -728,19 +727,17 @@ String nombrearchivo;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
-            if(a==JOptionPane.YES_OPTION){
-                this.dispose();
-                login metodo1=new login();
-                metodo1.setVisible(true);
-            }        // TODO add your handling code here:
+        int a = JOptionPane.showConfirmDialog(null, "Está Seguro Que Deseea Salir?");
+        if (a == JOptionPane.YES_OPTION) {
+            this.dispose();
+            login metodo1 = new login();
+            metodo1.setVisible(true);
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
-        
-        
+
         int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
         if (verificacion == 0) {
             String elim = "DELETE from biblioteca where FOLIO_BIBLIOTECA=?";
@@ -757,60 +754,58 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void agrnumcontroltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_agrnumcontroltxtKeyTyped
-       try {
+        try {
             if (agrnumcontroltxt.getText().length() == limitenumcontrol) {
-            getToolkit().beep();
-             evt.consume();
-             JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
-        } 
-         
-         int c=evt.getKeyChar();
-         
-         if (Character.isLetter(c)){
-             getToolkit().beep();
-             evt.consume();
-             JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
-         }
-       } catch (Exception e){
-           JOptionPane.showMessageDialog(null, e);
-       }
-        
-        
-        
-        
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
+            }
+
+            int c = evt.getKeyChar();
+
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
     }//GEN-LAST:event_agrnumcontroltxtKeyTyped
 
     private void editadeudotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editadeudotxtKeyTyped
         try {
-            
-         if (editadeudotxt.getText().length() == limiteadeudo) {
-            getToolkit().beep();
-             evt.consume();
-             JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 6 Caracteres");
-        }
-        char c=evt.getKeyChar();
-        
-        if (Character.isLetter(c)){
-            getToolkit().beep();
-            evt.consume();
-            JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
-            
-        }
-        } catch (Exception e){
+
+            if (editadeudotxt.getText().length() == limiteadeudo) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 6 Caracteres");
+            }
+            char c = evt.getKeyChar();
+
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+
+            }
+        } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
         }
-        
+
     }//GEN-LAST:event_editadeudotxtKeyTyped
 
     private void editnumcontroltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editnumcontroltxtKeyTyped
-       try {
-        
-          if (editnumcontroltxt.getText().length() == limitenumcontrol) {
-            evt.consume();
-            JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
-        }    
-        
-        } catch (Exception e){
+        try {
+
+            if (editnumcontroltxt.getText().length() == limitenumcontrol) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
+            }
+
+        } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, e);
         }
     }//GEN-LAST:event_editnumcontroltxtKeyTyped
@@ -833,16 +828,15 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
- 
+
     }//GEN-LAST:event_elimnumerocontroltxtKeyTyped
 
     private void buscarfoliotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarfoliotxtKeyTyped
-     try {
-        if (buscarfoliotxt.getText().length() == limitefolio) {
-            evt.consume();
-            JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
-        }      
-    
+        try {
+            if (buscarfoliotxt.getText().length() == limitefolio) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
+            }
 
             int c = evt.getKeyChar();
             if (Character.isLetter(c)) {
@@ -859,61 +853,58 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_buscarfoliotxtKeyTyped
 
     private void buscarnumerocontroltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarnumerocontroltxtKeyTyped
-         try {
-         if (buscarnumerocontroltxt.getText().length() == limitenumcontrol) {
-            getToolkit().beep();
-             evt.consume();
-             JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
-        } 
-         
-         
-       } catch (Exception e){
-           JOptionPane.showMessageDialog(null, e);
-       }
-        
-        
+        try {
+            if (buscarnumerocontroltxt.getText().length() == limitenumcontrol) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
 
     }//GEN-LAST:event_buscarnumerocontroltxtKeyTyped
 
     private void agradeudotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_agradeudotxtKeyTyped
-          try {
-             
-         if (agradeudotxt.getText().length() == limiteadeudo) {
-            evt.consume();
-            JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
-        } 
-        
-         int c=evt.getKeyChar();
-         
-         if (Character.isLetter(c)){
-             getToolkit().beep();
-             evt.consume();
-             JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
-         }
-         
-         
-       } catch (Exception e){
-           JOptionPane.showMessageDialog(null, e);
-       }
-        
-        
+        try {
+
+            if (agradeudotxt.getText().length() == limiteadeudo) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
+            }
+
+            int c = evt.getKeyChar();
+
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
     }//GEN-LAST:event_agradeudotxtKeyTyped
 
     private void btnactualizartablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizartablaActionPerformed
-       try {
-        actualizar_tabla();   
-       } catch (Exception e){
-           JOptionPane.showMessageDialog(null, e);
-       }
+        try {
+            actualizar_tabla();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_btnactualizartablaActionPerformed
 
     private void editfoliotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editfoliotxtKeyTyped
         try {
-  if (editfoliotxt.getText().length() == limitefolio) {
-            evt.consume();
-            JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
-        }      
-    
+            if (editfoliotxt.getText().length() == limitefolio) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
+            }
+
             char c = evt.getKeyChar();
 
             if (Character.isLetter(c)) {
@@ -929,7 +920,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
 
     private void editfoliotxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editfoliotxtKeyReleased
 
-           try {
+        try {
 
             String buscarfolio = "SELECT * from biblioteca where FOLIO_BIBLIOTECA=?";
             pst = conn.prepareStatement(buscarfolio);
@@ -951,28 +942,24 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_editfoliotxtKeyReleased
 
     private void buscarcodigolibrotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarcodigolibrotxtKeyTyped
-         try {
-             if (buscarcodigolibrotxt.getText().length() == limitecodlibro) {
-            evt.consume();
-            JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
-        }  
-         } catch (Exception e){
-             JOptionPane.showMessageDialog(null, e);
-         }
+        try {
+            if (buscarcodigolibrotxt.getText().length() == limitecodlibro) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_buscarcodigolibrotxtKeyTyped
 
     private void buscarnumerocontroltxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarnumerocontroltxtActionPerformed
-        
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_buscarnumerocontroltxtActionPerformed
 
     private void buscarfoliotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarfoliotxtActionPerformed
@@ -984,35 +971,30 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_buscarcodigolibrotxtActionPerformed
 
     private void agrcodlibrotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_agrcodlibrotxtKeyTyped
-         try {
-             if (agrcodlibrotxt.getText().length() == limitecodlibro) {
-            evt.consume();
-            JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
-        }  
-         } catch (Exception e){
-             JOptionPane.showMessageDialog(null, e);
-         }
+        try {
+            if (agrcodlibrotxt.getText().length() == limitecodlibro) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_agrcodlibrotxtKeyTyped
 
     private void editcodlibrotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editcodlibrotxtKeyTyped
-    try {
-             if (editcodlibrotxt.getText().length() == limitecodlibro) {
-            evt.consume();
-            JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
-        }  
-         } catch (Exception e){
-             JOptionPane.showMessageDialog(null, e);
-         }      
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_editcodlibrotxtKeyTyped
-    int editnumc = 0;
+        try {
+            if (editcodlibrotxt.getText().length() == limitecodlibro) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
-    int addo = 0;
+
+    }//GEN-LAST:event_editcodlibrotxtKeyTyped
+   
+
     /**
      * @param args the command line arguments
      */
