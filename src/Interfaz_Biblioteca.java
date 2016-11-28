@@ -129,6 +129,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         btnactualizartabla.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnactualizartabla.setForeground(new java.awt.Color(0, 153, 153));
         btnactualizartabla.setText("Actualizar");
+        btnactualizartabla.setToolTipText("Actualiza La Base De Datos.");
         btnactualizartabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnactualizartablaActionPerformed(evt);
@@ -164,6 +165,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel23.setText("Codigo De Libro:");
         getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
+        buscarfoliotxt.setToolTipText("Introducir Folio Para Busqueda.");
         buscarfoliotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarfoliotxtActionPerformed(evt);
@@ -179,6 +181,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         });
         getContentPane().add(buscarfoliotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 130, -1));
 
+        buscarcodigolibrotxt.setToolTipText("Introducir Codigo De Libro Para Busqueda.");
         buscarcodigolibrotxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarcodigolibrotxtActionPerformed(evt);
@@ -254,7 +257,8 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, -1, -1));
 
         jButton3.setText("Eliminar");
-        jButton3.setToolTipText("Este Boton Sirve Para Eliminar El Registro Del Folio Ingresado");
+        jButton3.setToolTipText("Eliminar El Registro Del Folio Ingresado");
+        jButton3.setActionCommand("Eliminar.\n");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -262,6 +266,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, -1, -1));
 
+        buscarnumerocontroltxt.setToolTipText("Introducir Num. Control Para Busqueda.\n");
         buscarnumerocontroltxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarnumerocontroltxtActionPerformed(evt);
@@ -275,7 +280,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 buscarnumerocontroltxtKeyTyped(evt);
             }
         });
-        getContentPane().add(buscarnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 130, -1));
+        getContentPane().add(buscarnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 130, 20));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -288,6 +293,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 62, -1, -1));
 
         agradeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        agradeudotxt.setToolTipText("No Es Factible Introducir Negativos Dentro Del Adeudo.\n");
         agradeudotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 agradeudotxtKeyTyped(evt);
@@ -307,6 +313,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         elimnumerocontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        elimnumerocontroltxt.setToolTipText("Introducir Numero De Folio Para Eliminar.");
         elimnumerocontroltxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 elimnumerocontroltxtActionPerformed(evt);
@@ -342,8 +349,10 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 220, -1, -1));
 
         jTextField1.setEditable(false);
+        jTextField1.setToolTipText("Subir Archivos Delimitado Por Comas (CSV).");
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 170, -1));
 
+        editfoliotxt.setToolTipText("Editar El Folio Del Registro.");
         editfoliotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 editfoliotxtKeyReleased(evt);
@@ -355,7 +364,8 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(editfoliotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 150, -1));
 
         jButton2.setText("Buscar");
-        jButton2.setToolTipText("Este Boton Sirve Para Buscar Archivos CSV Que Desee Subir A La Base De Datos");
+        jButton2.setToolTipText("Buscar Archivos CSV Que Desee Subir A La Base De Datos.\n");
+        jButton2.setActionCommand("Buscar.");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -364,7 +374,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 290, -1, -1));
 
         jButton1.setText("Guardar");
-        jButton1.setToolTipText("Este Boton Sirve Para Guardar El Archivo CSV A La Base De Datos");
+        jButton1.setToolTipText("Guardar El Archivo CSV A La Base De Datos.");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -376,6 +386,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         btncambio.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btncambio.setForeground(new java.awt.Color(0, 153, 153));
         btncambio.setText("Aplicar Cambios");
+        btncambio.setToolTipText("Este Boton Sirve Para Aplicar Cambios En Los Registros.");
         btncambio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncambioActionPerformed(evt);
@@ -384,6 +395,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 150, -1));
 
         editcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        editcodlibrotxt.setToolTipText("Editar El Codigo Del Libro En El Registro.");
         editcodlibrotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 editcodlibrotxtKeyTyped(evt);
@@ -392,6 +404,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(editcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 150, -1));
 
         editnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        editnumcontroltxt.setToolTipText("Editar El Num. Control Del Registro.");
         editnumcontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 editnumcontroltxtKeyReleased(evt);
@@ -403,7 +416,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(editnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 150, -1));
 
         editadeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        editadeudotxt.setToolTipText("Este Campo Solo Registra Numeros");
+        editadeudotxt.setToolTipText("Este Campo Solo Registra Numeros. No Introducir Numeros Negativos.");
         editadeudotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 editadeudotxtKeyTyped(evt);
@@ -412,7 +425,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(editadeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 350, 150, -1));
 
         agrnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        agrnumcontroltxt.setToolTipText("Este Campo No Debe Rebasar De 8 Caracteres");
+        agrnumcontroltxt.setToolTipText("Para Agregar Este Campo No Debe Exceder 8 Caracteres.");
         agrnumcontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 agrnumcontroltxtKeyTyped(evt);
@@ -421,6 +434,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(agrnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 130, -1));
 
         agrcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        agrcodlibrotxt.setToolTipText("Para Agregar Este Campo No Debe Exceder 45 Caracteres.");
         agrcodlibrotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 agrcodlibrotxtKeyTyped(evt);
@@ -431,6 +445,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         btnagregar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnagregar.setForeground(new java.awt.Color(0, 153, 153));
         btnagregar.setText("Agregar");
+        btnagregar.setToolTipText("Agregar Un Nuevo Registro.\n");
         btnagregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnagregarActionPerformed(evt);
@@ -475,7 +490,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
         setLocationRelativeTo(null);
