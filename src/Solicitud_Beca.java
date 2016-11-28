@@ -26,6 +26,7 @@ Connection conn = null;
         conn = Conexion_BD.conectardb();
         initComponents();
        llenadodebeca();
+       this.setResizable(false);
     }
 
     void llenadodebeca() {
@@ -232,7 +233,7 @@ Connection conn = null;
         
         
         
-          int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+          int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         if (verificacioncambio == 0) {
             try {
                 String editnumc = foliotxt.getText();
@@ -294,20 +295,21 @@ Connection conn = null;
     }//GEN-LAST:event_tablactrleMouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
-        vp.actualizar_tabla();        // TODO add your handling code here:
+//Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
+        //vp.actualizar_tabla();   
+        actualizar_tablabecas() ; // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+        int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
         if (verificacion == 0) {
             String elim = "DELETE from becas where FOLIO_BECAS=?";
             try {
                 pst = conn.prepareStatement(elim);
                 pst.setString(1, jTextField5.getText());
                 pst.execute();
-                JOptionPane.showMessageDialog(null, "Deuda Eliminada");
+                JOptionPane.showMessageDialog(null, "Becado Eliminada");
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e);
             }

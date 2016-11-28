@@ -23,6 +23,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
       
         initComponents();
         filltableidiomas();
+        this.setResizable(false);
     }
 
      void actualizar_tablaidiomas() {
@@ -377,7 +378,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             if(a==JOptionPane.YES_OPTION){
                 this.dispose();
                 login metodo1=new login();
-                metodo1.setVisible(true);
+              metodo1.setVisible(true);
             }      
     }//GEN-LAST:event_formWindowClosing
 
@@ -538,8 +539,9 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_buscarnumeroidiomatxtKeyReleased
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
-        vp.actualizar_tabla();        // TODO add your handling code here:
+//Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
+ //       vp.actualizar_tabla();
+ actualizar_tablaidiomas();// TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

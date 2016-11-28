@@ -26,6 +26,7 @@ Connection conn = null;
     public solicitudbecas() {
         conn = Conexion_BD.conectardb();
         initComponents();
+    this.setResizable(false);
     }
 
     /**

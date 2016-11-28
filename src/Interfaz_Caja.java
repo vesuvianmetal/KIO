@@ -18,6 +18,7 @@ public class Interfaz_Caja extends javax.swing.JFrame {
      */
     public Interfaz_Caja() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**

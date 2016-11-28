@@ -12,6 +12,7 @@ Connection conn = null;
     public item() {
         conn = Conexion_BD.conectardb();
         initComponents();
+        this.setResizable(false);
     }
 
    
@@ -164,9 +165,18 @@ vp.setVisible(true);// TODO add your handling code here:
     private void btnlogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlogoutActionPerformed
    int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             if(a==JOptionPane.YES_OPTION){
+               
+            login metodo1=new login();
+            this.dispose();
+            metodo1.setVisible(true);
+            
+            /*int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
+            if(a==JOptionPane.YES_OPTION){
                 this.dispose();
                 login metodo1=new login();
                 metodo1.setVisible(true);
+            }  */
+            
             }
     }//GEN-LAST:event_btnlogoutActionPerformed
 

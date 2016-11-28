@@ -19,7 +19,7 @@ PreparedStatement pst=null;
     public login() {
          conn=Conexion_BD.conectardb(); //llamado de conexion de base de datos
         initComponents();
-   
+      this.setResizable(false);
     }
     
       String cap=null;
@@ -190,8 +190,7 @@ ResultSet rs1 = st.executeQuery (sql);
         });
 
         login.setBackground(new java.awt.Color(0, 204, 204));
-        login.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        login.setForeground(new java.awt.Color(0, 153, 153));
+        login.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         login.setText("Iniciar Sesion");
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,8 +199,7 @@ ResultSet rs1 = st.executeQuery (sql);
         });
 
         borrar.setBackground(new java.awt.Color(0, 204, 204));
-        borrar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        borrar.setForeground(new java.awt.Color(0, 153, 153));
+        borrar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         borrar.setText("Borrar");
         borrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,43 +211,48 @@ ResultSet rs1 = st.executeQuery (sql);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(66, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel3))
+                .addGap(66, 66, 66)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(37, 37, 37)
-                                .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(contratxt, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(127, 127, 127))
+                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(contratxt, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                        .addComponent(usuariotxt)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(jLabel4))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(contratxt, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(35, 35, 35)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(contratxt, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(36, Short.MAX_VALUE))
+                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 390, 670, 290));
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 400, 680, 260));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logggoooooofinal.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 330, 310));
@@ -277,10 +280,10 @@ ResultSet rs1 = st.executeQuery (sql);
          String usu=usuariotxt.getText();
         String pas=contratxt.getText();
         if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante");
+                JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante","Error",JOptionPane.WARNING_MESSAGE);
             }
             else if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos");
+                JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos","Error",JOptionPane.WARNING_MESSAGE);
             }
     }//GEN-LAST:event_loginActionPerformed
 
@@ -301,10 +304,10 @@ ResultSet rs1 = st.executeQuery (sql);
         try {
              acceder(usu , pas);
              if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante");
+                JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante","Error",JOptionPane.WARNING_MESSAGE);
             }
             else if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos");
+                JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos","Error",JOptionPane.WARNING_MESSAGE);
             }
         }
         
@@ -324,9 +327,11 @@ String user = JOptionPane.showInputDialog(null, "Usuario");
 		if ("admin".equals(user) && "admin".equals(password)) {
 			JOptionPane.showMessageDialog(null, "Inicio de Sesion Correcto");
 		}else {
+                    
 			JOptionPane.showMessageDialog(null, "Inicio de Sesion Fallido");
                         login vp=new login();
                         vp.setVisible(true);
+                        this.dispose();
                         		}        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
