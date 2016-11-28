@@ -18,6 +18,10 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    private final int limitenumcontrol = 8;
+    private final int limiteadeudo = 6;
+    int limitecodlibro = 45;
+    
     
     
     public adeudosbiblioteca() {
@@ -77,6 +81,12 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        adeudo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                adeudoKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -91,6 +101,12 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 510, 250, 50));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        codigolibro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                codigolibroKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -161,6 +177,17 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 580, -1, 100));
+
+        control.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                controlActionPerformed(evt);
+            }
+        });
+        control.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                controlKeyTyped(evt);
+            }
+        });
         getContentPane().add(control, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, 220, 40));
 
         name.setBackground(new java.awt.Color(0, 204, 204));
@@ -327,6 +354,59 @@ item it = new item();
         it.setVisible(true);
         this.dispose();        
     }//GEN-LAST:event_MenuActionPerformed
+
+    private void controlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_controlActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_controlActionPerformed
+
+    private void controlKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_controlKeyTyped
+       try {
+            if (control.getText().length() == limitenumcontrol) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
+            }
+
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }                   
+    }//GEN-LAST:event_controlKeyTyped
+
+    private void codigolibroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigolibroKeyTyped
+  try {
+            if (codigolibro.getText().length() == limitecodlibro) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
+            }
+
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }    }//GEN-LAST:event_codigolibroKeyTyped
+
+    private void adeudoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adeudoKeyTyped
+ try {
+
+            if (adeudo.getText().length() == limiteadeudo) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 6 Caracteres");
+            }
+            char c = evt.getKeyChar();
+
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showConfirmDialog(null, e);
+        }
+    
+    }//GEN-LAST:event_adeudoKeyTyped
 
     /**
      * @param args the command line arguments

@@ -167,10 +167,8 @@
                               <EmptySpace pref="31" max="32767" attributes="0"/>
                               <Component id="borrar" min="-2" pref="173" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="contratxt" pref="378" max="32767" attributes="0"/>
-                              <Component id="usuariotxt" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="contratxt" pref="378" max="32767" attributes="0"/>
+                          <Component id="usuariotxt" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="49" max="32767" attributes="0"/>
                   </Group>
