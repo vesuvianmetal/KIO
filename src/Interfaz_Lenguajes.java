@@ -417,9 +417,6 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         
-        if 
-        
-        if (verificacioncambio == 0) {
             try {
                 String edittipocerti = editcertitxt.getText();
                 String editcali = editcaliidiomatxt.getText();
@@ -436,7 +433,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
                 JOptionPane.showMessageDialog(null, e);
             }
            actualizar_tablaidiomas();
-        }
+        
 
                 
     }//GEN-LAST:event_jButton4ActionPerformed
