@@ -324,9 +324,11 @@ String user = JOptionPane.showInputDialog(null, "Usuario");
 		if ("admin".equals(user) && "admin".equals(password)) {
 			JOptionPane.showMessageDialog(null, "Inicio de Sesion Correcto");
 		}else {
+                    
 			JOptionPane.showMessageDialog(null, "Inicio de Sesion Fallido");
                         login vp=new login();
                         vp.setVisible(true);
+                        this.dispose();
                         		}        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
