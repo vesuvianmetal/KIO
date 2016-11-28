@@ -1,4 +1,5 @@
 
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +20,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
 Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    private Component jButton6;
     /**
      * Creates new form Interfaz_Admin
      */
