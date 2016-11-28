@@ -1,4 +1,5 @@
 
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,6 +20,7 @@ public class Interfaz_Admin extends javax.swing.JFrame {
 Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    private Component jButton6;
     /**
      * Creates new form Interfaz_Admin
      */
@@ -66,19 +68,19 @@ Connection conn = null;
         jLabel13 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_admin = new javax.swing.JTable();
-        jButton7 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        eliminar = new javax.swing.JButton();
+        modificar = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        modificar_idusuario = new javax.swing.JTextField();
+        contrasena = new javax.swing.JTextField();
+        tipo_usuario = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
+        actualizar = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -92,8 +94,16 @@ Connection conn = null;
         jLabel2 = new javax.swing.JLabel();
         eliminaid_usuario = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        modificar1 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        modificar_idusuario1 = new javax.swing.JTextField();
+        contrasena1 = new javax.swing.JTextField();
+        tipo_usuario1 = new javax.swing.JTextField();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
 
         jLabel13.setText("jLabel13");
 
@@ -121,38 +131,50 @@ Connection conn = null;
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 480, 90));
 
-        jButton7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(0, 153, 153));
-        jButton7.setText("Eliminar");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        eliminar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        eliminar.setForeground(new java.awt.Color(0, 153, 153));
+        eliminar.setText("Eliminar");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                eliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
+        getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
 
-        jButton6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(0, 153, 153));
-        jButton6.setText("Aplicar");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        modificar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        modificar.setForeground(new java.awt.Color(0, 153, 153));
+        modificar.setText("Aplicar");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, -1, -1));
+        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Eliminar");
-        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 240, -1, -1));
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Tipos de Usuario:");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 100, 30));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 100, 30));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, 100, 30));
+
+        modificar_idusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificar_idusuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(modificar_idusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 100, 30));
+
+        contrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contrasenaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 100, 30));
+        getContentPane().add(tipo_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, 100, 30));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,28 +189,28 @@ Connection conn = null;
         jLabel9.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Modificar");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, -1, -1));
 
         jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 230, 210));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 230, 180));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Visuaizar Usuarios");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
-        jButton8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(0, 153, 153));
-        jButton8.setText("Actualizar");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        actualizar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        actualizar.setForeground(new java.awt.Color(0, 153, 153));
+        actualizar.setText("Actualizar");
+        actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                actualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, -1, 20));
+        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, -1, 20));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, 80, 120));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 80, 120));
 
         jButton4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(0, 153, 153));
@@ -198,17 +220,17 @@ Connection conn = null;
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 210, 60));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, 40));
 
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 153, 153));
         jButton3.setText("Biblioteca");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 210, 60));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 210, 40));
 
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 153, 153));
         jButton2.setText("Caja");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 210, 60));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 210, 40));
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 153, 153));
@@ -218,25 +240,25 @@ Connection conn = null;
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 210, 60));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 210, 40));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Vistas de Usuario");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 230, 260));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 230, 210));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Programa Interactivo Escolar  V1.0");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Bienvenido Administrad@r ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -246,17 +268,62 @@ Connection conn = null;
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Administrador");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
         getContentPane().add(eliminaid_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 100, 30));
 
         jLabel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 230, 210));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 230, 210));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        modificar1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        modificar1.setForeground(new java.awt.Color(0, 153, 153));
+        modificar1.setText("Aplicar");
+        modificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificar1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(modificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
 
-        jButton5.setText("jButton5");
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, -1, -1));
+        jLabel18.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel18.setText("Tipos de Usuario:");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
+
+        modificar_idusuario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificar_idusuario1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(modificar_idusuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 100, 30));
+
+        contrasena1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contrasena1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(contrasena1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 100, 30));
+        getContentPane().add(tipo_usuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 100, 30));
+
+        jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("Contraseña:");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel20.setText("ID_Usuario:");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Agregar");
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+
+        jLabel22.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 230, 210));
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -278,29 +345,57 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+        if (verificacion == 0) {
+            if(modificar_idusuario.getText().isEmpty()){
+    JOptionPane.showMessageDialog(null, "No hay Datos que modificar");
+            }
+            else{
+                String contra=contrasena.getText();
+                String usu=tipo_usuario.getText();
+                String usuid=modificar_idusuario.getText();
+                System.out.println(contra+usu+usuid);
+            String mod = "update usuarios set contrasena=?, tipo_usuario=? where ID_usuario=?";
+            try {
+                pst = conn.prepareStatement(mod);
+                pst.setString(1, contrasena.getText());
+                pst.setString(2, tipo_usuario.getText());
+                pst.setString(3, modificar_idusuario.getText());
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Registro Actualizado");
+                /*pst = conn.prepareStatement(elim);
+            pst.setString(1, eliminaid_usuario.getText());*/
+            rs = pst.executeQuery();
+            } catch (Exception e) {
+                Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
+            vp.actualizar_tabla();
+            }
+            
+        }
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_modificarActionPerformed
+
+    private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
 actualizar_tabla();   
-        
+       
     // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_actualizarActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borrar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
         if (verificacion == 0) {
             if(eliminaid_usuario.getText().isEmpty()){
     JOptionPane.showMessageDialog(null, "No hay Datos que borrar");
             }
             else{
-            String elim = "DELETE from usuarios where ID_Usuario=?";
+            String elim = "Delete from usuarios where id_usuario=?";
             try {
                 pst = conn.prepareStatement(elim);
                 pst.setString(1, eliminaid_usuario.getText());
                 pst.execute();
-                JOptionPane.showMessageDialog(null, "Registro Eliminada");
+                JOptionPane.showMessageDialog(null, "Registro Eliminado");
                 /*pst = conn.prepareStatement(elim);
             pst.setString(1, eliminaid_usuario.getText());*/
             rs = pst.executeQuery();
@@ -312,7 +407,27 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea elimi
         }
 
         }// TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_eliminarActionPerformed
+
+    private void modificar_idusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar_idusuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modificar_idusuarioActionPerformed
+
+    private void contrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contrasenaActionPerformed
+
+    private void modificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modificar1ActionPerformed
+
+    private void modificar_idusuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar_idusuario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modificar_idusuario1ActionPerformed
+
+    private void contrasena1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasena1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contrasena1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -350,16 +465,15 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea elimi
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton actualizar;
+    private javax.swing.JTextField contrasena;
+    private javax.swing.JTextField contrasena1;
     private javax.swing.JTextField eliminaid_usuario;
+    private javax.swing.JButton eliminar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -368,7 +482,13 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea elimi
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -377,9 +497,12 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea elimi
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton modificar;
+    private javax.swing.JButton modificar1;
+    private javax.swing.JTextField modificar_idusuario;
+    private javax.swing.JTextField modificar_idusuario1;
     private javax.swing.JTable tabla_admin;
+    private javax.swing.JTextField tipo_usuario;
+    private javax.swing.JTextField tipo_usuario1;
     // End of variables declaration//GEN-END:variables
 }
