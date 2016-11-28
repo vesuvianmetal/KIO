@@ -118,7 +118,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Aplicar"/>
+        <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modificarActionPerformed"/>
@@ -496,7 +496,7 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Aplicar"/>
+        <Property name="text" type="java.lang.String" value="Agregar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="insetarActionPerformed"/>

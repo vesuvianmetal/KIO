@@ -145,7 +145,7 @@ Connection conn = null;
 
         modificar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         modificar.setForeground(new java.awt.Color(0, 153, 153));
-        modificar.setText("Aplicar");
+        modificar.setText("Modificar");
         modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarActionPerformed(evt);
@@ -278,7 +278,7 @@ Connection conn = null;
 
         insetar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         insetar.setForeground(new java.awt.Color(0, 153, 153));
-        insetar.setText("Aplicar");
+        insetar.setText("Agregar");
         insetar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insetarActionPerformed(evt);
@@ -512,11 +512,13 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
         //</editor-fold>
 
         /* Create and display the form */
+        /*
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Interfaz_Admin().setVisible(true);
             }
         });
+        */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

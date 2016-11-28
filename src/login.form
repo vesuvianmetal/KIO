@@ -167,9 +167,9 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="btniniciar" min="-2" pref="142" max="-2" attributes="0"/>
+                                      <Component id="login" min="-2" pref="142" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                      <Component id="btnborrar" min="-2" pref="121" max="-2" attributes="0"/>
+                                      <Component id="borrar" min="-2" pref="121" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="contratxt" min="-2" pref="332" max="-2" attributes="0"/>
                               </Group>
@@ -194,8 +194,8 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnborrar" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                          <Component id="btniniciar" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="borrar" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                          <Component id="login" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="36" max="32767" attributes="0"/>
                   </Group>
@@ -262,7 +262,7 @@
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="contratxtKeyReleased"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btniniciar">
+            <Component class="javax.swing.JButton" name="login">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="0" type="rgb"/>
@@ -276,10 +276,10 @@
                 <Property name="text" type="java.lang.String" value="Iniciar Sesion"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btniniciarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loginActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnborrar">
+            <Component class="javax.swing.JButton" name="borrar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="0" type="rgb"/>
@@ -293,7 +293,7 @@
                 <Property name="text" type="java.lang.String" value="Borrar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnborrarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="borrarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
