@@ -83,7 +83,7 @@ Connection conn = null;
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -225,6 +225,7 @@ Connection conn = null;
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+       
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -253,8 +254,7 @@ Connection conn = null;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tablactrleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablactrleMouseClicked
-        // TODO add your handling code here:
-        
+       
         
         try {
             int row = tablactrle.getSelectedRow();
