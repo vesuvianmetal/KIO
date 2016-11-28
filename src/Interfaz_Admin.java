@@ -70,7 +70,7 @@ Connection conn = null;
         jButton6 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        modificar_idusuario = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -150,7 +150,13 @@ Connection conn = null;
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Tipos de Usuario:");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 100, 30));
+
+        modificar_idusuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificar_idusuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(modificar_idusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 100, 30));
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 100, 30));
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, 100, 30));
 
@@ -279,7 +285,29 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+        if (verificacion == 0) {
+            if(eliminaid_usuario.getText().isEmpty()){
+    JOptionPane.showMessageDialog(null, "No hay Datos que borrar");
+            }
+            else{
+            String elim = "update from usuarios where ID_Usuario=?";
+            try {
+                pst = conn.prepareStatement(elim);
+                pst.setString(1, modificar_idusuario.getText());
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Registro Actualizado");
+                /*pst = conn.prepareStatement(elim);
+            pst.setString(1, eliminaid_usuario.getText());*/
+            rs = pst.executeQuery();
+            } catch (Exception e) {
+                Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
+            vp.actualizar_tabla();
+            }
+            
+        }
+
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -298,7 +326,7 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea elimi
             String elim = "DELETE from usuarios where ID_Usuario=?";
             try {
                 pst = conn.prepareStatement(elim);
-                pst.setString(1, eliminaid_usuario.getText());
+                pst.setString(1, modificar_idusuario.getText());
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Registro Eliminada");
                 /*pst = conn.prepareStatement(elim);
@@ -313,6 +341,10 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea elimi
 
         }// TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void modificar_idusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar_idusuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modificar_idusuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -377,9 +409,9 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea elimi
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField modificar_idusuario;
     private javax.swing.JTable tabla_admin;
     // End of variables declaration//GEN-END:variables
 }
