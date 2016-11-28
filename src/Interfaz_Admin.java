@@ -139,7 +139,7 @@ Connection conn = null;
                 eliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 420, -1, -1));
+        getContentPane().add(eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 430, -1, -1));
 
         modificar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         modificar.setForeground(new java.awt.Color(0, 153, 153));
@@ -225,11 +225,21 @@ Connection conn = null;
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 153, 153));
         jButton3.setText("Biblioteca");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 210, 40));
 
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 153, 153));
         jButton2.setText("Caja");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 210, 40));
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -338,11 +348,18 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       
+         Interfaz_Lenguajes it = new Interfaz_Lenguajes();
+        it.setVisible(true);
+       
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        Solicitud_Beca it = new Solicitud_Beca();
+        it.setVisible(true);
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
@@ -428,6 +445,24 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borra
     private void contrasena1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasena1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_contrasena1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+     Interfaz_Biblioteca it = new Interfaz_Biblioteca();
+     it.setVisible(true);
+       
+       
+        
+        
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+     
+        Interfaz_Caja it = new Interfaz_Caja();
+     it.setVisible(true);
+          
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
