@@ -302,7 +302,7 @@ ResultSet rs1 = st.executeQuery (sql);
     }//GEN-LAST:event_contratxtKeyReleased
 
     private void contratxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contratxtKeyPressed
-        // TODO add your handling code here:
+       
          if (evt.getKeyCode()==KeyEvent.VK_ENTER){
            String usu=usuariotxt.getText();
         String pas=contratxt.getText();

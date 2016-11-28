@@ -85,7 +85,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         numcontrol = new javax.swing.JLabel();
         editcertitxt = new javax.swing.JTextField();
         calif = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        btneditaridioma = new javax.swing.JButton();
         editcaliidiomatxt = new javax.swing.JTextField();
         tipcalif = new javax.swing.JLabel();
         eliminarfolioidiomastxt = new javax.swing.JTextField();
@@ -279,18 +279,18 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         calif.setText("Calificación:");
         getContentPane().add(calif, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
 
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
-        jButton4.setBorder(null);
-        jButton4.setBorderPainted(false);
-        jButton4.setContentAreaFilled(false);
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton4.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btneditaridioma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
+        btneditaridioma.setBorder(null);
+        btneditaridioma.setBorderPainted(false);
+        btneditaridioma.setContentAreaFilled(false);
+        btneditaridioma.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btneditaridioma.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
+        btneditaridioma.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btneditaridiomaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 60, 40));
+        getContentPane().add(btneditaridioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 60, 40));
 
         editcaliidiomatxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         editcaliidiomatxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -414,9 +414,14 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     
     }//GEN-LAST:event_btnagregaridiomasActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+    private void btneditaridiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditaridiomaActionPerformed
+       int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         
+       if (editcertitxt.getText().equals("") || editcaliidiomatxt.getText().equals("") || editfolioidiomas.getText().equals("")){
+           JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios");
+       } else if (verificacioncambio == 0){
+       
+       
             try {
                 String edittipocerti = editcertitxt.getText();
                 String editcali = editcaliidiomatxt.getText();
@@ -434,9 +439,9 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             }
            actualizar_tablaidiomas();
         
-
+       }
                 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btneditaridiomaActionPerformed
 
     private void tablaidiomasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaidiomasMouseClicked
         // TODO add your handling code here:
@@ -771,6 +776,7 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
     private javax.swing.JLabel areaeditar;
     private javax.swing.JLabel areaeliminar;
     private javax.swing.JButton btnagregaridiomas;
+    private javax.swing.JButton btneditaridioma;
     private javax.swing.JTextField buscarfolioidiomatxt;
     private javax.swing.JTextField buscarnumeroidiomatxt;
     private javax.swing.JLabel calif;
@@ -787,7 +793,6 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
     private javax.swing.JLabel generador;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField numconag;
