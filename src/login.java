@@ -15,6 +15,7 @@ public class login extends javax.swing.JFrame {
 Connection conn=null;
 ResultSet rs=null;
 PreparedStatement pst=null;
+int limitecontraseña = 10;
    
     public login() {
          conn=Conexion_BD.conectardb(); //llamado de conexion de base de datos
@@ -198,6 +199,9 @@ ResultSet rs1 = st.executeQuery (sql);
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 contratxtKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contratxtKeyTyped(evt);
+            }
         });
 
         login.setBackground(new java.awt.Color(0, 204, 204));
@@ -348,6 +352,19 @@ String user = JOptionPane.showInputDialog(null, "Usuario");
     private void usuariotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuariotxtKeyTyped
 // ignorar el evento de teclado
     }//GEN-LAST:event_usuariotxtKeyTyped
+
+    private void contratxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contratxtKeyTyped
+       try {
+           if (contratxt.getText().length() == limitecontraseña) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 10 Caracteres");
+            }
+       } catch (Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+        
+          
+    }//GEN-LAST:event_contratxtKeyTyped
 
     /**
      * @param args the command line arguments

@@ -140,6 +140,7 @@ Connection conn = null;
        
      referenciabancaria rb= new referenciabancaria();
      rb.setVisible(true);
+     this.dispose();
         
         
         
@@ -147,8 +148,8 @@ Connection conn = null;
 
     private void btnsolbecasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsolbecasActionPerformed
 solicitudbecas vp=new solicitudbecas();
-vp.setVisible(true);// TODO add your handling code here:
-        
+vp.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnsolbecasActionPerformed
 
     private void solkardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solkardexActionPerformed
@@ -183,12 +184,14 @@ vp.setVisible(true);// TODO add your handling code here:
     private void btnsolconstanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsolconstanciaActionPerformed
 solicitudconstancia vp=new solicitudconstancia();   
 vp.setVisible(true);
-// TODO add your handling code here:
+this.dispose();
+
     }//GEN-LAST:event_btnsolconstanciaActionPerformed
 
     private void btndeudabibActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeudabibActionPerformed
       adeudosbiblioteca vp= new adeudosbiblioteca();
       vp.setVisible(true);
+      this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_btndeudabibActionPerformed
 
