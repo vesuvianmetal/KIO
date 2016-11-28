@@ -38,7 +38,7 @@ ResultSet rs1 = st.executeQuery (sql);
                 cap = rs1.getString("TIPO_USUARIO");
 
             }
-            //cada if compara los tipos de usuarios de cada quien y abre su interfaz correspondiente
+            
             if (cap.equals("admin")) {
                 Interfaz_Admin IA = new Interfaz_Admin();
                 IA.setVisible(true);

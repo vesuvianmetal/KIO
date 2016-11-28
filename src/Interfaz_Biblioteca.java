@@ -386,7 +386,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         btncambio.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btncambio.setForeground(new java.awt.Color(0, 153, 153));
         btncambio.setText("Aplicar Cambios");
-        btncambio.setToolTipText("Este Boton Sirve Para Aplicar Cambios En Los Registros.");
+        btncambio.setToolTipText("Aplicar Cambios En Los Registros.");
         btncambio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btncambioActionPerformed(evt);
