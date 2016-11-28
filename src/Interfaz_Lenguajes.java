@@ -118,7 +118,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 240, -1, 20));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 230, -1, 20));
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 153, 153));
@@ -543,7 +543,7 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       
         int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
         if (verificacion == 0) {
             String elim = "DELETE from idiomas where FOLIO_IDIOMAS=?";
