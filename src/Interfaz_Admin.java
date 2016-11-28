@@ -297,10 +297,16 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modif
     JOptionPane.showMessageDialog(null, "No hay Datos que modificar");
             }
             else{
-            String mod = "update usuarios set contrasena="+contrasena.getText()+", tipo_usuario"+tipo_usuario.getText()+" where ID_usuario=?";
+                String contra=contrasena.getText();
+                String usu=tipo_usuario.getText();
+                String usuid=modificar_idusuario.getText();
+                System.out.println(contra+usu+usuid);
+            String mod = "update usuarios set contrasena=?, tipo_usuario=? where ID_usuario=?";
             try {
                 pst = conn.prepareStatement(mod);
-                pst.setString(1, modificar_idusuario.getText());
+                pst.setString(1, contrasena.getText());
+                pst.setString(2, tipo_usuario.getText());
+                pst.setString(3, modificar_idusuario.getText());
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Registro Actualizado");
                 /*pst = conn.prepareStatement(elim);
