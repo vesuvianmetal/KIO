@@ -28,6 +28,7 @@ Connection conn = null;
        conn = Conexion_BD.conectardb();
         initComponents();
         filltable();
+        this.setResizable(false);
     }
     void actualizar_tabla() {
         try {

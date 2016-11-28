@@ -23,6 +23,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
       
         initComponents();
         filltableidiomas();
+        this.setResizable(false);
     }
 
      void actualizar_tablaidiomas() {

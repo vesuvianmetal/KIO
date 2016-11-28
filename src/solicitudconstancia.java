@@ -26,6 +26,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
     public solicitudconstancia() {
         conn = Conexion_BD.conectardb();
         initComponents();
+        this.setResizable(false);
     }
 
     /**

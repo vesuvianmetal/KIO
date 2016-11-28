@@ -26,6 +26,7 @@ Connection conn = null;
         conn = Conexion_BD.conectardb();
         initComponents();
        llenadodebeca();
+       this.setResizable(false);
     }
 
     void llenadodebeca() {
