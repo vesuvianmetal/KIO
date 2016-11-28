@@ -84,7 +84,11 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
             }
         });
         getContentPane().add(buscaradeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 210, -1));
+
+        adeudoalumnotxt.setEditable(false);
         getContentPane().add(adeudoalumnotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, 210, -1));
+
+        codlibroadeudotxt.setEditable(false);
         getContentPane().add(codlibroadeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 470, 210, -1));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
