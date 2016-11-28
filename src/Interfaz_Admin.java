@@ -139,7 +139,7 @@ Connection conn = null;
                 modificarActionPerformed(evt);
             }
         });
-        getContentPane().add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, -1, -1));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
