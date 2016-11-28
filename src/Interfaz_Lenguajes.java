@@ -254,6 +254,11 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 190, 180));
 
         editfolioidiomas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        editfolioidiomas.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                editfolioidiomasKeyTyped(evt);
+            }
+        });
         getContentPane().add(editfolioidiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 390, 130, 30));
 
         numcontrol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -262,6 +267,11 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(numcontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, -1, -1));
 
         editcertitxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        editcertitxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                editcertitxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(editcertitxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 130, 30));
 
         calif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -280,9 +290,14 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 430, 60, 40));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 60, 40));
 
         editcaliidiomatxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        editcaliidiomatxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                editcaliidiomatxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(editcaliidiomatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 130, 30));
 
         tipcalif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -324,6 +339,11 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(numcontrol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, -1));
 
         numconag.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        numconag.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                numconagKeyTyped(evt);
+            }
+        });
         getContentPane().add(numconag, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 100, 30));
 
         textcalifagr.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -335,6 +355,11 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(textcalifagr, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 100, 30));
 
         texttipoag.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        texttipoag.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                texttipoagKeyTyped(evt);
+            }
+        });
         getContentPane().add(texttipoag, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 100, 30));
 
         areaagregar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
@@ -353,7 +378,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
                 this.dispose();
                 login metodo1=new login();
                 metodo1.setVisible(true);
-            }        // TODO add your handling code here:
+            }      
     }//GEN-LAST:event_formWindowClosing
 
     private void btnagregaridiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregaridiomasActionPerformed
@@ -364,7 +389,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
              } else if (texttipoag.getText().equals("") || textcalifagr.getText().equals("") || numconag.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
-             }else if (verificacioncambio == 0) {
+             }else  {
                 try {
             String agr = "INSERT into idiomas (FOLIO_IDIOMAS,TIPO_CERT,CALIFICACION,FK_NUM_CONTROL) values (?,?,?,?)";
             pst = conn.prepareStatement(agr);
@@ -373,12 +398,14 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             pst.setString(2, texttipoag.getText());
             pst.setString(3, textcalifagr.getText());
             pst.execute();
+            
+            JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
                 } catch (Exception e){
                    JOptionPane.showMessageDialog(null, e);
                 }
                 actualizar_tablaidiomas();
              }
-            JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -388,13 +415,10 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_btnagregaridiomasActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+       int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         
+        if 
         
-        
-        
-        
-        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         if (verificacioncambio == 0) {
             try {
                 String edittipocerti = editcertitxt.getText();
@@ -595,7 +619,10 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
        int c= evt.getKeyChar();
        try 
        {
-        
+        if (textcalifagr.getText().length() == limitecalificacionidiomas) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 10 Caracteres");
+            }
            if(Character.isLetter(c)){
                getToolkit().beep();
                evt.consume();
@@ -606,6 +633,105 @@ Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
            JOptionPane.showMessageDialog(null, e);
        }
     }//GEN-LAST:event_textcalifagrKeyTyped
+
+    private void texttipoagKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_texttipoagKeyTyped
+         int c = evt.getKeyChar();
+
+        try {
+
+            if (texttipoag.getText().length() == limitecertificadoidiomas) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
+            }
+            if (Character.isDigit(c)) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Alphabeticos");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_texttipoagKeyTyped
+
+    private void numconagKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numconagKeyTyped
+       
+        
+        try {
+            
+             if (numconag.getText().length() == limitenumcontrolidiomas) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
+            }
+            
+            
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_numconagKeyTyped
+
+    private void editcertitxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editcertitxtKeyTyped
+        
+        try {
+           
+            
+            if (editcertitxt.getText().length() == limitecertificadoidiomas) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
+            }
+            
+            
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+    }//GEN-LAST:event_editcertitxtKeyTyped
+
+    private void editcaliidiomatxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editcaliidiomatxtKeyTyped
+        
+       int c=evt.getKeyChar();
+                
+                try {
+                    if (editcaliidiomatxt.getText().length() == limitecalificacionidiomas) {
+                        evt.consume();
+                        JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 10 Caracteres");
+                    }
+                    
+                    if (Character.isLetter(c)){
+                        evt.consume();
+                        getToolkit().beep();
+                        JOptionPane.showMessageDialog(null, "Error", "Este Campo Solo Acepta Caracteres Numericos", JOptionPane.ERROR_MESSAGE);
+                    }
+                    
+                    
+                } catch (Exception e){
+                    JOptionPane.showMessageDialog(null, e);
+                }
+        
+        
+    }//GEN-LAST:event_editcaliidiomatxtKeyTyped
+
+    private void editfolioidiomasKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_editfolioidiomasKeyTyped
+      
+              
+              try {
+                  
+                 if (editfolioidiomas.getText().length() == limitebuscarfolioidiomas) {
+                        evt.consume();
+                        JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
+                    } 
+                  
+                  
+              }catch (Exception e){
+                  JOptionPane.showMessageDialog(null, evt);
+              }
+              
+    }//GEN-LAST:event_editfolioidiomasKeyTyped
 
     /**
      * @param args the command line arguments
