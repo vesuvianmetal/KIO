@@ -78,22 +78,22 @@ Connection conn = null;
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        boton_becas = new javax.swing.JButton();
+        boton_biblioteca = new javax.swing.JButton();
+        boton_caja = new javax.swing.JButton();
+        boton_idiomas = new javax.swing.JButton();
+        Vistas_usuario = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         actualizar = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        Modificar_Botones = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         eliminaid_usuario = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
+        Eliminar_Botones = new javax.swing.JLabel();
         insetar = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         inserta_usuario = new javax.swing.JTextField();
@@ -104,7 +104,7 @@ Connection conn = null;
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        Agregar_Botones = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
 
         jLabel13.setText("jLabel13");
@@ -193,8 +193,48 @@ Connection conn = null;
         jLabel9.setText("Modificar");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, -1, -1));
 
-        jLabel8.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 230, 180));
+        boton_becas.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        boton_becas.setForeground(new java.awt.Color(0, 153, 153));
+        boton_becas.setText("Becas");
+        boton_becas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_becasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_becas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, 40));
+
+        boton_biblioteca.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        boton_biblioteca.setForeground(new java.awt.Color(0, 153, 153));
+        boton_biblioteca.setText("Biblioteca");
+        boton_biblioteca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_bibliotecaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_biblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 210, 40));
+
+        boton_caja.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        boton_caja.setForeground(new java.awt.Color(0, 153, 153));
+        boton_caja.setText("Caja");
+        boton_caja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_cajaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 210, 40));
+
+        boton_idiomas.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        boton_idiomas.setForeground(new java.awt.Color(0, 153, 153));
+        boton_idiomas.setText("Idiomas");
+        boton_idiomas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_idiomasActionPerformed(evt);
+            }
+        });
+        getContentPane().add(boton_idiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 210, 40));
+
+        Vistas_usuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
+        getContentPane().add(Vistas_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 230, 180));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,53 +254,13 @@ Connection conn = null;
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 80, 120));
 
-        jButton4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 153, 153));
-        jButton4.setText("Becas");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, 40));
-
-        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 153, 153));
-        jButton3.setText("Biblioteca");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 210, 40));
-
-        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("Caja");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 210, 40));
-
-        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("Idiomas");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 210, 40));
-
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Vistas de Usuario");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jLabel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 230, 210));
+        Modificar_Botones.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
+        getContentPane().add(Modificar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 230, 210));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -283,8 +283,8 @@ Connection conn = null;
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
         getContentPane().add(eliminaid_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, 100, 30));
 
-        jLabel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 230, 210));
+        Eliminar_Botones.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
+        getContentPane().add(Eliminar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 230, 210));
 
         insetar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         insetar.setForeground(new java.awt.Color(0, 153, 153));
@@ -349,8 +349,8 @@ Connection conn = null;
         jLabel21.setText("Agregar");
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
-        jLabel22.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 230, 210));
+        Agregar_Botones.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
+        getContentPane().add(Agregar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 230, 210));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
         getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -367,20 +367,20 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             }        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void boton_idiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_idiomasActionPerformed
        
          Interfaz_Lenguajes it = new Interfaz_Lenguajes();
         it.setVisible(true);
        
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_boton_idiomasActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void boton_becasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_becasActionPerformed
         Solicitud_Beca it = new Solicitud_Beca();
         it.setVisible(true);
         
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_boton_becasActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
 int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
@@ -501,7 +501,7 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
         // TODO add your handling code here:
     }//GEN-LAST:event_inserta_usuarioActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void boton_bibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_bibliotecaActionPerformed
      Interfaz_Biblioteca it = new Interfaz_Biblioteca();
      it.setVisible(true);
        
@@ -509,15 +509,15 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
         
         
         
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_boton_bibliotecaActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void boton_cajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cajaActionPerformed
      
         Interfaz_Caja it = new Interfaz_Caja();
      it.setVisible(true);
           
        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_boton_cajaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -557,7 +557,15 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Agregar_Botones;
+    private javax.swing.JLabel Eliminar_Botones;
+    private javax.swing.JLabel Modificar_Botones;
+    private javax.swing.JLabel Vistas_usuario;
     private javax.swing.JButton actualizar;
+    private javax.swing.JButton boton_becas;
+    private javax.swing.JButton boton_biblioteca;
+    private javax.swing.JButton boton_caja;
+    private javax.swing.JButton boton_idiomas;
     private javax.swing.JTextField eliminaid_usuario;
     private javax.swing.JButton eliminar;
     private javax.swing.JTextField inserta_contrasena;
@@ -565,15 +573,10 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
     private javax.swing.JTextField inserta_tipo_usuario;
     private javax.swing.JTextField inserta_usuario;
     private javax.swing.JButton insetar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -582,15 +585,12 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField modifica_contrasena;

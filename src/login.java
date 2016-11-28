@@ -300,7 +300,14 @@ ResultSet rs1 = st.executeQuery (sql);
         String pas=contratxt.getText();
         try {
              acceder(usu , pas);
+             if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante");
+            }
+            else if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos");
+            }
         }
+        
         catch (Exception e){
             JOptionPane.showMessageDialog(null, "Bienvenido "+usuariotxt+"");
         } 
