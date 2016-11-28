@@ -265,7 +265,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
             nombre1.setText("");
             carrera.setText("");
             numcontrl1.setText("");
-            semestre.setSelectionStart(0);
+            semestre.setText("");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
