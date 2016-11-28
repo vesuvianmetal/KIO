@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -25,6 +26,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
     
     
     public adeudosbiblioteca() {
+        conn = Conexion_BD.conectardb();
         initComponents();
         this.setResizable(false);
     }
@@ -39,11 +41,9 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        adeudo = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        codigolibro = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        buscaradeudotxt = new javax.swing.JTextField();
+        adeudoalumnotxt = new javax.swing.JTextField();
+        codlibroadeudotxt = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -51,7 +51,6 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Menu = new javax.swing.JButton();
-        control = new javax.swing.JTextField();
         name = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -71,7 +70,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -79,64 +78,18 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 580, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-
-        adeudo.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                adeudoKeyTyped(evt);
+        buscaradeudotxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                buscaradeudotxtKeyReleased(evt);
             }
         });
+        getContentPane().add(buscaradeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 210, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(adeudo, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(adeudo, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
+        adeudoalumnotxt.setEditable(false);
+        getContentPane().add(adeudoalumnotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 520, 210, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 510, 250, 50));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        codigolibro.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                codigolibroKeyTyped(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(codigolibro, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(codigolibro, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 250, 50));
-
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/mostrar.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jButton1KeyPressed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 580, -1, 100));
+        codlibroadeudotxt.setEditable(false);
+        getContentPane().add(codlibroadeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 470, 210, -1));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -159,7 +112,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Numero de Control:*");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 210, 50));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 190, 50));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,25 +123,13 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         Menu.setBorder(null);
         Menu.setBorderPainted(false);
         Menu.setContentAreaFilled(false);
-        Menu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Menu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuActionPerformed(evt);
             }
         });
         getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 580, -1, 100));
-
-        control.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                controlActionPerformed(evt);
-            }
-        });
-        control.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                controlKeyTyped(evt);
-            }
-        });
-        getContentPane().add(control, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, 220, 40));
 
         name.setBackground(new java.awt.Color(0, 204, 204));
         name.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
@@ -247,7 +188,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 580, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/fondo.jpg"))); // NOI18N
@@ -257,7 +198,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 577, -1, 100));
 
         pack();
@@ -270,84 +211,16 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
     
     }                                        
 
-    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
-       
-      /*  final int limitenumcontrol=8;
-          try {
-            if (control.getText().length() == limitenumcontrol) {
-                getToolkit().beep();
-                evt.consume();
-                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
-            }
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }     
-        
-       */
-        
-        try{
-            
-            String buscaradeudo = "SELECT CODIGO_LIBRO,ADEUDO from biblioteca where FK_NUMERO_CONTROL_BIBLIOTECA=?";
-            pst = conn.prepareStatement(buscaradeudo);
-            pst.setString(1, control.getText());
-            rs = pst.executeQuery();
-            
-            if(rs.next()){
-                String codigo= rs.getString("CODIGO_LIBRO");
-                codigolibro.setText(codigo);
-
-                String ad = rs.getString("ADEUDO");
-                adeudo.setText(ad);
-            }
-           
-        }catch(Exception e){
-           
-        }
-        
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_jButton1KeyPressed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        
         
-        control.setText("");
-        codigolibro.setText("");
-        adeudo.setText("");
+        buscaradeudotxt.setText("");
+       codlibroadeudotxt.setText("");
+        adeudoalumnotxt.setText("");
         
         
         
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     
-        
-         try{
-            
-            String buscaradeudo = "SELECT CODIGO_LIBRO,ADEUDO  from biblioteca where FK_NUMERO_CONTROL_BIBLIOTECA=?";
-            pst = conn.prepareStatement(buscaradeudo);
-            pst.setString(1, control.getText());
-            rs = pst.executeQuery();
-            
-            if(rs.next()){
-                String agregar1 = rs.getString("CODIGO_LIBRO");
-                codigolibro.setText(agregar1);
-
-                String agregar2 = rs.getString("ADEUDO");
-                adeudo.setText(agregar2);
-            }
-           
-        }catch(Exception e){
-           
-        }
-        
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActionPerformed
 item it = new item();
@@ -355,58 +228,29 @@ item it = new item();
         this.dispose();        
     }//GEN-LAST:event_MenuActionPerformed
 
-    private void controlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_controlActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_controlActionPerformed
+    private void buscaradeudotxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscaradeudotxtKeyReleased
+        try {
 
-    private void controlKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_controlKeyTyped
-       try {
-            if (control.getText().length() == limitenumcontrol) {
-                getToolkit().beep();
-                evt.consume();
-                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
+            String busquedadedeudo = "SELECT CODIGO_LIBRO,ADEUDO from biblioteca where FK_NUMERO_CONTROL_BIBLIOTECA=?";
+            pst = conn.prepareStatement(busquedadedeudo);
+            pst.setString(1, buscaradeudotxt.getText());
+
+            rs = pst.executeQuery();
+            if (rs.next()) {
+
+                String buscardeuda = rs.getString("CODIGO_LIBRO");
+                codlibroadeudotxt.setText(buscardeuda);
+
+                String buscardeuda2 = rs.getString("ADEUDO");
+                adeudoalumnotxt.setText(buscardeuda2);
+
             }
 
-            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        }                   
-    }//GEN-LAST:event_controlKeyTyped
-
-    private void codigolibroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codigolibroKeyTyped
-  try {
-            if (codigolibro.getText().length() == limitecodlibro) {
-                getToolkit().beep();
-                evt.consume();
-                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 45 Caracteres");
-            }
-
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }    }//GEN-LAST:event_codigolibroKeyTyped
-
-    private void adeudoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_adeudoKeyTyped
- try {
-
-            if (adeudo.getText().length() == limiteadeudo) {
-                getToolkit().beep();
-                evt.consume();
-                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 6 Caracteres");
-            }
-            char c = evt.getKeyChar();
-
-            if (Character.isLetter(c)) {
-                getToolkit().beep();
-                evt.consume();
-                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
-
-            }
-        } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null, e);
         }
-    
-    }//GEN-LAST:event_adeudoKeyTyped
+
+    }//GEN-LAST:event_buscaradeudotxtKeyReleased
 
     /**
      * @param args the command line arguments
@@ -445,10 +289,9 @@ item it = new item();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Menu;
-    private javax.swing.JLabel adeudo;
-    private javax.swing.JLabel codigolibro;
-    private javax.swing.JTextField control;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField adeudoalumnotxt;
+    private javax.swing.JTextField buscaradeudotxt;
+    private javax.swing.JTextField codlibroadeudotxt;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
@@ -464,8 +307,6 @@ item it = new item();
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel name;
     // End of variables declaration//GEN-END:variables
 }

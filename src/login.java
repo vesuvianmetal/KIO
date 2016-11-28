@@ -65,6 +65,17 @@ ResultSet rs1 = st.executeQuery (sql);
                 IAL.setVisible(true);
                 this.dispose();
             }  
+             if (cap.equals("control")) {
+                Interfaz_controlescolar ic= new Interfaz_controlescolar();
+                ic.setVisible(true);
+                this.dispose();
+            }  
+             
+            if (cap.equals("becas")) {
+                Solicitud_Beca sb= new Solicitud_Beca();
+                sb.setVisible(true);
+                this.dispose();
+            }  
         } catch (SQLException e) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(null, "Error Usuario no Registrado en la base de datos");
