@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -71,7 +72,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -125,7 +126,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -159,7 +160,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Numero de Control:*");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 350, 210, 50));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 350, 190, 50));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,7 +171,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         Menu.setBorder(null);
         Menu.setBorderPainted(false);
         Menu.setContentAreaFilled(false);
-        Menu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Menu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuActionPerformed(evt);
@@ -184,11 +185,14 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
             }
         });
         control.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                controlKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 controlKeyTyped(evt);
             }
         });
-        getContentPane().add(control, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, 220, 40));
+        getContentPane().add(control, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 250, 40));
 
         name.setBackground(new java.awt.Color(0, 204, 204));
         name.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
@@ -247,7 +251,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 580, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/fondo.jpg"))); // NOI18N
@@ -257,7 +261,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.setContentAreaFilled(false);
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 577, -1, 100));
 
         pack();
@@ -407,6 +411,32 @@ item it = new item();
         }
     
     }//GEN-LAST:event_adeudoKeyTyped
+
+    private void controlKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_controlKeyReleased
+       try {
+
+            String search = "SELECT CODIGO_LIBRO,ADEUDO from biblioteca where FK_NUMERO_CONTROL_BIBLIOTECA=?";
+            pst = conn.prepareStatement(search);
+            pst.setString(1, control.getText());
+
+            rs = pst.executeQuery();
+            if (rs.next()) {
+
+                String buscar1 = rs.getString("CODIGO_LIBRO");
+                codigolibro.setText(buscar1);
+
+                String buscar2 = rs.getString("ADEUDO");
+               adeudo.setText(buscar2);
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+        
+    }//GEN-LAST:event_controlKeyReleased
 
     /**
      * @param args the command line arguments
