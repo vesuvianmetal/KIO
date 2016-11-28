@@ -46,7 +46,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        Menu = new javax.swing.JButton();
         control = new javax.swing.JTextField();
         name = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -150,17 +150,17 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jLabel5.setText("Ingresa tu Datos Para Consultar Tus Adeudos en Biblioteca");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 410, 60));
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/home.png"))); // NOI18N
-        jButton7.setBorder(null);
-        jButton7.setBorderPainted(false);
-        jButton7.setContentAreaFilled(false);
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        Menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/home.png"))); // NOI18N
+        Menu.setBorder(null);
+        Menu.setBorderPainted(false);
+        Menu.setContentAreaFilled(false);
+        Menu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                MenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 580, -1, 100));
+        getContentPane().add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 580, -1, 100));
         getContentPane().add(control, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, 220, 40));
 
         name.setBackground(new java.awt.Color(0, 204, 204));
@@ -236,14 +236,12 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-      
-     item vp = new item();
-     vp.setVisible(true);
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+   
              
              
     
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }                                        
 
     private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
        
@@ -324,11 +322,11 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void MenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActionPerformed
 item it = new item();
         it.setVisible(true);
         this.dispose();        
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_MenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -366,6 +364,7 @@ item it = new item();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Menu;
     private javax.swing.JLabel adeudo;
     private javax.swing.JLabel codigolibro;
     private javax.swing.JTextField control;
@@ -373,7 +372,6 @@ item it = new item();
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
