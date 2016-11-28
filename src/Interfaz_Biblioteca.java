@@ -507,6 +507,9 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
                 String agregar4 = rs.getString("FOLIO_BIBLIOTECA");
                 editfoliotxt.setText(agregar4);
+           
+                String agregar5 = rs.getString("FOLIO_BIBLIOTECA");
+                elimnumerocontroltxt.setText(agregar5);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
