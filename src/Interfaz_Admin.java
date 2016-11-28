@@ -32,7 +32,7 @@ Connection conn = null;
     void actualizar_tabla() {
         try {
 
-            String act = "select ID_USUARIO,CONTRASENA,TIPO_USUARIO FROM USUARIOS";
+            String act = "select * FROM USUARIOS";
             pst = conn.prepareStatement(act);
             rs = pst.executeQuery();
 
@@ -45,7 +45,7 @@ Connection conn = null;
 
         try {
 
-            String act = "select ID_USUARIO,CONTRASENA,TIPO_USUARIO FROM USUARIOS";
+            String act = "select * FROM USUARIOS";
             pst = conn.prepareStatement(act);
             rs = pst.executeQuery();
 
@@ -73,8 +73,8 @@ Connection conn = null;
         jLabel16 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         modificar_idusuario = new javax.swing.JTextField();
-        contrasena = new javax.swing.JTextField();
-        tipo_usuario = new javax.swing.JTextField();
+        modifica_contrasena = new javax.swing.JTextField();
+        modifica_tipo_usuario = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -94,11 +94,13 @@ Connection conn = null;
         jLabel2 = new javax.swing.JLabel();
         eliminaid_usuario = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        modificar1 = new javax.swing.JButton();
+        insetar = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        modificar_idusuario1 = new javax.swing.JTextField();
-        contrasena1 = new javax.swing.JTextField();
-        tipo_usuario1 = new javax.swing.JTextField();
+        inserta_usuario = new javax.swing.JTextField();
+        inserta_idusuario = new javax.swing.JTextField();
+        inserta_contrasena = new javax.swing.JTextField();
+        inserta_tipo_usuario = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -118,18 +120,18 @@ Connection conn = null;
         tabla_admin.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         tabla_admin.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "ID_Usuario", "Contraseña", "Tipo de  Usuario"
+                "ID_Usuario", "Usuario", "Contraseña", "Tipo de  Usuario"
             }
         ));
         jScrollPane1.setViewportView(tabla_admin);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 480, 90));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 480, 110));
 
         eliminar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         eliminar.setForeground(new java.awt.Color(0, 153, 153));
@@ -143,7 +145,7 @@ Connection conn = null;
 
         modificar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         modificar.setForeground(new java.awt.Color(0, 153, 153));
-        modificar.setText("Aplicar");
+        modificar.setText("Modificar");
         modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarActionPerformed(evt);
@@ -168,13 +170,13 @@ Connection conn = null;
         });
         getContentPane().add(modificar_idusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 100, 30));
 
-        contrasena.addActionListener(new java.awt.event.ActionListener() {
+        modifica_contrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contrasenaActionPerformed(evt);
+                modifica_contrasenaActionPerformed(evt);
             }
         });
-        getContentPane().add(contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 100, 30));
-        getContentPane().add(tipo_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, 100, 30));
+        getContentPane().add(modifica_contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 340, 100, 30));
+        getContentPane().add(modifica_tipo_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, 100, 30));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,7 +209,7 @@ Connection conn = null;
                 actualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, -1, 20));
+        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, -1, 20));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 80, 120));
@@ -284,45 +286,63 @@ Connection conn = null;
         jLabel14.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 230, 210));
 
-        modificar1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        modificar1.setForeground(new java.awt.Color(0, 153, 153));
-        modificar1.setText("Aplicar");
-        modificar1.addActionListener(new java.awt.event.ActionListener() {
+        insetar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        insetar.setForeground(new java.awt.Color(0, 153, 153));
+        insetar.setText("Agregar");
+        insetar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificar1ActionPerformed(evt);
+                insetarActionPerformed(evt);
             }
         });
-        getContentPane().add(modificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
+        getContentPane().add(insetar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Tipos de Usuario:");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
 
-        modificar_idusuario1.addActionListener(new java.awt.event.ActionListener() {
+        inserta_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificar_idusuario1ActionPerformed(evt);
+                inserta_usuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(modificar_idusuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 100, 30));
+        getContentPane().add(inserta_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 100, 30));
 
-        contrasena1.addActionListener(new java.awt.event.ActionListener() {
+        inserta_idusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contrasena1ActionPerformed(evt);
+                inserta_idusuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(contrasena1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 100, 30));
-        getContentPane().add(tipo_usuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 100, 30));
+        getContentPane().add(inserta_idusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 100, 30));
+
+        inserta_contrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserta_contrasenaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inserta_contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 100, 30));
+
+        inserta_tipo_usuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inserta_tipo_usuarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inserta_tipo_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 100, 30));
+
+        jLabel24.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Usuario:");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Contraseña:");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("ID_Usuario:");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
@@ -369,15 +389,11 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modif
     JOptionPane.showMessageDialog(null, "No hay Datos que modificar");
             }
             else{
-                String contra=contrasena.getText();
-                String usu=tipo_usuario.getText();
-                String usuid=modificar_idusuario.getText();
-                System.out.println(contra+usu+usuid);
             String mod = "update usuarios set contrasena=?, tipo_usuario=? where ID_usuario=?";
             try {
                 pst = conn.prepareStatement(mod);
-                pst.setString(1, contrasena.getText());
-                pst.setString(2, tipo_usuario.getText());
+                pst.setString(1, modifica_contrasena.getText());
+                pst.setString(2, modifica_tipo_usuario.getText());
                 pst.setString(3, modificar_idusuario.getText());
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Registro Actualizado");
@@ -430,21 +446,60 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borra
         // TODO add your handling code here:
     }//GEN-LAST:event_modificar_idusuarioActionPerformed
 
-    private void contrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaActionPerformed
+    private void modifica_contrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifica_contrasenaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contrasenaActionPerformed
+    }//GEN-LAST:event_modifica_contrasenaActionPerformed
 
-    private void modificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modificar1ActionPerformed
+    private void insetarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insetarActionPerformed
+int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea insertar el registro?", "Insertar", JOptionPane.YES_NO_OPTION);
+        if (verificacion == 0) {
+            if(inserta_idusuario.getText().isEmpty()){
+    JOptionPane.showMessageDialog(null, "No hay Datos que insertar");
+            }
+            else{
+                
+            String mod = "insert into usuarios values(?,?,?,?)";
+            try {
+                pst = conn.prepareStatement(mod);
+                pst.setString(1, inserta_idusuario.getText());
+                pst.setString(2, inserta_usuario.getText());
+                pst.setString(3, inserta_contrasena.getText());
+                pst.setString(4, inserta_tipo_usuario.getText());
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Registro Actualizado");
+                /*pst = conn.prepareStatement(elim);
+            pst.setString(1, eliminaid_usuario.getText());*/
+            rs = pst.executeQuery();
+            } catch (Exception e) {
+                Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
+            vp.actualizar_tabla();
+            inserta_idusuario.setText("");
+            inserta_usuario.setText("");
+            inserta_contrasena.setText("");
+            inserta_tipo_usuario.setText("");
+            
+            }
+            
+        }
 
-    private void modificar_idusuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar_idusuario1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modificar_idusuario1ActionPerformed
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_insetarActionPerformed
 
-    private void contrasena1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasena1ActionPerformed
+    private void inserta_idusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserta_idusuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contrasena1ActionPerformed
+    }//GEN-LAST:event_inserta_idusuarioActionPerformed
+
+    private void inserta_contrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserta_contrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inserta_contrasenaActionPerformed
+
+    private void inserta_tipo_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserta_tipo_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inserta_tipo_usuarioActionPerformed
+
+    private void inserta_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserta_usuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inserta_usuarioActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
      Interfaz_Biblioteca it = new Interfaz_Biblioteca();
@@ -492,19 +547,24 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borra
         //</editor-fold>
 
         /* Create and display the form */
+        /*
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Interfaz_Admin().setVisible(true);
             }
         });
+        */
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizar;
-    private javax.swing.JTextField contrasena;
-    private javax.swing.JTextField contrasena1;
     private javax.swing.JTextField eliminaid_usuario;
     private javax.swing.JButton eliminar;
+    private javax.swing.JTextField inserta_contrasena;
+    private javax.swing.JTextField inserta_idusuario;
+    private javax.swing.JTextField inserta_tipo_usuario;
+    private javax.swing.JTextField inserta_usuario;
+    private javax.swing.JButton insetar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -524,6 +584,7 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borra
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -532,12 +593,10 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borra
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField modifica_contrasena;
+    private javax.swing.JTextField modifica_tipo_usuario;
     private javax.swing.JButton modificar;
-    private javax.swing.JButton modificar1;
     private javax.swing.JTextField modificar_idusuario;
-    private javax.swing.JTextField modificar_idusuario1;
     private javax.swing.JTable tabla_admin;
-    private javax.swing.JTextField tipo_usuario;
-    private javax.swing.JTextField tipo_usuario1;
     // End of variables declaration//GEN-END:variables
 }
