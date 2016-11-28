@@ -234,6 +234,10 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
     private void numcontrl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontrl1KeyReleased
         // TODO add your handling code here:
+        
+        
+        
+           
         try{
         String buscarfolio = "SELECT * from alumno where NUMERO_CONTROL=?";
             pst = conn.prepareStatement(buscarfolio);
@@ -253,6 +257,9 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
                 
             }
+         
+       
+         
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
