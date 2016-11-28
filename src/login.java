@@ -65,11 +65,7 @@ ResultSet rs1 = st.executeQuery (sql);
                 IAL.setVisible(true);
                 this.dispose();
             }  
-            if (cap.equals("control")) {
-                Interfaz_controlescolar IAL = new Interfaz_controlescolar();
-                IAL.setVisible(true);
-                this.dispose();
-            } 
+            
         } catch (SQLException e) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(null, "Error Usuario no Registrado en la base de datos");
