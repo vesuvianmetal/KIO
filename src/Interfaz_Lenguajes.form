@@ -38,6 +38,7 @@
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Actualizar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Actualizar La Base De Datos."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
@@ -57,6 +58,7 @@
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Borrar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Confirmar Eliminacion De Registro Por Numero De Folio."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -152,6 +154,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Utilizables/palomitafeliz.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Confirmar Nuevos Registros."/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -190,6 +193,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="buscarfolioidiomatxt">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Introducir Folio Para Busqueda."/>
+      </Properties>
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="buscarfolioidiomatxtKeyReleased"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="buscarfolioidiomatxtKeyTyped"/>
@@ -241,6 +247,7 @@
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Buscar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Buscar Dentro De La Base De Datos."/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -328,6 +335,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Introducir Num. Control Para Busqueda."/>
       </Properties>
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="buscarnumeroidiomatxtKeyReleased"/>
@@ -376,6 +384,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Modificar El Numero De Folio."/>
       </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="editfolioidiomasKeyTyped"/>
@@ -407,6 +416,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Modificar El Tipo De Certificacion. "/>
       </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="editcertitxtKeyTyped"/>
@@ -438,6 +448,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/Utilizables/palomitafeliz.png"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Confirmar Modificaciones Dentro De Los Datos."/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
@@ -464,6 +475,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Modificar La Calificacion Asignada."/>
       </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="editcaliidiomatxtKeyTyped"/>
@@ -491,6 +503,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="eliminarfolioidiomastxt">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="Numero De Folio A Eliminar."/>
+      </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="eliminarfolioidiomastxtKeyTyped"/>
       </Events>
@@ -601,6 +616,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Agregar Num. Control."/>
       </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numconagKeyTyped"/>
@@ -616,6 +632,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Agregar Calificacion Lograda."/>
       </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="textcalifagrKeyTyped"/>
@@ -631,6 +648,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
+        <Property name="toolTipText" type="java.lang.String" value="Agregar Tipo De Certificacion."/>
       </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="texttipoagKeyTyped"/>

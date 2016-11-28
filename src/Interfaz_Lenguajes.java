@@ -114,6 +114,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(0, 153, 153));
         jButton5.setText("Actualizar");
+        jButton5.setToolTipText("Actualizar La Base De Datos.");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -124,6 +125,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 153, 153));
         jButton1.setText("Borrar");
+        jButton1.setToolTipText("Confirmar Eliminacion De Registro Por Numero De Folio.");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -157,6 +159,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(trytofind, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         btnagregaridiomas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
+        btnagregaridiomas.setToolTipText("Confirmar Nuevos Registros.");
         btnagregaridiomas.setBorder(null);
         btnagregaridiomas.setBorderPainted(false);
         btnagregaridiomas.setContentAreaFilled(false);
@@ -174,6 +177,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         fol.setText("Folio:");
         getContentPane().add(fol, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, -1, -1));
 
+        buscarfolioidiomatxt.setToolTipText("Introducir Folio Para Busqueda.");
         buscarfolioidiomatxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarfolioidiomatxtKeyReleased(evt);
@@ -197,6 +201,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 153, 153));
         jButton3.setText("Buscar");
+        jButton3.setToolTipText("Buscar Dentro De La Base De Datos.");
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         generador.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
@@ -236,6 +241,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 540, 140));
 
         buscarnumeroidiomatxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        buscarnumeroidiomatxt.setToolTipText("Introducir Num. Control Para Busqueda.");
         buscarnumeroidiomatxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarnumeroidiomatxtKeyReleased(evt);
@@ -255,6 +261,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 190, 180));
 
         editfolioidiomas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        editfolioidiomas.setToolTipText("Modificar El Numero De Folio.");
         editfolioidiomas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 editfolioidiomasKeyTyped(evt);
@@ -268,6 +275,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(numcontrol, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 400, -1, -1));
 
         editcertitxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        editcertitxt.setToolTipText("Modificar El Tipo De Certificacion. ");
         editcertitxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 editcertitxtKeyTyped(evt);
@@ -281,6 +289,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(calif, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
 
         btneditaridioma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
+        btneditaridioma.setToolTipText("Confirmar Modificaciones Dentro De Los Datos.");
         btneditaridioma.setBorder(null);
         btneditaridioma.setBorderPainted(false);
         btneditaridioma.setContentAreaFilled(false);
@@ -294,6 +303,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(btneditaridioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 60, 40));
 
         editcaliidiomatxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        editcaliidiomatxt.setToolTipText("Modificar La Calificacion Asignada.");
         editcaliidiomatxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 editcaliidiomatxtKeyTyped(evt);
@@ -306,6 +316,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         tipcalif.setText("Tipo de Certificación:");
         getContentPane().add(tipcalif, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 150, 20));
 
+        eliminarfolioidiomastxt.setToolTipText("Numero De Folio A Eliminar.");
         eliminarfolioidiomastxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 eliminarfolioidiomastxtKeyTyped(evt);
@@ -340,6 +351,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(numcontrol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, -1));
 
         numconag.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        numconag.setToolTipText("Agregar Num. Control.");
         numconag.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 numconagKeyTyped(evt);
@@ -348,6 +360,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(numconag, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 390, 100, 30));
 
         textcalifagr.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        textcalifagr.setToolTipText("Agregar Calificacion Lograda.");
         textcalifagr.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 textcalifagrKeyTyped(evt);
@@ -356,6 +369,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(textcalifagr, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 350, 100, 30));
 
         texttipoag.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        texttipoag.setToolTipText("Agregar Tipo De Certificacion.");
         texttipoag.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 texttipoagKeyTyped(evt);
