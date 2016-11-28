@@ -1,3 +1,9 @@
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,10 +15,11 @@
  * @author Disco
  */
 public class adeudosbiblioteca extends javax.swing.JFrame {
-
-    /**
-     * Creates new form adeudosbiblioteca
-     */
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    
+    
     public adeudosbiblioteca() {
         initComponents();
         this.setResizable(false);
@@ -27,8 +34,11 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        adeudo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        codigolibro = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -37,7 +47,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        control = new javax.swing.JTextField();
         name = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -46,19 +56,70 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 460, 180, 40));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 510, 180, 40));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/borrar.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 580, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(adeudo, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(adeudo, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 510, 250, 50));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(codigolibro, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(codigolibro, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 450, 250, 50));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/mostrar.png"))); // NOI18N
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jButton1KeyPressed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 580, -1, 100));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -100,7 +161,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 580, -1, 100));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, 220, 40));
+        getContentPane().add(control, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 360, 220, 40));
 
         name.setBackground(new java.awt.Color(0, 204, 204));
         name.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 1, true));
@@ -165,13 +226,6 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/fondo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 0, 1560, 1000));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/borrar.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setBorderPainted(false);
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 580, -1, -1));
-
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/enviar.png"))); // NOI18N
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
@@ -181,6 +235,94 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+      
+     item vp = new item();
+     vp.setVisible(true);
+             
+             
+    
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyPressed
+       
+      /*  final int limitenumcontrol=8;
+          try {
+            if (control.getText().length() == limitenumcontrol) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }     
+        
+       */
+        
+        try{
+            
+            String buscaradeudo = "SELECT CODIGO_LIBRO,ADEUDO from biblioteca where FK_NUMERO_CONTROL_BIBLIOTECA=?";
+            pst = conn.prepareStatement(buscaradeudo);
+            pst.setString(1, control.getText());
+            rs = pst.executeQuery();
+            
+            if(rs.next()){
+                String codigo= rs.getString("CODIGO_LIBRO");
+                codigolibro.setText(codigo);
+
+                String ad = rs.getString("ADEUDO");
+                adeudo.setText(ad);
+            }
+           
+        }catch(Exception e){
+           
+        }
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jButton1KeyPressed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+        
+        control.setText("");
+        codigolibro.setText("");
+        adeudo.setText("");
+        
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     
+        
+         try{
+            
+            String buscaradeudo = "SELECT CODIGO_LIBRO,ADEUDO  from biblioteca where FK_NUMERO_CONTROL_BIBLIOTECA=?";
+            pst = conn.prepareStatement(buscaradeudo);
+            pst.setString(1, control.getText());
+            rs = pst.executeQuery();
+            
+            if(rs.next()){
+                String agregar1 = rs.getString("CODIGO_LIBRO");
+                codigolibro.setText(agregar1);
+
+                String agregar2 = rs.getString("ADEUDO");
+                adeudo.setText(agregar2);
+            }
+           
+        }catch(Exception e){
+           
+        }
+        
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 item it = new item();
@@ -224,6 +366,9 @@ item it = new item();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel adeudo;
+    private javax.swing.JLabel codigolibro;
+    private javax.swing.JTextField control;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -241,9 +386,8 @@ item it = new item();
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel name;
     // End of variables declaration//GEN-END:variables
 }

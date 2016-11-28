@@ -63,6 +63,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         aredatos = new javax.swing.JLabel();
         FONDO = new javax.swing.JLabel();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Solicitud de Constancia-PIE V1.0");
         setExtendedState(6);
         setUndecorated(true);
@@ -74,7 +75,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -88,7 +89,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -100,7 +101,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,6 +235,10 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
     private void numcontrl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontrl1KeyReleased
         // TODO add your handling code here:
+        
+        
+        
+           
         try{
         String buscarfolio = "SELECT * from alumno where NUMERO_CONTROL=?";
             pst = conn.prepareStatement(buscarfolio);
@@ -253,6 +258,9 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
                 
             }
+         
+       
+         
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -293,9 +301,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       
-        item it = new item();
-        it.setVisible(true);
+
         this.dispose();
         
         

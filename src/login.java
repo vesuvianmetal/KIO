@@ -280,10 +280,10 @@ ResultSet rs1 = st.executeQuery (sql);
          String usu=usuariotxt.getText();
         String pas=contratxt.getText();
         if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante");
+                JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante","Error",JOptionPane.WARNING_MESSAGE);
             }
             else if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos");
+                JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos","Error",JOptionPane.WARNING_MESSAGE);
             }
     }//GEN-LAST:event_loginActionPerformed
 
@@ -303,7 +303,14 @@ ResultSet rs1 = st.executeQuery (sql);
         String pas=contratxt.getText();
         try {
              acceder(usu , pas);
+             if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante","Error",JOptionPane.WARNING_MESSAGE);
+            }
+            else if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos","Error",JOptionPane.WARNING_MESSAGE);
+            }
         }
+        
         catch (Exception e){
             JOptionPane.showMessageDialog(null, "Bienvenido "+usuariotxt+"");
         } 
@@ -320,9 +327,11 @@ String user = JOptionPane.showInputDialog(null, "Usuario");
 		if ("admin".equals(user) && "admin".equals(password)) {
 			JOptionPane.showMessageDialog(null, "Inicio de Sesion Correcto");
 		}else {
+                    
 			JOptionPane.showMessageDialog(null, "Inicio de Sesion Fallido");
                         login vp=new login();
                         vp.setVisible(true);
+                        this.dispose();
                         		}        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
