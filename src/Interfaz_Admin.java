@@ -86,6 +86,7 @@ Connection conn = null;
         inserta_idusuario = new javax.swing.JTextField();
         inserta_contrasena = new javax.swing.JTextField();
         inserta_tipo_usuario = new javax.swing.JTextField();
+        Bitacora = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -194,7 +195,7 @@ Connection conn = null;
                 boton_becasActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_becas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 210, 40));
+        getContentPane().add(boton_becas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 210, 30));
 
         boton_biblioteca.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         boton_biblioteca.setForeground(new java.awt.Color(0, 153, 153));
@@ -205,7 +206,7 @@ Connection conn = null;
                 boton_bibliotecaActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_biblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 210, 40));
+        getContentPane().add(boton_biblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 210, 30));
 
         boton_caja.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         boton_caja.setForeground(new java.awt.Color(0, 153, 153));
@@ -216,7 +217,7 @@ Connection conn = null;
                 boton_cajaActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 210, 40));
+        getContentPane().add(boton_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 210, 30));
 
         boton_idiomas.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         boton_idiomas.setForeground(new java.awt.Color(0, 153, 153));
@@ -227,7 +228,7 @@ Connection conn = null;
                 boton_idiomasActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_idiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 210, 40));
+        getContentPane().add(boton_idiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 210, 30));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -246,7 +247,7 @@ Connection conn = null;
         getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, -1, 20));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 80, 120));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 80, 120));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -291,7 +292,7 @@ Connection conn = null;
                 control_escolarActionPerformed(evt);
             }
         });
-        getContentPane().add(control_escolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 210, 40));
+        getContentPane().add(control_escolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 210, 30));
 
         insetar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         insetar.setForeground(new java.awt.Color(0, 153, 153));
@@ -344,6 +345,17 @@ Connection conn = null;
         });
         getContentPane().add(inserta_tipo_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 100, 30));
 
+        Bitacora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        Bitacora.setForeground(new java.awt.Color(0, 153, 153));
+        Bitacora.setText("Bitacora.");
+        Bitacora.setToolTipText("Direcciona Vista Usuario Administrador Cajas.");
+        Bitacora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BitacoraActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Bitacora, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 210, 30));
+
         jLabel24.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Usuario:");
@@ -368,7 +380,7 @@ Connection conn = null;
         getContentPane().add(Agregar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 230, 200));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -545,6 +557,16 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
             
     }//GEN-LAST:event_control_escolarActionPerformed
 
+    private void BitacoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BitacoraActionPerformed
+    bitacora_admin vp = new bitacora_admin();
+    vp.setVisible(true);
+    this.dispose();
+        
+        
+        
+        
+    }//GEN-LAST:event_BitacoraActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -584,6 +606,7 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Agregar_Botones;
+    private javax.swing.JButton Bitacora;
     private javax.swing.JLabel Eliminar_Botones;
     private javax.swing.JLabel Modificar_Botones;
     private javax.swing.JLabel Vistas_usuario;
