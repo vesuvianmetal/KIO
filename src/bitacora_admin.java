@@ -19,16 +19,11 @@ public class bitacora_admin extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
-    private final int limitenumcontrol = 8;
-    private final int limiteadeudo = 6;
-    int limitefolio = 11;
-    int limitecodlibro = 45;
-    int editnumc = 0;
-    int addo = 0;
     /**
      * Creates new form bitacora_admin
      */
     public bitacora_admin() {
+        conn = Conexion_BD.conectardb();
         initComponents();
         filltable();
         this.setResizable(false);
@@ -88,8 +83,13 @@ public class bitacora_admin extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextField2.setEditable(false);
@@ -201,6 +201,12 @@ public class bitacora_admin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 actualizar_tabla();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+Interfaz_Admin vp=new Interfaz_Admin();
+vp.setVisible(true);
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
