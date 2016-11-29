@@ -502,7 +502,7 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
     }//GEN-LAST:event_inserta_usuarioActionPerformed
 
     private void boton_bibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_bibliotecaActionPerformed
-     Interfaz_Biblioteca it = new Interfaz_Biblioteca();
+     Interfaz_Biblioteca_Admin  it = new Interfaz_Biblioteca_Admin ();
      it.setVisible(true);
        
        
