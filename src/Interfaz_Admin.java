@@ -504,6 +504,8 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
     private void boton_bibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_bibliotecaActionPerformed
      Interfaz_Biblioteca_Admin  it = new Interfaz_Biblioteca_Admin ();
      it.setVisible(true);
+     this.dispose();
+     
        
        
         
