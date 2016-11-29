@@ -80,7 +80,6 @@ Connection conn = null;
         Eliminar_Botones = new javax.swing.JLabel();
         control_escolar = new javax.swing.JButton();
         insetar = new javax.swing.JButton();
-        Vistas_usuario = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         inserta_usuario = new javax.swing.JTextField();
         inserta_idusuario = new javax.swing.JTextField();
@@ -88,6 +87,7 @@ Connection conn = null;
         inserta_tipo_usuario = new javax.swing.JTextField();
         Bitacora = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
+        Vistas_usuario = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -305,9 +305,6 @@ Connection conn = null;
         });
         getContentPane().add(insetar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, -1, -1));
 
-        Vistas_usuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(Vistas_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 230, 220));
-
         jLabel18.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Tipos de Usuario:");
@@ -360,6 +357,9 @@ Connection conn = null;
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Usuario:");
         getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+
+        Vistas_usuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
+        getContentPane().add(Vistas_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 230, 220));
 
         jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
@@ -539,8 +539,10 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
 
     private void boton_cajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_cajaActionPerformed
      
-        Interfaz_Caja it = new Interfaz_Caja();
+        Interfaz_Caja_Admin it = new Interfaz_Caja_Admin();
      it.setVisible(true);
+     this.dispose();
+     
           
        
     }//GEN-LAST:event_boton_cajaActionPerformed

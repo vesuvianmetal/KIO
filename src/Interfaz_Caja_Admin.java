@@ -155,9 +155,9 @@ public class Interfaz_Caja_Admin extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             if(a==JOptionPane.YES_OPTION){
-                this.dispose();
-                login metodo1=new login();
+                Interfaz_Admin metodo1=new Interfaz_Admin();
                 metodo1.setVisible(true);
+                this.dispose();
             }        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
