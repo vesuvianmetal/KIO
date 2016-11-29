@@ -72,6 +72,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 153, 153));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/borrar.png"))); // NOI18N
+        jButton2.setToolTipText("Borrar Datos Ingresados");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.setContentAreaFilled(false);
@@ -86,6 +87,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 153, 153));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/enviar.png"))); // NOI18N
+        jButton1.setToolTipText("Enviar Solicitud de Constancia");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
@@ -98,6 +100,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, 110, 90));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/home.png"))); // NOI18N
+        jButton3.setToolTipText("Volver a Menu");
         jButton3.setBorder(null);
         jButton3.setBorderPainted(false);
         jButton3.setContentAreaFilled(false);
@@ -111,9 +114,11 @@ public class solicitudconstancia extends javax.swing.JFrame {
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 600, 110, 80));
 
         email.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        email.setToolTipText("Correo para envio de constancia");
         getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 350, 50));
 
         numcontrl1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        numcontrl1.setToolTipText("");
         numcontrl1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 numcontrl1KeyReleased(evt);
@@ -134,6 +139,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         getContentPane().add(semestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 400, 350, 50));
 
         caja1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        caja1.setToolTipText("Folo Generado al momento de Pagar en Caja");
         getContentPane().add(caja1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 540, 350, 50));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -228,6 +234,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         getContentPane().add(aredatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 820, 570));
 
         FONDO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/fondo.jpg"))); // NOI18N
+        FONDO.setToolTipText(" ");
         getContentPane().add(FONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, -1, 1070));
 
         pack();
