@@ -77,6 +77,7 @@ ResultSet rs1 = st.executeQuery (sql);
                 sb.setVisible(true);
                 this.dispose();
             }  
+            
         } catch (SQLException e) {
             Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, e);
             JOptionPane.showMessageDialog(null, "Error Usuario no Registrado en la base de datos");
