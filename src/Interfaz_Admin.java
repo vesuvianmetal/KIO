@@ -396,8 +396,9 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
 
     private void boton_idiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_idiomasActionPerformed
        
-         Interfaz_Lenguajes it = new Interfaz_Lenguajes();
+         Interfaz_Lenguajes_Admin it = new Interfaz_Lenguajes_Admin();
         it.setVisible(true);
+       this.dispose();
        
         
         
