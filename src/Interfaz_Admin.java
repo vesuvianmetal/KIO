@@ -67,7 +67,6 @@ Connection conn = null;
         boton_biblioteca = new javax.swing.JButton();
         boton_caja = new javax.swing.JButton();
         boton_idiomas = new javax.swing.JButton();
-        Vistas_usuario = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         actualizar = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
@@ -79,7 +78,9 @@ Connection conn = null;
         jLabel2 = new javax.swing.JLabel();
         eliminaid_usuario = new javax.swing.JTextField();
         Eliminar_Botones = new javax.swing.JLabel();
+        control_escolar = new javax.swing.JButton();
         insetar = new javax.swing.JButton();
+        Vistas_usuario = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         inserta_usuario = new javax.swing.JTextField();
         inserta_idusuario = new javax.swing.JTextField();
@@ -193,7 +194,7 @@ Connection conn = null;
                 boton_becasActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_becas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, 40));
+        getContentPane().add(boton_becas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 210, 40));
 
         boton_biblioteca.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         boton_biblioteca.setForeground(new java.awt.Color(0, 153, 153));
@@ -204,7 +205,7 @@ Connection conn = null;
                 boton_bibliotecaActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_biblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 210, 40));
+        getContentPane().add(boton_biblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 210, 40));
 
         boton_caja.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         boton_caja.setForeground(new java.awt.Color(0, 153, 153));
@@ -215,7 +216,7 @@ Connection conn = null;
                 boton_cajaActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 210, 40));
+        getContentPane().add(boton_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 210, 40));
 
         boton_idiomas.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         boton_idiomas.setForeground(new java.awt.Color(0, 153, 153));
@@ -226,10 +227,7 @@ Connection conn = null;
                 boton_idiomasActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_idiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 210, 40));
-
-        Vistas_usuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(Vistas_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 230, 180));
+        getContentPane().add(boton_idiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 210, 40));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -253,10 +251,10 @@ Connection conn = null;
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Vistas de Usuario");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         Modificar_Botones.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(Modificar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 230, 210));
+        getContentPane().add(Modificar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 230, 200));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -282,7 +280,18 @@ Connection conn = null;
         getContentPane().add(eliminaid_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 100, 30));
 
         Eliminar_Botones.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(Eliminar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 230, 210));
+        getContentPane().add(Eliminar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, 230, 200));
+
+        control_escolar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        control_escolar.setForeground(new java.awt.Color(0, 153, 153));
+        control_escolar.setText("Control Escolar.");
+        control_escolar.setToolTipText("Direcciona Vista Usuario Administrador Cajas.");
+        control_escolar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                control_escolarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(control_escolar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 210, 40));
 
         insetar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         insetar.setForeground(new java.awt.Color(0, 153, 153));
@@ -293,12 +302,15 @@ Connection conn = null;
                 insetarActionPerformed(evt);
             }
         });
-        getContentPane().add(insetar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
+        getContentPane().add(insetar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, -1, -1));
+
+        Vistas_usuario.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
+        getContentPane().add(Vistas_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 230, 220));
 
         jLabel18.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Tipos de Usuario:");
-        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, -1, -1));
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, -1, -1));
 
         inserta_usuario.setToolTipText("Introducir El Nombre Usuario.");
         inserta_usuario.addActionListener(new java.awt.event.ActionListener() {
@@ -306,7 +318,7 @@ Connection conn = null;
                 inserta_usuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(inserta_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 100, 30));
+        getContentPane().add(inserta_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 100, 30));
 
         inserta_idusuario.setToolTipText("Introducir ID_Usuario.");
         inserta_idusuario.addActionListener(new java.awt.event.ActionListener() {
@@ -314,7 +326,7 @@ Connection conn = null;
                 inserta_idusuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(inserta_idusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 100, 30));
+        getContentPane().add(inserta_idusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 100, 30));
 
         inserta_contrasena.setToolTipText("Introducir La Contraseña.");
         inserta_contrasena.addActionListener(new java.awt.event.ActionListener() {
@@ -322,7 +334,7 @@ Connection conn = null;
                 inserta_contrasenaActionPerformed(evt);
             }
         });
-        getContentPane().add(inserta_contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 100, 30));
+        getContentPane().add(inserta_contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 100, 30));
 
         inserta_tipo_usuario.setToolTipText("Determinar El Tipo De Usuario.");
         inserta_tipo_usuario.addActionListener(new java.awt.event.ActionListener() {
@@ -330,30 +342,30 @@ Connection conn = null;
                 inserta_tipo_usuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(inserta_tipo_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 100, 30));
+        getContentPane().add(inserta_tipo_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 100, 30));
 
         jLabel24.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Usuario:");
-        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Contraseña:");
-        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("ID_Usuario:");
-        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Agregar");
-        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
 
         Agregar_Botones.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(Agregar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 230, 210));
+        getContentPane().add(Agregar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 230, 200));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
         getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -525,6 +537,14 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
         // TODO add your handling code here:
     }//GEN-LAST:event_inserta_idusuarioActionPerformed
 
+    private void control_escolarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_control_escolarActionPerformed
+    Interfaz_controlescolar vp = new Interfaz_controlescolar();
+    vp.setVisible(true);
+    this.dispose();
+    
+            
+    }//GEN-LAST:event_control_escolarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -572,6 +592,7 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
     private javax.swing.JButton boton_biblioteca;
     private javax.swing.JButton boton_caja;
     private javax.swing.JButton boton_idiomas;
+    private javax.swing.JButton control_escolar;
     private javax.swing.JTextField eliminaid_usuario;
     private javax.swing.JButton eliminar;
     private javax.swing.JTextField inserta_contrasena;
