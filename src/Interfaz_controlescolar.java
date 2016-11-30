@@ -1,4 +1,7 @@
 
+import javax.swing.JOptionPane;
+
+
 public class Interfaz_controlescolar extends javax.swing.JFrame {
 
     /**
@@ -90,9 +93,13 @@ public class Interfaz_controlescolar extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-      Interfaz_Admin  Co= new Interfaz_Admin();
-        Co.setVisible(true);
-        this.dispose();
+      int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
+            if(a==JOptionPane.YES_OPTION){
+                this.dispose();
+                login metodo1=new login();
+                metodo1.setVisible(true);
+                
+            }
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
