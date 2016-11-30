@@ -380,7 +380,7 @@ Connection conn = null;
         getContentPane().add(Agregar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 230, 200));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 490));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -388,9 +388,9 @@ Connection conn = null;
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             if(a==JOptionPane.YES_OPTION){
-                this.dispose();
                 login metodo1=new login();
                 metodo1.setVisible(true);
+                this.dispose();
             }        
     }//GEN-LAST:event_formWindowClosing
 
@@ -481,7 +481,7 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borra
 int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea insertar el registro?", "Insertar", JOptionPane.YES_NO_OPTION);
         if (verificacion == 0) {
             if(inserta_idusuario.getText().isEmpty()){
-    JOptionPane.showMessageDialog(null, "No hay Datos que insertar");
+    JOptionPane.showMessageDialog(null, "No hay Datos que insertar ");
             }
             else{
                 
@@ -495,8 +495,6 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
                 pst.setString(4, inserta_tipo_usuario.getText());
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Registro Actualizado");
-                /*pst = conn.prepareStatement(elim);
-            pst.setString(1, eliminaid_usuario.getText());*/
             rs = pst.executeQuery();
             } catch (Exception e) {
                 Interfaz_Biblioteca vp=new Interfaz_Biblioteca();

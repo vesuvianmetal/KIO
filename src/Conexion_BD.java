@@ -11,6 +11,8 @@ public class Conexion_BD {
       try {
           Class.forName("com.mysql.jdbc.Driver");
           Connection conn=DriverManager.getConnection("jdbc:mysql:///kiosko","root", "123456");
+
+
     JOptionPane.showMessageDialog(null, "Conexion Establecida");
           return conn;
       } catch (ClassNotFoundException | SQLException | HeadlessException e){
