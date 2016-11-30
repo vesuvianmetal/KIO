@@ -120,7 +120,7 @@ ResultSet rs1 = st.executeQuery (sql);
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Iniciar Session");
         setMaximumSize(new java.awt.Dimension(1336, 768));
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -197,7 +197,12 @@ ResultSet rs1 = st.executeQuery (sql);
         contratxt.setBackground(new java.awt.Color(0, 114, 130));
         contratxt.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         contratxt.setForeground(new java.awt.Color(255, 255, 255));
-        contratxt.setToolTipText("Ingrese su contraseña y presione enter para ");
+        contratxt.setToolTipText("Ingrese su contraseña y presione enter para acceder");
+        contratxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contratxtActionPerformed(evt);
+            }
+        });
         contratxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 contratxtKeyPressed(evt);
@@ -266,7 +271,7 @@ ResultSet rs1 = st.executeQuery (sql);
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 330, 310));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/fondo.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1470, 920));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1470, 920));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -295,21 +300,20 @@ ResultSet rs1 = st.executeQuery (sql);
     private void contratxtKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contratxtKeyPressed
        
          if (evt.getKeyCode()==KeyEvent.VK_ENTER){
-           String usu=usuariotxt.getText();
-        String pas=contratxt.getText();
-        try {
-             acceder(usu , pas);
-             if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante","Error",JOptionPane.WARNING_MESSAGE);
-            }
-            else if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos","Error",JOptionPane.WARNING_MESSAGE);
-            }
-        }
+             try {
+                 String usu=usuariotxt.getText();
+                 String pas=contratxt.getText();
+                 acceder(usu , pas);
+                 if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
+                     JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante","Error",JOptionPane.WARNING_MESSAGE);
+                 }
+                 else if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
+                     JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos","Error",JOptionPane.WARNING_MESSAGE);
+                 }} catch (Exception ex) {
+                 Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+             }
         
-        catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Bienvenido "+usuariotxt+"");
-        } 
+  
         }
         
         
@@ -358,6 +362,10 @@ try {
     private void usuariotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariotxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_usuariotxtActionPerformed
+
+    private void contratxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contratxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contratxtActionPerformed
 
     /**
      * @param args the command line arguments

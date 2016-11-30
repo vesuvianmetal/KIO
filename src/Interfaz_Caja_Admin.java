@@ -50,7 +50,7 @@ public class Interfaz_Caja_Admin extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Caja PIE-V1.0");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
