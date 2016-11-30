@@ -533,7 +533,7 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
     }//GEN-LAST:event_inserta_idusuarioActionPerformed
 
     private void control_escolarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_control_escolarActionPerformed
-    Interfaz_controlescolar vp = new Interfaz_controlescolar();
+    Interfaz_controlescolar_Admin vp = new Interfaz_controlescolar_Admin();
     vp.setVisible(true);
     this.dispose();
     

@@ -100,6 +100,7 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         textcalifagr = new javax.swing.JTextField();
         texttipoag = new javax.swing.JTextField();
         areaagregar = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -379,6 +380,9 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
 
         areaagregar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areaagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 270, 190));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, -20, 80, 120));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -810,6 +814,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField numconag;
     private javax.swing.JLabel numcontrol;

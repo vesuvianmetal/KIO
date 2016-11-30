@@ -100,6 +100,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         textcalifagr = new javax.swing.JTextField();
         texttipoag = new javax.swing.JTextField();
         areaagregar = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -191,12 +192,12 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         pie.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         pie.setForeground(new java.awt.Color(255, 255, 255));
         pie.setText("Programa Interactivo Escolar PIE V1.0");
-        getContentPane().add(pie, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
+        getContentPane().add(pie, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
 
         titulo.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         titulo.setForeground(new java.awt.Color(255, 255, 255));
         titulo.setText("Centro de Idiomas");
-        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, -1, -1));
+        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 153, 153));
@@ -207,7 +208,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         generador.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         generador.setForeground(new java.awt.Color(255, 255, 255));
         generador.setText("Generador de Reportes");
-        getContentPane().add(generador, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, 20));
+        getContentPane().add(generador, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, 20));
 
         tablaidiomas.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         tablaidiomas.setModel(new javax.swing.table.DefaultTableModel(
@@ -380,8 +381,11 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         areaagregar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areaagregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 270, 190));
 
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, -20, 80, 120));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -810,6 +814,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField numconag;
     private javax.swing.JLabel numcontrol;
