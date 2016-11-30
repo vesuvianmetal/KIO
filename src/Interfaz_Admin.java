@@ -96,7 +96,7 @@ Connection conn = null;
 
         jLabel13.setText("jLabel13");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -388,10 +388,11 @@ Connection conn = null;
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
             if(a==JOptionPane.YES_OPTION){
+                this.dispose();
                 login metodo1=new login();
                 metodo1.setVisible(true);
-                this.dispose();
-            }        
+                
+            }   
     }//GEN-LAST:event_formWindowClosing
 
     private void boton_idiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_idiomasActionPerformed

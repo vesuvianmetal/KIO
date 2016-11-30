@@ -15,7 +15,7 @@ public class login extends javax.swing.JFrame {
 Connection conn=null;
 ResultSet rs=null;
 PreparedStatement pst=null;
-int limitecontraseña = 10;
+int limite = 11;
    
     public login() {
          conn=Conexion_BD.conectardb(); //llamado de conexion de base de datos
@@ -175,6 +175,11 @@ ResultSet rs1 = st.executeQuery (sql);
         usuariotxt.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         usuariotxt.setForeground(new java.awt.Color(255, 255, 255));
         usuariotxt.setToolTipText("");
+        usuariotxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuariotxtActionPerformed(evt);
+            }
+        });
         usuariotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 usuariotxtKeyTyped(evt);
@@ -353,14 +358,21 @@ String user = JOptionPane.showInputDialog(null, "Usuario");
     }//GEN-LAST:event_formWindowClosing
 
     private void usuariotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuariotxtKeyTyped
-// ignorar el evento de teclado
+try {
+           if (usuariotxt.getText().length() == limite) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
+            }
+       } catch (Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }// ignorar el evento de teclado
     }//GEN-LAST:event_usuariotxtKeyTyped
 
     private void contratxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contratxtKeyTyped
        try {
-           if (contratxt.getText().length() == limitecontraseña) {
+           if (contratxt.getText().length() == limite) {
                 evt.consume();
-                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 10 Caracteres");
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
             }
        } catch (Exception e){
            JOptionPane.showMessageDialog(null, e);
@@ -368,6 +380,10 @@ String user = JOptionPane.showInputDialog(null, "Usuario");
         
           
     }//GEN-LAST:event_contratxtKeyTyped
+
+    private void usuariotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariotxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuariotxtActionPerformed
 
     /**
      * @param args the command line arguments
