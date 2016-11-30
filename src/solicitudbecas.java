@@ -63,6 +63,7 @@ Connection conn = null;
         aredatos.setBackground(new java.awt.Color(0, 204, 204));
         aredatos.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Solicitud De Becas-PIE V1.0");
         setExtendedState(6);
         setUndecorated(true);

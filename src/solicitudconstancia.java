@@ -63,7 +63,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
         aredatos = new javax.swing.JLabel();
         FONDO = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Solicitud de Constancia-PIE V1.0");
         setExtendedState(6);
         setUndecorated(true);

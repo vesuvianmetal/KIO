@@ -121,7 +121,7 @@ ResultSet rs1 = st.executeQuery (sql);
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Iniciar Session");
         setMaximumSize(new java.awt.Dimension(1336, 768));
         addWindowListener(new java.awt.event.WindowAdapter() {

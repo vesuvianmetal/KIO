@@ -26,7 +26,7 @@ public class Interfaz_controlescolar extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Control Escolar PIE V1.0");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {

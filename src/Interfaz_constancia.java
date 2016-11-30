@@ -51,7 +51,7 @@ public class Interfaz_constancia extends javax.swing.JFrame {
 
         jLabel13.setText("jLabel13");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Interfaz Costancia");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {

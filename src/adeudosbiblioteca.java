@@ -22,6 +22,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
     private final int limitenumcontrol = 8;
     private final int limiteadeudo = 6;
     int limitecodlibro = 45;
+    int limite=8;
     
     
     
@@ -78,9 +79,17 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 580, -1, -1));
 
+        buscaradeudotxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscaradeudotxtActionPerformed(evt);
+            }
+        });
         buscaradeudotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscaradeudotxtKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                buscaradeudotxtKeyTyped(evt);
             }
         });
         getContentPane().add(buscaradeudotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, 210, -1));
@@ -251,6 +260,21 @@ item it = new item();
         }
 
     }//GEN-LAST:event_buscaradeudotxtKeyReleased
+
+    private void buscaradeudotxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaradeudotxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscaradeudotxtActionPerformed
+
+    private void buscaradeudotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscaradeudotxtKeyTyped
+try {
+           if (buscaradeudotxt.getText().length() == limite) {
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
+            }
+       } catch (Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }        // TODO add your handling code here:
+    }//GEN-LAST:event_buscaradeudotxtKeyTyped
 
     /**
      * @param args the command line arguments
