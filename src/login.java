@@ -105,7 +105,6 @@ ResultSet rs1 = st.executeQuery (sql);
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         contratxt = new javax.swing.JPasswordField();
-        login = new javax.swing.JButton();
         borrar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -198,6 +197,7 @@ ResultSet rs1 = st.executeQuery (sql);
         contratxt.setBackground(new java.awt.Color(0, 114, 130));
         contratxt.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
         contratxt.setForeground(new java.awt.Color(255, 255, 255));
+        contratxt.setToolTipText("Ingrese su contraseña y presione enter para ");
         contratxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 contratxtKeyPressed(evt);
@@ -207,15 +207,6 @@ ResultSet rs1 = st.executeQuery (sql);
             }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 contratxtKeyTyped(evt);
-            }
-        });
-
-        login.setBackground(new java.awt.Color(0, 204, 204));
-        login.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        login.setText("Iniciar Sesion");
-        login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginActionPerformed(evt);
             }
         });
 
@@ -239,12 +230,11 @@ ResultSet rs1 = st.executeQuery (sql);
                     .addComponent(jLabel3))
                 .addGap(66, 66, 66)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                        .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(contratxt, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
-                    .addComponent(usuariotxt))
+                    .addComponent(usuariotxt)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -265,10 +255,8 @@ ResultSet rs1 = st.executeQuery (sql);
                                 .addComponent(usuariotxt, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addComponent(contratxt, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -294,20 +282,6 @@ ResultSet rs1 = st.executeQuery (sql);
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
-
-        
-        String usu=usuariotxt.getText();
-        String pas=contratxt.getText();
-    
-           if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Error Ingrese Usuario Y Contraseña","Error",JOptionPane.WARNING_MESSAGE);
-            
-           }else if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Error Ingrese Todos Los Campos","Error",JOptionPane.WARNING_MESSAGE);
-            }
-    }//GEN-LAST:event_loginActionPerformed
 
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
    usuariotxt.setText("");
@@ -434,7 +408,6 @@ try {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JButton login;
     private javax.swing.JTextField usuariotxt;
     // End of variables declaration//GEN-END:variables
 }
