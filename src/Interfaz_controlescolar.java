@@ -21,8 +21,8 @@ public class Interfaz_controlescolar extends javax.swing.JFrame {
     private void initComponents() {
 
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Solicitud_becas = new javax.swing.JButton();
+        Solicitud_constancia = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -39,25 +39,25 @@ public class Interfaz_controlescolar extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("Solicitud de Becas");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Solicitud_becas.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        Solicitud_becas.setForeground(new java.awt.Color(0, 153, 153));
+        Solicitud_becas.setText("Solicitud de Becas");
+        Solicitud_becas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                Solicitud_becasActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 220, 50));
+        getContentPane().add(Solicitud_becas, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 220, 50));
 
-        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("Solicitud de Constancia");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Solicitud_constancia.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        Solicitud_constancia.setForeground(new java.awt.Color(0, 153, 153));
+        Solicitud_constancia.setText("Solicitud de Constancia");
+        Solicitud_constancia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                Solicitud_constanciaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 210, 50));
+        getContentPane().add(Solicitud_constancia, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 210, 50));
 
         jLabel6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 540, 160));
@@ -83,14 +83,14 @@ public class Interfaz_controlescolar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void Solicitud_constanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Solicitud_constanciaActionPerformed
     Interfaz_constancia Co= new Interfaz_constancia();
                Co.setVisible(true);
                this.dispose();
                
                
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_Solicitud_constanciaActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
       int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
@@ -102,7 +102,7 @@ public class Interfaz_controlescolar extends javax.swing.JFrame {
             }
     }//GEN-LAST:event_formWindowClosing
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void Solicitud_becasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Solicitud_becasActionPerformed
       Solicitud_Beca Co= new Solicitud_Beca();
                Co.setVisible(true);
                this.dispose();
@@ -110,7 +110,7 @@ public class Interfaz_controlescolar extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_Solicitud_becasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,8 +148,8 @@ public class Interfaz_controlescolar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton Solicitud_becas;
+    private javax.swing.JButton Solicitud_constancia;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

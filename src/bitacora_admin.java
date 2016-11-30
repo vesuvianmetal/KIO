@@ -203,9 +203,13 @@ actualizar_tabla();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-Interfaz_Admin vp=new Interfaz_Admin();
-vp.setVisible(true);
-        this.dispose();        // TODO add your handling code here:
+int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
+            if(a==JOptionPane.YES_OPTION){
+            Interfaz_Admin vp=new Interfaz_Admin();
+            vp.setVisible(true);
+            this.dispose();
+                
+            }        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
 
     /**
