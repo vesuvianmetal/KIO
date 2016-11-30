@@ -292,7 +292,8 @@ ResultSet rs1 = st.executeQuery (sql);
 
     private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
 
-         String usu=usuariotxt.getText();
+        
+        String usu=usuariotxt.getText();
         String pas=contratxt.getText();
     
            if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
