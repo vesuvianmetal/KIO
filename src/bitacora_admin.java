@@ -65,10 +65,10 @@ public class bitacora_admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        id_transaccion = new javax.swing.JTextField();
+        id_usuario = new javax.swing.JTextField();
+        accion = new javax.swing.JTextField();
+        fecha = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -92,25 +92,25 @@ public class bitacora_admin extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 180, 30));
+        id_transaccion.setEditable(false);
+        id_transaccion.setBackground(new java.awt.Color(255, 255, 255));
+        id_transaccion.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(id_transaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 180, 30));
 
-        jTextField3.setEditable(false);
-        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 180, 30));
+        id_usuario.setEditable(false);
+        id_usuario.setBackground(new java.awt.Color(255, 255, 255));
+        id_usuario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(id_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 180, 30));
 
-        jTextField4.setEditable(false);
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 180, 30));
+        accion.setEditable(false);
+        accion.setBackground(new java.awt.Color(255, 255, 255));
+        accion.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(accion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 180, 30));
 
-        jTextField5.setEditable(false);
-        jTextField5.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 180, 30));
+        fecha.setEditable(false);
+        fecha.setBackground(new java.awt.Color(255, 255, 255));
+        fecha.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 180, 30));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -185,6 +185,11 @@ public class bitacora_admin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabla_bitacora.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_bitacoraMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_bitacora);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 530, 120));
@@ -211,6 +216,34 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
                 
             }        // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosing
+
+    private void tabla_bitacoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_bitacoraMouseClicked
+try {
+            int row = tabla_bitacora.getSelectedRow();
+            String Click_Tabla = (tabla_bitacora.getModel().getValueAt(row, 0).toString());
+            String Click = "SELECT * From bitacora where id_transaccion = '" + Click_Tabla + "' ";
+            pst = conn.prepareStatement(Click);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                String agregar1 = rs.getString("id_transaccion");
+                id_transaccion.setText(agregar1);
+
+                String agregar2 = rs.getString("usuario");
+                id_usuario.setText(agregar2);
+
+                String agregar3 = rs.getString("fecha");
+                fecha.setText(agregar3);
+
+                String agregar4 = rs.getString("accion");
+                accion.setText(agregar4);
+           
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_tabla_bitacoraMouseClicked
 
     /**
      * @param args the command line arguments
@@ -248,6 +281,10 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField accion;
+    private javax.swing.JTextField fecha;
+    private javax.swing.JTextField id_transaccion;
+    private javax.swing.JTextField id_usuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -260,10 +297,6 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTable tabla_bitacora;
     // End of variables declaration//GEN-END:variables
 }

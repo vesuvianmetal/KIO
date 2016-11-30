@@ -157,6 +157,11 @@ Connection conn = null;
                 modificar_idusuarioActionPerformed(evt);
             }
         });
+        modificar_idusuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                modificar_idusuarioKeyTyped(evt);
+            }
+        });
         getContentPane().add(modificar_idusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, 100, 30));
 
         modifica_contrasena.setToolTipText("Modificar La Contraseña.");
@@ -266,6 +271,11 @@ Connection conn = null;
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         eliminaid_usuario.setToolTipText("Introduzca La ID_Usuario A Eliminar.");
+        eliminaid_usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                eliminaid_usuarioKeyTyped(evt);
+            }
+        });
         getContentPane().add(eliminaid_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 100, 30));
 
         Eliminar_Botones.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
@@ -310,6 +320,11 @@ Connection conn = null;
         inserta_idusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inserta_idusuarioActionPerformed(evt);
+            }
+        });
+        inserta_idusuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inserta_idusuarioKeyTyped(evt);
             }
         });
         getContentPane().add(inserta_idusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 100, 30));
@@ -549,6 +564,39 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
         
         
     }//GEN-LAST:event_BitacoraActionPerformed
+
+    private void modificar_idusuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_modificar_idusuarioKeyTyped
+char c = evt.getKeyChar();
+
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+
+            }        // TODO add your handling code here:
+    }//GEN-LAST:event_modificar_idusuarioKeyTyped
+
+    private void inserta_idusuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inserta_idusuarioKeyTyped
+char c = evt.getKeyChar();
+
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+
+            }        // TODO add your handling code here:
+    }//GEN-LAST:event_inserta_idusuarioKeyTyped
+
+    private void eliminaid_usuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminaid_usuarioKeyTyped
+char c = evt.getKeyChar();
+
+            if (Character.isLetter(c)) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+
+            }        // TODO add your handling code here:
+    }//GEN-LAST:event_eliminaid_usuarioKeyTyped
 
     /**
      * @param args the command line arguments
