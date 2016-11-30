@@ -10,9 +10,7 @@ public class Conexion_BD {
   public static Connection conectardb(){
       try {
           Class.forName("com.mysql.jdbc.Driver");
-
-          Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/kiosko","root", "123456");
-          
+ Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/kiosko","root", "123456");
 
     JOptionPane.showMessageDialog(null, "Conexion Establecida");
           return conn;
