@@ -226,7 +226,7 @@ Connection conn = null;
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Visuaizar Usuarios");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
 
         actualizar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         actualizar.setForeground(new java.awt.Color(0, 153, 153));
@@ -237,10 +237,10 @@ Connection conn = null;
                 actualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 240, -1, 20));
+        getContentPane().add(actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 230, -1, 20));
 
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 80, 120));
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, 80, 120));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -253,12 +253,12 @@ Connection conn = null;
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Programa Interactivo Escolar  V1.0");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Bienvenido Administrad@r ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -268,7 +268,7 @@ Connection conn = null;
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Administrador");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
 
         eliminaid_usuario.setToolTipText("Introduzca La ID_Usuario A Eliminar.");
         eliminaid_usuario.addKeyListener(new java.awt.event.KeyAdapter() {

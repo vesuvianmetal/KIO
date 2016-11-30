@@ -81,6 +81,7 @@ public class bitacora_admin extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla_bitacora = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
@@ -95,52 +96,52 @@ public class bitacora_admin extends javax.swing.JFrame {
         id_transaccion.setEditable(false);
         id_transaccion.setBackground(new java.awt.Color(255, 255, 255));
         id_transaccion.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(id_transaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 180, 30));
+        getContentPane().add(id_transaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 180, 30));
 
         id_usuario.setEditable(false);
         id_usuario.setBackground(new java.awt.Color(255, 255, 255));
         id_usuario.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(id_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 180, 30));
+        getContentPane().add(id_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 180, 30));
 
         accion.setEditable(false);
         accion.setBackground(new java.awt.Color(255, 255, 255));
         accion.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(accion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 380, 180, 30));
+        getContentPane().add(accion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 180, 30));
 
         fecha.setEditable(false);
         fecha.setBackground(new java.awt.Color(255, 255, 255));
         fecha.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, 180, 30));
+        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, 180, 30));
 
         jLabel10.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Visualizar Datos");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Acciòn:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Fecha:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Usuario:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Id Transacciòn:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Visualizas todas las acciones realizadas por los usuarios");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 204, 204));
@@ -150,17 +151,17 @@ public class bitacora_admin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, 110, 20));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 210, 110, 20));
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Bitacora");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 10, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Programa Interacrivo Escolar -PIE V1.0");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
 
         tabla_bitacora.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -192,13 +193,16 @@ public class bitacora_admin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabla_bitacora);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 530, 120));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 530, 120));
 
         jLabel9.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 360, 170));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 360, 170));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 320, 80, 120));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 430));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -288,6 +292,7 @@ try {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

@@ -100,7 +100,7 @@ Connection conn = null;
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, -1, 20));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, -1, 20));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 130, 20));
 
         foliotxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -117,7 +117,7 @@ Connection conn = null;
                 jTextField5KeyTyped(evt);
             }
         });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 120, 30));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 380, 120, 30));
 
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 153, 153));
@@ -127,12 +127,12 @@ Connection conn = null;
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Folio Beca");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, -1, -1));
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel13.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 204), 2, true));
@@ -166,7 +166,7 @@ Connection conn = null;
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, -1, -1));
 
         tablactrle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -200,7 +200,7 @@ Connection conn = null;
         });
         jScrollPane1.setViewportView(tablactrle);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 590, 200));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 590, 200));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -215,7 +215,7 @@ Connection conn = null;
         jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Ver");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));

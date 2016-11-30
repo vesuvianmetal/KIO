@@ -168,9 +168,9 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)))
-                .addGap(18, 18, 18)
+                .addGap(48, 48, 48)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         nameLayout.setVerticalGroup(
             nameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
