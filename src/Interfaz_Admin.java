@@ -489,8 +489,7 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
             try {
                 pst = conn.prepareStatement(mod);
 
-              pst.setString(1, inserta_idusuario.getText());
-
+                pst.setString(1, inserta_idusuario.getText());
                 pst.setString(2, inserta_usuario.getText());
                 pst.setString(3, inserta_contrasena.getText());
                 pst.setString(4, inserta_tipo_usuario.getText());
