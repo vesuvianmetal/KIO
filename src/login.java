@@ -294,11 +294,12 @@ ResultSet rs1 = st.executeQuery (sql);
             
          String usu=usuariotxt.getText();
         String pas=contratxt.getText();
-        if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante","Error",JOptionPane.WARNING_MESSAGE);
-            }
-            else if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Error Ingrese Usuario y Cotraseña","Error",JOptionPane.WARNING_MESSAGE);
+    
+           if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Error Ingrese Usuario Y Contraseña","Error",JOptionPane.WARNING_MESSAGE);
+            
+           }else if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Error Ingrese Todos Los Campos","Error",JOptionPane.WARNING_MESSAGE);
             }
     }//GEN-LAST:event_loginActionPerformed
 
