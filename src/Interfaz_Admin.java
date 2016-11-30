@@ -63,7 +63,6 @@ Connection conn = null;
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        boton_becas = new javax.swing.JButton();
         boton_biblioteca = new javax.swing.JButton();
         boton_caja = new javax.swing.JButton();
         boton_idiomas = new javax.swing.JButton();
@@ -186,17 +185,6 @@ Connection conn = null;
         jLabel9.setText("Modificar");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, -1, -1));
 
-        boton_becas.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        boton_becas.setForeground(new java.awt.Color(0, 153, 153));
-        boton_becas.setText("Becas");
-        boton_becas.setToolTipText("Direcciona Vista Usuario Administrador Becas.");
-        boton_becas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton_becasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(boton_becas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 210, 30));
-
         boton_biblioteca.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         boton_biblioteca.setForeground(new java.awt.Color(0, 153, 153));
         boton_biblioteca.setText("Biblioteca");
@@ -206,7 +194,7 @@ Connection conn = null;
                 boton_bibliotecaActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_biblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 210, 30));
+        getContentPane().add(boton_biblioteca, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 210, 30));
 
         boton_caja.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         boton_caja.setForeground(new java.awt.Color(0, 153, 153));
@@ -217,7 +205,7 @@ Connection conn = null;
                 boton_cajaActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 210, 30));
+        getContentPane().add(boton_caja, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 210, 30));
 
         boton_idiomas.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         boton_idiomas.setForeground(new java.awt.Color(0, 153, 153));
@@ -228,7 +216,7 @@ Connection conn = null;
                 boton_idiomasActionPerformed(evt);
             }
         });
-        getContentPane().add(boton_idiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 210, 30));
+        getContentPane().add(boton_idiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, 30));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -351,7 +339,7 @@ Connection conn = null;
                 BitacoraActionPerformed(evt);
             }
         });
-        getContentPane().add(Bitacora, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 210, 30));
+        getContentPane().add(Bitacora, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 210, 30));
 
         jLabel24.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
@@ -380,7 +368,7 @@ Connection conn = null;
         getContentPane().add(Agregar_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 230, 200));
 
         jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 490));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -404,12 +392,6 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
         
         
     }//GEN-LAST:event_boton_idiomasActionPerformed
-
-    private void boton_becasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_becasActionPerformed
-        Solicitud_Beca it = new Solicitud_Beca();
-        it.setVisible(true);
-        
-    }//GEN-LAST:event_boton_becasActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
 int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
@@ -509,19 +491,19 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
             
         }
 
-        }        // TODO add your handling code here:
+        }       
     }//GEN-LAST:event_insetarActionPerformed
 
     private void inserta_contrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserta_contrasenaActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_inserta_contrasenaActionPerformed
 
     private void inserta_tipo_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserta_tipo_usuarioActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_inserta_tipo_usuarioActionPerformed
 
     private void inserta_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserta_usuarioActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_inserta_usuarioActionPerformed
 
     private void boton_bibliotecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_bibliotecaActionPerformed
@@ -612,7 +594,6 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
     private javax.swing.JLabel Modificar_Botones;
     private javax.swing.JLabel Vistas_usuario;
     private javax.swing.JButton actualizar;
-    private javax.swing.JButton boton_becas;
     private javax.swing.JButton boton_biblioteca;
     private javax.swing.JButton boton_caja;
     private javax.swing.JButton boton_idiomas;
