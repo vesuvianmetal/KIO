@@ -481,7 +481,7 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borra
 int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea insertar el registro?", "Insertar", JOptionPane.YES_NO_OPTION);
         if (verificacion == 0) {
             if(inserta_idusuario.getText().isEmpty()){
-    JOptionPane.showMessageDialog(null, "No hay Datos que insertar");
+    JOptionPane.showMessageDialog(null, "No hay Datos que insertar ");
             }
             else{
                 
@@ -495,8 +495,6 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea inser
                 pst.setString(4, inserta_tipo_usuario.getText());
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Registro Actualizado");
-                /*pst = conn.prepareStatement(elim);
-            pst.setString(1, eliminaid_usuario.getText());*/
             rs = pst.executeQuery();
             } catch (Exception e) {
                 Interfaz_Biblioteca vp=new Interfaz_Biblioteca();

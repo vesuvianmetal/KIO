@@ -148,7 +148,7 @@ ResultSet rs1 = st.executeQuery (sql);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(186, Short.MAX_VALUE)
+                .addContainerGap(196, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -166,7 +166,7 @@ ResultSet rs1 = st.executeQuery (sql);
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 670, 60));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 330, 680, 60));
 
         jPanel4.setBackground(new java.awt.Color(0, 114, 130));
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 204, 204)));
@@ -294,11 +294,12 @@ ResultSet rs1 = st.executeQuery (sql);
 
          String usu=usuariotxt.getText();
         String pas=contratxt.getText();
-        if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
-                JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante","Error",JOptionPane.WARNING_MESSAGE);
-            }
-            else if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos","Error",JOptionPane.WARNING_MESSAGE);
+    
+           if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Error Ingrese Usuario Y Contraseña","Error",JOptionPane.WARNING_MESSAGE);
+            
+           }else if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Error Ingrese Todos Los Campos","Error",JOptionPane.WARNING_MESSAGE);
             }
     }//GEN-LAST:event_loginActionPerformed
 
