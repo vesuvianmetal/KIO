@@ -68,7 +68,7 @@ public class Interfaz_Caja extends javax.swing.JFrame {
         jTextField2.setEditable(false);
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 150, 30));
 
-        jTextField1.setToolTipText("Numero de folio asignado");
+        jTextField1.setToolTipText("Numero De Folio Asignado.");
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 150, 30));
 
         jTextField3.setToolTipText("Cantidad a pagar");
@@ -90,13 +90,13 @@ public class Interfaz_Caja extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 153, 153));
         jButton1.setText("Desbloquear Datos");
-        jButton1.setToolTipText("Enviar Datos a Constancia");
+        jButton1.setToolTipText("Enviar Registro De Constancia.\n");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 117, -1, 50));
 
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("Borrar");
-        jButton2.setToolTipText("Borrar Dato Asignados");
+        jButton2.setText("Eliminar");
+        jButton2.setToolTipText("Borrar Dato Asignados.\n");
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 160, 50));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N

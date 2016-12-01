@@ -87,12 +87,12 @@ public class Interfaz_Caja_Admin extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 153, 153));
         jButton1.setText("Desbloquear Datos");
-        jButton1.setToolTipText("Enviar Datos a Constancia");
+        jButton1.setToolTipText("Enviar Registro De Constancia. ");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 117, -1, 50));
 
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("Borrar");
+        jButton2.setText("Eliminar");
         jButton2.setToolTipText("Borrar Dato Asignados");
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 160, 50));
 
