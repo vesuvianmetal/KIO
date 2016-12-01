@@ -15,7 +15,7 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
     PreparedStatement pst = null;
     int limitebuscarfolioidiomas = 11;
     int limitecertificadoidiomas = 45;
-    int limitecalificacionidiomas = 10;
+    int limitecalificacionidiomas = 3;
     int limitenumcontrolidiomas = 8;
     public Interfaz_Lenguajes_Admin() {
         conn = Conexion_BD.conectardb();
@@ -88,6 +88,7 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         calif = new javax.swing.JLabel();
         btneditaridioma = new javax.swing.JButton();
         editcaliidiomatxt = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         tipcalif = new javax.swing.JLabel();
         eliminarfolioidiomastxt = new javax.swing.JTextField();
         fol1 = new javax.swing.JLabel();
@@ -261,6 +262,7 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         areabucar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areabucar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 190, 180));
 
+        editfolioidiomas.setEditable(false);
         editfolioidiomas.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         editfolioidiomas.setToolTipText("Modificar El Numero De Folio.");
         editfolioidiomas.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -312,6 +314,16 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(editcaliidiomatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 130, 30));
 
+        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 150, 150));
+        jButton2.setText("Limpiar Campos");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, -1, 20));
+
         tipcalif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         tipcalif.setForeground(new java.awt.Color(255, 255, 255));
         tipcalif.setText("Tipo de Certificación:");
@@ -351,6 +363,7 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         numcontrol1.setText("Numero de Control:");
         getContentPane().add(numcontrol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, -1));
 
+        numconag.setEditable(false);
         numconag.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         numconag.setToolTipText("Agregar Num. Control.");
         numconag.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -643,7 +656,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
        {
         if (textcalifagr.getText().length() == limitecalificacionidiomas) {
                 evt.consume();
-                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 10 Caracteres");
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 3 Caracteres");
             }
            if(Character.isLetter(c)){
                getToolkit().beep();
@@ -755,6 +768,19 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
               
     }//GEN-LAST:event_editfolioidiomasKeyTyped
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        buscarfolioidiomatxt.setText("");
+        buscarnumeroidiomatxt.setText("");
+        eliminarfolioidiomastxt.setText("");
+        texttipoag.setText("");
+        textcalifagr.setText("");
+        numconag.setText("");
+        editcertitxt.setText("");
+        editcaliidiomatxt.setText("");
+        editfolioidiomas.setText("");
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -812,6 +838,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     private javax.swing.JLabel fondo;
     private javax.swing.JLabel generador;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel17;

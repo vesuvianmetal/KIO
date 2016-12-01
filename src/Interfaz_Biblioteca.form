@@ -497,6 +497,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="editfoliotxt">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="toolTipText" type="java.lang.String" value="Editar El Folio Del Registro."/>
       </Properties>
       <Events>
@@ -563,6 +564,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="editcodlibrotxt">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
@@ -579,6 +581,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="editnumcontroltxt">
       <Properties>
+        <Property name="editable" type="boolean" value="false"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>

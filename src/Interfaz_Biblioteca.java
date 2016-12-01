@@ -352,6 +352,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jTextField1.setToolTipText("Subir Archivos Delimitado Por Comas (CSV).");
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 170, -1));
 
+        editfoliotxt.setEditable(false);
         editfoliotxt.setToolTipText("Editar El Folio Del Registro.");
         editfoliotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -394,6 +395,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         });
         getContentPane().add(btncambio, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 400, 150, -1));
 
+        editcodlibrotxt.setEditable(false);
         editcodlibrotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         editcodlibrotxt.setToolTipText("Editar El Codigo Del Libro En El Registro.");
         editcodlibrotxt.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -403,6 +405,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         });
         getContentPane().add(editcodlibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 150, -1));
 
+        editnumcontroltxt.setEditable(false);
         editnumcontroltxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         editnumcontroltxt.setToolTipText("Editar El Num. Control Del Registro.");
         editnumcontroltxt.addKeyListener(new java.awt.event.KeyAdapter() {

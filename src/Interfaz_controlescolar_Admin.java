@@ -82,7 +82,7 @@ public class Interfaz_controlescolar_Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    Interfaz_constancia Co= new Interfaz_constancia();
+    Interfaz_constancia_Admin Co= new Interfaz_constancia_Admin();
                Co.setVisible(true);
                this.dispose();
                
@@ -101,7 +101,7 @@ public class Interfaz_controlescolar_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      Solicitud_Beca Co= new Solicitud_Beca();
+      Solicitud_Beca_Admin Co= new Solicitud_Beca_Admin();
                Co.setVisible(true);
                this.dispose();
         

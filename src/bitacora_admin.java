@@ -163,6 +163,8 @@ public class bitacora_admin extends javax.swing.JFrame {
         jLabel3.setText("Programa Interacrivo Escolar -PIE V1.0");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
 
+        tabla_bitacora.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tabla_bitacora.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         tabla_bitacora.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -186,6 +188,7 @@ public class bitacora_admin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabla_bitacora.setToolTipText("");
         tabla_bitacora.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabla_bitacoraMouseClicked(evt);
