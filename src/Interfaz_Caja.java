@@ -71,7 +71,7 @@ public class Interfaz_Caja extends javax.swing.JFrame {
         jTextField1.setToolTipText("Numero De Folio Asignado.");
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 150, 30));
 
-        jTextField3.setToolTipText("Cantidad a pagar");
+        jTextField3.setToolTipText("Cantidad A Pagar");
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 150, 30));
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 150, 30));
 
