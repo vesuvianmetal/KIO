@@ -363,7 +363,6 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         numcontrol1.setText("Numero de Control:");
         getContentPane().add(numcontrol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, -1));
 
-        numconag.setEditable(false);
         numconag.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         numconag.setToolTipText("Agregar Num. Control.");
         numconag.addKeyListener(new java.awt.event.KeyAdapter() {
