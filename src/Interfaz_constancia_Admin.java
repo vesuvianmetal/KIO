@@ -100,7 +100,11 @@ public class Interfaz_constancia_Admin extends javax.swing.JFrame {
         getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 170, 30));
         getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 170, 30));
         getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 170, 30));
+
+        jTextField3.setEditable(false);
         getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 170, 30));
+
+        jTextField2.setEditable(false);
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 170, 30));
 
         jLabel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
@@ -147,7 +151,7 @@ public class Interfaz_constancia_Admin extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
     
-        Interfaz_controlescolar  Co= new Interfaz_controlescolar();
+        Interfaz_controlescolar_Admin  Co= new Interfaz_controlescolar_Admin();
         Co.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_formWindowClosing

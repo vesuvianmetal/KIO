@@ -151,6 +151,7 @@ Connection conn = null;
         jLabel12.setText("Tipos de Usuario:");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, -1, -1));
 
+        modificar_idusuario.setEditable(false);
         modificar_idusuario.setToolTipText("Modificar El ID_Usuario.");
         modificar_idusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
