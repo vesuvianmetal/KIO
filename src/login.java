@@ -33,7 +33,8 @@ public String pass;
         
         try {
             Statement st = conn.createStatement(); 
-ResultSet rs1 = st.executeQuery (sql);
+
+            ResultSet rs1 = st.executeQuery (sql);
             while (rs1.next()) {
                 //variable cap captura el tipo de usuario de cada quien
                 cap = rs1.getString("TIPO_USUARIO");
@@ -290,7 +291,7 @@ ResultSet rs1 = st.executeQuery (sql);
 
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
    usuariotxt.setText("");
-   contratxt.setText("");// TODO add your handling code here:
+   contratxt.setText("");
     }//GEN-LAST:event_borrarActionPerformed
 
     private void contratxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contratxtKeyReleased
@@ -303,13 +304,21 @@ ResultSet rs1 = st.executeQuery (sql);
              try {
                  String usu=usuariotxt.getText();
                  String pas=contratxt.getText();
-                 acceder(usu , pas);
-                 if (usuariotxt.getText().isEmpty() || contratxt.getText().isEmpty()){
+                
+                 
+                 
+                 if (usuariotxt.getText().equals("") || contratxt.getText().equals("")){
                      JOptionPane.showMessageDialog(null, "Error Rellene El Campo Faltante","Error",JOptionPane.WARNING_MESSAGE);
                  }
                  else if (usuariotxt.getText().isEmpty() && contratxt.getText().isEmpty()) {
                      JOptionPane.showMessageDialog(null, "Error Rellene Ambos Campos","Error",JOptionPane.WARNING_MESSAGE);
-                 }} catch (Exception ex) {
+                 }
+                 else {
+                      acceder(usu , pas);
+                 }
+             
+             
+             } catch (Exception ex) {
                  Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
              }
         
