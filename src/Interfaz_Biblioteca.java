@@ -44,6 +44,12 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    void borrar(){
+        agrnumcontroltxt.setText("");
+                agrcodlibrotxt.setText("");
+                agradeudotxt.setText("");
+    }
 
     private void filltable() {
 
@@ -578,6 +584,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e);
                 }
                 actualizar_tabla();
+                borrar();
             }
 
         } catch (Exception e) {
@@ -639,6 +646,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         actualizar_tabla();
+        borrar();
 
     }//GEN-LAST:event_btnagregarActionPerformed
 
