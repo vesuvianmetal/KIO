@@ -491,15 +491,6 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
                 String agregar1 = rs.getString("FOLIO_IDIOMAS");
                 eliminarfolioidiomastxt.setText(agregar1);
 
-                String agregar2 = rs.getString("TIPO_CERT");
-                texttipoag.setText(agregar2);
-
-                String agregar3 = rs.getString("CALIFICACION");
-                textcalifagr.setText(agregar3);
-
-                String agregar4 = rs.getString("FK_NUM_CONTROL");
-                numconag.setText(agregar4);
-                
                 String agregar5 = rs.getString("TIPO_CERT");
                 editcertitxt.setText(agregar5);
                 
