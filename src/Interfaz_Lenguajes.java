@@ -19,12 +19,18 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
     public Interfaz_Lenguajes() {
         conn = Conexion_BD.conectardb();
-
         initComponents();
         filltableidiomas();
         this.setResizable(false);
     }
 
+    void borrarfolio() {
+        eliminarfolioidiomastxt.setText("");
+        editcertitxt.setText("");
+        editcaliidiomatxt.setText("");
+        editfolioidiomas.setText("");
+    }
+    
     void actualizar_tablaidiomas() {
         try {
 
@@ -53,11 +59,16 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         }
 
     }
-    
+   
     void borrar() {
-        texttipoag.setText("");
-        textcalifagr.setText("");
-        numconag.setText("");
+        try {
+            texttipoag.setText("");
+            textcalifagr.setText("");
+            numconag.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }
 
     @SuppressWarnings("unchecked")
@@ -423,20 +434,27 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
     private void btnagregaridiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregaridiomasActionPerformed
 
+       
+        
+        
         try {
-
-            if (Integer.parseInt(textcalifagr.getText()) < 1.00) {
+            if (texttipoag.getText().equals("") || textcalifagr.getText().isEmpty() || numconag.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Pudo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
+            } else if (Integer.parseInt(textcalifagr.getText()) < 1.00) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-            } else if (texttipoag.getText().equals("") || textcalifagr.getText().equals("") || numconag.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
             } else {
+
                 try {
+                   
                     String agr = "INSERT into idiomas (FOLIO_IDIOMAS,TIPO_CERT,CALIFICACION,FK_NUM_CONTROL) values (?,?,?,?)";
                     pst = conn.prepareStatement(agr);
                     pst.setString(1, null);
-                    pst.setString(4, numconag.getText());
                     pst.setString(2, texttipoag.getText());
                     pst.setString(3, textcalifagr.getText());
+                    pst.setString(4, numconag.getText());
+                    
+                    
+                   
                     pst.execute();
 
                     JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
@@ -458,7 +476,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         try {
             if (editcertitxt.getText().equals("") || editcaliidiomatxt.getText().equals("") || editfolioidiomas.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios");
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios" , "ERROR", JOptionPane.ERROR_MESSAGE);
             } else if (Integer.parseInt(editcaliidiomatxt.getText()) < 1.00) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
 
@@ -573,18 +591,24 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
-        if (verificacion == 0) {
-            String elim = "DELETE from idiomas where FOLIO_IDIOMAS=?";
+        int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+        
+        if (eliminarfolioidiomastxt.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "No Hay Un Registro Ingresado Para Eliminar" ," ERROR" , JOptionPane.ERROR_MESSAGE);
+        }
+        
+        else if (verificacion == 0) {
+            String elim1 = "DELETE from idiomas where FOLIO_IDIOMAS=?";
             try {
-                pst = conn.prepareStatement(elim);
+                pst = conn.prepareStatement(elim1);
                 pst.setString(1, eliminarfolioidiomastxt.getText());
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Deuda Eliminada");
-            } catch (Exception e) {
+            } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
             actualizar_tablaidiomas();
+            borrarfolio();
         }
 
 

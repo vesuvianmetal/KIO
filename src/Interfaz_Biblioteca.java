@@ -45,10 +45,29 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         }
     }
     
-    void borrar(){
-        agrnumcontroltxt.setText("");
-                agrcodlibrotxt.setText("");
-                agradeudotxt.setText("");
+    void borrar() {
+        try {
+            agrnumcontroltxt.setText("");
+            agrcodlibrotxt.setText("");
+            agradeudotxt.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }
+    
+    void borraredit() {
+        try {
+            
+            editfoliotxt.setText("");
+            editnumcontroltxt.setText("");
+            editcodlibrotxt.setText("");
+            editadeudotxt.setText("");
+            elimnumerocontroltxt.setText("");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }
 
     private void filltable() {
@@ -165,7 +184,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         jLabel23.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Codigo De Libro:");
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         buscarfoliotxt.setToolTipText("Introducir Folio Para Busqueda.");
         buscarfoliotxt.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +216,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 buscarcodigolibrotxtKeyTyped(evt);
             }
         });
-        getContentPane().add(buscarcodigolibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 130, -1));
+        getContentPane().add(buscarcodigolibrotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 130, -1));
 
         tabla_aduedo = new javax.swing.JTable(){
             public boolean isCellEditable(int rowIndex, int colIndex){
@@ -282,7 +301,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 buscarnumerocontroltxtKeyTyped(evt);
             }
         });
-        getContentPane().add(buscarnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 130, 20));
+        getContentPane().add(buscarnumerocontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 130, 30));
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -562,13 +581,33 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     }//GEN-LAST:event_editnumcontroltxtKeyReleased
 
     private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
-        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         try {
             if (Integer.parseInt(editadeudotxt.getText()) < 1) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-            } else if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
-            } else if (verificacioncambio == 0) {
+            } 
+            
+            else if (editfoliotxt.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            else if (editfoliotxt.getText().equals("") && editnumcontroltxt.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            else if (editfoliotxt.getText().equals("") && editnumcontroltxt.getText().equals("") && editcodlibrotxt.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+             else if (editfoliotxt.getText().equals("") && editnumcontroltxt.getText().equals("") && editcodlibrotxt.getText().equals("") && editadeudotxt.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            else if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            else if (verificacioncambio == 0) {
                 try {
                     String editnumc = editnumcontroltxt.getText();
                     String editcodlib = editcodlibrotxt.getText();
@@ -584,7 +623,8 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, e);
                 }
                 actualizar_tabla();
-                borrar();
+                borraredit();
+               
             }
 
         } catch (Exception e) {
@@ -623,7 +663,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         try {
             if (Integer.parseInt(agradeudotxt.getText()) < 1.00) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-            }else if ((agrnumcontroltxt.getText().equals("") || agrcodlibrotxt.getText().equals("")) || agradeudotxt.getText().isEmpty()) {
+            }else if ((agrnumcontroltxt.getText().equals("") || agrcodlibrotxt.getText().equals("")) || agradeudotxt.getText().equals(null)) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
             }  else  {
                 try {
@@ -632,7 +672,8 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                     pst.setString(1, null);
                     pst.setString(4, agrnumcontroltxt.getText());
                     pst.setString(2, agrcodlibrotxt.getText());
-                    pst.setString(3, agradeudotxt.getText());
+                    pst.setInt(3, Integer.parseInt(agradeudotxt.getText()));
+                    
                     pst.execute();
                     
                     JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
@@ -773,20 +814,27 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-
-        int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
-        if (verificacion == 0) {
-            String elim = "DELETE from biblioteca where FOLIO_BIBLIOTECA=?";
+       String elim = "DELETE from biblioteca where FOLIO_BIBLIOTECA=?";
+       int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+        
+       if (elimnumerocontroltxt.getText().equals("")){
+           JOptionPane.showMessageDialog(null, "No Hay Registro Ingresado", "ERROR",JOptionPane.ERROR_MESSAGE);
+       }
+       
+       else if (verificacion == 0) {
+           
+            
+            
             try {
                 pst = conn.prepareStatement(elim);
                 pst.setString(1, elimnumerocontroltxt.getText());
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Deuda Eliminada");
-            } catch (Exception e) {
+            } catch (SQLException | HeadlessException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
             actualizar_tabla();
+            borraredit();
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
