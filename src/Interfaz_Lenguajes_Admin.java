@@ -70,7 +70,6 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         elim = new javax.swing.JLabel();
         ve = new javax.swing.JLabel();
         trytofind = new javax.swing.JLabel();
-        btnagregaridiomas = new javax.swing.JButton();
         fol = new javax.swing.JLabel();
         buscarfolioidiomatxt = new javax.swing.JTextField();
         pie = new javax.swing.JLabel();
@@ -85,9 +84,10 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         editfolioidiomas = new javax.swing.JTextField();
         numcontrol = new javax.swing.JLabel();
         editcertitxt = new javax.swing.JTextField();
+        agregar = new javax.swing.JButton();
         calif = new javax.swing.JLabel();
-        btneditaridioma = new javax.swing.JButton();
         editcaliidiomatxt = new javax.swing.JTextField();
+        editar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         tipcalif = new javax.swing.JLabel();
         eliminarfolioidiomastxt = new javax.swing.JTextField();
@@ -159,20 +159,6 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         trytofind.setForeground(new java.awt.Color(255, 255, 255));
         trytofind.setText("Buscar");
         getContentPane().add(trytofind, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-
-        btnagregaridiomas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
-        btnagregaridiomas.setToolTipText("Confirmar Nuevos Registros.");
-        btnagregaridiomas.setBorder(null);
-        btnagregaridiomas.setBorderPainted(false);
-        btnagregaridiomas.setContentAreaFilled(false);
-        btnagregaridiomas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnagregaridiomas.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
-        btnagregaridiomas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnagregaridiomasActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnagregaridiomas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 430, 60, 40));
 
         fol.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         fol.setForeground(new java.awt.Color(255, 255, 255));
@@ -286,24 +272,20 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(editcertitxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 130, 30));
 
+        agregar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        agregar.setForeground(new java.awt.Color(0, 154, 154));
+        agregar.setText("Agregar");
+        agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, -1, -1));
+
         calif.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         calif.setForeground(new java.awt.Color(255, 255, 255));
         calif.setText("Calificación:");
         getContentPane().add(calif, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
-
-        btneditaridioma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitafeliz.png"))); // NOI18N
-        btneditaridioma.setToolTipText("Confirmar Modificaciones Dentro De Los Datos.");
-        btneditaridioma.setBorder(null);
-        btneditaridioma.setBorderPainted(false);
-        btneditaridioma.setContentAreaFilled(false);
-        btneditaridioma.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btneditaridioma.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/palomitagrande.png"))); // NOI18N
-        btneditaridioma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditaridiomaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btneditaridioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 430, 60, 40));
 
         editcaliidiomatxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         editcaliidiomatxt.setToolTipText("Modificar La Calificacion Asignada.");
@@ -313,6 +295,16 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
             }
         });
         getContentPane().add(editcaliidiomatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 350, 130, 30));
+
+        editar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        editar.setForeground(new java.awt.Color(0, 154, 154));
+        editar.setText("Editar");
+        editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 440, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 150, 150));
@@ -411,68 +403,6 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
               this.dispose();
             }      
     }//GEN-LAST:event_formWindowClosing
-
-    private void btnagregaridiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregaridiomasActionPerformed
-         
-         try {
-             
-             if (Integer.parseInt(textcalifagr.getText()) < 1.00) {
-                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-             } else if (texttipoag.getText().equals("") || textcalifagr.getText().equals("") || numconag.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
-             }else  {
-                try {
-            String agr = "INSERT into idiomas (FOLIO_IDIOMAS,TIPO_CERT,CALIFICACION,FK_NUM_CONTROL) values (?,?,?,?)";
-            pst = conn.prepareStatement(agr);
-            pst.setString(1, null);
-            pst.setString(4, numconag.getText());
-            pst.setString(2, texttipoag.getText());
-            pst.setString(3, textcalifagr.getText());
-            pst.execute();
-            
-            JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
-                } catch (Exception e){
-                   JOptionPane.showMessageDialog(null, e);
-                }
-                actualizar_tablaidiomas();
-             }
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        
-        
-    
-    }//GEN-LAST:event_btnagregaridiomasActionPerformed
-
-    private void btneditaridiomaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditaridiomaActionPerformed
-       int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
-        
-       if (editcertitxt.getText().equals("") || editcaliidiomatxt.getText().equals("") || editfolioidiomas.getText().equals("")){
-           JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios");
-       } else if (verificacioncambio == 0){
-       
-       
-            try {
-                String edittipocerti = editcertitxt.getText();
-                String editcali = editcaliidiomatxt.getText();
-                //String editnumcontrol = editfolioidiomas.getText();
-                String editfolio = editfolioidiomas.getText();
-                
-
-                String edit = "UPDATE idiomas set TIPO_CERT='" + edittipocerti + "', CALIFICACION='" + editcali + "' WHERE FOLIO_IDIOMAS='" + editfolio + "'";
-                pst = conn.prepareStatement(edit);
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
-
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-           actualizar_tablaidiomas();
-        
-       }
-                
-    }//GEN-LAST:event_btneditaridiomaActionPerformed
 
     private void tablaidiomasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaidiomasMouseClicked
         // TODO add your handling code here:
@@ -780,6 +710,65 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
+        try {
+            if (texttipoag.getText().equals("") || textcalifagr.getText().isEmpty() || numconag.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Pudo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
+            } else if (Integer.parseInt(textcalifagr.getText()) < 1.00) {
+                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
+            } else {
+
+                try {
+
+                    String agr = "INSERT into idiomas (FOLIO_IDIOMAS,TIPO_CERT,CALIFICACION,FK_NUM_CONTROL) values (?,?,?,?)";
+                    pst = conn.prepareStatement(agr);
+                    pst.setString(1, null);
+                    pst.setString(2, texttipoag.getText());
+                    pst.setString(3, textcalifagr.getText());
+                    pst.setString(4, numconag.getText());
+
+                    pst.execute();
+
+                    JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+                actualizar_tablaidiomas();
+                
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_agregarActionPerformed
+
+    private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
+        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+        try {
+            if (editcertitxt.getText().equals("") || editcaliidiomatxt.getText().equals("") || editfolioidiomas.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios" , "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (Integer.parseInt(editcaliidiomatxt.getText()) < 1.00) {
+                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
+
+            } else if (verificacioncambio == 0) {
+
+                String edittipocerti = editcertitxt.getText();
+                String editcali = editcaliidiomatxt.getText();
+
+                String editfolio = editfolioidiomas.getText();
+
+                String edita = "UPDATE idiomas set TIPO_CERT='" + edittipocerti + "', CALIFICACION='" + editcali + "' WHERE FOLIO_IDIOMAS='" + editfolio + "'";
+                pst = conn.prepareStatement(edita);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
+            }
+        } catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        actualizar_tablaidiomas();
+               // TODO add your handling code here:
+    }//GEN-LAST:event_editarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -816,17 +805,17 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton agregar;
     private javax.swing.JLabel areaagregar;
     private javax.swing.JLabel areabucar;
     private javax.swing.JLabel areaeditar;
     private javax.swing.JLabel areaeliminar;
-    private javax.swing.JButton btnagregaridiomas;
-    private javax.swing.JButton btneditaridioma;
     private javax.swing.JTextField buscarfolioidiomatxt;
     private javax.swing.JTextField buscarnumeroidiomatxt;
     private javax.swing.JLabel calif;
     private javax.swing.JLabel calif1;
     private javax.swing.JLabel edit;
+    private javax.swing.JButton editar;
     private javax.swing.JTextField editcaliidiomatxt;
     private javax.swing.JTextField editcertitxt;
     private javax.swing.JTextField editfolioidiomas;

@@ -115,6 +115,11 @@ Connection conn = null;
                 "ID_Usuario", "Usuario", "Contraseña", "Tipo de  Usuario"
             }
         ));
+        tabla_admin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabla_adminMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabla_admin);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 480, 110));
@@ -598,6 +603,30 @@ char c = evt.getKeyChar();
 
             }        // TODO add your handling code here:
     }//GEN-LAST:event_eliminaid_usuarioKeyTyped
+
+    private void tabla_adminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_adminMouseClicked
+try {
+            int row = tabla_admin.getSelectedRow();
+            String Click_Tabla = (tabla_admin.getModel().getValueAt(row, 0).toString());
+            String Click = "SELECT * From usuarios where id_usuario = '" + Click_Tabla + "' ";
+            pst = conn.prepareStatement(Click);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+
+                String agregar1 = rs.getString("id_usuario");
+                modificar_idusuario.setText(agregar1);
+
+                String agregar2 = rs.getString("contrasena");
+                modifica_contrasena.setText(agregar2);
+
+                String agregar3 = rs.getString("tipo_usuario");
+                modifica_tipo_usuario.setText(agregar3);
+                }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_tabla_adminMouseClicked
 
     /**
      * @param args the command line arguments
