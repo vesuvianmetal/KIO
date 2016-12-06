@@ -583,29 +583,12 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
         int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         try {
-            if (Integer.parseInt(editadeudotxt.getText()) < 1) {
+            if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+                else if (Integer.parseInt(editadeudotxt.getText()) < 1) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
             } 
-            
-            else if (editfoliotxt.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            else if (editfoliotxt.getText().equals("") && editnumcontroltxt.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            else if (editfoliotxt.getText().equals("") && editnumcontroltxt.getText().equals("") && editcodlibrotxt.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            
-             else if (editfoliotxt.getText().equals("") && editnumcontroltxt.getText().equals("") && editcodlibrotxt.getText().equals("") && editadeudotxt.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            
-            else if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
             
             else if (verificacioncambio == 0) {
                 try {
@@ -661,11 +644,12 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
 
         try {
-            if (Integer.parseInt(agradeudotxt.getText()) < 1.00) {
-                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-            }else if ((agrnumcontroltxt.getText().equals("") || agrcodlibrotxt.getText().equals("")) || agradeudotxt.getText().equals(null)) {
+             if ((agrnumcontroltxt.getText().equals("") || agrcodlibrotxt.getText().equals("")) || agradeudotxt.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
-            }  else  {
+            } 
+             else if (Integer.parseInt(agradeudotxt.getText()) < 1.00) {
+                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
+            }else   {
                 try {
                     String agr = "INSERT into biblioteca (FOLIO_BIBLIOTECA,CODIGO_LIBRO,ADEUDO,FK_NUMERO_CONTROL_BIBLIOTECA) values (?,?,?,?)";
                     pst = conn.prepareStatement(agr);
