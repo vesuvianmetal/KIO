@@ -92,6 +92,9 @@ int limiteimporte = 6;
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 foliocajatxtKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                foliocajatxtKeyTyped(evt);
+            }
         });
         getContentPane().add(foliocajatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 150, 30));
 
@@ -259,7 +262,12 @@ int limiteimporte = 6;
 
     private void btnelimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnelimActionPerformed
         try {
-            eliminar_campos();
+            if (foliocajatxt.getText().equals("") && importetxt.getText().equals("") && numcontroltxtcaja.getText().equals("")){
+               JOptionPane.showMessageDialog(null, "No Hay Campos Que Borrar");
+            } else {
+              eliminar_campos();  
+            }
+            
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
@@ -350,6 +358,26 @@ int limiteimporte = 6;
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_importetxtKeyReleased
+
+    private void foliocajatxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_foliocajatxtKeyTyped
+       
+        int c = evt.getKeyChar();
+        
+        try {
+            
+          if (Character.isLetter(c)){
+              getToolkit().beep();
+              evt.consume();
+              JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos" , "ERROR" , JOptionPane.ERROR_MESSAGE);
+          }  
+            
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+    }//GEN-LAST:event_foliocajatxtKeyTyped
 
     /**
      * @param args the command line arguments
