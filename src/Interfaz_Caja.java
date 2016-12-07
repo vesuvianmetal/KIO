@@ -224,7 +224,7 @@ public class Interfaz_Caja extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
+eliminar_campos();
      
     }//GEN-LAST:event_btndesbloqActionPerformed
 
