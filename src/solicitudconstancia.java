@@ -56,7 +56,6 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        fecha = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         email = new javax.swing.JTextField();
         numcontrl1 = new javax.swing.JTextField();
@@ -115,11 +114,6 @@ public class solicitudconstancia extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 590, 110, 90));
-
-        fecha.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
-        fecha.setForeground(new java.awt.Color(255, 255, 255));
-        fecha.setText("Fecha");
-        getContentPane().add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 700, -1, -1));
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/home.png"))); // NOI18N
         jButton3.setToolTipText("Volver a Menu");
@@ -450,7 +444,6 @@ vp.setVisible(true);
     private javax.swing.JTextField caja1;
     private javax.swing.JTextField carrera;
     private javax.swing.JTextField email;
-    private javax.swing.JLabel fecha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
