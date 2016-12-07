@@ -22,6 +22,8 @@ public class solicitudconstancia extends javax.swing.JFrame {
  Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
+    int limitecontrol=8;
+    int limitefoliocaja=11;
     
     
     public solicitudconstancia() {
@@ -143,6 +145,9 @@ public class solicitudconstancia extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 numcontrl1KeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                numcontrl1KeyTyped(evt);
+            }
         });
         getContentPane().add(numcontrl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 350, 50));
 
@@ -160,6 +165,14 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
         caja1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         caja1.setToolTipText("Folo Generado al momento de Pagar en Caja");
+        caja1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                caja1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                caja1KeyTyped(evt);
+            }
+        });
         getContentPane().add(caja1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 540, 350, 50));
 
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
@@ -313,9 +326,17 @@ public class solicitudconstancia extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        try {
-
-            String agr = "INSERT into constancia (FOLIO_CONSTANCIA,FK_NUMERO_CONTROL_CONSTANCIA,FECHA_SOL,FK_FOLIO_CAJA) values (?,?,?,?)";
+       
+ try{
+           
+            if (numcontrl1.getText().equals("") || nombre1.getText().equals("") || carrera.getText().equals("") || email.getText().equals("") || caja1.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios" , "ERROR", JOptionPane.ERROR_MESSAGE);
+            } 
+            else if (Integer.parseInt(caja1.getText()) < 1){
+                JOptionPane.showMessageDialog(null, "No Se Puede Poner Un Numero Negativo En El Campo Folio" , "ERROR" , JOptionPane.ERROR_MESSAGE);
+            }
+            else {
+              String agr = "INSERT into constancia (FOLIO_CONSTANCIA,FK_NUMERO_CONTROL_CONSTANCIA,FECHA_SOL,FK_FOLIO_CAJA) values (?,?,?,?)";
             pst = conn.prepareStatement(agr);
             pst.setString(1, null);
             pst.setString(2, numcontrl1.getText());
@@ -324,7 +345,10 @@ public class solicitudconstancia extends javax.swing.JFrame {
            
             pst.execute();
 
-            JOptionPane.showMessageDialog(null, "Se Ha Enviado La Solicitud");
+            JOptionPane.showMessageDialog(null, "Se Ha Enviado La Solicitud");   
+            }
+        
+           
         } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -339,6 +363,51 @@ vp.setVisible(true);
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void numcontrl1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontrl1KeyTyped
+         try {
+            if (numcontrl1.getText().length() == limitecontrol) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
+            }
+
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_numcontrl1KeyTyped
+
+    private void caja1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja1KeyTyped
+      try {
+            if (caja1.getText().length() == limitefoliocaja) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
+            }
+
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_caja1KeyTyped
+
+    private void caja1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_caja1KeyReleased
+        int c=evt.getKeyChar();
+        
+        try {
+            
+            if (Character.isLetter(c)){
+                evt.consume();
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+            }
+            
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_caja1KeyReleased
 
     /**
      * @param args the command line arguments
