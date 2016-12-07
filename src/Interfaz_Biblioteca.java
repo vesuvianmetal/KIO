@@ -47,7 +47,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     
     void borrarcsv(){
         try {
-            
+            jTextField1.setText("");
         }catch (Exception e){
             
         }
@@ -795,6 +795,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         }
 
         actualizar_tabla();
+        borrarcsv();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
