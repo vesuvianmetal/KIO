@@ -241,7 +241,7 @@ public class solicitudconstancia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void numcontrl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontrl1KeyReleased
-        // TODO add your handling code here:
+        
         
         
         

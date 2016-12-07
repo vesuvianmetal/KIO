@@ -90,6 +90,12 @@ public class Interfaz_Caja extends javax.swing.JFrame {
 
         importetxt.setToolTipText("Cantidad A Pagar");
         getContentPane().add(importetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 150, 30));
+
+        numcontroltxtcaja.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                numcontroltxtcajaKeyReleased(evt);
+            }
+        });
         getContentPane().add(numcontroltxtcaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 150, 30));
 
         nombrecajatxt.setEditable(false);
@@ -229,6 +235,44 @@ public class Interfaz_Caja extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_btnelimActionPerformed
+
+    private void numcontroltxtcajaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontroltxtcajaKeyReleased
+     
+                 
+        try{
+        String buscarfolio = "SELECT * from alumno where NUMERO_CONTROL=?";
+            pst = conn.prepareStatement(buscarfolio);
+            pst.setString(1, numcontroltxtcaja.getText());
+            rs = pst.executeQuery();
+        
+         if (rs.next()) {
+
+                String agregar1 = rs.getString("NOMBRE");
+                nombrecajatxt.setText(agregar1);
+
+                String agregar2 = rs.getString("CARRERA");
+                carreracajatxt.setText(agregar2);
+
+                String agregar3 = rs.getString("SEMESTRE");
+               semestrecajatxt.setText(agregar3);
+               
+               String agregar4 = rs.getString("APELLIDO_PATERNO");
+               apellidopattxtcaja.setText(agregar4);
+               
+               String agregar5 = rs.getString("APELLIDO_MATERNO");
+               apellidomattxtcaja.setText(agregar5);
+
+                
+            }
+         
+       
+         
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+          
+    
+    }//GEN-LAST:event_numcontroltxtcajaKeyReleased
 
     /**
      * @param args the command line arguments
