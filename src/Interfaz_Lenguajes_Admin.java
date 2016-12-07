@@ -717,7 +717,7 @@ try {
                 try {
                     if (editcaliidiomatxt.getText().length() == limitecalificacionidiomas) {
                         evt.consume();
-                        JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 10 Caracteres");
+                        JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 3 Caracteres");
                     }
                     
                     if (Character.isLetter(c)){
