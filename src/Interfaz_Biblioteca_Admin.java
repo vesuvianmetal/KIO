@@ -757,14 +757,18 @@ public class Interfaz_Biblioteca_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarfoliotxtKeyReleased
     String nombrearchivo;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        try {
+            JFileChooser escoger = new JFileChooser();
+            escoger.showOpenDialog(null);
+            File f = escoger.getSelectedFile();
+            nombrearchivo = f.getAbsolutePath();
 
-        JFileChooser escoger = new JFileChooser();
-        escoger.showOpenDialog(null);
-        File f = escoger.getSelectedFile();
-        nombrearchivo = f.getAbsolutePath();
+            jTextField1.setText(nombrearchivo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
-        jTextField1.setText(nombrearchivo);
+
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -793,11 +797,18 @@ public class Interfaz_Biblioteca_Admin extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int a = JOptionPane.showConfirmDialog(null, "Está Seguro Que Deseea Salir?");
-        if (a == JOptionPane.YES_OPTION) {
-            Interfaz_Admin metodo1 = new Interfaz_Admin();
-            metodo1.setVisible(true);
-            this.dispose();
-        }      
+        try {
+            if (a == JOptionPane.YES_OPTION) {
+                Interfaz_Admin metodo1 = new Interfaz_Admin();
+                metodo1.setVisible(true);
+                this.dispose();
+            } else if (a == JOptionPane.NO_OPTION) {
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+       
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
