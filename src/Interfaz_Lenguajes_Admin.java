@@ -38,6 +38,47 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+     
+     void borrarcampos() {
+        try {
+            buscarfolioidiomatxt.setText("");
+            buscarnumeroidiomatxt.setText("");
+            eliminarfolioidiomastxt.setText("");
+            texttipoag.setText("");
+            textcalifagr.setText("");
+            numconag.setText("");
+            editcertitxt.setText("");
+            editcaliidiomatxt.setText("");
+            editfolioidiomas.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+     
+      void borrarfolio() {
+        try {
+            eliminarfolioidiomastxt.setText("");
+            editcertitxt.setText("");
+            editcaliidiomatxt.setText("");
+            editfolioidiomas.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+      
+      void borrar() {
+        try {
+            texttipoag.setText("");
+            textcalifagr.setText("");
+            numconag.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+     
      void filltableidiomas() {
 
         try {
@@ -499,27 +540,41 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_buscarnumeroidiomatxtKeyReleased
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
- actualizar_tablaidiomas();
+try {
+    actualizar_tablaidiomas();
+} catch (Exception e){
+    JOptionPane.showMessageDialog(null, e);
+}
+ 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-        int verificacion = JOptionPane.showConfirmDialog(null, "¿Segudo que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
-        if (verificacion == 0) {
-            String elim = "DELETE from idiomas where FOLIO_IDIOMAS=?";
-            try {
-                pst = conn.prepareStatement(elim);
-                pst.setString(1, eliminarfolioidiomastxt.getText());
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Deuda Eliminada");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
+         int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+
+        try {
+            if (eliminarfolioidiomastxt.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No Hay Un Registro Ingresado Para Eliminar", " ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (verificacion == JOptionPane.YES_OPTION) {
+                String elim1 = "DELETE from idiomas where FOLIO_IDIOMAS=?";
+                try {
+                    pst = conn.prepareStatement(elim1);
+                    pst.setString(1, eliminarfolioidiomastxt.getText());
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "Deuda Eliminada");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } else if (verificacion == JOptionPane.NO_OPTION) {
+
             }
-            actualizar_tablaidiomas();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
-        
-        
+        actualizar_tablaidiomas();
+        borrarfolio();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void buscarfolioidiomatxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarfolioidiomatxtKeyTyped
@@ -697,20 +752,22 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_editfolioidiomasKeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        buscarfolioidiomatxt.setText("");
-        buscarnumeroidiomatxt.setText("");
-        eliminarfolioidiomastxt.setText("");
-        texttipoag.setText("");
-        textcalifagr.setText("");
-        numconag.setText("");
-        editcertitxt.setText("");
-        editcaliidiomatxt.setText("");
-        editfolioidiomas.setText("");
-        // TODO add your handling code here:
+        try {
+            
+            if (buscarfolioidiomatxt.getText().equals("") && buscarnumeroidiomatxt.getText().equals("") && eliminarfolioidiomastxt.getText().equals("") && texttipoag.getText().equals("")
+                    && textcalifagr.getText().equals("") && numconag.getText().equals("") && editcertitxt.getText().equals("") && editcaliidiomatxt.getText().equals("") && editfolioidiomas.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "No Hay Campos Que Borrar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else {
+                borrarcampos();
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-        try {
+      try {
             if (texttipoag.getText().equals("") || textcalifagr.getText().isEmpty() || numconag.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Pudo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
             } else if (Integer.parseInt(textcalifagr.getText()) < 1.00) {
@@ -732,24 +789,25 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
-                actualizar_tablaidiomas();
-                
+
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        }        // TODO add your handling code here:
+        }
+        actualizar_tablaidiomas();
+        borrar();
     }//GEN-LAST:event_agregarActionPerformed
 
     private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
-        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+     int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         try {
             if (editcertitxt.getText().equals("") || editcaliidiomatxt.getText().equals("") || editfolioidiomas.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios" , "ERROR", JOptionPane.ERROR_MESSAGE);
             } else if (Integer.parseInt(editcaliidiomatxt.getText()) < 1.00) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
 
-            } else if (verificacioncambio == 0) {
+            } else if (verificacioncambio == JOptionPane.YES_OPTION) {
 
                 String edittipocerti = editcertitxt.getText();
                 String editcali = editcaliidiomatxt.getText();
@@ -761,11 +819,14 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
             }
+            else if (verificacioncambio == JOptionPane.NO_OPTION){
+                
+            }
         } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e);
         }
         actualizar_tablaidiomas();
-               // TODO add your handling code here:
+        borrar();      
     }//GEN-LAST:event_editarActionPerformed
 
     /**
