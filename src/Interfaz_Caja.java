@@ -19,7 +19,9 @@ public class Interfaz_Caja extends javax.swing.JFrame {
     Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
-
+int limitecontrol = 8;
+int limitefolio = 11;
+int limiteimporte = 6;
     public Interfaz_Caja() {
         conn = Conexion_BD.conectardb();
         initComponents();
@@ -86,9 +88,22 @@ public class Interfaz_Caja extends javax.swing.JFrame {
         getContentPane().add(semestrecajatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 150, 30));
 
         foliocajatxt.setToolTipText("Numero De Folio Asignado.");
+        foliocajatxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                foliocajatxtKeyReleased(evt);
+            }
+        });
         getContentPane().add(foliocajatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 150, 30));
 
         importetxt.setToolTipText("Cantidad A Pagar");
+        importetxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                importetxtKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                importetxtKeyTyped(evt);
+            }
+        });
         getContentPane().add(importetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 150, 30));
 
         numcontroltxtcaja.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -191,6 +206,7 @@ public class Interfaz_Caja extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 510, 470));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -213,19 +229,32 @@ public class Interfaz_Caja extends javax.swing.JFrame {
 
     private void btndesbloqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndesbloqActionPerformed
 
+        String agr = "INSERT into caja (FOLIO_CAJA,IMPORTE,FK_NUMERO_CONTROL_CAJA) values (?,?,?)";
+
         try {
 
             if (foliocajatxt.getText().equals("") || importetxt.getText().equals("") || numcontroltxtcaja.getText().equals("") || nombrecajatxt.getText().equals("")
                     || apellidopattxtcaja.getText().equals("") || apellidomattxtcaja.getText().equals("") || carreracajatxt.getText().equals("") || semestrecajatxt.getText().equals("")) {
-               
+
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (Integer.parseInt(importetxt.getText()) < 1.00) {
+                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
+            } else {
+                pst = conn.prepareStatement(agr);
+                pst.setString(1, null);
+                pst.setString(2, importetxt.getText());
+                pst.setInt(3, Integer.parseInt(numcontroltxtcaja.getText()));
+
+                pst.execute();
+
+                JOptionPane.showMessageDialog(null, "Se Han Desbloqueado Los Datos Correctamente");
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-eliminar_campos();
-     
+        eliminar_campos();
+
     }//GEN-LAST:event_btndesbloqActionPerformed
 
     private void btnelimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnelimActionPerformed
@@ -264,6 +293,11 @@ eliminar_campos();
 
                 
             }
+          if (numcontroltxtcaja.getText().length() == limitecontrol) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 8 Caracteres");
+            }
          
        
          
@@ -273,6 +307,49 @@ eliminar_campos();
           
     
     }//GEN-LAST:event_numcontroltxtcajaKeyReleased
+
+    private void importetxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_importetxtKeyTyped
+       int c=evt.getKeyChar();
+        try {
+           
+           if(Character.isLetter(c)){
+               evt.consume();
+               getToolkit().beep();
+               JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
+           }
+           
+       } catch (Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+    }//GEN-LAST:event_importetxtKeyTyped
+
+    private void foliocajatxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_foliocajatxtKeyReleased
+       try {
+            if (foliocajatxt.getText().length() == limitefolio) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
+            }
+
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_foliocajatxtKeyReleased
+
+    private void importetxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_importetxtKeyReleased
+       try {
+            if (importetxt.getText().length() == limiteimporte) {
+                getToolkit().beep();
+                evt.consume();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 6 Caracteres");
+            }
+
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_importetxtKeyReleased
 
     /**
      * @param args the command line arguments
