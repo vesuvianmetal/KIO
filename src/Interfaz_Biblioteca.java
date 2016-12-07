@@ -49,7 +49,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         try {
             jTextField1.setText("");
         }catch (Exception e){
-            
+            JOptionPane.showMessageDialog(null, e);
         }
     }
     
@@ -529,7 +529,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tabla_aduedoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_aduedoMouseEntered
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_tabla_aduedoMouseEntered
 
     private void tabla_aduedoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_aduedoMouseClicked
@@ -593,12 +593,9 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         try {
             if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-                else if (Integer.parseInt(editadeudotxt.getText()) < 1) {
+            } else if (Integer.parseInt(editadeudotxt.getText()) < 1) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-            } 
-            
-            else if (verificacioncambio == 0) {
+            } else if (verificacioncambio == JOptionPane.YES_OPTION) {
                 try {
                     String editnumc = editnumcontroltxt.getText();
                     String editcodlib = editcodlibrotxt.getText();
@@ -613,15 +610,16 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 } catch (SQLException | HeadlessException e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
-                actualizar_tabla();
-                borraredit();
-               
+
+            } else if (verificacioncambio == JOptionPane.NO_OPTION) {
+
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-
+        actualizar_tabla();
+        borraredit();
     }//GEN-LAST:event_btncambioActionPerformed
 
     private void elimnumerocontroltxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_elimnumerocontroltxtKeyReleased
@@ -762,14 +760,18 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarfoliotxtKeyReleased
     String nombrearchivo;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        try {
+            JFileChooser escoger = new JFileChooser();
+            escoger.showOpenDialog(null);
+            File f = escoger.getSelectedFile();
+            nombrearchivo = f.getAbsolutePath();
 
-        JFileChooser escoger = new JFileChooser();
-        escoger.showOpenDialog(null);
-        File f = escoger.getSelectedFile();
-        nombrearchivo = f.getAbsolutePath();
+            jTextField1.setText(nombrearchivo);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
-        jTextField1.setText(nombrearchivo);
+
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -801,36 +803,47 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int a = JOptionPane.showConfirmDialog(null, "Está Seguro Que Deseea Salir?");
-        if (a == JOptionPane.YES_OPTION) {
+        try {
+            if (a == JOptionPane.YES_OPTION) {
             this.dispose();
             login metodo1 = new login();
             metodo1.setVisible(true);
-        }        // TODO add your handling code here:
+        }
+            else if (a==JOptionPane.NO_OPTION){
+                
+            }
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+            
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       String elim = "DELETE from biblioteca where FOLIO_BIBLIOTECA=?";
-       int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
-        
-       if (elimnumerocontroltxt.getText().equals("")){
-           JOptionPane.showMessageDialog(null, "No Hay Registro Ingresado", "ERROR",JOptionPane.ERROR_MESSAGE);
-       }
-       
-       else if (verificacion == 0) {
-           
-            
-            
-            try {
-                pst = conn.prepareStatement(elim);
-                pst.setString(1, elimnumerocontroltxt.getText());
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Deuda Eliminada");
-            } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(null, e);
+        String elim = "DELETE from biblioteca where FOLIO_BIBLIOTECA=?";
+        int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+
+        try {
+            if (elimnumerocontroltxt.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "No Hay Registro Ingresado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (verificacion == JOptionPane.YES_OPTION) {
+
+                try {
+                    pst = conn.prepareStatement(elim);
+                    pst.setString(1, elimnumerocontroltxt.getText());
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "Deuda Eliminada");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } else if (verificacion == JOptionPane.NO_OPTION) {
+
             }
-            actualizar_tabla();
-            borraredit();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+        actualizar_tabla();
+        borraredit();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void agrnumcontroltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_agrnumcontroltxtKeyTyped
