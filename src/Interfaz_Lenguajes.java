@@ -446,6 +446,9 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 metodo1.setVisible(true);
 
             }
+            if (a== JOptionPane.NO_OPTION){
+                
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -739,8 +742,15 @@ try {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            borrarcampos();
-        } catch (Exception e){
+            
+            if (buscarfolioidiomatxt.getText().equals("") && buscarnumeroidiomatxt.getText().equals("") && eliminarfolioidiomastxt.getText().equals("") && texttipoag.getText().equals("")
+                    && textcalifagr.getText().equals("") && numconag.getText().equals("") && editcertitxt.getText().equals("") && editcaliidiomatxt.getText().equals("") && editfolioidiomas.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "No Hay Campos Que Borrar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else {
+                borrarcampos();
+            }
+            
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -814,7 +824,7 @@ int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea
             } else if (Integer.parseInt(editcaliidiomatxt.getText()) < 1.00) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
 
-            } else if (verificacioncambio == 0) {
+            } else if (verificacioncambio == JOptionPane.YES_OPTION) {
 
                 String edittipocerti = editcertitxt.getText();
                 String editcali = editcaliidiomatxt.getText();
@@ -825,6 +835,9 @@ int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea
                 pst = conn.prepareStatement(edita);
                 pst.execute();
                 JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
+            }
+            else if (verificacioncambio == JOptionPane.NO_OPTION){
+                
             }
         } catch (SQLException | HeadlessException e) {
             JOptionPane.showMessageDialog(null, e);

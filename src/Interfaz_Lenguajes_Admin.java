@@ -499,9 +499,8 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_buscarnumeroidiomatxtKeyReleased
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-//Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
- //       vp.actualizar_tabla();
- actualizar_tablaidiomas();// TODO add your handling code here:
+
+ actualizar_tablaidiomas();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
