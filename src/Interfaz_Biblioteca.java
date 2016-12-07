@@ -45,6 +45,14 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         }
     }
     
+    void borrarcsv(){
+        try {
+            
+        }catch (Exception e){
+            
+        }
+    }
+    
     void borrar() {
         try {
             agrnumcontroltxt.setText("");
@@ -768,18 +776,20 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         try {
+            if (jTextField1.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No Hay Un Archivo CSV Que Guardar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else {
+                BufferedReader br = new BufferedReader(new FileReader(nombrearchivo));
+                String line;
 
-            BufferedReader br = new BufferedReader(new FileReader(nombrearchivo));
-            String line;
-
-            while ((line = br.readLine()) != null) {
-                String[] value = line.split(","); //separador de valor
-                String sql = "insert into biblioteca (FK_NUMERO_CONTROL_BIBLIOTECA,CODIGO_LIBRO,ADEUDO) Values('" + value[0] + "','" + value[1] + "','" + value[2] + "')";
-                pst = conn.prepareStatement(sql);
-                pst.executeUpdate();
+                while ((line = br.readLine()) != null) {
+                    String[] value = line.split(","); //separador de valor
+                    String sql = "insert into biblioteca (FK_NUMERO_CONTROL_BIBLIOTECA,CODIGO_LIBRO,ADEUDO) Values('" + value[0] + "','" + value[1] + "','" + value[2] + "')";
+                    pst = conn.prepareStatement(sql);
+                    pst.executeUpdate();
+                }
+                br.close();
             }
-            br.close();
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }

@@ -45,6 +45,36 @@ Connection conn = null;
         }
 
     }
+    
+    void borraragrtxt() {
+        try {
+            inserta_idusuario.setText("");
+            inserta_usuario.setText("");
+            inserta_contrasena.setText("");
+            inserta_tipo_usuario.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    void borrartxtmod() {
+        try {
+            modificar_idusuario.setText("");
+            modifica_contrasena.setText("");
+            modifica_tipo_usuario.setText("");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    void borrartxtelim() {
+        try {
+            eliminaid_usuario.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -392,6 +422,7 @@ Connection conn = null;
         getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 490));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -415,30 +446,36 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_boton_idiomasActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
-        if (verificacion == 0) {
-            if(modificar_idusuario.getText().isEmpty()){
-    JOptionPane.showMessageDialog(null, "No hay Datos que modificar");
-            }
-            else{
-            String mod = "update usuarios set contrasena=?, tipo_usuario=? where ID_usuario=?";
-            try {
-                pst = conn.prepareStatement(mod);
-                pst.setString(1, modifica_contrasena.getText());
-                pst.setString(2, modifica_tipo_usuario.getText());
-                pst.setString(3, modificar_idusuario.getText());
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Registro Actualizado");
-               
-            rs = pst.executeQuery();
-            } catch (Exception e) {
-                Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
-            vp.actualizar_tabla();
-            }
-            
-        }
+        int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
 
-        }       
+        try {
+
+            if (modificar_idusuario.getText().equals("") || modifica_contrasena.getText().equals("") || modifica_tipo_usuario.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Hay Uno O Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (verificacion == 0) {
+                if (modificar_idusuario.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No hay Datos que modificar");
+                } else {
+                    String mod = "update usuarios set contrasena=?, tipo_usuario=? where ID_usuario=?";
+                    try {
+                        pst = conn.prepareStatement(mod);
+                        pst.setString(1, modifica_contrasena.getText());
+                        pst.setString(2, modifica_tipo_usuario.getText());
+                        pst.setString(3, modificar_idusuario.getText());
+                        pst.execute();
+                        JOptionPane.showMessageDialog(null, "Registro Actualizado");
+
+                        rs = pst.executeQuery();
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        actualizar_tabla();
+        borrartxtmod();
     }//GEN-LAST:event_modificarActionPerformed
 
     private void actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarActionPerformed
@@ -448,29 +485,25 @@ actualizar_tabla();
     }//GEN-LAST:event_actualizarActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borrar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
+        int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borrar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
         if (verificacion == 0) {
-            if(eliminaid_usuario.getText().isEmpty()){
-    JOptionPane.showMessageDialog(null, "No hay Datos que borrar");
+            if (eliminaid_usuario.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No hay Datos que borrar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String elim = "Delete from usuarios where id_usuario=?";
+                try {
+                    pst = conn.prepareStatement(elim);
+                    pst.setString(1, eliminaid_usuario.getText());
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "Registro Eliminado");
+                    rs = pst.executeQuery();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
             }
-            else{
-            String elim = "Delete from usuarios where id_usuario=?";
-            try {
-                pst = conn.prepareStatement(elim);
-                pst.setString(1, eliminaid_usuario.getText());
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                /*pst = conn.prepareStatement(elim);
-            pst.setString(1, eliminaid_usuario.getText());*/
-            rs = pst.executeQuery();
-            } catch (Exception e) {
-                Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
-            vp.actualizar_tabla();
-            }
-            
         }
-
-        }// TODO add your handling code here:
+        borrartxtelim();
+        actualizar_tabla();
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void modificar_idusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar_idusuarioActionPerformed
@@ -482,37 +515,35 @@ int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borra
     }//GEN-LAST:event_modifica_contrasenaActionPerformed
 
     private void insetarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insetarActionPerformed
-int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea insertar el registro?", "Insertar", JOptionPane.YES_NO_OPTION);
-        if (verificacion == 0) {
-            if(inserta_idusuario.getText().isEmpty()){
-    JOptionPane.showMessageDialog(null, "No hay Datos que insertar ");
-            }
-            else{
+        int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea insertar el registro?", "Insertar", JOptionPane.YES_NO_OPTION);
+        try {
+            if (inserta_idusuario.getText().equals("") || inserta_usuario.getText().equals("") || inserta_contrasena.getText().equals("") || inserta_tipo_usuario.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (verificacion == 0) {
+               
+
+                    String mod = "insert into usuarios values(?,?,?,?)";
+                    try {
+                        pst = conn.prepareStatement(mod);
+
+                        pst.setString(1, inserta_idusuario.getText());
+                        pst.setString(2, inserta_usuario.getText());
+                        pst.setString(3, inserta_contrasena.getText());
+                        pst.setString(4, inserta_tipo_usuario.getText());
+                        pst.execute();
+                        JOptionPane.showMessageDialog(null, "Registro Actualizado");
+                        rs = pst.executeQuery();
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
                 
-            String mod = "insert into usuarios values(?,?,?,?)";
-            try {
-                pst = conn.prepareStatement(mod);
-
-                pst.setString(1, inserta_idusuario.getText());
-                pst.setString(2, inserta_usuario.getText());
-                pst.setString(3, inserta_contrasena.getText());
-                pst.setString(4, inserta_tipo_usuario.getText());
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Registro Actualizado");
-            rs = pst.executeQuery();
-            } catch (Exception e) {
-                Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
-            vp.actualizar_tabla();
-            inserta_idusuario.setText("");
-            inserta_usuario.setText("");
-            inserta_contrasena.setText("");
-            inserta_tipo_usuario.setText("");
-            
             }
-            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
-
-        }       
+        borraragrtxt();
+        actualizar_tabla();
+            
     }//GEN-LAST:event_insetarActionPerformed
 
     private void inserta_contrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inserta_contrasenaActionPerformed
@@ -622,6 +653,9 @@ try {
 
                 String agregar3 = rs.getString("tipo_usuario");
                 modifica_tipo_usuario.setText(agregar3);
+                
+                String agregar4= rs.getString("id_usuario");
+                eliminaid_usuario.setText(agregar4);
                 }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
