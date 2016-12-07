@@ -25,12 +25,17 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
     }
 
     void borrarfolio() {
-        eliminarfolioidiomastxt.setText("");
-        editcertitxt.setText("");
-        editcaliidiomatxt.setText("");
-        editfolioidiomas.setText("");
+        try {
+            eliminarfolioidiomastxt.setText("");
+            editcertitxt.setText("");
+            editcaliidiomatxt.setText("");
+            editfolioidiomas.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }
-    
+
     void actualizar_tablaidiomas() {
         try {
 
@@ -65,6 +70,23 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
             texttipoag.setText("");
             textcalifagr.setText("");
             numconag.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+    
+    void borrarcampos() {
+        try {
+            buscarfolioidiomatxt.setText("");
+            buscarnumeroidiomatxt.setText("");
+            eliminarfolioidiomastxt.setText("");
+            texttipoag.setText("");
+            textcalifagr.setText("");
+            numconag.setText("");
+            editcertitxt.setText("");
+            editcaliidiomatxt.setText("");
+            editfolioidiomas.setText("");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -417,15 +439,21 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         int a = JOptionPane.showConfirmDialog(null, "Está Seguro Que Deseea Salir?");
-        if (a == JOptionPane.YES_OPTION) {
-            this.dispose();
-            login metodo1 = new login();
-            metodo1.setVisible(true);
+        try {
+            if (a == JOptionPane.YES_OPTION) {
+                this.dispose();
+                login metodo1 = new login();
+                metodo1.setVisible(true);
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+
     }//GEN-LAST:event_formWindowClosing
 
     private void tablaidiomasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaidiomasMouseClicked
-        // TODO add your handling code here:
+        
 
         try {
             int row = tablaidiomas.getSelectedRow();
@@ -454,8 +482,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
     }//GEN-LAST:event_tablaidiomasMouseClicked
 
     private void buscarfolioidiomatxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarfolioidiomatxtKeyReleased
-        // TODO add your handling code here:
-
+        
         try {
 
             String buscarfolio = "SELECT * from idiomas where FOLIO_IDIOMAS=?";
@@ -504,37 +531,45 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        //
+        
     }//GEN-LAST:event_buscarnumeroidiomatxtKeyReleased
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-//Interfaz_Biblioteca vp=new Interfaz_Biblioteca();
-        //       vp.actualizar_tabla();
-        actualizar_tablaidiomas();// TODO add your handling code here:
+try {
+    actualizar_tablaidiomas();
+} catch (Exception e){
+    JOptionPane.showMessageDialog(null, e);
+}
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
-        
-        if (eliminarfolioidiomastxt.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null, "No Hay Un Registro Ingresado Para Eliminar" ," ERROR" , JOptionPane.ERROR_MESSAGE);
-        }
-        
-        else if (verificacion == 0) {
-            String elim1 = "DELETE from idiomas where FOLIO_IDIOMAS=?";
-            try {
-                pst = conn.prepareStatement(elim1);
-                pst.setString(1, eliminarfolioidiomastxt.getText());
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Deuda Eliminada");
-            } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-            actualizar_tablaidiomas();
-            borrarfolio();
-        }
 
+        try {
+            if (eliminarfolioidiomastxt.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No Hay Un Registro Ingresado Para Eliminar", " ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (verificacion == JOptionPane.YES_OPTION) {
+                String elim1 = "DELETE from idiomas where FOLIO_IDIOMAS=?";
+                try {
+                    pst = conn.prepareStatement(elim1);
+                    pst.setString(1, eliminarfolioidiomastxt.getText());
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "Deuda Eliminada");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } else if (verificacion == JOptionPane.NO_OPTION) {
+
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        actualizar_tablaidiomas();
+        borrarfolio();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -699,20 +734,15 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
     }//GEN-LAST:event_editfolioidiomasKeyTyped
 
     private void textcalifagrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textcalifagrActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_textcalifagrActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        buscarfolioidiomatxt.setText("");
-        buscarnumeroidiomatxt.setText("");
-        eliminarfolioidiomastxt.setText("");
-        texttipoag.setText("");
-        textcalifagr.setText("");
-        numconag.setText("");
-        editcertitxt.setText("");
-        editcaliidiomatxt.setText("");
-        editfolioidiomas.setText("");
-// TODO add your handling code here:
+        try {
+            borrarcampos();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void eliminarfolioidiomastxtKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_eliminarfolioidiomastxtKeyReleased
@@ -752,29 +782,28 @@ try {
             } else {
 
                 try {
-                   
+
                     String agr = "INSERT into idiomas (FOLIO_IDIOMAS,TIPO_CERT,CALIFICACION,FK_NUM_CONTROL) values (?,?,?,?)";
                     pst = conn.prepareStatement(agr);
                     pst.setString(1, null);
                     pst.setString(2, texttipoag.getText());
                     pst.setString(3, textcalifagr.getText());
                     pst.setString(4, numconag.getText());
-                    
-                    
-                   
+
                     pst.execute();
 
                     JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
-                actualizar_tablaidiomas();
-                borrar();
+
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-        }        // TODO add your handling code here:
+        }
+        actualizar_tablaidiomas();
+        borrar();
     }//GEN-LAST:event_agregarActionPerformed
 
     private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
@@ -801,7 +830,7 @@ int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea
             JOptionPane.showMessageDialog(null, e);
         }
         actualizar_tablaidiomas();
-        borrar();        // TODO add your handling code here:
+        borrar();      
     }//GEN-LAST:event_editarActionPerformed
 
     /**
