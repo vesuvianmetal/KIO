@@ -426,13 +426,20 @@ Connection conn = null;
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
-            if(a==JOptionPane.YES_OPTION){
+        int a = JOptionPane.showConfirmDialog(null, "Está Seguro Que Deseea Salir?");
+        try {
+            if (a == JOptionPane.YES_OPTION) {
                 this.dispose();
-                login metodo1=new login();
+                login metodo1 = new login();
                 metodo1.setVisible(true);
                 
-            }   
+            } else if (a == JOptionPane.NO_OPTION) {
+                
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+            
     }//GEN-LAST:event_formWindowClosing
 
     private void boton_idiomasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_idiomasActionPerformed
@@ -452,7 +459,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
 
             if (modificar_idusuario.getText().equals("") || modifica_contrasena.getText().equals("") || modifica_tipo_usuario.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno O Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-            } else if (verificacion == 0) {
+            } else if (verificacion == JOptionPane.YES_OPTION) {
                 if (modificar_idusuario.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "No hay Datos que modificar");
                 } else {
@@ -464,12 +471,12 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
                         pst.setString(3, modificar_idusuario.getText());
                         pst.execute();
                         JOptionPane.showMessageDialog(null, "Registro Actualizado");
-
-                        rs = pst.executeQuery();
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e);
                     }
                 }
+            } else if (verificacion == JOptionPane.NO_OPTION){
+                
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -486,22 +493,29 @@ actualizar_tabla();
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
         int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borrar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
-        if (verificacion == 0) {
-            if (eliminaid_usuario.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No hay Datos que borrar", "ERROR", JOptionPane.ERROR_MESSAGE);
-            } else {
-                String elim = "Delete from usuarios where id_usuario=?";
-                try {
-                    pst = conn.prepareStatement(elim);
-                    pst.setString(1, eliminaid_usuario.getText());
-                    pst.execute();
-                    JOptionPane.showMessageDialog(null, "Registro Eliminado");
-                    rs = pst.executeQuery();
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e);
+        try {
+            if (verificacion == JOptionPane.YES_OPTION) {
+                if (eliminaid_usuario.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No hay Datos que borrar", "ERROR", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    String elim = "Delete from usuarios where id_usuario=?";
+                    try {
+                        pst = conn.prepareStatement(elim);
+                        pst.setString(1, eliminaid_usuario.getText());
+                        pst.execute();
+                        JOptionPane.showMessageDialog(null, "Registro Eliminado");
+                        
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e);
+                    }
                 }
+            } else if (verificacion == JOptionPane.NO_OPTION) {
+
             }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null ,e);
         }
+        
         borrartxtelim();
         actualizar_tabla();
     }//GEN-LAST:event_eliminarActionPerformed
@@ -519,7 +533,7 @@ actualizar_tabla();
         try {
             if (inserta_idusuario.getText().equals("") || inserta_usuario.getText().equals("") || inserta_contrasena.getText().equals("") || inserta_tipo_usuario.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-            } else if (verificacion == 0) {
+            } else if (verificacion == JOptionPane.YES_OPTION) {
                
 
                     String mod = "insert into usuarios values(?,?,?,?)";
@@ -532,10 +546,13 @@ actualizar_tabla();
                         pst.setString(4, inserta_tipo_usuario.getText());
                         pst.execute();
                         JOptionPane.showMessageDialog(null, "Registro Actualizado");
-                        rs = pst.executeQuery();
+                       
                     } catch (Exception e) {
                         JOptionPane.showMessageDialog(null, e);
                     }
+                
+            }
+            else if (verificacion == JOptionPane.NO_OPTION){
                 
             }
         } catch (Exception e) {
