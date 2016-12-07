@@ -44,6 +44,31 @@ public class Interfaz_Biblioteca_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    void borraredit() {
+        try {
+            
+            editfoliotxt.setText("");
+            editnumcontroltxt.setText("");
+            editcodlibrotxt.setText("");
+            editadeudotxt.setText("");
+            elimnumerocontroltxt.setText("");
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+    
+    void borrar() {
+        try {
+            agrnumcontroltxt.setText("");
+            agrcodlibrotxt.setText("");
+            agradeudotxt.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }
 
     private void filltable() {
 
@@ -560,13 +585,13 @@ public class Interfaz_Biblioteca_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_editnumcontroltxtKeyReleased
 
     private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
-        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Segudo que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         try {
-            if (Integer.parseInt(editadeudotxt.getText()) < 1) {
+            if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (Integer.parseInt(editadeudotxt.getText()) < 1) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-            } else if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
-            } else if (verificacioncambio == 0) {
+            } else if (verificacioncambio == JOptionPane.YES_OPTION) {
                 try {
                     String editnumc = editnumcontroltxt.getText();
                     String editcodlib = editcodlibrotxt.getText();
@@ -581,12 +606,16 @@ public class Interfaz_Biblioteca_Admin extends javax.swing.JFrame {
                 } catch (SQLException | HeadlessException e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
-                actualizar_tabla();
+
+            } else if (verificacioncambio == JOptionPane.NO_OPTION) {
+
             }
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
+        actualizar_tabla();
+        borraredit();
 
     }//GEN-LAST:event_btncambioActionPerformed
 
@@ -618,18 +647,20 @@ public class Interfaz_Biblioteca_Admin extends javax.swing.JFrame {
     private void btnagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnagregarActionPerformed
 
         try {
-            if (Integer.parseInt(agradeudotxt.getText()) < 1.00) {
-                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-            }else if ((agrnumcontroltxt.getText().equals("") || agrcodlibrotxt.getText().equals("")) || agradeudotxt.getText().isEmpty()) {
+             if ((agrnumcontroltxt.getText().equals("") || agrcodlibrotxt.getText().equals("")) || agradeudotxt.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Puedo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
-            }  else  {
+            } 
+             else if (Integer.parseInt(agradeudotxt.getText()) < 1.00) {
+                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
+            }else   {
                 try {
                     String agr = "INSERT into biblioteca (FOLIO_BIBLIOTECA,CODIGO_LIBRO,ADEUDO,FK_NUMERO_CONTROL_BIBLIOTECA) values (?,?,?,?)";
                     pst = conn.prepareStatement(agr);
                     pst.setString(1, null);
                     pst.setString(4, agrnumcontroltxt.getText());
                     pst.setString(2, agrcodlibrotxt.getText());
-                    pst.setString(3, agradeudotxt.getText());
+                    pst.setInt(3, Integer.parseInt(agradeudotxt.getText()));
+                    
                     pst.execute();
                     
                     JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
@@ -643,6 +674,7 @@ public class Interfaz_Biblioteca_Admin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         actualizar_tabla();
+        borrar();
 
     }//GEN-LAST:event_btnagregarActionPerformed
 
@@ -770,20 +802,31 @@ public class Interfaz_Biblioteca_Admin extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
     
-
+  String elim = "DELETE from biblioteca where FOLIO_BIBLIOTECA=?";
         int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
-        if (verificacion == 0) {
-            String elim = "DELETE from biblioteca where FOLIO_BIBLIOTECA=?";
-            try {
-                pst = conn.prepareStatement(elim);
-                pst.setString(1, elimnumerocontroltxt.getText());
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Deuda Eliminada");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
+
+        try {
+            if (elimnumerocontroltxt.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "No Hay Registro Ingresado", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (verificacion == JOptionPane.YES_OPTION) {
+
+                try {
+                    pst = conn.prepareStatement(elim);
+                    pst.setString(1, elimnumerocontroltxt.getText());
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "Deuda Eliminada");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } else if (verificacion == JOptionPane.NO_OPTION) {
+
             }
-            actualizar_tabla();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+        actualizar_tabla();
+        borraredit();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void agrnumcontroltxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_agrnumcontroltxtKeyTyped
