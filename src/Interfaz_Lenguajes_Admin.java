@@ -449,7 +449,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
         
         
         
-        try {
+      try {
             int row = tablaidiomas.getSelectedRow();
             String Click_Tabla = (tablaidiomas.getModel().getValueAt(row, 0).toString());
             String Click = "SELECT * From idiomas where FOLIO_IDIOMAS = '" + Click_Tabla + "' ";
@@ -461,23 +461,14 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
                 String agregar1 = rs.getString("FOLIO_IDIOMAS");
                 eliminarfolioidiomastxt.setText(agregar1);
 
-                String agregar2 = rs.getString("TIPO_CERT");
-                texttipoag.setText(agregar2);
-
-                String agregar3 = rs.getString("CALIFICACION");
-                textcalifagr.setText(agregar3);
-
-                String agregar4 = rs.getString("FK_NUM_CONTROL");
-                numconag.setText(agregar4);
-                
                 String agregar5 = rs.getString("TIPO_CERT");
                 editcertitxt.setText(agregar5);
-                
+
                 String agregar6 = rs.getString("CALIFICACION");
                 editcaliidiomatxt.setText(agregar6);
-                
+
                 String agregar7 = rs.getString("FOLIO_IDIOMAS");
-               editfolioidiomas.setText(agregar7);
+                editfolioidiomas.setText(agregar7);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
