@@ -134,6 +134,7 @@ Connection conn = null;
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-400, -20, -1, 1070));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnreferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreferenciaActionPerformed

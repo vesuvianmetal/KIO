@@ -247,6 +247,7 @@ public class solicitudbecas extends javax.swing.JFrame {
         getContentPane().add(FONDO, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1070));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void numcontrl1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numcontrl1KeyReleased
