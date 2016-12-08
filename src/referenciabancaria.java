@@ -6,204 +6,200 @@ import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import javax.swing.JRadioButton;
 
-
 public class referenciabancaria extends javax.swing.JFrame {
 
-   
+    int limitecontrol = 8;
+
     public referenciabancaria() {
-       
+
         initComponents();
     }
-    
-    public  void generar (){
+
+    public void generar() {
         try {
-          int Importe, RE = 0, NUM = 0, VF = 0;
-        /*String dia = Integer.toString(c.get(Calendar.DATE));
+            int Importe, RE = 0, NUM = 0, VF = 0;
+            /*String dia = Integer.toString(c.get(Calendar.DATE));
         String mes = Integer.toString(c.get(Calendar.MONTH));
         String annio = Integer.toString(c.get(Calendar.YEAR));*/
-        Scanner sc = new Scanner(System.in);
-        /*System.out.println("Ingrese el dia:");
+            Scanner sc = new Scanner(System.in);
+            /*System.out.println("Ingrese el dia:");
         Dia = sc.nextInt();
         System.out.println("Ingrese el mes");
         Mes = sc.nextInt();
         System.out.println("Ingrese el año");
         Año = sc.nextInt();*/
-        String Dia=cuadro_dia.getText();
-        String Mes=cuadro_mes.getText();
-        String Año=annio.getText();
-        System.out.println(Dia + "/" + Mes + "/" + Año);
-        int año=Integer.valueOf(Año);
-        int mes=Integer.valueOf(Mes);
-        int dia=Integer.valueOf(Dia);
-        año = ((año - 2013) * 372);
-        mes = ((mes - 1) * 31);
-        dia = (dia - 1);
-        int Fecha = año + mes + dia;
-        String LÑ = Integer.toString(Fecha);
-        System.out.println("Fecha condensada:" + (año + mes + dia));
+            String Dia = cuadro_dia.getText();
+            String Mes = cuadro_mes.getText();
+            String Año = annio.getText();
+            System.out.println(Dia + "/" + Mes + "/" + Año);
+            int año = Integer.valueOf(Año);
+            int mes = Integer.valueOf(Mes);
+            int dia = Integer.valueOf(Dia);
+            año = ((año - 2013) * 372);
+            mes = ((mes - 1) * 31);
+            dia = (dia - 1);
+            int Fecha = año + mes + dia;
+            String LÑ = Integer.toString(Fecha);
+            System.out.println("Fecha condensada:" + (año + mes + dia));
 
-        //Calculo de la forma condensada del importe
-        System.out.println("Ingrese el Total a pagar");
-        
-        String D = total_final.getText();
-        String E = D.substring(0, D.length() - 3) + D.substring(D.length() - 2, D.length());
-        String ax = E; // Pasamos el int a String
-        String nuevaCadena = "";
-        StringBuilder builder = new StringBuilder(ax);//Convertimos el String en StringBuffer para utilizar el metodo reverse()
-        builder = builder.reverse(); //Invierte el StringBuffer
-        nuevaCadena = builder.toString();
-        int Z = nuevaCadena.length();
-        if (Z == 5) {
-            int A, B, C, F, G;
-            A = Integer.parseInt(nuevaCadena.substring(0, 1));
-            A = A * 7;
-            B = Integer.parseInt(nuevaCadena.substring(1, 2));
-            B = B * 3;
-            C = Integer.parseInt(nuevaCadena.substring(2, 3));
-            C = C * 1;
-            F = Integer.parseInt(nuevaCadena.substring(3, 4));
-            F = F * 7;
-            G = Integer.parseInt(nuevaCadena.substring(4, 5));
-            G = G * 3;
-            RE = (A + B + C + F + G);
-        } else if (Z == 6) {
-            int A, B, C, F, G, H;
-            A = Integer.parseInt(nuevaCadena.substring(0, 1));
-            A = A * 7;
-            B = Integer.parseInt(nuevaCadena.substring(1, 2));
-            B = B * 3;
-            C = Integer.parseInt(nuevaCadena.substring(2, 3));
-            C = C * 1;
-            F = Integer.parseInt(nuevaCadena.substring(3, 4));
-            F = F * 7;
-            G = Integer.parseInt(nuevaCadena.substring(4, 5));
-            G = G * 3;
-            H = Integer.parseInt(nuevaCadena.substring(5, 6));
-            H = H * 1;
-            RE = (A + B + C + F + G + H);
-        } else if (Z == 7) {
-            int A, B, C, F, G, H, I;
-            A = Integer.parseInt(nuevaCadena.substring(0, 1));
-            A = A * 7;
-            B = Integer.parseInt(nuevaCadena.substring(1, 2));
-            B = B * 3;
-            C = Integer.parseInt(nuevaCadena.substring(2, 3));
-            C = C * 1;
-            F = Integer.parseInt(nuevaCadena.substring(3, 4));
-            F = F * 7;
-            G = Integer.parseInt(nuevaCadena.substring(4, 5));
-            G = G * 3;
-            H = Integer.parseInt(nuevaCadena.substring(5, 6));
-            H = H * 1;
-            I = Integer.parseInt(nuevaCadena.substring(6, 7));
-            I = I * 7;
-            RE = (A + B + C + F + G + H + I);
-        } else if (Z == 8) {
-            int A, B, C, F, G, H, I, J;
-            A = Integer.parseInt(nuevaCadena.substring(0, 1));
-            A = A * 7;
-            B = Integer.parseInt(nuevaCadena.substring(1, 2));
-            B = B * 3;
-            C = Integer.parseInt(nuevaCadena.substring(2, 3));
-            C = C * 1;
-            F = Integer.parseInt(nuevaCadena.substring(3, 4));
-            F = F * 7;
-            G = Integer.parseInt(nuevaCadena.substring(4, 5));
-            G = G * 3;
-            H = Integer.parseInt(nuevaCadena.substring(5, 6));
-            H = H * 1;
-            I = Integer.parseInt(nuevaCadena.substring(6, 7));
-            I = I * 7;
-            J = Integer.parseInt(nuevaCadena.substring(7, 8));
-            J = J * 3;
-            RE = (A + B + C + F + G + H + I + J);
-        }
-        //Importe condensado
-        int Po = RE % 10;
-        System.out.println(Po);
+            //Calculo de la forma condensada del importe
+            System.out.println("Ingrese el Total a pagar");
 
-        //Calculo de digitos verificadores globales
-        int[] Digi = new int[8];
-        //System.out.println("Ingresa El Numero:");
-        String AX = numero_control.getText(); // Pasamos el int a String
-        String nc=AX;
-        String nuevacadena = "";
-        StringBuilder builders = new StringBuilder(AX);//Convertimos el String en StringBuffer para utilizar el metodo reverse()
-        builders = builders.reverse(); //Invierte el StringBuffer
-        nuevacadena = builders.toString();
-        //int ZX = 2 * 11;
-        //System.out.println(ZX);
-        int MN = Po * 11;
-        System.out.println(MN);
-        int DD = Integer.parseInt(LÑ.substring(3, 4)) * 13;
-        System.out.println(DD);
-        int DG = Integer.parseInt(LÑ.substring(2, 3)) * 17;
-        System.out.println(DG);
-        int DT = Integer.parseInt(LÑ.substring(1, 2)) * 19;
-        System.out.println(DT);
-        int DS = Integer.parseInt(LÑ.substring(0, 1)) * 23;
-        System.out.println(DS);
-        VF = MN + DD + DG + DT + DS;
-        int DE = 0, VB = 0, CX = 0;
-        for (int i = 0; i < Digi.length; i++) {
-            switch (DE) {
-                case 0: {
-                    Digi[i] = Integer.parseInt(nuevacadena.substring(i, i + 1));
-                    DE = 1;
-                    CX = Digi[i] * 11;
-                    break;
-                }
-                case 1: {
-                    Digi[i] = Integer.parseInt(nuevacadena.substring(i, i + 1));
-                    DE = 2;
-                    CX = Digi[i] * 13;
-                    break;
-                }
-                case 2: {
-                    Digi[i] = Integer.parseInt(nuevacadena.substring(i, i + 1));
-                    DE = 3;
-                    CX = Digi[i] * 17;
-                    break;
-                }
-                case 3: {
-                    Digi[i] = Integer.parseInt(nuevacadena.substring(i, i + 1));
-                    DE = 4;
-                    CX = Digi[i] * 19;
-                    break;
-                }
-                case 4: {
-                    Digi[i] = Integer.parseInt(nuevacadena.substring(i, i + 1));
-                    DE = 0;
-                    CX = Digi[i] * 23;
-                    break;
-                }
+            String D = total_final.getText();
+            String E = D.substring(0, D.length() - 3) + D.substring(D.length() - 2, D.length());
+            String ax = E; // Pasamos el int a String
+            String nuevaCadena = "";
+            StringBuilder builder = new StringBuilder(ax);//Convertimos el String en StringBuffer para utilizar el metodo reverse()
+            builder = builder.reverse(); //Invierte el StringBuffer
+            nuevaCadena = builder.toString();
+            int Z = nuevaCadena.length();
+            if (Z == 5) {
+                int A, B, C, F, G;
+                A = Integer.parseInt(nuevaCadena.substring(0, 1));
+                A = A * 7;
+                B = Integer.parseInt(nuevaCadena.substring(1, 2));
+                B = B * 3;
+                C = Integer.parseInt(nuevaCadena.substring(2, 3));
+                C = C * 1;
+                F = Integer.parseInt(nuevaCadena.substring(3, 4));
+                F = F * 7;
+                G = Integer.parseInt(nuevaCadena.substring(4, 5));
+                G = G * 3;
+                RE = (A + B + C + F + G);
+            } else if (Z == 6) {
+                int A, B, C, F, G, H;
+                A = Integer.parseInt(nuevaCadena.substring(0, 1));
+                A = A * 7;
+                B = Integer.parseInt(nuevaCadena.substring(1, 2));
+                B = B * 3;
+                C = Integer.parseInt(nuevaCadena.substring(2, 3));
+                C = C * 1;
+                F = Integer.parseInt(nuevaCadena.substring(3, 4));
+                F = F * 7;
+                G = Integer.parseInt(nuevaCadena.substring(4, 5));
+                G = G * 3;
+                H = Integer.parseInt(nuevaCadena.substring(5, 6));
+                H = H * 1;
+                RE = (A + B + C + F + G + H);
+            } else if (Z == 7) {
+                int A, B, C, F, G, H, I;
+                A = Integer.parseInt(nuevaCadena.substring(0, 1));
+                A = A * 7;
+                B = Integer.parseInt(nuevaCadena.substring(1, 2));
+                B = B * 3;
+                C = Integer.parseInt(nuevaCadena.substring(2, 3));
+                C = C * 1;
+                F = Integer.parseInt(nuevaCadena.substring(3, 4));
+                F = F * 7;
+                G = Integer.parseInt(nuevaCadena.substring(4, 5));
+                G = G * 3;
+                H = Integer.parseInt(nuevaCadena.substring(5, 6));
+                H = H * 1;
+                I = Integer.parseInt(nuevaCadena.substring(6, 7));
+                I = I * 7;
+                RE = (A + B + C + F + G + H + I);
+            } else if (Z == 8) {
+                int A, B, C, F, G, H, I, J;
+                A = Integer.parseInt(nuevaCadena.substring(0, 1));
+                A = A * 7;
+                B = Integer.parseInt(nuevaCadena.substring(1, 2));
+                B = B * 3;
+                C = Integer.parseInt(nuevaCadena.substring(2, 3));
+                C = C * 1;
+                F = Integer.parseInt(nuevaCadena.substring(3, 4));
+                F = F * 7;
+                G = Integer.parseInt(nuevaCadena.substring(4, 5));
+                G = G * 3;
+                H = Integer.parseInt(nuevaCadena.substring(5, 6));
+                H = H * 1;
+                I = Integer.parseInt(nuevaCadena.substring(6, 7));
+                I = I * 7;
+                J = Integer.parseInt(nuevaCadena.substring(7, 8));
+                J = J * 3;
+                RE = (A + B + C + F + G + H + I + J);
             }
-            VB = VB + CX;
-            System.out.println("Importe" + CX);
-        }
-        VB = VF + VB;
-        int PE = (VB % 97) +1;
-        System.out.println();
-        System.out.println("importe sin divirid" + VB);
-        System.out.println("importe condensado"  + PE);
-        String DAS = Integer.toString(PE);
-        String DASE = DAS.substring(0, 1);
-        String DASE2 = DAS.substring(1, 2);
-        /*for (int i = Digi.length; i > 1; i--) {
+            //Importe condensado
+            int Po = RE % 10;
+            System.out.println(Po);
+
+            //Calculo de digitos verificadores globales
+            int[] Digi = new int[8];
+            //System.out.println("Ingresa El Numero:");
+            String AX = numero_control.getText(); // Pasamos el int a String
+            String nc = AX;
+            String nuevacadena = "";
+            StringBuilder builders = new StringBuilder(AX);//Convertimos el String en StringBuffer para utilizar el metodo reverse()
+            builders = builders.reverse(); //Invierte el StringBuffer
+            nuevacadena = builders.toString();
+            //int ZX = 2 * 11;
+            //System.out.println(ZX);
+            int MN = Po * 11;
+            System.out.println(MN);
+            int DD = Integer.parseInt(LÑ.substring(3, 4)) * 13;
+            System.out.println(DD);
+            int DG = Integer.parseInt(LÑ.substring(2, 3)) * 17;
+            System.out.println(DG);
+            int DT = Integer.parseInt(LÑ.substring(1, 2)) * 19;
+            System.out.println(DT);
+            int DS = Integer.parseInt(LÑ.substring(0, 1)) * 23;
+            System.out.println(DS);
+            VF = MN + DD + DG + DT + DS;
+            int DE = 0, VB = 0, CX = 0;
+            for (int i = 0; i < Digi.length; i++) {
+                switch (DE) {
+                    case 0: {
+                        Digi[i] = Integer.parseInt(nuevacadena.substring(i, i + 1));
+                        DE = 1;
+                        CX = Digi[i] * 11;
+                        break;
+                    }
+                    case 1: {
+                        Digi[i] = Integer.parseInt(nuevacadena.substring(i, i + 1));
+                        DE = 2;
+                        CX = Digi[i] * 13;
+                        break;
+                    }
+                    case 2: {
+                        Digi[i] = Integer.parseInt(nuevacadena.substring(i, i + 1));
+                        DE = 3;
+                        CX = Digi[i] * 17;
+                        break;
+                    }
+                    case 3: {
+                        Digi[i] = Integer.parseInt(nuevacadena.substring(i, i + 1));
+                        DE = 4;
+                        CX = Digi[i] * 19;
+                        break;
+                    }
+                    case 4: {
+                        Digi[i] = Integer.parseInt(nuevacadena.substring(i, i + 1));
+                        DE = 0;
+                        CX = Digi[i] * 23;
+                        break;
+                    }
+                }
+                VB = VB + CX;
+                System.out.println("Importe" + CX);
+            }
+            VB = VF + VB;
+            int PE = (VB % 97) + 1;
+            System.out.println();
+            System.out.println("importe sin divirid" + VB);
+            System.out.println("importe condensado" + PE);
+            String DAS = Integer.toString(PE);
+            String DASE = DAS.substring(0, 1);
+            String DASE2 = DAS.substring(1, 2);
+            /*for (int i = Digi.length; i > 1; i--) {
             System.out.print(Digi[i-1]);
         }*/
-        System.out.print(nc+LÑ + Po + DASE + DASE2);
-        referencia.setText(nc+LÑ + Po + DASE + DASE2);   
-        } catch (Exception e){
+            System.out.print(nc + LÑ + Po + DASE + DASE2);
+            referencia.setText(nc + LÑ + Po + DASE + DASE2);
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-       
 
     }
 
-    
-    
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -260,6 +256,12 @@ public class referenciabancaria extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Solicitud de Referencia-PIE v1.0");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        cuadro_dia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cuadro_diaKeyTyped(evt);
+            }
+        });
         getContentPane().add(cuadro_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 60, -1));
 
         cuadro_mes.addActionListener(new java.awt.event.ActionListener() {
@@ -267,7 +269,18 @@ public class referenciabancaria extends javax.swing.JFrame {
                 cuadro_mesActionPerformed(evt);
             }
         });
+        cuadro_mes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cuadro_mesKeyTyped(evt);
+            }
+        });
         getContentPane().add(cuadro_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, 60, -1));
+
+        annio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                annioKeyTyped(evt);
+            }
+        });
         getContentPane().add(annio, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 180, 60, -1));
 
         total_final.setEditable(false);
@@ -329,6 +342,7 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         grupo.add(beca_hijo);
         beca_hijo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        beca_hijo.setForeground(new java.awt.Color(255, 255, 255));
         beca_hijo.setText("Beca Hijo de Maestro");
         beca_hijo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -338,6 +352,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         getContentPane().add(beca_hijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 160, -1));
 
         curso_ingles.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        curso_ingles.setForeground(new java.awt.Color(255, 255, 255));
         curso_ingles.setText("Curso de Ingles");
         curso_ingles.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -348,6 +363,7 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         grupo.add(beca_eji);
         beca_eji.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        beca_eji.setForeground(new java.awt.Color(255, 255, 255));
         beca_eji.setText("Beca Ejidatarios");
         beca_eji.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -363,6 +379,7 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         grupo.add(beca_ex);
         beca_ex.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        beca_ex.setForeground(new java.awt.Color(255, 255, 255));
         beca_ex.setText("Beca de Excelencia");
         beca_ex.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -377,6 +394,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         getContentPane().add(beca_ex, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 160, -1));
 
         reinscripcion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        reinscripcion.setForeground(new java.awt.Color(255, 255, 255));
         reinscripcion.setText("Reinscripcion");
         reinscripcion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -424,11 +442,15 @@ public class referenciabancaria extends javax.swing.JFrame {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 numero_controlKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                numero_controlKeyTyped(evt);
+            }
         });
         getContentPane().add(numero_control, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 570, 140, -1));
 
         grupo.add(ninguno);
         ninguno.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        ninguno.setForeground(new java.awt.Color(255, 255, 255));
         ninguno.setText("Ninguno");
         ninguno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -640,13 +662,19 @@ public class referenciabancaria extends javax.swing.JFrame {
     }//GEN-LAST:event_cuadro_mesActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+
         try {
-            generar();
+            
+            if (cuadro_dia.getText().equals("") || cuadro_mes.getText().equals("") || annio.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios" , "ERROR" , JOptionPane.ERROR_MESSAGE);
+            }
+            else {
+                generar();
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-     
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void referenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_referenciaActionPerformed
@@ -666,20 +694,20 @@ public class referenciabancaria extends javax.swing.JFrame {
     }//GEN-LAST:event_beca_ejiActionPerformed
 
     private void beca_hijoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_beca_hijoMouseClicked
-total1.setText("310.00");  
-// TODO add your handling code here:
+        total1.setText("310.00");
+
     }//GEN-LAST:event_beca_hijoMouseClicked
 
     private void beca_ejiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_beca_ejiMouseClicked
-total1.setText("350.00")   ;     // TODO add your handling code here:
+        total1.setText("350.00");     // TODO add your handling code here:
     }//GEN-LAST:event_beca_ejiMouseClicked
 
     private void beca_exMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_beca_exMouseClicked
-total1.setText("350.00");        // TODO add your handling code here:
+        total1.setText("350.00");        // TODO add your handling code here:
     }//GEN-LAST:event_beca_exMouseClicked
 
     private void reinscripcionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reinscripcionMouseClicked
-total2.setText("1900.00");        // TODO add your handling code here:
+        total2.setText("1900.00");        // TODO add your handling code here:
     }//GEN-LAST:event_reinscripcionMouseClicked
 
     private void total2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_total2MouseClicked
@@ -687,54 +715,128 @@ total2.setText("1900.00");        // TODO add your handling code here:
     }//GEN-LAST:event_total2MouseClicked
 
     private void curso_inglesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_curso_inglesMouseClicked
-total3.setText("1000.00");        // TODO add your handling code here:
+        total3.setText("1000.00");        // TODO add your handling code here:
     }//GEN-LAST:event_curso_inglesMouseClicked
 
     private void ningunoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ningunoMouseClicked
-total1.setText("0.00");        // TODO add your handling code here:
+        total1.setText("0.00");        // TODO add your handling code here:
     }//GEN-LAST:event_ningunoMouseClicked
 
     private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
-total1.setText("");   
-total2.setText("");
-total3.setText("");
-total_final.setText("");
-cuadro_dia.setText("");
-cuadro_mes.setText("");
-annio.setText("");
-numero_control.setText("");
-// TODO add your handling code here:
+        try {
+            total1.setText("");
+            total2.setText("");
+            total3.setText("");
+            total_final.setText("");
+            cuadro_dia.setText("");
+            cuadro_mes.setText("");
+            annio.setText("");
+            numero_control.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
     }//GEN-LAST:event_borrarActionPerformed
 
     private void numero_controlMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_numero_controlMouseClicked
-       if(ninguno.isSelected()==true){
-        float total_1=Float.valueOf(total1.getText());
-       float total_2=Float.valueOf(total2.getText());
-       float total_3=Float.valueOf(total3.getText());
-       float total_finalnum=total_1+total_2+total_3;
-       String total_finaltext=String.valueOf(total_finalnum);
-       total_final.setText(total_finaltext+"0");   
-       }
-       else{
-           
-           total2.setText(total1.getText());
-       float total_1=Float.valueOf(total1.getText());
-       //float total_2=Float.valueOf(total2.getText());
-       float total_3=Float.valueOf(total3.getText());
-       float total_finalnum=total_1+total_3;
-       String total_finaltext=String.valueOf(total_finalnum);
-       total_final.setText(total_finaltext+"0");
-       }
-                // TODO add your handling code here:
+        try {
+            if (ninguno.isSelected() == true) {
+                float total_1 = Float.valueOf(total1.getText());
+                float total_2 = Float.valueOf(total2.getText());
+                float total_3 = Float.valueOf(total3.getText());
+                float total_finalnum = total_1 + total_2 + total_3;
+                String total_finaltext = String.valueOf(total_finalnum);
+                total_final.setText(total_finaltext + "0");
+            } else {
+
+                total2.setText(total1.getText());
+                float total_1 = Float.valueOf(total1.getText());
+                //float total_2=Float.valueOf(total2.getText());
+                float total_3 = Float.valueOf(total3.getText());
+                float total_finalnum = total_1 + total_3;
+                String total_finaltext = String.valueOf(total_finalnum);
+                total_final.setText(total_finaltext + "0");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
     }//GEN-LAST:event_numero_controlMouseClicked
 
     private void numero_controlKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numero_controlKeyPressed
-       // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_numero_controlKeyPressed
 
-    
-    
-    
+    private void numero_controlKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numero_controlKeyTyped
+        try {
+
+            if (numero_control.getText().length() == limitecontrol) {
+
+                evt.consume();
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud 8 Caracteres");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
+    }//GEN-LAST:event_numero_controlKeyTyped
+
+    private void cuadro_diaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cuadro_diaKeyTyped
+        try {
+            
+            
+            int c =evt.getKeyChar();
+            
+            if (Character.isLetter(c)){
+                evt.consume();
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos" , "ERROR" , JOptionPane.ERROR_MESSAGE);
+            }
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_cuadro_diaKeyTyped
+
+    private void cuadro_mesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cuadro_mesKeyTyped
+        try {
+            
+            
+            int c =evt.getKeyChar();
+            
+            if (Character.isLetter(c)){
+                evt.consume();
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos" , "ERROR" , JOptionPane.ERROR_MESSAGE);
+            }
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_cuadro_mesKeyTyped
+
+    private void annioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_annioKeyTyped
+        try {
+            
+            
+            int c =evt.getKeyChar();
+            
+            if (Character.isLetter(c)){
+                evt.consume();
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos" , "ERROR" , JOptionPane.ERROR_MESSAGE);
+            }
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_annioKeyTyped
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
