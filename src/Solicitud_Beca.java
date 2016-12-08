@@ -288,7 +288,9 @@ public class Solicitud_Beca extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
             } else if (Integer.parseInt(jTextField3.getText()) <1){
                 JOptionPane.showMessageDialog(null, "El Campo De Promedio No Puede Ser Negativo");
-            } 
+            } else if (Integer.parseInt(jTextField3.getText()) > 10) {
+                JOptionPane.showMessageDialog(null, "El Campo De Promedio No Puede Ser Mayor a 10", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
             
             else if (verificacioncambio == JOptionPane.YES_OPTION) {
                 try {
