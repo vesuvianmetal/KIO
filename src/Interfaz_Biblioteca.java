@@ -589,7 +589,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
     }//GEN-LAST:event_editnumcontroltxtKeyReleased
 
     private void btncambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncambioActionPerformed
-        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+        int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro Que Desea Modificar El Registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         try {
             if (editfoliotxt.getText().equals("") || editnumcontroltxt.getText().equals("") || editcodlibrotxt.getText().equals("") || editadeudotxt.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
