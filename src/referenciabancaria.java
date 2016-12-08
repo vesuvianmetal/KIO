@@ -11,7 +11,8 @@ public class referenciabancaria extends javax.swing.JFrame {
         initComponents();
     }
     public  void generar (){
-        int Importe, RE = 0, NUM = 0, VF = 0;
+        try {
+          int Importe, RE = 0, NUM = 0, VF = 0;
         /*dia = Integer.toString(c.get(Calendar.DATE));
         mes = Integer.toString(c.get(Calendar.MONTH));
         annio = Integer.toString(c.get(Calendar.YEAR));*/
@@ -187,7 +188,11 @@ public class referenciabancaria extends javax.swing.JFrame {
             System.out.print(Digi[i-1]);
         }*/
         System.out.print(nc+LÑ + Po + DASE + DASE2);
-        referencia.setText(nc+LÑ + Po + DASE + DASE2);
+        referencia.setText(nc+LÑ + Po + DASE + DASE2);   
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+       
 
     }
 
