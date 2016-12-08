@@ -8,16 +8,7 @@ import java.sql.Timestamp;
 
 import javax.swing.JOptionPane;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Disco
- */
 public class solicitudconstancia extends javax.swing.JFrame {
  Connection conn = null;
     ResultSet rs = null;
@@ -351,9 +342,14 @@ public class solicitudconstancia extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-item vp=new item();
-vp.setVisible(true);
-        this.dispose();
+        try {
+            item vp = new item();
+            vp.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -378,6 +374,11 @@ vp.setVisible(true);
                 getToolkit().beep();
                 evt.consume();
                 JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
+            }
+            
+            int c =evt.getKeyChar();
+            if (Character.isLetter(c)){
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos" , "ERROR" , JOptionPane.ERROR_MESSAGE);
             }
 
             
