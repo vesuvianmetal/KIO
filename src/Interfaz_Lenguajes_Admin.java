@@ -446,7 +446,7 @@ int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
     }//GEN-LAST:event_formWindowClosing
 
     private void tablaidiomasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaidiomasMouseClicked
-        // TODO add your handling code here:
+        
         
         
         try {

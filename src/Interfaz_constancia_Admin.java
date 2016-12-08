@@ -1,11 +1,38 @@
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+
+
 public class Interfaz_constancia_Admin extends javax.swing.JFrame {
 
-   
+   Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    int limitefolio = 11;
+    
     public Interfaz_constancia_Admin() {
+        conn = Conexion_BD.conectardb();
+        filltablacons();
         initComponents();
     }
+void filltablacons() {
 
+        try {
+
+            String tablaconst = " SELECT constancia.FK_FOLIO_CAJA, constancia.FK_NUMERO_CONTROL_CONSTANCIA, alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from constancia,alumno";
+            pst = conn.prepareStatement(tablaconst);
+            rs = pst.executeQuery();
+
+            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -150,10 +177,14 @@ public class Interfaz_constancia_Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-    
-        Interfaz_controlescolar_Admin  Co= new Interfaz_controlescolar_Admin();
+    try{
+      Interfaz_controlescolar_Admin  Co= new Interfaz_controlescolar_Admin();
         Co.setVisible(true);
-       this.dispose();
+       this.dispose();  
+    } catch (Exception e){
+        JOptionPane.showMessageDialog(null, e);
+    }
+        
     }//GEN-LAST:event_formWindowClosing
 
     

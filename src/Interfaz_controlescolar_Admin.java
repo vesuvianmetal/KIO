@@ -82,29 +82,47 @@ public class Interfaz_controlescolar_Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    Interfaz_constancia_Admin Co= new Interfaz_constancia_Admin();
-               Co.setVisible(true);
-               this.dispose();
-               
+   
+        try {
+            Interfaz_constancia_Admin Co = new Interfaz_constancia_Admin();
+            Co.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
                
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-      int a=JOptionPane.showConfirmDialog(null,"Está Seguro Que Deseea Salir?");
-            if(a==JOptionPane.YES_OPTION){
+        try {
+            int a = JOptionPane.showConfirmDialog(null, "Está Seguro Que Deseea Salir?");
+            if (a == JOptionPane.YES_OPTION) {
                 this.dispose();
-                Interfaz_Admin metodo1=new Interfaz_Admin();
+                Interfaz_Admin metodo1 = new Interfaz_Admin();
                 metodo1.setVisible(true);
-                
+            } else if (a == JOptionPane.NO_OPTION) {
+
             }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      Solicitud_Beca_Admin Co= new Solicitud_Beca_Admin();
-               Co.setVisible(true);
-               this.dispose();
-        
+        try {
+            Solicitud_Beca_Admin Co = new Solicitud_Beca_Admin();
+            Co.setVisible(true);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+
         
         
         
