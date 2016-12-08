@@ -256,6 +256,7 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Solicitud de Referencia-PIE v1.0");
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cuadro_dia.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -343,7 +344,6 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         grupo.add(beca_hijo);
         beca_hijo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        beca_hijo.setForeground(new java.awt.Color(255, 255, 255));
         beca_hijo.setText("Beca Hijo de Maestro");
         beca_hijo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -353,7 +353,6 @@ public class referenciabancaria extends javax.swing.JFrame {
         getContentPane().add(beca_hijo, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 350, 160, -1));
 
         curso_ingles.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        curso_ingles.setForeground(new java.awt.Color(255, 255, 255));
         curso_ingles.setText("Curso de Ingles");
         curso_ingles.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -364,7 +363,6 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         grupo.add(beca_eji);
         beca_eji.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
-        beca_eji.setForeground(new java.awt.Color(255, 255, 255));
         beca_eji.setText("Beca Ejidatarios");
         beca_eji.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -380,7 +378,6 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         grupo.add(beca_ex);
         beca_ex.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        beca_ex.setForeground(new java.awt.Color(255, 255, 255));
         beca_ex.setText("Beca de Excelencia");
         beca_ex.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -395,7 +392,6 @@ public class referenciabancaria extends javax.swing.JFrame {
         getContentPane().add(beca_ex, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, 160, -1));
 
         reinscripcion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        reinscripcion.setForeground(new java.awt.Color(255, 255, 255));
         reinscripcion.setText("Reinscripcion");
         reinscripcion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -461,7 +457,6 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         grupo.add(ninguno);
         ninguno.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        ninguno.setForeground(new java.awt.Color(255, 255, 255));
         ninguno.setText("Ninguno");
         ninguno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -743,6 +738,7 @@ public class referenciabancaria extends javax.swing.JFrame {
             cuadro_mes.setText("");
             annio.setText("");
             numero_control.setText("");
+            referencia.setText("");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
