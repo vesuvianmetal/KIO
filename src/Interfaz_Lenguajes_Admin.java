@@ -717,7 +717,7 @@ try {
                 try {
                     if (editcaliidiomatxt.getText().length() == limitecalificacionidiomas) {
                         evt.consume();
-                        JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 3 Caracteres");
+                        JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 2 Caracteres");
                     }
                     
                     if (Character.isLetter(c)){
@@ -771,9 +771,9 @@ try {
             if (texttipoag.getText().equals("") || textcalifagr.getText().isEmpty() || numconag.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Pudo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
             } else if (Integer.parseInt(textcalifagr.getText()) < 1.00) {
-                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
+                JOptionPane.showMessageDialog(null, "El Campo De Calificacion No Puede Ser Negativo");
             } else if (Integer.parseInt(textcalifagr.getText()) > 10.00) {
-                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Mayor A 10");
+                JOptionPane.showMessageDialog(null, "El Campo De Calificacion No Puede Ser Mayor A 10");
             }else {
 
                 try {
@@ -787,7 +787,7 @@ try {
 
                     pst.execute();
 
-                    JOptionPane.showMessageDialog(null, "Se Ha Agregado El Adeudo Exitosamente");
+                    JOptionPane.showMessageDialog(null, "Se Ha Agregado Exitosamente");
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e);
                 }
@@ -802,35 +802,45 @@ try {
     }//GEN-LAST:event_agregarActionPerformed
 
     private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
-     int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
+    
+         int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
         try {
-            if (editcertitxt.getText().equals("") || editcaliidiomatxt.getText().equals("") || editfolioidiomas.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios" , "ERROR", JOptionPane.ERROR_MESSAGE);
-            } else if (Integer.parseInt(editcaliidiomatxt.getText()) < 1.00) {
+            
+             if (editcertitxt.getText().equals("") || editcaliidiomatxt.getText().equals("") || editfolioidiomas.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+            else if (Integer.parseInt(editcaliidiomatxt.getText()) < 1) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
 
-            }else if (Integer.parseInt(textcalifagr.getText()) > 10.00) {
-                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Mayor A 10");
-            } else if (verificacioncambio == JOptionPane.YES_OPTION) {
-
-                String edittipocerti = editcertitxt.getText();
-                String editcali = editcaliidiomatxt.getText();
-
-                String editfolio = editfolioidiomas.getText();
-
-                String edita = "UPDATE idiomas set TIPO_CERT='" + edittipocerti + "', CALIFICACION='" + editcali + "' WHERE FOLIO_IDIOMAS='" + editfolio + "'";
-                pst = conn.prepareStatement(edita);
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
+            } 
+            
+            else if (Integer.parseInt(editcaliidiomatxt.getText()) > 10){
+                  JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Mayor A 10");
             }
-            else if (verificacioncambio == JOptionPane.NO_OPTION){
-                
+             else if (verificacioncambio == JOptionPane.YES_OPTION) {
+                try {
+                    String edittipocerti = editcertitxt.getText();
+                    String editcali = editcaliidiomatxt.getText();
+                    String editfolio = editfolioidiomas.getText();
+
+                    String edita = "UPDATE idiomas set TIPO_CERT='" + edittipocerti + "', CALIFICACION='" + editcali + "' WHERE FOLIO_IDIOMAS='" + editfolio + "'";
+                    pst = conn.prepareStatement(edita);
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "Modificado Exitosamente");
+                } catch (SQLException | HeadlessException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+            } else if (verificacioncambio == JOptionPane.NO_OPTION) {
+
             }
-        } catch (SQLException | HeadlessException e) {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
         actualizar_tablaidiomas();
-        borrar();      
+        borrar();    
+        
+        
     }//GEN-LAST:event_editarActionPerformed
 
     /**
