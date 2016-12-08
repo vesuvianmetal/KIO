@@ -661,6 +661,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         getContentPane().add(name2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 760, 90));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cuadro_mesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuadro_mesActionPerformed

@@ -193,6 +193,7 @@ public class adeudosbiblioteca extends javax.swing.JFrame {
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 577, -1, 100));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
