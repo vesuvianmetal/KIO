@@ -789,7 +789,9 @@ try {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacio", "No Se Pudo Modificar El Registro", JOptionPane.ERROR_MESSAGE);
             } else if (Integer.parseInt(textcalifagr.getText()) < 1.00) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
-            } else {
+            } else if (Integer.parseInt(textcalifagr.getText()) > 10.00) {
+                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Mayor A 10");
+            }else {
 
                 try {
 
@@ -824,6 +826,8 @@ int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea
             } else if (Integer.parseInt(editcaliidiomatxt.getText()) < 1.00) {
                 JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Negativo");
 
+            }else if (Integer.parseInt(textcalifagr.getText()) > 10.00) {
+                JOptionPane.showMessageDialog(null, "El Campo De Aduedo No Puede Ser Mayor A 10");
             } else if (verificacioncambio == JOptionPane.YES_OPTION) {
 
                 String edittipocerti = editcertitxt.getText();
