@@ -221,6 +221,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         beca_eji = new javax.swing.JRadioButton();
         beca_ex = new javax.swing.JRadioButton();
         reinscripcion = new javax.swing.JRadioButton();
+        Regresar = new javax.swing.JButton();
         jLabel28 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         borrar = new javax.swing.JButton();
@@ -328,7 +329,7 @@ public class referenciabancaria extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 600, 100, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 600, 100, 30));
 
         jLabel27.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
@@ -403,6 +404,16 @@ public class referenciabancaria extends javax.swing.JFrame {
         });
         getContentPane().add(reinscripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, 160, -1));
 
+        Regresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Regresar.setForeground(new java.awt.Color(0, 153, 153));
+        Regresar.setText("Regreso");
+        Regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegresarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 600, 120, 30));
+
         jLabel28.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Becas:");
@@ -425,7 +436,7 @@ public class referenciabancaria extends javax.swing.JFrame {
                 borrarActionPerformed(evt);
             }
         });
-        getContentPane().add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 600, 100, 30));
+        getContentPane().add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 600, 100, 30));
 
         numero_control.setToolTipText("inserta un numero de control");
         numero_control.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -778,6 +789,18 @@ public class referenciabancaria extends javax.swing.JFrame {
                 getToolkit().beep();
                 JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud 8 Caracteres");
             }
+           
+            
+            
+            int c =evt.getKeyChar();
+            
+            if (Character.isLetter(c)){
+                evt.consume();
+                getToolkit().beep();
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos" , "ERROR" , JOptionPane.ERROR_MESSAGE);
+            }
+            
+        
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -837,6 +860,18 @@ public class referenciabancaria extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_annioKeyTyped
 
+    private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
+    try {
+      item it = new item();
+      it.setVisible(true);
+      this.dispose();
+        
+        
+    } catch (Exception e){
+        JOptionPane.showMessageDialog(null, e);
+    }
+    }//GEN-LAST:event_RegresarActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -870,6 +905,7 @@ public class referenciabancaria extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Regresar;
     private javax.swing.JTextField annio;
     private javax.swing.JRadioButton beca_eji;
     private javax.swing.JRadioButton beca_ex;
