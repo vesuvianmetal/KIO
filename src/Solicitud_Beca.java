@@ -5,21 +5,21 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-
 public class Solicitud_Beca extends javax.swing.JFrame {
-Connection conn = null;
+
+    Connection conn = null;
     ResultSet rs = null;
     PreparedStatement pst = null;
     int limitefolio = 11;
-    int limitepromedio=3;
+    int limitepromedio = 3;
     int limitebeca = 45;
-    int limiteemail =30;
-    
+    int limiteemail = 30;
+
     public Solicitud_Beca() {
         conn = Conexion_BD.conectardb();
         initComponents();
-       llenadodebeca();
-       this.setResizable(false);
+        llenadodebeca();
+        this.setResizable(false);
     }
 
     void llenadodebeca() {
@@ -37,7 +37,8 @@ Connection conn = null;
         }
 
     }
-     void actualizar_tablabecas() {
+
+    void actualizar_tablabecas() {
         try {
 
             String acti = "SELECT * From becas";
@@ -48,9 +49,9 @@ Connection conn = null;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-     }
-     
-     void borrarcampos() {
+    }
+
+    void borrarcampos() {
         try {
             foliotxt.setText("");
             jTextField3.setText("");
@@ -61,6 +62,7 @@ Connection conn = null;
             JOptionPane.showMessageDialog(null, e);
         }
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -277,7 +279,7 @@ Connection conn = null;
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-       
+
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
@@ -314,8 +316,7 @@ Connection conn = null;
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tablactrleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablactrleMouseClicked
-       
-        
+
         try {
             int row = tablactrle.getSelectedRow();
             String Click_Tabla = (tablactrle.getModel().getValueAt(row, 0).toString());
@@ -336,21 +337,16 @@ Connection conn = null;
 
                 String agregar4 = rs.getString("correo_electronico");
                 jTextField1.setText(agregar4);
-                
+
                 String agregar5 = rs.getString("FOLIO_BECAS");
                 jTextField5.setText(agregar5);
-                
-                
+
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        
-        
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_tablactrleMouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -359,18 +355,16 @@ Connection conn = null;
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-      
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
             int verificacion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea eliminar el registro?", "Borrar", JOptionPane.YES_NO_OPTION);
-            
-            if (jTextField5.getText().equals("")){
-                JOptionPane.showMessageDialog(null, "No Hay Registro Seleccionado Para Borrar" ,"ERROR", JOptionPane.ERROR_MESSAGE);
-            }
-            
-          else  if (verificacion == JOptionPane.YES_OPTION) {
+
+            if (jTextField5.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "No Hay Registro Seleccionado Para Borrar", "ERROR", JOptionPane.ERROR_MESSAGE);
+            } else if (verificacion == JOptionPane.YES_OPTION) {
                 String elim = "DELETE from becas where FOLIO_BECAS=?";
                 try {
                     pst = conn.prepareStatement(elim);
@@ -392,13 +386,6 @@ Connection conn = null;
         borrarcampos();
 
 
-        
-        
-        
-        
-        
-        
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -414,44 +401,42 @@ Connection conn = null;
     }//GEN-LAST:event_formWindowClosing
 
     private void jTextField5KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyTyped
-try {
-     char c = evt.getKeyChar();
+        try {
+            char c = evt.getKeyChar();
 
             if (Character.isLetter(c)) {
                 getToolkit().beep();
                 evt.consume();
                 JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
 
-            }    
-} catch (Exception e){
-    JOptionPane.showMessageDialog(null, e);
-}
-           
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }//GEN-LAST:event_jTextField5KeyTyped
 
     private void foliotxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_foliotxtKeyTyped
-try{
-      char c = evt.getKeyChar();
+        try {
+            char c = evt.getKeyChar();
 
             if (Character.isLetter(c)) {
                 getToolkit().beep();
                 evt.consume();
                 JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
 
-            }    
-            
-            if (foliotxt.getText().length()==limitefolio){
+            }
+
+            if (foliotxt.getText().length() == limitefolio) {
                 evt.consume();
                 getToolkit().beep();
-                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres" ,"ERROR", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
-            
-            
-           
-} catch (Exception e){
-    JOptionPane.showMessageDialog(null, e);
-}
-          
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }//GEN-LAST:event_foliotxtKeyTyped
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
@@ -499,9 +484,7 @@ try{
     }//GEN-LAST:event_jTextField4KeyTyped
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-       try {
-
-           
+        try {
 
             if (jTextField1.getText().length() == limiteemail) {
                 evt.consume();
