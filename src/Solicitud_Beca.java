@@ -286,7 +286,11 @@ public class Solicitud_Beca extends javax.swing.JFrame {
             int verificacioncambio = JOptionPane.showConfirmDialog(null, "¿Seguro que desea modificar el registro?", "Modificar", JOptionPane.YES_NO_OPTION);
             if (foliotxt.getText().equals("") || jTextField3.getText().equals("") || jTextField4.getText().equals("") || jTextField1.getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Hay Uno o Varios Campos Vacios", "ERROR", JOptionPane.ERROR_MESSAGE);
-            } else if (verificacioncambio == JOptionPane.YES_OPTION) {
+            } else if (Integer.parseInt(jTextField3.getText()) <1){
+                JOptionPane.showMessageDialog(null, "El Campo De Promedio No Puede Ser Negativo");
+            } 
+            
+            else if (verificacioncambio == JOptionPane.YES_OPTION) {
                 try {
                     String editnumc = foliotxt.getText();
                     String editpromedio = jTextField3.getText();
