@@ -145,6 +145,7 @@ Connection conn = null;
                 "ID_Usuario", "Usuario", "Contraseña", "Tipo de  Usuario"
             }
         ));
+        tabla_admin.setToolTipText("En Esta Tabla Se Muestran Los Registros De La Base De Datos De Usuarios.");
         tabla_admin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabla_adminMouseClicked(evt);
@@ -319,8 +320,8 @@ Connection conn = null;
 
         control_escolar.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         control_escolar.setForeground(new java.awt.Color(0, 153, 153));
-        control_escolar.setText("Control Escolar.");
-        control_escolar.setToolTipText("Direcciona Vista Usuario Administrador Cajas.");
+        control_escolar.setText("Control Escolar");
+        control_escolar.setToolTipText("Direcciona Vista Usuario Administrador Control Escolar.");
         control_escolar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 control_escolarActionPerformed(evt);
@@ -331,7 +332,7 @@ Connection conn = null;
         insetar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         insetar.setForeground(new java.awt.Color(0, 153, 153));
         insetar.setText("Agregar");
-        insetar.setToolTipText("Conservar Los Cambios De Registro Agregado.");
+        insetar.setToolTipText("Guarda El Registro De El Usuario Ingresado");
         insetar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 insetarActionPerformed(evt);
@@ -383,8 +384,8 @@ Connection conn = null;
 
         Bitacora.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         Bitacora.setForeground(new java.awt.Color(0, 153, 153));
-        Bitacora.setText("Bitacora.");
-        Bitacora.setToolTipText("Direcciona Vista Usuario Administrador Cajas.");
+        Bitacora.setText("Bitacora");
+        Bitacora.setToolTipText("Direcciona Vista Usuario Administrador Bitacora.");
         Bitacora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BitacoraActionPerformed(evt);

@@ -25,7 +25,7 @@ public class Interfaz_constancia extends javax.swing.JFrame {
 
         try {
 
-            String tablaconst = " SELECT constancia.FK_FOLIO_CAJA, constancia.FK_NUMERO_CONTROL_CONSTANCIA, alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from constancia,alumno";
+            String tablaconst = " SELECT caja.FOLIO_CAJA, constancia.FK_NUMERO_CONTROL_CONSTANCIA, alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from constancia,alumno";
             pst = conn.prepareStatement(tablaconst);
             rs = pst.executeQuery();
 

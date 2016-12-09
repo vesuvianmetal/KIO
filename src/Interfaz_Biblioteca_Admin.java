@@ -154,7 +154,7 @@ public class Interfaz_Biblioteca_Admin extends javax.swing.JFrame {
         btnactualizartabla.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnactualizartabla.setForeground(new java.awt.Color(0, 153, 153));
         btnactualizartabla.setText("Actualizar");
-        btnactualizartabla.setToolTipText("Actualiza La Base De Datos.");
+        btnactualizartabla.setToolTipText("Esta Tabla Muestra Los Registros Dentrol De La Base De Datos En La Tabla Biblioteca.");
         btnactualizartabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnactualizartablaActionPerformed(evt);
@@ -252,6 +252,7 @@ public class Interfaz_Biblioteca_Admin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabla_aduedo.setToolTipText("En Esta Tabla Se Muestran Los Registros Dentro De La Base De Datos En La Tabla Biblioteca.");
         tabla_aduedo.getTableHeader().setResizingAllowed(false);
         tabla_aduedo.getTableHeader().setReorderingAllowed(false);
         tabla_aduedo.addMouseListener(new java.awt.event.MouseAdapter() {

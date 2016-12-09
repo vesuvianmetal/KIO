@@ -259,6 +259,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        cuadro_dia.setToolTipText("En Este Campo Se Ingresa El Dia Del Mes En Formato Numerico.");
         cuadro_dia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cuadro_diaKeyTyped(evt);
@@ -266,6 +267,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         });
         getContentPane().add(cuadro_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 180, 60, -1));
 
+        cuadro_mes.setToolTipText("En Este Campo Se Ingresa El Mes En Formato Numerico");
         cuadro_mes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cuadro_mesActionPerformed(evt);
@@ -278,6 +280,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         });
         getContentPane().add(cuadro_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, 60, -1));
 
+        annio.setToolTipText("En Este Campo Se Ingresa El Año En Formato YYYY");
         annio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 annioKeyTyped(evt);
@@ -287,17 +290,17 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         total_final.setEditable(false);
         total_final.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        total_final.setToolTipText("total a pagar");
+        total_final.setToolTipText("Este Campo Muestra Total A Pagar.");
         getContentPane().add(total_final, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 540, 70, 20));
 
         total1.setEditable(false);
         total1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        total1.setToolTipText("costo de la beca seleccionada");
+        total1.setToolTipText("En Este Campo Se Muestra La Beca Seleccionada.");
         getContentPane().add(total1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 380, 70, 20));
 
         total2.setEditable(false);
         total2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        total2.setToolTipText("costo de reinscripcion");
+        total2.setToolTipText("Este Campo Muestra El Costo De Reinscrpcion.");
         total2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 total2MouseClicked(evt);
@@ -307,13 +310,13 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         total3.setEditable(false);
         total3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        total3.setToolTipText("costo de curso de ingles");
+        total3.setToolTipText("Este Campo Muestra El Costo De Ingles.");
         getContentPane().add(total3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 480, 70, 20));
 
         referencia.setEditable(false);
         referencia.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         referencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        referencia.setToolTipText("numero de referencia generado");
+        referencia.setToolTipText("En Este Campos Se Muestra Su Referencia Al Generarla.\n");
         referencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 referenciaActionPerformed(evt);
@@ -324,7 +327,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 153, 153));
         jButton1.setText("Generar");
-        jButton1.setToolTipText("Genera la referencia con los datos insertados");
+        jButton1.setToolTipText("Genera La Referencia Con Los Datos Insertados.");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -345,6 +348,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         grupo.add(beca_hijo);
         beca_hijo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         beca_hijo.setText("Beca Hijo de Maestro");
+        beca_hijo.setToolTipText("Seleccione Si Usted Tiene Beca Por Ser Hijo De Docente.");
         beca_hijo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 beca_hijoMouseClicked(evt);
@@ -354,6 +358,7 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         curso_ingles.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         curso_ingles.setText("Curso de Ingles");
+        curso_ingles.setToolTipText("Seleccione Si Usted Toma El Curso De Ingles.");
         curso_ingles.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 curso_inglesMouseClicked(evt);
@@ -364,6 +369,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         grupo.add(beca_eji);
         beca_eji.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
         beca_eji.setText("Beca Ejidatarios");
+        beca_eji.setToolTipText("Seleccione Si Usted Tiene Beca De Ejidatario");
         beca_eji.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 beca_ejiMouseClicked(evt);
@@ -379,6 +385,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         grupo.add(beca_ex);
         beca_ex.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         beca_ex.setText("Beca de Excelencia");
+        beca_ex.setToolTipText("Seleccione Si Usted Tiene Beca De Excelencia");
         beca_ex.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 beca_exMouseClicked(evt);
@@ -393,6 +400,7 @@ public class referenciabancaria extends javax.swing.JFrame {
 
         reinscripcion.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         reinscripcion.setText("Reinscripcion");
+        reinscripcion.setToolTipText("Seleccione Si Su Conecpto De Pago Es Reinscripcion");
         reinscripcion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 reinscripcionMouseClicked(evt);
@@ -403,6 +411,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         Regresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Regresar.setForeground(new java.awt.Color(0, 153, 153));
         Regresar.setText("Regreso");
+        Regresar.setToolTipText("Regresa Al Menu De Alumno.");
         Regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegresarActionPerformed(evt);
@@ -423,7 +432,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         borrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         borrar.setForeground(new java.awt.Color(0, 153, 153));
         borrar.setText("Borrar");
-        borrar.setToolTipText("Borra todos los campos de la ventana");
+        borrar.setToolTipText("Borra Todos Los Datos En Que Se Ingresan Datos.");
         borrar.setMaximumSize(new java.awt.Dimension(79, 23));
         borrar.setMinimumSize(new java.awt.Dimension(79, 23));
         borrar.setPreferredSize(new java.awt.Dimension(79, 23));
@@ -434,7 +443,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         });
         getContentPane().add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 600, 100, 30));
 
-        numero_control.setToolTipText("inserta un numero de control");
+        numero_control.setToolTipText("Inserte Su Numero De Control");
         numero_control.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 numero_controlMouseClicked(evt);
@@ -458,6 +467,7 @@ public class referenciabancaria extends javax.swing.JFrame {
         grupo.add(ninguno);
         ninguno.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         ninguno.setText("Ninguno");
+        ninguno.setToolTipText("Seleccione Si Usted No Tiene Beca Alguna.");
         ninguno.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ningunoMouseClicked(evt);

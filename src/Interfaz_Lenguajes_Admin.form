@@ -38,7 +38,7 @@
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Actualizar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Actualizar La Base De Datos."/>
+        <Property name="toolTipText" type="java.lang.String" value="Actualizar La Tabla Con Los Datos Actuales En La Base De Datos."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
@@ -410,6 +410,7 @@
           <Color blue="9a" green="9a" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Agregar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Agrega Registros A La Base De Datos."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="agregarActionPerformed"/>
@@ -461,6 +462,7 @@
           <Color blue="9a" green="9a" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Editar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Conserva Los Cambios Editados."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editarActionPerformed"/>
@@ -480,6 +482,7 @@
           <Color blue="96" green="96" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Limpiar Campos"/>
+        <Property name="toolTipText" type="java.lang.String" value="Limpia Todos Los Campos En Que Se Pueden Ingresar Datos."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>

@@ -150,7 +150,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(0, 153, 153));
         jButton5.setText("Actualizar");
-        jButton5.setToolTipText("Actualizar La Base De Datos.");
+        jButton5.setToolTipText("Actualizar La Tabla Con Los Datos Actuales En La Base De Datos.");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -253,6 +253,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaidiomas.setToolTipText("En Esta Tabla Se Muestran Los Registros De La Base De Datos De Idiomas.");
         tablaidiomas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaidiomasMouseClicked(evt);
@@ -263,7 +264,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         getContentPane().add(tablavalores, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 540, 140));
 
         buscarnumeroidiomatxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        buscarnumeroidiomatxt.setToolTipText("Introducir Num. Control Para Busqueda.");
+        buscarnumeroidiomatxt.setToolTipText("Introducir Numero Control Para Busqueda.");
         buscarnumeroidiomatxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 buscarnumeroidiomatxtKeyReleased(evt);
@@ -309,6 +310,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 150, 150));
         jButton2.setText("Limpiar Campos");
+        jButton2.setToolTipText("Limpia Todos Los Campos En Que Se Pueden Ingresar Datos.");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -319,6 +321,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         agregar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         agregar.setForeground(new java.awt.Color(0, 154, 154));
         agregar.setText("Agregar");
+        agregar.setToolTipText("Agrega Registros A La Base De Datos.");
         agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarActionPerformed(evt);
@@ -343,6 +346,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         editar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         editar.setForeground(new java.awt.Color(0, 154, 154));
         editar.setText("Editar");
+        editar.setToolTipText("Conserva Los Cambios Editados.");
         editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarActionPerformed(evt);
@@ -369,7 +373,7 @@ public class Interfaz_Lenguajes extends javax.swing.JFrame {
         fol1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         fol1.setForeground(new java.awt.Color(255, 255, 255));
         fol1.setText("Folio:");
-        getContentPane().add(fol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
+        getContentPane().add(fol1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
 
         areaeliminar.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(areaeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 150, 190));

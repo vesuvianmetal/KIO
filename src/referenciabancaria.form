@@ -32,6 +32,9 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JTextField" name="cuadro_dia">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="En Este Campo Se Ingresa El Dia Del Mes En Formato Numerico."/>
+      </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cuadro_diaKeyTyped"/>
       </Events>
@@ -42,6 +45,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="cuadro_mes">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="En Este Campo Se Ingresa El Mes En Formato Numerico"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cuadro_mesActionPerformed"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cuadro_mesKeyTyped"/>
@@ -53,6 +59,9 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JTextField" name="annio">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value="En Este Campo Se Ingresa El A&#xf1;o En Formato YYYY"/>
+      </Properties>
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="annioKeyTyped"/>
       </Events>
@@ -68,7 +77,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="total a pagar"/>
+        <Property name="toolTipText" type="java.lang.String" value="Este Campo Muestra Total A Pagar."/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -82,7 +91,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="costo de la beca seleccionada"/>
+        <Property name="toolTipText" type="java.lang.String" value="En Este Campo Se Muestra La Beca Seleccionada."/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -96,7 +105,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="costo de reinscripcion"/>
+        <Property name="toolTipText" type="java.lang.String" value="Este Campo Muestra El Costo De Reinscrpcion."/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="total2MouseClicked"/>
@@ -113,7 +122,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Century Gothic" size="14" style="0"/>
         </Property>
-        <Property name="toolTipText" type="java.lang.String" value="costo de curso de ingles"/>
+        <Property name="toolTipText" type="java.lang.String" value="Este Campo Muestra El Costo De Ingles."/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -128,7 +137,7 @@
           <Font name="Century Gothic" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="toolTipText" type="java.lang.String" value="numero de referencia generado"/>
+        <Property name="toolTipText" type="java.lang.String" value="En Este Campos Se Muestra Su Referencia Al Generarla.&#xa;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="referenciaActionPerformed"/>
@@ -148,7 +157,7 @@
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Generar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Genera la referencia con los datos insertados"/>
+        <Property name="toolTipText" type="java.lang.String" value="Genera La Referencia Con Los Datos Insertados."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -200,6 +209,7 @@
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Beca Hijo de Maestro"/>
+        <Property name="toolTipText" type="java.lang.String" value="Seleccione Si Usted Tiene Beca Por Ser Hijo De Docente."/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="beca_hijoMouseClicked"/>
@@ -216,6 +226,7 @@
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Curso de Ingles"/>
+        <Property name="toolTipText" type="java.lang.String" value="Seleccione Si Usted Toma El Curso De Ingles."/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="curso_inglesMouseClicked"/>
@@ -235,6 +246,7 @@
           <Font name="Century Gothic" size="11" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Beca Ejidatarios"/>
+        <Property name="toolTipText" type="java.lang.String" value="Seleccione Si Usted Tiene Beca De Ejidatario"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="beca_ejiMouseClicked"/>
@@ -255,6 +267,7 @@
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Beca de Excelencia"/>
+        <Property name="toolTipText" type="java.lang.String" value="Seleccione Si Usted Tiene Beca De Excelencia"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="beca_exMouseClicked"/>
@@ -272,6 +285,7 @@
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Reinscripcion"/>
+        <Property name="toolTipText" type="java.lang.String" value="Seleccione Si Su Conecpto De Pago Es Reinscripcion"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="reinscripcionMouseClicked"/>
@@ -291,6 +305,7 @@
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Regreso"/>
+        <Property name="toolTipText" type="java.lang.String" value="Regresa Al Menu De Alumno."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegresarActionPerformed"/>
@@ -342,7 +357,7 @@
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Borrar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Borra todos los campos de la ventana"/>
+        <Property name="toolTipText" type="java.lang.String" value="Borra Todos Los Datos En Que Se Ingresan Datos."/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[79, 23]"/>
         </Property>
@@ -364,7 +379,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="numero_control">
       <Properties>
-        <Property name="toolTipText" type="java.lang.String" value="inserta un numero de control"/>
+        <Property name="toolTipText" type="java.lang.String" value="Inserte Su Numero De Control"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="numero_controlMouseClicked"/>
@@ -387,6 +402,7 @@
           <Font name="Century Gothic" size="12" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Ninguno"/>
+        <Property name="toolTipText" type="java.lang.String" value="Seleccione Si Usted No Tiene Beca Alguna."/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ningunoMouseClicked"/>

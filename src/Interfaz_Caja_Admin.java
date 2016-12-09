@@ -80,6 +80,7 @@ public class Interfaz_Caja_Admin extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         semestrecajatxt.setEditable(false);
+        semestrecajatxt.setToolTipText("Muestra El Semestre Relacionado Con El Numero De Control.");
         getContentPane().add(semestrecajatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 380, 150, 30));
 
         foliocajatxt.setToolTipText("Numero de folio asignado");
@@ -104,6 +105,7 @@ public class Interfaz_Caja_Admin extends javax.swing.JFrame {
         });
         getContentPane().add(importetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 150, 30));
 
+        numcontroltxtcaja.setToolTipText("Introducir Numero De Control.");
         numcontroltxtcaja.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 numcontroltxtcajaKeyReleased(evt);
@@ -112,15 +114,19 @@ public class Interfaz_Caja_Admin extends javax.swing.JFrame {
         getContentPane().add(numcontroltxtcaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 150, 30));
 
         nombrecajatxt.setEditable(false);
+        nombrecajatxt.setToolTipText("Muestra Nombre Relacionado Con El Numero De Control.");
         getContentPane().add(nombrecajatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 150, 30));
 
         apellidopattxtcaja.setEditable(false);
+        apellidopattxtcaja.setToolTipText("Muestra El Apellido Paterno Relacionado Con El Numero De Control.");
         getContentPane().add(apellidopattxtcaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 150, 30));
 
         apellidomattxtcaja.setEditable(false);
+        apellidomattxtcaja.setToolTipText("Muestra El Apellido Materno Relacionado Con El Numero De Control.");
         getContentPane().add(apellidomattxtcaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 150, 30));
 
         carreracajatxt.setEditable(false);
+        carreracajatxt.setToolTipText("Muestra Carrera Cursando Actualemnte Relacionada Con El Numero De Control.");
         getContentPane().add(carreracajatxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 150, 30));
 
         btndesbloq.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N

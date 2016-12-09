@@ -157,7 +157,7 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         jButton5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(0, 153, 153));
         jButton5.setText("Actualizar");
-        jButton5.setToolTipText("Actualizar La Base De Datos.");
+        jButton5.setToolTipText("Actualizar La Tabla Con Los Datos Actuales En La Base De Datos.");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -316,6 +316,7 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         agregar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         agregar.setForeground(new java.awt.Color(0, 154, 154));
         agregar.setText("Agregar");
+        agregar.setToolTipText("Agrega Registros A La Base De Datos.");
         agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 agregarActionPerformed(evt);
@@ -340,6 +341,7 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         editar.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         editar.setForeground(new java.awt.Color(0, 154, 154));
         editar.setText("Editar");
+        editar.setToolTipText("Conserva Los Cambios Editados.");
         editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editarActionPerformed(evt);
@@ -350,6 +352,7 @@ public class Interfaz_Lenguajes_Admin extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 150, 150));
         jButton2.setText("Limpiar Campos");
+        jButton2.setToolTipText("Limpia Todos Los Campos En Que Se Pueden Ingresar Datos.");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

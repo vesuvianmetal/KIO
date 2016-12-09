@@ -158,7 +158,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         btnactualizartabla.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnactualizartabla.setForeground(new java.awt.Color(0, 153, 153));
         btnactualizartabla.setText("Actualizar");
-        btnactualizartabla.setToolTipText("Actualiza La Base De Datos.");
+        btnactualizartabla.setToolTipText("Esta Tabla Muestra Los Registros Dentrol De La Base De Datos En La Tabla Biblioteca.");
         btnactualizartabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnactualizartablaActionPerformed(evt);
@@ -256,6 +256,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabla_aduedo.setToolTipText("En Esta Tabla Se Muestran Los Registros Dentro De La Base De Datos En La Tabla Biblioteca.");
         tabla_aduedo.getTableHeader().setResizingAllowed(false);
         tabla_aduedo.getTableHeader().setReorderingAllowed(false);
         tabla_aduedo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -322,7 +323,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 62, -1, -1));
 
         agradeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        agradeudotxt.setToolTipText("No Es Factible Introducir Negativos Dentro Del Adeudo.\n");
+        agradeudotxt.setToolTipText("Introducir Adeudo. (No Es Factible Introducir Negativos Dentro Del Adeudo.)\n");
         agradeudotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 agradeudotxtKeyTyped(evt);
@@ -448,7 +449,7 @@ public class Interfaz_Biblioteca extends javax.swing.JFrame {
         getContentPane().add(editnumcontroltxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, 150, -1));
 
         editadeudotxt.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        editadeudotxt.setToolTipText("Este Campo Solo Registra Numeros. No Introducir Numeros Negativos.");
+        editadeudotxt.setToolTipText("Introducir Modificacion De Adeudo. (No Introducir Numeros Negativos.)");
         editadeudotxt.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 editadeudotxtKeyTyped(evt);
