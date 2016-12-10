@@ -1,14 +1,11 @@
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
-
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
-public class Interfaz_constancia extends javax.swing.JFrame {
+public final class Interfaz_constancia extends javax.swing.JFrame {
 
     Connection conn = null;
     ResultSet rs = null;
@@ -17,15 +14,17 @@ public class Interfaz_constancia extends javax.swing.JFrame {
 
     public Interfaz_constancia() {
         conn = Conexion_BD.conectardb();
-        filltablacons();
+        
         initComponents();
+        filltablacons();
+        actualizartablacons();
     }
 
      void filltablacons() {
 
         try {
 
-            String tablaconst = " SELECT caja.FOLIO_CAJA, constancia.FK_NUMERO_CONTROL_CONSTANCIA, alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from constancia,alumno";
+            String tablaconst = " select caja.FK_NUMERO_CONTROL_CAJA, alumno.NOMBRE, alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from caja, alumno where FK_NUMERO_CONTROL_CAJA=alumno.NUMERO_CONTROL";
             pst = conn.prepareStatement(tablaconst);
             rs = pst.executeQuery();
 
@@ -36,6 +35,18 @@ public class Interfaz_constancia extends javax.swing.JFrame {
         }
 
     }
+     
+     void actualizartablacons(){
+         try {
+              String tablaconst = " select caja.FK_NUMERO_CONTROL_CAJA, alumno.NOMBRE, alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from caja, alumno where FK_NUMERO_CONTROL_CAJA=alumno.NUMERO_CONTROL";
+            pst = conn.prepareStatement(tablaconst);
+            rs = pst.executeQuery();
+
+            tablaconstancias.setModel(DbUtils.resultSetToTableModel(rs));
+         } catch (Exception e){
+             JOptionPane.showMessageDialog(null, e);
+         }
+     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -44,6 +55,7 @@ public class Interfaz_constancia extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
+        btnactualizartabla = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -84,6 +96,17 @@ public class Interfaz_constancia extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 170, -1));
+
+        btnactualizartabla.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnactualizartabla.setForeground(new java.awt.Color(0, 153, 153));
+        btnactualizartabla.setText("Actualizar");
+        btnactualizartabla.setToolTipText("Esta Tabla Muestra Los Registros Dentrol De La Base De Datos En La Tabla Biblioteca.");
+        btnactualizartabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactualizartablaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnactualizartabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 160, -1, 20));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,6 +168,11 @@ public class Interfaz_constancia extends javax.swing.JFrame {
         jLabel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 153, 153), 2, true));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 350, 290));
 
+        tablaconstancias = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex){
+                return false;
+            }
+        };
         tablaconstancias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -164,13 +192,14 @@ public class Interfaz_constancia extends javax.swing.JFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
+        tablaconstancias.getTableHeader().setReorderingAllowed(false);
         tablaconstancias.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaconstanciasMouseClicked(evt);
@@ -178,7 +207,7 @@ public class Interfaz_constancia extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaconstancias);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 720, 110));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 720, 110));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/interfazbiblioteca.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, -1));
@@ -199,33 +228,56 @@ public class Interfaz_constancia extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void tablaconstanciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaconstanciasMouseClicked
+ try {
+            int row = tablaconstancias.getSelectedRow();
+            String Click_Tabla = (tablaconstancias.getModel().getValueAt(row, 0).toString());
+            
+  // select caja.FK_NUMERO_CONTROL_CAJA, alumno.NOMBRE, alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, 
+  //alumno.CARRERA, alumno.SEMESTRE from caja, alumno where FK_NUMERO_CONTROL_CAJA=alumno.NUMERO_CONTROL"
+            String Click = " select caja.FK_NUMERO_CONTROL_CAJA , alumno.NOMBRE,alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from alumno, caja where  '" + Click_Tabla + "' = alumno.NUMERO_CONTROL ";
+            pst = conn.prepareStatement(Click);
+            rs = pst.executeQuery();
 
+            if (rs.next()) {
+
+                String agregar1 = rs.getString("caja.FK_NUMERO_CONTROL_CAJA");
+                jTextField3.setText(agregar1);
+
+                String agregar2 = rs.getString("alumno.NOMBRE");
+                jTextField4.setText(agregar2);
+
+                String agregar3 = rs.getString("alumno.APELLIDO_PATERNO");
+                jTextField5.setText(agregar3);
+
+                String agregar4 = rs.getString("alumno.APELLIDO_MATERNO");
+                jTextField6.setText(agregar4);
+           
+                String agregar5 = rs.getString("alumno.CARRERA");
+               jTextField7.setText(agregar5);
+                
+                  String agregar6 = rs.getString("alumno.SEMESTRE");
+                jTextField1.setText(agregar6);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
         
         
     }//GEN-LAST:event_tablaconstanciasMouseClicked
 
     private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+      
+    }//GEN-LAST:event_jTextField2KeyTyped
+
+    private void btnactualizartablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizartablaActionPerformed
         try {
-
-            if (jTextField2.getText().length() == limitefolio) {
-                evt.consume();
-                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Una Longitud De 11 Caracteres");
-            }
-            int c = evt.getKeyChar();
-            if (Character.isLetter(c)) {
-                getToolkit().beep();
-                evt.consume();
-                JOptionPane.showMessageDialog(null, "Este Campo Solo Acepta Caracteres Numericos");
-            }
-
+            actualizartablacons();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_jTextField2KeyTyped
+    }//GEN-LAST:event_btnactualizartablaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -259,6 +311,7 @@ public class Interfaz_constancia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnactualizartabla;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
