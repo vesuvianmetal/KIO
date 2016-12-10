@@ -92,7 +92,7 @@ public class Interfaz_constancia_Admin extends javax.swing.JFrame {
         btnactualizartabla.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnactualizartabla.setForeground(new java.awt.Color(0, 153, 153));
         btnactualizartabla.setText("Actualizar");
-        btnactualizartabla.setToolTipText("Esta Tabla Muestra Los Registros Dentrol De La Base De Datos En La Tabla Biblioteca.");
+        btnactualizartabla.setToolTipText("Actualiza Los Registros De Constancias Solicitadas.");
         btnactualizartabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnactualizartablaActionPerformed(evt);

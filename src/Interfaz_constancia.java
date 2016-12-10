@@ -100,7 +100,7 @@ public final class Interfaz_constancia extends javax.swing.JFrame {
         btnactualizartabla.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         btnactualizartabla.setForeground(new java.awt.Color(0, 153, 153));
         btnactualizartabla.setText("Actualizar");
-        btnactualizartabla.setToolTipText("Esta Tabla Muestra Los Registros Dentrol De La Base De Datos En La Tabla Biblioteca.");
+        btnactualizartabla.setToolTipText("Actualiza Los Registros De Constancias Solicitadas.");
         btnactualizartabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnactualizartablaActionPerformed(evt);
@@ -234,11 +234,13 @@ public final class Interfaz_constancia extends javax.swing.JFrame {
             
   // select caja.FK_NUMERO_CONTROL_CAJA, alumno.NOMBRE, alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, 
   //alumno.CARRERA, alumno.SEMESTRE from caja, alumno where FK_NUMERO_CONTROL_CAJA=alumno.NUMERO_CONTROL"
-            String Click = " select caja.FK_NUMERO_CONTROL_CAJA ,alumno.NUMERO_CONTROL, alumno.NOMBRE,alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from alumno, caja where'" + Click_Tabla + "' = alumno.NUMERO_CONTROL ";
+            String Click = " select caja.FK_NUMERO_CONTROL_CAJA, caja.FOLIO_CAJA,alumno.NUMERO_CONTROL, alumno.NOMBRE,alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from alumno, caja where'" + Click_Tabla + "' = alumno.NUMERO_CONTROL ";
             pst = conn.prepareStatement(Click);
             rs = pst.executeQuery();
 
             if (rs.next()) {
+                
+                
 
                 String agregar1 = rs.getString("alumno.NUMERO_CONTROL");
                 jTextField3.setText(agregar1);

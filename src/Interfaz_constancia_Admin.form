@@ -53,7 +53,7 @@
           <Color blue="99" green="99" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Actualizar"/>
-        <Property name="toolTipText" type="java.lang.String" value="Esta Tabla Muestra Los Registros Dentrol De La Base De Datos En La Tabla Biblioteca."/>
+        <Property name="toolTipText" type="java.lang.String" value="Actualiza Los Registros De Constancias Solicitadas."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnactualizartablaActionPerformed"/>
