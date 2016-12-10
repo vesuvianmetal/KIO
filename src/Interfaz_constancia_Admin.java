@@ -18,21 +18,34 @@ public class Interfaz_constancia_Admin extends javax.swing.JFrame {
         filltablacons();
         initComponents();
     }
-void filltablacons() {
+ void filltablacons() {
 
         try {
 
-            String tablaconst = " SELECT constancia.FK_FOLIO_CAJA, constancia.FK_NUMERO_CONTROL_CONSTANCIA, alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from constancia,alumno";
+            String tablaconst = " select caja.FK_NUMERO_CONTROL_CAJA, alumno.NOMBRE, alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from caja, alumno where FK_NUMERO_CONTROL_CAJA=alumno.NUMERO_CONTROL";
             pst = conn.prepareStatement(tablaconst);
             rs = pst.executeQuery();
 
-            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+            tablaconstancias.setModel(DbUtils.resultSetToTableModel(rs));
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
 
     }
+ 
+   void actualizartablacons(){
+         try {
+              String tablaconst = " select caja.FK_NUMERO_CONTROL_CAJA, alumno.NOMBRE, alumno.APELLIDO_PATERNO, alumno.APELLIDO_MATERNO, alumno.CARRERA, alumno.SEMESTRE from caja, alumno where FK_NUMERO_CONTROL_CAJA=alumno.NUMERO_CONTROL";
+            pst = conn.prepareStatement(tablaconst);
+            rs = pst.executeQuery();
+
+            tablaconstancias.setModel(DbUtils.resultSetToTableModel(rs));
+         } catch (Exception e){
+             JOptionPane.showMessageDialog(null, e);
+         }
+     }
+
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -40,6 +53,7 @@ void filltablacons() {
 
         jLabel13 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        btnactualizartabla = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -59,7 +73,7 @@ void filltablacons() {
         jLabel4 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaconstancias = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         jLabel13.setText("jLabel13");
@@ -74,6 +88,17 @@ void filltablacons() {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, 170, 30));
+
+        btnactualizartabla.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        btnactualizartabla.setForeground(new java.awt.Color(0, 153, 153));
+        btnactualizartabla.setText("Actualizar");
+        btnactualizartabla.setToolTipText("Esta Tabla Muestra Los Registros Dentrol De La Base De Datos En La Tabla Biblioteca.");
+        btnactualizartabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactualizartablaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnactualizartabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, -1, 20));
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,7 +165,7 @@ void filltablacons() {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Utilizables/logoconstancia.png"))); // NOI18N
         getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, 80, 120));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaconstancias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -166,7 +191,12 @@ void filltablacons() {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        tablaconstancias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaconstanciasMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tablaconstancias);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 720, 110));
 
@@ -187,6 +217,22 @@ void filltablacons() {
     }
         
     }//GEN-LAST:event_formWindowClosing
+
+    private void btnactualizartablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactualizartablaActionPerformed
+        try {
+            actualizartablacons();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btnactualizartablaActionPerformed
+
+    private void tablaconstanciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaconstanciasMouseClicked
+       
+        
+        
+        
+      
+    }//GEN-LAST:event_tablaconstanciasMouseClicked
 
     
     public static void main(String args[]) {
@@ -222,6 +268,7 @@ void filltablacons() {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnactualizartabla;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -237,7 +284,6 @@ void filltablacons() {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -245,5 +291,6 @@ void filltablacons() {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
+    private javax.swing.JTable tablaconstancias;
     // End of variables declaration//GEN-END:variables
 }
